@@ -341,7 +341,7 @@
                       clone.addEventListener('click', (e) => {
                           e.preventDefault();
                           e.stopPropagation();
-                          alert('SẮP RA MẮT');
+                          alert(document.documentElement.lang === 'vi' ? 'SẮP RA MẮT' : 'COMING SOON');
                       }, true);
                       card.parentNode.replaceChild(clone, card);
                       cardToMove = clone;
@@ -405,7 +405,89 @@
          counter++;
       });
     
-      // Fix visibility of cards that were cloned or moved
+      
+      // Translation logic for custom injected elements
+      const translateCustomElements = () => {
+          const lang = document.documentElement.lang || 'vi';
+          const isEn = lang !== 'vi';
+          
+          const dict = {
+              'CỘNG ĐỒNG CỦA TÔI': 'MY COMMUNITY',
+              'TẤT CẢ CỘNG ĐỒNG': 'ALL COMMUNITIES',
+              'MỞ / ĐÓNG': 'OPEN / CLOSE',
+              'Nhóm TikTok cộng đồng 1': 'TikTok Community Group 1',
+              'Nhóm TikTok cộng đồng 2': 'TikTok Community Group 2',
+              'Nhóm giao lưu Zalo 1': 'Zalo Community Group 1',
+              'Nhóm giao lưu Zalo 2': 'Zalo Community Group 2',
+              'Nhóm chia sẻ mã giảm giá': 'Discount Code Sharing Group',
+              'Kênh telegram mẹo & trick': 'Tips & Tricks Telegram Channel',
+              'Nhóm chat Telegram': 'Telegram Chat Group',
+              'Cập nhật mẹo hay': 'Latest Tips',
+              'Box Tik Tok 2': 'TikTok Box 2',
+              'Box Tik Tok': 'TikTok Box',
+              'Group Zalo cộng đồng 1': 'Zalo Community Group 1',
+              'Group Zalo cộng đồng 2': 'Zalo Community Group 2',
+              'Box share voucher Shopee': 'Shopee Voucher Share Box',
+              'Box telegram giao lưu mẹo': 'Tips Exchange Telegram Box',
+              'CÁC DỊCH VỤ KHÁC CỦA TÔI': 'MY OTHER SERVICES',
+              'Hỗ trợ up locket gold': 'Locket Gold Upgrade Support',
+              'Dịch vụ nâng cấp Locket Gold': 'Locket Gold Upgrade Service',
+              'Kho IPA': 'IPA Repo',
+              'Kho ứng dụng IPA': 'IPA Applications Repo',
+              'MỞ LIÊN KẾT': 'OPEN LINK',
+              'HIỆN MÃ QR': 'SHOW QR CODE',
+              'MẸO VNT TRÊN FACEBOOK': 'VNT TRICKS ON FACEBOOK',
+              'FACEBOOK CỦA VNT': 'VNT\'S FACEBOOK',
+              'Theo dõi Facebook của tôi': 'Follow My Facebook'
+          };
+
+          const translateNode = (node) => {
+              if (node.nodeType === 3) {
+                  let text = node.nodeValue;
+                  let original = node.originalText;
+                  if (original === undefined) {
+                      original = text;
+                      node.originalText = original;
+                  }
+                  
+                  let translated = original;
+                  if (isEn) {
+                      for (const [vi, en] of Object.entries(dict)) {
+                          if (translated.includes(vi)) {
+                              translated = translated.replace(vi, en);
+                          }
+                      }
+                  }
+                  if (text !== translated) {
+                      node.nodeValue = translated;
+                  }
+              } else if (node.nodeType === 1) {
+                  node.childNodes.forEach(translateNode);
+              }
+          };
+
+          if (window.myMainCommunitySection) translateNode(window.myMainCommunitySection);
+          if (window.myServicesSection) translateNode(window.myServicesSection);
+          
+          const fbCard = document.getElementById('fb-card-injected');
+          if (fbCard) translateNode(fbCard);
+          
+          document.querySelectorAll('.card-cell').forEach(translateNode);
+      };
+
+      // Run once immediately
+      translateCustomElements();
+
+      // Observe language changes
+      const observer = new MutationObserver((mutations) => {
+          mutations.forEach((mutation) => {
+              if (mutation.attributeName === 'lang') {
+                  translateCustomElements();
+              }
+          });
+      });
+      observer.observe(document.documentElement, { attributes: true });
+\n      // Fix visibility of cards that were cloned or moved
       document.querySelectorAll('.card-cell').forEach(el => {
           el.style.opacity = '1';
           if (el.style.transform.includes('translateY')) {
