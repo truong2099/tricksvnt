@@ -494,7 +494,7 @@
           // Use absolute centering for desktop (sm:), and normal flex for mobile if needed, 
           // or just always absolute centered but hide on very small screens if it overlaps.
           // Since the user wants it centered, absolute centering is best.
-          statsBox.className = 'hidden sm:flex items-center justify-center gap-4 border-2 border-line bg-surfacelight px-4 py-1 font-mono text-[11px] font-bold text-ink shadow-hard-sm';
+          statsBox.className = 'flex items-center justify-center gap-4 z-50 border-2 border-line bg-surfacelight px-4 py-1 font-mono text-[11px] font-bold text-ink shadow-hard-sm';
           statsBox.style.position = 'absolute';
           statsBox.style.left = '50%';
           statsBox.style.transform = 'translateX(-50%)';
