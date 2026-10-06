@@ -333,7 +333,7 @@
               cards.forEach(card => {
                   let cardToMove = card;
                   // If it's one of the GitHub repo cards, replace with a maintenance alert
-                  if (card.href && (card.href.includes('WorkPlot') || card.href.includes('WorkSlop') || card.href.includes('github.com'))) {
+                  if (card.href && !card.href.includes('truong2099') && (card.href.includes('WorkPlot') || card.href.includes('WorkSlop') || card.href.includes('github.com'))) {
                       const clone = card.cloneNode(true);
                       clone.removeAttribute('target');
                       clone.removeAttribute('href');
