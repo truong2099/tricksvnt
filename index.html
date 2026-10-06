@@ -483,33 +483,28 @@
       const injectStatsBox = () => {
           if (document.getElementById('vnt-stats')) return;
           
-          const titlebar = document.querySelector('.term-titlebar');
-          if (!titlebar) return;
+          const statusDot = document.querySelector('span.status-dot');
+          if (!statusDot) return;
+          const onlineSpan = statusDot.parentNode;
           
-          // Make titlebar relative to perfectly center the stats box
-          titlebar.style.position = 'relative';
+          onlineSpan.style.position = 'relative';
           
           const statsBox = document.createElement('div');
           statsBox.id = 'vnt-stats';
-          // Use absolute centering for desktop (sm:), and normal flex for mobile if needed, 
-          // or just always absolute centered but hide on very small screens if it overlaps.
-          // Since the user wants it centered, absolute centering is best.
-          statsBox.className = 'flex items-center justify-center gap-4 z-50 border-2 border-line bg-surfacelight px-4 py-1 font-mono text-[11px] font-bold text-ink shadow-hard-sm';
+          statsBox.className = 'font-mono text-[10px] font-bold text-ink flex items-center justify-center gap-1.5';
           statsBox.style.position = 'absolute';
+          statsBox.style.top = '100%';
           statsBox.style.left = '50%';
           statsBox.style.transform = 'translateX(-50%)';
-          // Ensure it doesn't overlap on very small screens, though hidden sm:flex handles mobile
+          statsBox.style.marginTop = '4px';
+          statsBox.style.whiteSpace = 'nowrap';
           
           statsBox.innerHTML = `
-            <span class="flex items-center gap-1.5" title="Giờ địa phương"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> <span id="vnt-time">00:00:00</span></span>
-            <span class="flex items-center gap-1.5" title="Số lượt truy cập"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg> <span id="vnt-visits">0</span></span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            <span id="vnt-time">00:00:00</span>
           `;
           
-          titlebar.appendChild(statsBox);
-          
-          // Initialize values
-          let visits = parseInt(localStorage.getItem('vnt_visits') || '0');
-          document.getElementById('vnt-visits').textContent = visits;
+          onlineSpan.appendChild(statsBox);
           
           updateTime();
       };
@@ -523,12 +518,7 @@
       
       setInterval(updateTime, 1000);
       
-      if (!window.vntVisitAttached) {
-          let visits = parseInt(localStorage.getItem('vnt_visits') || '0');
-          visits++;
-          localStorage.setItem('vnt_visits', visits.toString());
-          window.vntVisitAttached = true;
-      }
+
 
       injectStatsBox();
       setTimeout(injectStatsBox, 500);
