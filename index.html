@@ -487,7 +487,8 @@
           });
       });
       observer.observe(document.documentElement, { attributes: true });
-\n      // Fix visibility of cards that were cloned or moved
+
+      // Fix visibility of cards that were cloned or moved
       document.querySelectorAll('.card-cell').forEach(el => {
           el.style.opacity = '1';
           if (el.style.transform.includes('translateY')) {
