@@ -43,7 +43,12 @@
 
     * { box-sizing: border-box; }
     .hidden { display: none !important; }
-    html { scroll-behavior: smooth; }
+    html {
+      scroll-behavior: smooth;
+      overflow-x: hidden;
+      width: 100%;
+      max-width: 100%;
+    }
 
     /* Scrollbar */
     ::-webkit-scrollbar { width: 8px; }
@@ -52,6 +57,7 @@
 
     body {
       margin: 0;
+      padding: 0;
       font-family: var(--font-itim);
       font-size: 16px;
       line-height: 1.6;
@@ -62,6 +68,8 @@
         linear-gradient(to bottom, #6b613e38 1px, transparent 1px);
       background-size: 20px 20px;
       overflow-x: hidden;
+      width: 100%;
+      max-width: 100%;
       -webkit-tap-highlight-color: transparent;
     }
 
@@ -88,14 +96,17 @@
       gap: 12px; padding: 10px 18px;
       background: var(--main-hi);
       border-bottom: 3px solid var(--border);
+      width: 100%;
+      box-sizing: border-box;
     }
-    .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; white-space: nowrap; }
+    .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; white-space: nowrap; flex-shrink: 0; }
     .brand-avatar {
       width: 38px; height: 38px; border-radius: 50%;
       border: 2px solid var(--border); object-fit: cover;
       box-shadow: 2px 2px 0 var(--border);
+      flex-shrink: 0;
     }
-    .brand-word { font-size: 24px; line-height: 1; color: var(--ink-900); font-weight: 700; }
+    .brand-word { font-size: 24px; line-height: 1; color: var(--ink-900); font-weight: 700; white-space: nowrap; }
     .brand-cam {
       color: #ff5722;
       font-size: .62em;
@@ -107,6 +118,7 @@
       padding: 2px 6px;
       border: 1.5px solid var(--border);
       border-radius: 4px;
+      display: inline-block;
     }
 
     .topbar-center {
@@ -120,7 +132,7 @@
 
     /* Status Bar & Language Switcher Group */
     .topbar-right {
-      display: flex; align-items: center; gap: 10px;
+      display: flex; align-items: center; gap: 8px; flex-shrink: 0;
     }
 
     /* Live Time & Status Badge */
@@ -149,9 +161,21 @@
       font-size: 11px; background: var(--paper-1); border: 1px solid var(--border);
       border-radius: 3px; padding: 1px 4px; color: var(--ink-700);
     }
-    @media (max-width: 680px) {
+    @media (max-width: 768px) {
       .status-text-label, .status-sep, .tz-badge { display: none; }
       .status-clock-badge { padding: 4px 8px; font-size: 12px; }
+    }
+    @media (max-width: 640px) {
+      .topbar .status-clock-badge { display: none !important; }
+      .topbar { padding: 8px 12px; gap: 6px; }
+      .brand { gap: 8px; }
+      .brand-avatar { width: 32px; height: 32px; }
+      .brand-word { font-size: 20px; }
+      .brand-cam { font-size: 0.55em; padding: 1px 4px; margin-left: 4px; }
+      .topbar-right { gap: 6px; }
+      .lang-toggle-btn { padding: 5px 8px; font-size: 12px; }
+      .theme-toggle-btn { width: 34px !important; height: 34px !important; font-size: 13px !important; }
+      .mobile-menu-btn { padding: 6px 10px; font-size: 14px; }
     }
 
     /* Language Dropdown */
@@ -232,6 +256,8 @@
       text-decoration: none; color: var(--ink-900); background: var(--background);
       transition: transform .12s cubic-bezier(.34,1.56,.64,1), box-shadow .12s ease;
       white-space: nowrap;
+      max-width: 100%;
+      box-sizing: border-box;
     }
     .btn:hover { transform: translate(-2px,-2px); box-shadow: var(--shadow); }
     .btn:active { transform: translate(0,0); box-shadow: none; }
@@ -243,22 +269,45 @@
     .btn-green { background: var(--green); }
     .btn-red { background: var(--red); }
     .btn-purple { background: var(--purple); }
-    .btn-lg { font-size: 17px; padding: 13px 22px; }
+    .btn-lg { font-size: 16px; padding: 12px 20px; }
     .btn-sm { font-size: 13px; padding: 6px 12px; }
+    @media (max-width: 480px) {
+      .btn {
+        white-space: normal;
+        text-align: center;
+      }
+      .btn-lg {
+        font-size: 15px;
+        padding: 11px 16px;
+      }
+    }
 
-    main { max-width: 1040px; margin: 0 auto; padding: 0 16px 80px; }
+    main {
+      max-width: 1040px;
+      margin: 0 auto;
+      padding: 0 16px 100px;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    @media (max-width: 480px) {
+      main {
+        padding: 0 12px 90px;
+      }
+    }
 
     /* Hero */
     .hero {
       display: flex; flex-direction: column; align-items: center;
-      padding: clamp(30px, 6vw, 56px) 0 20px;
+      padding: clamp(24px, 5vw, 56px) 0 20px;
       text-align: center;
+      width: 100%;
+      box-sizing: border-box;
     }
     .hero-avatar-wrap {
       position: relative; margin-bottom: 18px; display: inline-block;
     }
     .hero-avatar {
-      width: clamp(110px, 18vw, 150px); height: clamp(110px, 18vw, 150px);
+      width: clamp(100px, 18vw, 150px); height: clamp(100px, 18vw, 150px);
       border-radius: 24px; border: 3px solid var(--border);
       box-shadow: var(--shadow-lg); object-fit: cover;
       transition: transform .25s ease;
@@ -271,6 +320,7 @@
       border-radius: var(--radius-base); box-shadow: var(--shadow-sm);
       padding: 3px 8px; font-size: 12px; font-weight: 700;
       font-family: var(--font-mono); letter-spacing: 0.5px;
+      white-space: nowrap;
     }
 
     .pill-live {
@@ -278,6 +328,10 @@
       border: 2px solid var(--border); border-radius: var(--radius-base); padding: 5px 14px;
       font-size: 13px; font-weight: 700; box-shadow: var(--shadow-sm); margin-bottom: 14px;
       font-family: var(--font-mono);
+      max-width: 100%;
+      box-sizing: border-box;
+      flex-wrap: wrap;
+      justify-content: center;
     }
     .pill-live .dot {
       width: 10px; height: 10px; flex: none; border-radius: 50%;
@@ -287,21 +341,41 @@
     @keyframes blink { 50% { opacity: .25; } }
 
     .hero h1 {
-      font-size: clamp(32px, 6vw, 56px); margin: 0 0 14px;
+      font-size: clamp(26px, 5.5vw, 52px); margin: 0 0 14px;
       overflow-wrap: anywhere; word-break: break-word;
+      line-height: 1.25;
     }
     .hl {
       background: var(--main-hi); border: 2px solid var(--border);
       border-radius: var(--radius-base); padding: 2px 12px;
       box-shadow: var(--shadow-sm); display: inline-block;
       margin-top: 6px;
+      max-width: 100%;
+      box-sizing: border-box;
+      word-break: break-word;
     }
     .lead {
-      color: var(--ink-700); font-size: clamp(16px, 2.2vw, 19px);
+      color: var(--ink-700); font-size: clamp(15px, 2.2vw, 19px);
       max-width: 720px; margin: 0 auto 24px; line-height: 1.6;
     }
     .hero-actions {
       display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    @media (max-width: 520px) {
+      .hero-actions {
+        flex-direction: column;
+        width: 100%;
+        max-width: 320px;
+        margin: 0 auto;
+      }
+      .hero-actions .btn {
+        width: 100%;
+        justify-content: center;
+        font-size: 15px;
+        padding: 12px 16px;
+      }
     }
 
     /* Marquee */
@@ -311,13 +385,10 @@
       background: var(--ink-900);
       color: var(--paper-0); 
       overflow: hidden; 
-      margin: 32px 0 20px; 
-      width: 100vw;
-      position: relative;
-      left: 50%;
-      right: 50%;
-      margin-left: -50vw;
-      margin-right: -50vw;
+      margin: 28px 0 20px; 
+      width: 100%;
+      box-sizing: border-box;
+      border-radius: var(--radius-base);
     }
     .marquee-track { 
       display: flex; 
@@ -338,43 +409,83 @@
 
     /* Sections */
     .section {
-      padding: clamp(32px, 5vw, 48px) 0 8px;
+      padding: clamp(24px, 4vw, 44px) 0 8px;
       scroll-margin-top: calc(var(--topbar-h) + 16px);
+      width: 100%;
+      box-sizing: border-box;
     }
     .section-head {
       display: flex; align-items: center; justify-content: space-between;
       gap: 12px; margin-bottom: 18px; padding-bottom: 10px;
       border-bottom: 3px solid var(--border);
+      width: 100%;
+      box-sizing: border-box;
     }
     .sec-badge {
       display: inline-flex; align-items: center; gap: 10px;
       font-size: 20px; font-weight: 700; text-transform: uppercase;
       letter-spacing: 0.5px;
+      flex-wrap: wrap;
     }
     .sec-badge .num-pill {
       background: var(--main-hi); border: 2px solid var(--border);
       border-radius: var(--radius-base); padding: 2px 8px;
       font-family: var(--font-mono); font-size: 14px;
       box-shadow: var(--shadow-sm);
+      white-space: nowrap;
     }
     .sec-hex {
       font-family: var(--font-mono); font-size: 13px; color: var(--ink-500);
       font-weight: 700;
+      white-space: nowrap;
+    }
+    @media (max-width: 768px) {
+      .section-head {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+      }
+      .sec-badge {
+        font-size: 16px;
+        gap: 6px;
+      }
+      .sec-badge .num-pill {
+        font-size: 12px;
+        padding: 2px 6px;
+      }
+      .sec-hex {
+        font-size: 11px;
+        align-self: flex-end;
+        margin-top: -18px;
+      }
+    }
+    @media (max-width: 480px) {
+      .sec-badge {
+        font-size: 15px;
+      }
     }
 
     /* Grid Layouts */
     .cards-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr));
       gap: 16px;
+      width: 100%;
+      box-sizing: border-box;
     }
     .cards-grid-2 {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(min(100%, 340px), 1fr));
       gap: 18px;
+      width: 100%;
+      box-sizing: border-box;
     }
-    @media (max-width: 600px) {
-      .cards-grid-2 { grid-template-columns: 1fr; }
+    @media (max-width: 768px) {
+      .cards-grid,
+      .cards-grid-2 {
+        grid-template-columns: 1fr;
+        gap: 14px;
+      }
     }
 
     /* Neobrutalist Cards */
@@ -384,16 +495,177 @@
       border: 2px solid var(--border);
       border-radius: var(--radius-base);
       box-shadow: var(--shadow);
-      padding: 20px;
+      padding: clamp(16px, 3vw, 22px);
       display: flex; flex-direction: column; justify-content: space-between;
       transition: transform .14s cubic-bezier(.34,1.56,.64,1), box-shadow .14s ease;
+      box-sizing: border-box;
+      width: 100%;
     }
     .neo-card:hover {
-      transform: translate(-3px, -3px);
+      transform: translate(-2px, -2px);
       box-shadow: 6px 6px 0 0 var(--border);
     }
     .neo-card.card-featured {
       background: var(--main-hi);
+    }
+
+    /* Flagship VNTCERT Section */
+    .flagship-card {
+      background: linear-gradient(135deg, #ffd94a 0%, #ffeaa7 100%);
+      border: 3px solid var(--border);
+      box-shadow: var(--shadow-lg);
+      padding: clamp(16px, 3.5vw, 36px);
+      margin-bottom: 28px;
+      border-radius: var(--radius-base);
+      box-sizing: border-box;
+      width: 100%;
+    }
+    .flagship-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #fff;
+      border: 2px solid var(--border);
+      border-radius: var(--radius-base);
+      padding: 4px 12px;
+      font-size: 13px;
+      font-weight: 700;
+      box-shadow: var(--shadow-sm);
+      margin-bottom: 12px;
+      font-family: var(--font-mono);
+      max-width: 100%;
+      box-sizing: border-box;
+      flex-wrap: wrap;
+    }
+    .flagship-title {
+      font-size: clamp(22px, 4.5vw, 40px);
+      margin: 0 0 10px;
+      line-height: 1.25;
+      color: var(--ink-900);
+    }
+    .flagship-highlight {
+      display: inline-block;
+      background: #fff;
+      border: 2px solid var(--border);
+      border-radius: var(--radius-base);
+      color: #d9381e;
+      padding: 4px 10px;
+      margin-top: 6px;
+      font-size: clamp(16px, 3.6vw, 24px);
+      max-width: 100%;
+      word-break: break-word;
+      box-shadow: var(--shadow-sm);
+      box-sizing: border-box;
+    }
+    .flagship-desc {
+      font-size: clamp(14px, 2vw, 17px);
+      color: var(--ink-700);
+      line-height: 1.65;
+      margin: 12px 0 20px;
+    }
+    .flagship-features {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      margin-bottom: 24px;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    @media (max-width: 580px) {
+      .flagship-features {
+        grid-template-columns: 1fr;
+        gap: 8px;
+      }
+    }
+    .flagship-feature-item {
+      background: rgba(255, 255, 255, 0.95);
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius-base);
+      padding: 9px 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+      font-weight: 700;
+      box-shadow: var(--shadow-sm);
+      box-sizing: border-box;
+      min-width: 0;
+    }
+    .flagship-feature-item span:last-child {
+      min-width: 0;
+      word-break: break-word;
+    }
+    .flagship-pricing-box {
+      background: var(--paper-1);
+      border: 2px solid var(--border);
+      border-radius: var(--radius-base);
+      padding: 14px;
+      margin-bottom: 24px;
+      box-shadow: var(--shadow-sm);
+      box-sizing: border-box;
+      width: 100%;
+    }
+    .flagship-pricing-header {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--ink-500);
+      text-transform: uppercase;
+      margin-bottom: 10px;
+      font-family: var(--font-mono);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .flagship-pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 8px;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    @media (max-width: 480px) {
+      .flagship-pricing-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    .flagship-pricing-pill {
+      background: #fff;
+      border: 1.5px solid var(--border);
+      border-radius: 4px;
+      padding: 7px 10px;
+      font-size: 13px;
+      font-weight: 700;
+      box-shadow: 2px 2px 0 var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      box-sizing: border-box;
+    }
+    .flagship-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      align-items: center;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    @media (max-width: 640px) {
+      .flagship-actions {
+        flex-direction: column;
+        gap: 10px;
+      }
+      .flagship-actions .btn {
+        width: 100% !important;
+        justify-content: center !important;
+        font-size: 15px !important;
+        padding: 12px 14px !important;
+        white-space: normal !important;
+        text-align: center !important;
+        box-sizing: border-box !important;
+      }
     }
 
     .card-top {
@@ -446,6 +718,7 @@
       display: flex; align-items: center; justify-content: space-between;
       gap: 12px; margin-bottom: 16px;
       transition: transform .12s ease, box-shadow .12s ease;
+      box-sizing: border-box;
     }
     .accordion-toggle:hover {
       transform: translate(-2px, -2px); box-shadow: 6px 6px 0 var(--border);
@@ -460,6 +733,21 @@
     .accordion-toggle.open .accordion-icon-spin {
       transform: rotate(180deg);
     }
+    @media (max-width: 520px) {
+      .accordion-toggle {
+        padding: 14px 16px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+      }
+      .accordion-toggle > div:last-child {
+        align-self: flex-end;
+      }
+      .accordion-toggle-title {
+        font-size: 16px;
+        gap: 10px;
+      }
+    }
 
     /* Donate Box Styling */
     .donate-panel {
@@ -467,19 +755,24 @@
       border: 3px solid var(--border);
       border-radius: var(--radius-lg);
       box-shadow: var(--shadow-lg);
-      padding: clamp(20px, 4vw, 32px);
+      padding: clamp(16px, 4vw, 32px);
       text-align: center;
+      width: 100%;
+      box-sizing: border-box;
     }
     .bank-box {
       background: #fff; border: 2px solid var(--border);
       border-radius: var(--radius-base); box-shadow: var(--shadow);
-      padding: 18px; margin: 20px auto; max-width: 480px;
+      padding: clamp(14px, 3vw, 20px); margin: 20px auto; max-width: 480px;
       text-align: left;
+      width: 100%;
+      box-sizing: border-box;
     }
     .bank-row {
       display: flex; align-items: center; justify-content: space-between;
-      gap: 8px; padding: 6px 0; border-bottom: 1px dashed var(--ink-300);
+      gap: 8px; padding: 8px 0; border-bottom: 1px dashed var(--ink-300);
       font-size: 15px;
+      flex-wrap: wrap;
     }
     .bank-row:last-child { border-bottom: none; }
     .bank-label { color: var(--ink-500); font-weight: 700; }
@@ -487,23 +780,42 @@
     .bank-stk {
       font-size: 22px; color: #d9381e; letter-spacing: 1px;
     }
+    @media (max-width: 480px) {
+      .bank-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 4px;
+      }
+      .bank-stk {
+        font-size: 19px !important;
+      }
+      .donate-panel .btn {
+        width: 100% !important;
+        justify-content: center !important;
+      }
+    }
 
     .qr-container {
       display: none; flex-direction: column; align-items: center;
       margin-top: 20px; animation: popin .25s ease;
+      width: 100%;
+      box-sizing: border-box;
     }
     .qr-container.show { display: flex; }
     .qr-image {
       max-width: 290px; width: 100%; border: 2px solid var(--border);
       border-radius: var(--radius-base); box-shadow: var(--shadow);
       background: #fff; padding: 8px;
+      box-sizing: border-box;
     }
 
     /* About Section Box */
     .about-box {
       background: var(--paper-1); border: 2px solid var(--border);
       border-radius: var(--radius-base); box-shadow: var(--shadow);
-      padding: 24px;
+      padding: clamp(16px, 3.5vw, 24px);
+      width: 100%;
+      box-sizing: border-box;
     }
     .about-quote {
       font-size: 17px; line-height: 1.7; color: var(--ink-900);
@@ -517,24 +829,25 @@
       border-radius: var(--radius-base); padding: 4px 10px;
       font-family: var(--font-mono); font-size: 13px; font-weight: 700;
       box-shadow: 2px 2px 0 var(--border);
+      box-sizing: border-box;
     }
 
     /* Floating Music Button & Popup */
     .floating-music-btn {
       position: fixed; bottom: 20px; right: 20px; z-index: 9999;
-      width: 54px; height: 54px; border-radius: 50%;
+      width: 48px; height: 48px; border-radius: 50%;
       background: var(--main-hi); border: 2.5px solid var(--border);
-      box-shadow: 4px 4px 0 var(--border);
+      box-shadow: 3px 3px 0 var(--border);
       display: flex; align-items: center; justify-content: center;
       cursor: pointer; transition: transform .15s ease, box-shadow .15s ease, background .15s;
-      color: #111111 !important; font-size: 20px;
+      color: #111111 !important; font-size: 18px;
     }
     .floating-music-btn i {
       color: #111111 !important;
     }
     .floating-music-btn:hover {
       transform: translate(-2px, -2px) scale(1.05);
-      box-shadow: 6px 6px 0 var(--border);
+      box-shadow: 5px 5px 0 var(--border);
     }
     .floating-music-btn:active {
       transform: translate(2px, 2px);
@@ -562,18 +875,27 @@
 
     /* Mini Music Player Popup */
     .music-player-popup {
-      position: fixed; bottom: 86px; right: 20px; z-index: 9998;
-      width: 320px; max-width: calc(100vw - 36px);
+      position: fixed; bottom: 80px; right: 20px; z-index: 9998;
+      width: 320px; max-width: calc(100vw - 32px);
       background: var(--paper-1); border: 2.5px solid var(--border);
       border-radius: 16px; box-shadow: 6px 6px 0 var(--border);
       opacity: 0; visibility: hidden; pointer-events: none;
       transform: translateY(14px) scale(0.96);
       transition: opacity .22s cubic-bezier(0.16, 1, 0.3, 1), transform .22s cubic-bezier(0.16, 1, 0.3, 1), visibility .22s;
       overflow: hidden; user-select: none;
+      box-sizing: border-box;
     }
     .music-player-popup.open {
       opacity: 1; visibility: visible; pointer-events: auto;
       transform: translateY(0) scale(1);
+    }
+    @media (max-width: 520px) {
+      .floating-music-btn {
+        bottom: 16px; right: 16px; width: 44px; height: 44px; font-size: 16px;
+      }
+      .music-player-popup {
+        right: 12px; bottom: 68px; width: calc(100vw - 24px); max-width: 320px;
+      }
     }
     .mpp-header {
       display: flex; align-items: center; justify-content: space-between;
@@ -1080,36 +1402,59 @@
   }
 
   /* KHỐI CHỨNG CHỈ P12 FLAGSHIP (VNTCERT) */
+  [data-theme="dark"] .flagship-card,
   [data-theme="dark"] .card-featured {
     background: #181820 !important;
     border-color: var(--border) !important;
     box-shadow: var(--shadow-lg) !important;
   }
 
+  [data-theme="dark"] .flagship-tag {
+    background: #24242e !important;
+    border-color: var(--border) !important;
+    color: #fafafa !important;
+  }
+
+  [data-theme="dark"] .flagship-tag i {
+    color: #ffd94a !important;
+  }
+
+  [data-theme="dark"] .flagship-title,
   [data-theme="dark"] .card-featured h2 {
     color: #fafafa !important;
   }
 
+  [data-theme="dark"] .flagship-desc,
   [data-theme="dark"] .card-featured p {
     color: #e4e4e7 !important;
   }
 
+  [data-theme="dark"] .flagship-highlight,
   [data-theme="dark"] .card-featured .hl {
     background: #2a2a36 !important;
     color: #fbbf24 !important;
     border-color: var(--border) !important;
   }
 
+  [data-theme="dark"] .flagship-feature-item,
   [data-theme="dark"] .card-featured div[style*="background:rgba(255,255,255,0.9)"] {
     background: #22222a !important;
     border-color: var(--border) !important;
     color: #fafafa !important;
   }
 
+  [data-theme="dark"] .flagship-feature-item span,
   [data-theme="dark"] .card-featured div[style*="background:rgba(255,255,255,0.9)"] span {
     color: #fafafa !important;
   }
 
+  [data-theme="dark"] .flagship-pricing-box,
+  [data-theme="dark"] .card-featured div[style*="background:var(--paper-1)"] {
+    background: #1f1f27 !important;
+    border-color: var(--border) !important;
+  }
+
+  [data-theme="dark"] .flagship-pricing-pill,
   [data-theme="dark"] .card-featured div[style*="background:#fff"],
   [data-theme="dark"] .card-featured div[style*="background: #fff"],
   [data-theme="dark"] .card-featured span[style*="background:#fff"],
@@ -1119,9 +1464,13 @@
     color: #fafafa !important;
   }
 
-  [data-theme="dark"] .card-featured div[style*="background:var(--paper-1)"] {
-    background: #1f1f27 !important;
-    border-color: var(--border) !important;
+  [data-theme="dark"] .flagship-actions .btn-dark {
+    background: #ffd94a !important;
+    color: #111111 !important;
+    border-color: #ffd94a !important;
+  }
+  [data-theme="dark"] .flagship-actions .btn-dark * {
+    color: #111111 !important;
   }
 
   /* KHỐI DONATE & NGÂN HÀNG (SUPPORT SECTION) */
@@ -1436,7 +1785,7 @@
       </div>
     </div>
 
-        <!-- FEATURED FLAGSHIP SECTION: VNTCERT.CLICK (#vntcert) -->
+    <!-- FEATURED FLAGSHIP SECTION: VNTCERT.CLICK (#vntcert) -->
     <section id="vntcert" class="section" style="padding-top:20px;">
       <div class="section-head" style="border-bottom:3px solid var(--border);">
         <div class="sec-badge" style="color:#b45309;">
@@ -1447,70 +1796,70 @@
       </div>
 
       <!-- High-Impact Neo-brutalism Showcase Banner -->
-      <div class="neo-card card-featured" style="background:linear-gradient(135deg, #ffd94a 0%, #ffeaa7 100%);border:3px solid var(--border);box-shadow:var(--shadow-lg);padding:clamp(20px, 4vw, 36px);margin-bottom:28px;">
+      <div class="neo-card card-featured flagship-card">
         <div style="display:grid;grid-template-columns:1fr;gap:28px;" class="vntcert-grid">
           
           <!-- Left Column: Information, Highlights & CTAs -->
           <div>
-            <div style="display:inline-flex;align-items:center;gap:8px;background:#fff;border:2px solid var(--border);border-radius:var(--radius-base);padding:4px 12px;font-size:13px;font-weight:700;box-shadow:var(--shadow-sm);margin-bottom:12px;font-family:var(--font-mono);">
-              <i class="fab fa-apple" style="font-size:16px;color:#111;"></i>
+            <div class="flagship-tag">
+              <i class="fab fa-apple" style="font-size:16px;"></i>
               <span data-i18n="cert_tag">APPLE CERTIFICATE P12 &amp; MOBILEPROVISION</span>
             </div>
 
-            <h2 style="font-size:clamp(26px, 4.5vw, 42px);margin:0 0 10px;line-height:1.2;color:var(--ink-900);">
+            <h2 class="flagship-title">
               <span data-i18n="cert_title">Chứng Chỉ Apple P12 Cho iPhone &amp; iPad</span><br>
-              <span class="hl" data-i18n="cert_highlight" style="background:#fff;border-color:var(--border);color:#d9381e;margin-top:6px;">Cài Mọi App IPA • Không Cần Jailbreak</span>
+              <span class="hl flagship-highlight" data-i18n="cert_highlight">Cài Mọi App IPA • Không Cần Jailbreak</span>
             </h2>
 
-            <p style="font-size:clamp(15px, 2vw, 17px);color:var(--ink-700);line-height:1.65;margin:12px 0 20px;" data-i18n="cert_desc">
+            <p class="flagship-desc" data-i18n="cert_desc">
               Hệ thống bán chứng chỉ Apple cá nhân (file .p12 + .mobileprovision) tự động 24/7. Ký và cài ứng dụng ngoài App Store với ESign, GBox, Scarlet, mở khóa mọi thiết bị dính Blacklist/Ban, bảo hành uy tín lên đến 300 ngày.
             </p>
 
             <!-- Feature Badges Grid -->
-            <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(200px, 1fr));gap:10px;margin-bottom:24px;">
-              <div style="background:rgba(255,255,255,0.9);border:1.5px solid var(--border);border-radius:var(--radius-base);padding:8px 12px;display:flex;align-items:center;gap:8px;font-size:14px;font-weight:700;box-shadow:var(--shadow-sm);">
+            <div class="flagship-features">
+              <div class="flagship-feature-item">
                 <span style="color:#22c55e;"><i class="fas fa-bolt"></i></span> <span data-i18n="cert_f1">Cấp tự động 24/7 (Có ngay)</span>
               </div>
-              <div style="background:rgba(255,255,255,0.9);border:1.5px solid var(--border);border-radius:var(--radius-base);padding:8px 12px;display:flex;align-items:center;gap:8px;font-size:14px;font-weight:700;box-shadow:var(--shadow-sm);">
+              <div class="flagship-feature-item">
                 <span style="color:#3b82f6;"><i class="fas fa-shield-alt"></i></span> <span data-i18n="cert_f2">Kiểm tra Apple OCSP trực tiếp</span>
               </div>
-              <div style="background:rgba(255,255,255,0.9);border:1.5px solid var(--border);border-radius:var(--radius-base);padding:8px 12px;display:flex;align-items:center;gap:8px;font-size:14px;font-weight:700;box-shadow:var(--shadow-sm);">
+              <div class="flagship-feature-item">
                 <span style="color:#e11d48;"><i class="fas fa-qrcode"></i></span> <span data-i18n="cert_f3">Nạp VietQR tự động cộng tiền</span>
               </div>
-              <div style="background:rgba(255,255,255,0.9);border:1.5px solid var(--border);border-radius:var(--radius-base);padding:8px 12px;display:flex;align-items:center;gap:8px;font-size:14px;font-weight:700;box-shadow:var(--shadow-sm);">
+              <div class="flagship-feature-item">
                 <span style="color:#a855f7;"><i class="fas fa-unlock-alt"></i></span> <span data-i18n="cert_f4">Mở khóa thiết bị Blacklist / Ban</span>
               </div>
-              <div style="background:rgba(255,255,255,0.9);border:1.5px solid var(--border);border-radius:var(--radius-base);padding:8px 12px;display:flex;align-items:center;gap:8px;font-size:14px;font-weight:700;box-shadow:var(--shadow-sm);">
+              <div class="flagship-feature-item">
                 <span style="color:#f59e0b;"><i class="fas fa-calendar-check"></i></span> <span data-i18n="cert_f5">Thời hạn 365 ngày toàn quyền</span>
               </div>
-              <div style="background:rgba(255,255,255,0.9);border:1.5px solid var(--border);border-radius:var(--radius-base);padding:8px 12px;display:flex;align-items:center;gap:8px;font-size:14px;font-weight:700;box-shadow:var(--shadow-sm);">
+              <div class="flagship-feature-item">
                 <span style="color:#06b6d4;"><i class="fas fa-mobile-alt"></i></span> <span data-i18n="cert_f6">Làm 100% trên iPhone, không cần PC</span>
               </div>
             </div>
 
             <!-- Price & Package Summary Tags -->
-            <div style="background:var(--paper-1);border:2px solid var(--border);border-radius:var(--radius-base);padding:14px;margin-bottom:24px;box-shadow:var(--shadow-sm);">
-              <div style="font-size:13px;font-weight:700;color:var(--ink-500);text-transform:uppercase;margin-bottom:8px;font-family:var(--font-mono);display:flex;align-items:center;justify-content:space-between;">
+            <div class="flagship-pricing-box">
+              <div class="flagship-pricing-header">
                 <span data-i18n="cert_pkg_title">CÁC GÓI CHỨNG CHỈ ĐANG BÁN:</span>
                 <span style="color:#22c55e;"><i class="fas fa-circle" style="font-size:8px;"></i> SẴN HÀNG</span>
               </div>
-              <div style="display:flex;gap:8px;flex-wrap:wrap;">
-                <span style="background:#fff;border:1.5px solid var(--border);border-radius:4px;padding:4px 10px;font-size:13px;font-weight:700;box-shadow:2px 2px 0 var(--border);">UNBAN: <strong>50.000đ</strong></span>
-                <span style="background:#fff;border:1.5px solid var(--border);border-radius:4px;padding:4px 10px;font-size:13px;font-weight:700;box-shadow:2px 2px 0 var(--border);">Basic (BH 30 ngày): <strong>70.000đ</strong></span>
-                <span style="background:#fff;border:1.5px solid var(--border);border-radius:4px;padding:4px 10px;font-size:13px;font-weight:700;box-shadow:2px 2px 0 var(--border);">Plus (BH 180 ngày): <strong>140.000đ</strong></span>
-                <span style="background:#fff;border:1.5px solid var(--border);border-radius:4px;padding:4px 10px;font-size:13px;font-weight:700;box-shadow:2px 2px 0 var(--border);color:#d9381e;">Premium (BH 300 ngày): <strong>299.000đ</strong></span>
+              <div class="flagship-pricing-grid">
+                <div class="flagship-pricing-pill"><span>UNBAN:</span> <strong>50.000đ</strong></div>
+                <div class="flagship-pricing-pill"><span>Basic (BH 30 ngày):</span> <strong>70.000đ</strong></div>
+                <div class="flagship-pricing-pill"><span>Plus (BH 180 ngày):</span> <strong>140.000đ</strong></div>
+                <div class="flagship-pricing-pill" style="color:#d9381e;"><span>Premium (BH 300 ngày):</span> <strong>299.000đ</strong></div>
               </div>
             </div>
 
             <!-- Action Buttons -->
-            <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:center;">
-              <a href="https://vntcert.click/" target="_blank" rel="noopener noreferrer" class="btn btn-dark btn-lg" style="background:#111;color:#ffd94a;border:2.5px solid #111;font-size:17px;box-shadow:5px 5px 0 0 #000;">
+            <div class="flagship-actions">
+              <a href="https://vntcert.click/" target="_blank" rel="noopener noreferrer" class="btn btn-dark btn-lg">
                 <i class="fas fa-shopping-cart"></i> <span data-i18n="cert_btn_buy">MUA CHỨNG CHỈ TẠI VNTCERT.CLICK</span> <i class="fas fa-arrow-up-right-from-square"></i>
               </a>
-              <a href="https://vntcert.click/check" target="_blank" rel="noopener noreferrer" class="btn btn-ghost btn-lg" style="border:2.5px solid var(--border);">
+              <a href="https://vntcert.click/check" target="_blank" rel="noopener noreferrer" class="btn btn-ghost btn-lg">
                 <i class="fas fa-search"></i> <span data-i18n="cert_btn_check">Kiểm Tra Đơn / Nhận Hàng</span>
               </a>
-              <a href="https://t.me/ngoctruong_store" target="_blank" rel="noopener noreferrer" class="btn btn-blue btn-lg" style="border:2.5px solid var(--border);">
+              <a href="https://t.me/ngoctruong_store" target="_blank" rel="noopener noreferrer" class="btn btn-blue btn-lg">
                 <i class="fab fa-telegram-plane"></i> <span data-i18n="cert_btn_support">Hỗ Trợ Admin</span>
               </a>
             </div>
