@@ -1,0 +1,3128 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>VNT Tricks | Apple Security Research & Education</title>
+  <meta name="description" content="Independent iOS Security Research, Apple Ecosystem, iOS Education, and Community Links.">
+  <link rel="icon" type="image/jpeg" href="images/profile.jpg">
+  
+  <!-- Google Fonts: Itim & Space Grotesk -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Itim&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome 6.5.1 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <style>
+    /* Neo-brutalism design system identical to temp-mail.vasnet360.site */
+    :root {
+      --paper-0: #fffcef;
+      --paper-1: #faf5df;
+      --ink-900: #111111;
+      --ink-700: #33322d;
+      --ink-500: #6b613e;
+      --ink-300: #b6b09a;
+      --main-hi: #ffd94a;
+      --green: #7bd88f;
+      --red: #ff8f8f;
+      --blue: #8fc7ff;
+      --purple: #d7b3ff;
+      --background: var(--paper-0);
+      --border: var(--ink-900);
+      --shadow: 4px 4px 0 0 var(--ink-900);
+      --shadow-sm: 2px 2px 0 0 var(--ink-900);
+      --shadow-lg: 7px 7px 0 0 var(--ink-900);
+      --radius-base: 6px;
+      --radius-lg: 16px;
+      --font-itim: "Itim", "Noto Sans JP", cursive;
+      --font-mono: "Space Grotesk", ui-monospace, monospace;
+      --topbar-h: 68px;
+    }
+
+    * { box-sizing: border-box; }
+    .hidden { display: none !important; }
+    html { scroll-behavior: smooth; }
+
+    /* Scrollbar */
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: var(--paper-1); border-left: 2px solid var(--border); }
+    ::-webkit-scrollbar-thumb { background: var(--main-hi); border: 2px solid var(--border); border-radius: 4px; }
+
+    body {
+      margin: 0;
+      font-family: var(--font-itim);
+      font-size: 16px;
+      line-height: 1.6;
+      background: var(--background);
+      color: var(--ink-900);
+      background-image:
+        linear-gradient(to right, #6b613e24 1px, transparent 1px),
+        linear-gradient(to bottom, #6b613e38 1px, transparent 1px);
+      background-size: 20px 20px;
+      overflow-x: hidden;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    h1, h2, h3, h4 { margin: 0; line-height: 1.25; font-weight: 700; }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+
+    /* Floating background orbs */
+    .bg-orbs { position: fixed; inset: 0; z-index: -1; overflow: hidden; pointer-events: none; }
+    .bg-orbs span {
+      position: absolute; border-radius: 50%; filter: blur(75px); opacity: .35;
+      animation: drift 14s ease-in-out infinite alternate;
+    }
+    .bg-orbs span:nth-child(1) { width: min(360px, 65vw); height: min(360px, 65vw); background: #ffd94a; top: -80px; left: -80px; }
+    .bg-orbs span:nth-child(2) { width: min(300px, 60vw); height: min(300px, 60vw); background: #8fc7ff; top: 35%; right: -100px; animation-delay: -5s; }
+    .bg-orbs span:nth-child(3) { width: min(240px, 50vw); height: min(240px, 50vw); background: #ff8f8f; bottom: -60px; left: 25%; animation-delay: -9s; }
+    @keyframes drift { to { transform: translate(45px, 35px) scale(1.12); } }
+
+    /* Topbar */
+    .topbar {
+      position: sticky; top: 0; z-index: 50;
+      min-height: var(--topbar-h);
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 12px; padding: 10px 18px;
+      background: var(--main-hi);
+      border-bottom: 3px solid var(--border);
+    }
+    .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; white-space: nowrap; }
+    .brand-avatar {
+      width: 38px; height: 38px; border-radius: 50%;
+      border: 2px solid var(--border); object-fit: cover;
+      box-shadow: 2px 2px 0 var(--border);
+    }
+    .brand-word { font-size: 24px; line-height: 1; color: var(--ink-900); font-weight: 700; }
+    .brand-cam {
+      color: #ff5722;
+      font-size: .62em;
+      text-transform: uppercase;
+      letter-spacing: .14em;
+      margin-left: 6px;
+      vertical-align: middle;
+      background: #fff;
+      padding: 2px 6px;
+      border: 1.5px solid var(--border);
+      border-radius: 4px;
+    }
+
+    .topbar-center {
+      display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
+    }
+    @media (max-width: 990px) {
+      .topbar-center { display: none; }
+      .mobile-menu-btn { display: inline-flex !important; }
+    }
+    .mobile-menu-btn { display: none; }
+
+    /* Status Bar & Language Switcher Group */
+    .topbar-right {
+      display: flex; align-items: center; gap: 10px;
+    }
+
+    /* Live Time & Status Badge */
+    .status-clock-badge {
+      display: inline-flex; align-items: center; gap: 7px;
+      background: #fff; border: 2px solid var(--border);
+      border-radius: var(--radius-base); padding: 5px 12px;
+      box-shadow: var(--shadow-sm); font-family: var(--font-mono);
+      font-size: 13px; font-weight: 700; white-space: nowrap;
+    }
+    .status-live-dot {
+      width: 9px; height: 9px; border-radius: 50%;
+      background: #22c55e; border: 1.5px solid var(--border);
+      animation: blink 1.2s infinite; flex: none;
+    }
+    .status-text-label {
+      color: #15803d; letter-spacing: 0.5px;
+    }
+    .status-sep {
+      color: var(--ink-300); font-weight: 400;
+    }
+    .digital-clock-val {
+      color: var(--ink-900); font-variant-numeric: tabular-nums;
+    }
+    .tz-badge {
+      font-size: 11px; background: var(--paper-1); border: 1px solid var(--border);
+      border-radius: 3px; padding: 1px 4px; color: var(--ink-700);
+    }
+    @media (max-width: 680px) {
+      .status-text-label, .status-sep, .tz-badge { display: none; }
+      .status-clock-badge { padding: 4px 8px; font-size: 12px; }
+    }
+
+    /* Language Dropdown */
+    .lang-wrapper {
+      position: relative; display: inline-block;
+    }
+    .lang-toggle-btn {
+      font-family: var(--font-mono) !important;
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 6px 10px; font-size: 13px; font-weight: 700;
+      background: #fff; border: 2px solid var(--border);
+      border-radius: var(--radius-base); box-shadow: var(--shadow-sm);
+      cursor: pointer; transition: transform .12s ease, box-shadow .12s ease;
+      white-space: nowrap;
+    }
+    .lang-toggle-btn:hover {
+      transform: translate(-1px, -1px); box-shadow: var(--shadow);
+    }
+    .lang-chevron {
+      font-size: 11px; transition: transform 0.2s ease;
+    }
+    .lang-wrapper.open .lang-chevron {
+      transform: rotate(180deg);
+    }
+    .lang-menu {
+      display: none; position: absolute; right: 0; top: calc(100% + 6px);
+      background: var(--paper-0); border: 2.5px solid var(--border);
+      border-radius: var(--radius-base); box-shadow: var(--shadow);
+      min-width: 180px; z-index: 99999; padding: 6px; flex-direction: column; gap: 4px;
+      animation: popin .18s cubic-bezier(.34,1.56,.64,1);
+    }
+    .lang-wrapper.open .lang-menu {
+      display: flex;
+    }
+    .lang-item {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 7px 10px; border-radius: 4px; border: 1.5px solid transparent;
+      cursor: pointer; font-size: 13px; font-weight: 700; font-family: var(--font-mono);
+      transition: all 0.12s ease;
+    }
+    .lang-item:hover {
+      background: var(--main-hi); border-color: var(--border);
+    }
+    .lang-item.active {
+      background: var(--main-hi); border-color: var(--border);
+      box-shadow: 2px 2px 0 var(--border);
+    }
+    .lang-item-code {
+      color: var(--ink-500); font-size: 12px;
+    }
+
+    /* Mobile Drawer */
+    .drawer-overlay {
+      position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 99;
+      opacity: 0; pointer-events: none; transition: opacity 0.25s ease;
+      backdrop-filter: blur(4px);
+    }
+    .drawer-overlay.active { opacity: 1; pointer-events: auto; }
+    .drawer {
+      position: fixed; top: 0; right: -290px; width: 270px; height: 100vh;
+      background: var(--paper-1); border-left: 3px solid var(--border);
+      z-index: 100; transition: right 0.25s cubic-bezier(.34,1.56,.64,1);
+      padding: 20px; display: flex; flex-direction: column; gap: 10px; overflow-y: auto;
+    }
+    .drawer.active { right: 0; }
+    .drawer-header {
+      display: flex; align-items: center; justify-content: space-between;
+      border-bottom: 2px solid var(--border); padding-bottom: 12px;
+      font-size: 18px; font-weight: 700;
+    }
+
+    /* Buttons */
+    .btn {
+      font-family: var(--font-itim); font-weight: 700; font-size: 15px; cursor: pointer;
+      border: 2px solid var(--border); border-radius: var(--radius-base);
+      padding: 9px 16px; box-shadow: var(--shadow-sm);
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      text-decoration: none; color: var(--ink-900); background: var(--background);
+      transition: transform .12s cubic-bezier(.34,1.56,.64,1), box-shadow .12s ease;
+      white-space: nowrap;
+    }
+    .btn:hover { transform: translate(-2px,-2px); box-shadow: var(--shadow); }
+    .btn:active { transform: translate(0,0); box-shadow: none; }
+    .btn-gold { background: var(--main-hi); }
+    .btn-dark { background: var(--ink-900); color: #fff; }
+    .btn-dark:hover { color: var(--main-hi); }
+    .btn-ghost { background: var(--paper-0); }
+    .btn-blue { background: var(--blue); }
+    .btn-green { background: var(--green); }
+    .btn-red { background: var(--red); }
+    .btn-purple { background: var(--purple); }
+    .btn-lg { font-size: 17px; padding: 13px 22px; }
+    .btn-sm { font-size: 13px; padding: 6px 12px; }
+
+    main { max-width: 1040px; margin: 0 auto; padding: 0 16px 80px; }
+
+    /* Hero */
+    .hero {
+      display: flex; flex-direction: column; align-items: center;
+      padding: clamp(30px, 6vw, 56px) 0 20px;
+      text-align: center;
+    }
+    .hero-avatar-wrap {
+      position: relative; margin-bottom: 18px; display: inline-block;
+    }
+    .hero-avatar {
+      width: clamp(110px, 18vw, 150px); height: clamp(110px, 18vw, 150px);
+      border-radius: 24px; border: 3px solid var(--border);
+      box-shadow: var(--shadow-lg); object-fit: cover;
+      transition: transform .25s ease;
+      background: var(--paper-1);
+    }
+    .hero-avatar:hover { transform: scale(1.05) rotate(2deg); }
+    .hero-badge-tag {
+      position: absolute; bottom: -8px; right: -10px;
+      background: var(--main-hi); border: 2px solid var(--border);
+      border-radius: var(--radius-base); box-shadow: var(--shadow-sm);
+      padding: 3px 8px; font-size: 12px; font-weight: 700;
+      font-family: var(--font-mono); letter-spacing: 0.5px;
+    }
+
+    .pill-live {
+      display: inline-flex; align-items: center; gap: 8px; background: var(--background);
+      border: 2px solid var(--border); border-radius: var(--radius-base); padding: 5px 14px;
+      font-size: 13px; font-weight: 700; box-shadow: var(--shadow-sm); margin-bottom: 14px;
+      font-family: var(--font-mono);
+    }
+    .pill-live .dot {
+      width: 10px; height: 10px; flex: none; border-radius: 50%;
+      background: #22c55e; animation: blink 1.2s infinite;
+      border: 1px solid var(--border);
+    }
+    @keyframes blink { 50% { opacity: .25; } }
+
+    .hero h1 {
+      font-size: clamp(32px, 6vw, 56px); margin: 0 0 14px;
+      overflow-wrap: anywhere; word-break: break-word;
+    }
+    .hl {
+      background: var(--main-hi); border: 2px solid var(--border);
+      border-radius: var(--radius-base); padding: 2px 12px;
+      box-shadow: var(--shadow-sm); display: inline-block;
+      margin-top: 6px;
+    }
+    .lead {
+      color: var(--ink-700); font-size: clamp(16px, 2.2vw, 19px);
+      max-width: 720px; margin: 0 auto 24px; line-height: 1.6;
+    }
+    .hero-actions {
+      display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;
+    }
+
+    /* Marquee */
+    .marquee { 
+      border-top: 3px solid var(--border); 
+      border-bottom: 3px solid var(--border); 
+      background: var(--ink-900);
+      color: var(--paper-0); 
+      overflow: hidden; 
+      margin: 32px 0 20px; 
+      width: 100vw;
+      position: relative;
+      left: 50%;
+      right: 50%;
+      margin-left: -50vw;
+      margin-right: -50vw;
+    }
+    .marquee-track { 
+      display: flex; 
+      gap: 50px; 
+      padding: 12px 0; 
+      white-space: nowrap; 
+      width: max-content; 
+      animation: scrollx 32s linear infinite; 
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      font-family: var(--font-mono);
+    }
+    .marquee-track span { display: inline-flex; align-items: center; gap: 8px; }
+    .marquee-track i { color: var(--main-hi); font-size: 16px; }
+    @keyframes scrollx { to { transform: translateX(-50%); } }
+
+    /* Sections */
+    .section {
+      padding: clamp(32px, 5vw, 48px) 0 8px;
+      scroll-margin-top: calc(var(--topbar-h) + 16px);
+    }
+    .section-head {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 12px; margin-bottom: 18px; padding-bottom: 10px;
+      border-bottom: 3px solid var(--border);
+    }
+    .sec-badge {
+      display: inline-flex; align-items: center; gap: 10px;
+      font-size: 20px; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .sec-badge .num-pill {
+      background: var(--main-hi); border: 2px solid var(--border);
+      border-radius: var(--radius-base); padding: 2px 8px;
+      font-family: var(--font-mono); font-size: 14px;
+      box-shadow: var(--shadow-sm);
+    }
+    .sec-hex {
+      font-family: var(--font-mono); font-size: 13px; color: var(--ink-500);
+      font-weight: 700;
+    }
+
+    /* Grid Layouts */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+      gap: 16px;
+    }
+    .cards-grid-2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+      gap: 18px;
+    }
+    @media (max-width: 600px) {
+      .cards-grid-2 { grid-template-columns: 1fr; }
+    }
+
+    /* Neobrutalist Cards */
+    .neo-card {
+      position: relative;
+      background: var(--background);
+      border: 2px solid var(--border);
+      border-radius: var(--radius-base);
+      box-shadow: var(--shadow);
+      padding: 20px;
+      display: flex; flex-direction: column; justify-content: space-between;
+      transition: transform .14s cubic-bezier(.34,1.56,.64,1), box-shadow .14s ease;
+    }
+    .neo-card:hover {
+      transform: translate(-3px, -3px);
+      box-shadow: 6px 6px 0 0 var(--border);
+    }
+    .neo-card.card-featured {
+      background: var(--main-hi);
+    }
+
+    .card-top {
+      display: flex; align-items: flex-start; gap: 14px; margin-bottom: 14px;
+    }
+    .card-icon-box {
+      width: 48px; height: 48px; flex: none;
+      display: flex; align-items: center; justify-content: center;
+      border: 2px solid var(--border); border-radius: var(--radius-base);
+      font-size: 22px; box-shadow: var(--shadow-sm);
+      background: var(--main-hi); color: var(--ink-900);
+    }
+    .icon-blue { background: var(--blue); }
+    .icon-green { background: var(--green); }
+    .icon-red { background: var(--red); }
+    .icon-purple { background: var(--purple); }
+    .icon-gold { background: var(--main-hi); }
+    .icon-dark { background: var(--ink-900); color: #fff; }
+
+    .card-info { flex: 1; min-width: 0; }
+    .card-title {
+      font-size: 18px; font-weight: 700; line-height: 1.3;
+      margin-bottom: 4px; overflow-wrap: break-word;
+    }
+    .card-desc {
+      font-size: 14px; color: var(--ink-700); line-height: 1.5;
+    }
+    .card-subtext {
+      font-size: 12px; font-family: var(--font-mono); color: var(--ink-500); margin-top: 4px;
+    }
+
+    .card-bottom {
+      display: flex; align-items: center; justify-content: space-between;
+      border-top: 1.5px dashed var(--ink-300); padding-top: 12px; margin-top: 12px;
+      gap: 8px; flex-wrap: wrap;
+    }
+    .card-status-badge {
+      display: inline-flex; align-items: center; gap: 5px;
+      padding: 3px 8px; border: 1.5px solid var(--border);
+      border-radius: var(--radius-base); font-size: 12px;
+      font-family: var(--font-mono); font-weight: 700;
+      background: #fff;
+    }
+
+    /* Accordion Toggle Card */
+    .accordion-toggle {
+      width: 100%; text-align: left; background: var(--paper-1);
+      border: 2px solid var(--border); border-radius: var(--radius-base);
+      box-shadow: var(--shadow); padding: 18px 22px; cursor: pointer;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 12px; margin-bottom: 16px;
+      transition: transform .12s ease, box-shadow .12s ease;
+    }
+    .accordion-toggle:hover {
+      transform: translate(-2px, -2px); box-shadow: 6px 6px 0 var(--border);
+    }
+    .accordion-toggle-title {
+      display: flex; align-items: center; gap: 14px;
+      font-size: 19px; font-weight: 700;
+    }
+    .accordion-icon-spin {
+      transition: transform 0.25s ease;
+    }
+    .accordion-toggle.open .accordion-icon-spin {
+      transform: rotate(180deg);
+    }
+
+    /* Donate Box Styling */
+    .donate-panel {
+      background: var(--main-hi);
+      border: 3px solid var(--border);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-lg);
+      padding: clamp(20px, 4vw, 32px);
+      text-align: center;
+    }
+    .bank-box {
+      background: #fff; border: 2px solid var(--border);
+      border-radius: var(--radius-base); box-shadow: var(--shadow);
+      padding: 18px; margin: 20px auto; max-width: 480px;
+      text-align: left;
+    }
+    .bank-row {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 8px; padding: 6px 0; border-bottom: 1px dashed var(--ink-300);
+      font-size: 15px;
+    }
+    .bank-row:last-child { border-bottom: none; }
+    .bank-label { color: var(--ink-500); font-weight: 700; }
+    .bank-val { font-weight: 700; font-family: var(--font-mono); }
+    .bank-stk {
+      font-size: 22px; color: #d9381e; letter-spacing: 1px;
+    }
+
+    .qr-container {
+      display: none; flex-direction: column; align-items: center;
+      margin-top: 20px; animation: popin .25s ease;
+    }
+    .qr-container.show { display: flex; }
+    .qr-image {
+      max-width: 290px; width: 100%; border: 2px solid var(--border);
+      border-radius: var(--radius-base); box-shadow: var(--shadow);
+      background: #fff; padding: 8px;
+    }
+
+    /* About Section Box */
+    .about-box {
+      background: var(--paper-1); border: 2px solid var(--border);
+      border-radius: var(--radius-base); box-shadow: var(--shadow);
+      padding: 24px;
+    }
+    .about-quote {
+      font-size: 17px; line-height: 1.7; color: var(--ink-900);
+      margin-bottom: 16px;
+    }
+    .about-tags {
+      display: flex; gap: 8px; flex-wrap: wrap; margin-top: 14px;
+    }
+    .tech-tag {
+      background: #fff; border: 1.5px solid var(--border);
+      border-radius: var(--radius-base); padding: 4px 10px;
+      font-family: var(--font-mono); font-size: 13px; font-weight: 700;
+      box-shadow: 2px 2px 0 var(--border);
+    }
+
+    /* Floating Music Button & Popup */
+    .floating-music-btn {
+      position: fixed; bottom: 20px; right: 20px; z-index: 9999;
+      width: 54px; height: 54px; border-radius: 50%;
+      background: var(--main-hi); border: 2.5px solid var(--border);
+      box-shadow: 4px 4px 0 var(--border);
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer; transition: transform .15s ease, box-shadow .15s ease, background .15s;
+      color: #111111 !important; font-size: 20px;
+    }
+    .floating-music-btn i {
+      color: #111111 !important;
+    }
+    .floating-music-btn:hover {
+      transform: translate(-2px, -2px) scale(1.05);
+      box-shadow: 6px 6px 0 var(--border);
+    }
+    .floating-music-btn:active {
+      transform: translate(2px, 2px);
+      box-shadow: 2px 2px 0 var(--border);
+    }
+    .floating-music-btn.active-popup {
+      background: #ffffff;
+      color: #111111 !important;
+    }
+    .floating-music-btn.active-popup i {
+      color: #111111 !important;
+    }
+    .floating-music-btn.playing i {
+      animation: pulse 1s infinite alternate;
+    }
+    .floating-music-badge {
+      position: absolute; top: -4px; right: -4px;
+      background: #ff4757; color: #ffffff !important; font-size: 10px; font-weight: 800;
+      width: 18px; height: 18px; border-radius: 50%;
+      border: 1.5px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+    }
+    @keyframes pulse { to { transform: scale(1.15); } }
+    @keyframes spin { 100% { transform: rotate(360deg); } }
+
+    /* Mini Music Player Popup */
+    .music-player-popup {
+      position: fixed; bottom: 86px; right: 20px; z-index: 9998;
+      width: 320px; max-width: calc(100vw - 36px);
+      background: var(--paper-1); border: 2.5px solid var(--border);
+      border-radius: 16px; box-shadow: 6px 6px 0 var(--border);
+      opacity: 0; visibility: hidden; pointer-events: none;
+      transform: translateY(14px) scale(0.96);
+      transition: opacity .22s cubic-bezier(0.16, 1, 0.3, 1), transform .22s cubic-bezier(0.16, 1, 0.3, 1), visibility .22s;
+      overflow: hidden; user-select: none;
+    }
+    .music-player-popup.open {
+      opacity: 1; visibility: visible; pointer-events: auto;
+      transform: translateY(0) scale(1);
+    }
+    .mpp-header {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 10px 14px; background: var(--main-hi);
+      border-bottom: 2.5px solid var(--border);
+      font-weight: 800; font-size: 13px; color: #111111 !important;
+    }
+    .mpp-header-title {
+      display: flex; align-items: center; gap: 8px; color: #111111 !important;
+    }
+    .mpp-header-title span {
+      color: #111111 !important;
+    }
+    .mpp-disc-icon {
+      animation: spin 3s linear infinite; display: inline-block; color: #111111 !important;
+    }
+    .music-player-popup:not(.is-playing) .mpp-disc-icon {
+      animation-play-state: paused;
+    }
+    .mpp-actions {
+      display: flex; align-items: center; gap: 6px;
+    }
+    .mpp-icon-btn {
+      background: #ffffff; border: 1.5px solid #111111;
+      border-radius: 6px; width: 28px; height: 28px;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer; box-shadow: 1.5px 1.5px 0 #111111;
+      font-size: 12px; color: #111111 !important;
+      transition: transform .1s, box-shadow .1s, background .15s;
+    }
+    .mpp-icon-btn i {
+      color: #111111 !important;
+    }
+    .mpp-icon-btn:hover {
+      transform: translate(-1px, -1px); box-shadow: 2.5px 2.5px 0 #111111;
+    }
+    .mpp-icon-btn:active {
+      transform: translate(1px, 1px); box-shadow: 0 0 0 #111111;
+    }
+    .mpp-body {
+      padding: 14px;
+    }
+    .mpp-track-info {
+      display: flex; align-items: center; gap: 12px; margin-bottom: 12px;
+    }
+    .mpp-vinyl-wrap {
+      position: relative; width: 48px; height: 48px; flex-shrink: 0;
+    }
+    .mpp-vinyl {
+      width: 48px; height: 48px; border-radius: 50%;
+      background: radial-gradient(circle, #2a2a2a 35%, #111111 60%, #3a3a3a 70%, #111111 100%);
+      border: 2px solid var(--border); box-shadow: 2px 2px 0 var(--border);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--main-hi); font-size: 15px; animation: spin 4s linear infinite;
+    }
+    .music-player-popup:not(.is-playing) .mpp-vinyl {
+      animation-play-state: paused;
+    }
+    .mpp-vinyl::after {
+      content: ''; position: absolute; width: 10px; height: 10px;
+      background: var(--paper-1); border: 1.5px solid var(--border);
+      border-radius: 50%;
+    }
+    .mpp-meta {
+      overflow: hidden; flex: 1;
+    }
+    .mpp-title {
+      font-weight: 800; font-size: 13.5px; color: var(--ink-900);
+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+      margin-bottom: 2px;
+    }
+    .mpp-artist {
+      font-size: 11.5px; color: var(--ink-500);
+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    }
+    .mpp-progress-wrap {
+      margin-bottom: 10px;
+    }
+    .mpp-progress-bar {
+      -webkit-appearance: none; appearance: none;
+      width: 100%; height: 8px; border-radius: 6px;
+      background: #eaeaea; border: 1.5px solid var(--border);
+      outline: none; cursor: pointer;
+    }
+    .mpp-progress-bar::-webkit-slider-thumb {
+      -webkit-appearance: none; appearance: none;
+      width: 16px; height: 16px; border-radius: 50%;
+      background: var(--main-hi); border: 2px solid var(--border);
+      box-shadow: 1px 1px 0 var(--border); cursor: pointer;
+      transition: transform .1s;
+    }
+    .mpp-progress-bar::-webkit-slider-thumb:hover {
+      transform: scale(1.2);
+    }
+    .mpp-time-display {
+      display: flex; justify-content: space-between;
+      font-size: 11px; font-weight: 700; font-family: monospace;
+      color: var(--ink-700); margin-top: 4px;
+    }
+    .mpp-controls-row {
+      display: flex; align-items: center; justify-content: center;
+      gap: 14px; margin-bottom: 8px;
+    }
+    .mpp-ctrl-btn {
+      background: #ffffff; border: 2px solid var(--border);
+      border-radius: 50%; width: 38px; height: 38px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 14px; color: #111111 !important; cursor: pointer;
+      box-shadow: 2px 2px 0 var(--border); transition: transform .1s, box-shadow .1s, background .15s;
+    }
+    .mpp-ctrl-btn i {
+      color: #111111 !important;
+    }
+    .mpp-ctrl-btn:hover {
+      transform: translate(-1.5px, -1.5px); box-shadow: 3.5px 3.5px 0 var(--border);
+    }
+    .mpp-ctrl-btn:active {
+      transform: translate(1px, 1px); box-shadow: 0 0 0 var(--border);
+    }
+    .mpp-play-btn {
+      width: 48px; height: 48px; font-size: 18px;
+      background: var(--main-hi) !important;
+      color: #111111 !important;
+    }
+    .mpp-play-btn i {
+      color: #111111 !important;
+    }
+    .mpp-playlist-drawer {
+      margin-top: 8px; border-top: 2px dashed #dcdcdc;
+      padding-top: 8px; max-height: 145px; overflow-y: auto;
+    }
+    .mpp-playlist-drawer::-webkit-scrollbar {
+      width: 4px;
+    }
+    .mpp-playlist-drawer::-webkit-scrollbar-thumb {
+      background: #bbb; border-radius: 4px;
+    }
+    .mpp-playlist-head {
+      font-size: 10.5px; font-weight: 800; letter-spacing: .5px;
+      color: var(--ink-500); margin-bottom: 6px; text-transform: uppercase;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .mpp-item {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 6px 8px; border-radius: 8px; font-size: 12px;
+      cursor: pointer; border: 1.5px solid transparent;
+      transition: all .15s ease; margin-bottom: 4px;
+      color: var(--ink-900);
+    }
+    .mpp-item:hover {
+      background: rgba(255, 230, 0, 0.2); border-color: var(--border);
+    }
+    .mpp-item.active {
+      background: var(--main-hi) !important; border-color: var(--border);
+      font-weight: 800; box-shadow: 2px 2px 0 var(--border);
+      color: #111111 !important;
+    }
+    .mpp-item.active * {
+      color: #111111 !important;
+    }
+    .mpp-item-left {
+      display: flex; align-items: center; gap: 6px;
+      overflow: hidden; max-width: 220px;
+    }
+    .mpp-item-num {
+      font-family: monospace; font-weight: 800; font-size: 10.5px; opacity: 0.7;
+    }
+    .mpp-item-title {
+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    }
+    .mpp-wave {
+      display: none; gap: 2px; align-items: flex-end; height: 12px;
+    }
+    .mpp-item.active.playing .mpp-wave {
+      display: inline-flex;
+    }
+    .mpp-wave span {
+      width: 2.5px; background: #111111; border-radius: 1px;
+      animation: waveBar .7s ease-in-out infinite alternate;
+    }
+    .mpp-wave span:nth-child(2) { animation-delay: .2s; }
+    .mpp-wave span:nth-child(3) { animation-delay: .4s; }
+    @keyframes waveBar {
+      0% { height: 3px; } 100% { height: 12px; }
+    }
+
+    /* Dark Mode Theme Support for Music Player */
+    [data-theme="dark"] .music-player-popup {
+      background: #18181b;
+      border-color: #3f3f46;
+      box-shadow: 6px 6px 0 #000000;
+    }
+    [data-theme="dark"] .mpp-header {
+      background: #ffd94a;
+      border-color: #3f3f46;
+      color: #111111 !important;
+    }
+    [data-theme="dark"] .mpp-header * {
+      color: #111111 !important;
+    }
+    [data-theme="dark"] .mpp-icon-btn {
+      background: #27272a;
+      border-color: #52525b;
+      box-shadow: 1.5px 1.5px 0 #000000;
+    }
+    [data-theme="dark"] .mpp-icon-btn i {
+      color: #fafafa !important;
+    }
+    [data-theme="dark"] .mpp-icon-btn:hover {
+      background: #3f3f46;
+    }
+    [data-theme="dark"] .mpp-ctrl-btn {
+      background: #27272a;
+      border-color: #52525b;
+      box-shadow: 2px 2px 0 #000000;
+    }
+    [data-theme="dark"] .mpp-ctrl-btn i {
+      color: #fafafa !important;
+    }
+    [data-theme="dark"] .mpp-ctrl-btn:hover {
+      background: #3f3f46;
+    }
+    [data-theme="dark"] .mpp-play-btn {
+      background: #ffd94a !important;
+      border-color: #ffd94a;
+    }
+    [data-theme="dark"] .mpp-play-btn i {
+      color: #111111 !important;
+    }
+    [data-theme="dark"] .mpp-progress-bar {
+      background: #3f3f46;
+      border-color: #52525b;
+    }
+    [data-theme="dark"] .mpp-progress-bar::-webkit-slider-thumb {
+      background: #ffd94a;
+      border-color: #111111;
+      box-shadow: 1px 1px 0 #000000;
+    }
+    [data-theme="dark"] .mpp-time-display {
+      color: #a1a1aa;
+    }
+    [data-theme="dark"] .mpp-title {
+      color: #fafafa;
+    }
+    [data-theme="dark"] .mpp-artist {
+      color: #a1a1aa;
+    }
+    [data-theme="dark"] .mpp-playlist-drawer {
+      border-color: #3f3f46;
+    }
+    [data-theme="dark"] .mpp-playlist-head {
+      color: #a1a1aa;
+    }
+    [data-theme="dark"] .mpp-item {
+      color: #e4e4e7;
+    }
+    [data-theme="dark"] .mpp-item:hover {
+      background: rgba(255, 217, 74, 0.15);
+      border-color: #52525b;
+    }
+    [data-theme="dark"] .mpp-item.active {
+      background: #ffd94a !important;
+      border-color: #ffd94a;
+    }
+    [data-theme="dark"] .mpp-item.active * {
+      color: #111111 !important;
+    }
+    [data-theme="dark"] .mpp-wave span {
+      background: #111111;
+    }
+    [data-theme="dark"] .floating-music-btn {
+      background: #ffd94a;
+      border-color: #000000;
+      box-shadow: 4px 4px 0 #000000;
+    }
+    [data-theme="dark"] .floating-music-btn i {
+      color: #111111 !important;
+    }
+    [data-theme="dark"] .floating-music-btn.active-popup {
+      background: #27272a;
+      border-color: #ffd94a;
+    }
+    [data-theme="dark"] .floating-music-btn.active-popup i {
+      color: #ffd94a !important;
+    }
+    [data-theme="dark"] .floating-music-badge {
+      background: #ef4444;
+      border-color: #000000;
+      color: #ffffff !important;
+    }
+
+    /* Footer */
+    .footer {
+      border-top: 3px solid var(--border); background: var(--paper-1);
+      margin-top: 40px;
+    }
+    .footer-in {
+      max-width: 1040px; margin: 0 auto; padding: 24px 20px;
+      display: flex; flex-direction: column; align-items: center;
+      gap: 12px; text-align: center;
+    }
+    .footer-links {
+      display: flex; gap: 16px; flex-wrap: wrap; justify-content: center;
+      font-weight: 700; font-size: 15px;
+    }
+    .footer-copy {
+      color: var(--ink-700); font-size: 14px; font-weight: 700;
+    }
+
+    /* Modal */
+    .modal-back {
+      display: none; position: fixed; inset: 0; background: rgba(17,17,17,.6);
+      z-index: 1000; padding: 20px; overflow-y: auto;
+      backdrop-filter: blur(5px);
+    }
+    .modal-back.open {
+      display: flex; align-items: center; justify-content: center;
+    }
+    .modal {
+      background: var(--background); border: 3px solid var(--border);
+      border-radius: var(--radius-lg); box-shadow: 8px 8px 0 0 var(--border);
+      max-width: 480px; width: 100%; padding: 26px; position: relative;
+      animation: popin .25s cubic-bezier(.34,1.56,.64,1);
+    }
+    @keyframes popin {
+      from { transform: scale(.92) translateY(14px); opacity: 0; }
+      to { transform: scale(1) translateY(0); opacity: 1; }
+    }
+    .modal-x {
+      position: absolute; top: 14px; right: 14px; width: 34px; height: 34px;
+      border-radius: var(--radius-base); border: 2px solid var(--border);
+      background: var(--background); cursor: pointer; box-shadow: var(--shadow-sm);
+      display: flex; align-items: center; justify-content: center; font-size: 16px;
+    }
+    .modal-x:hover { background: var(--red); }
+
+    /* Toast */
+    .toast {
+      position: fixed; left: 50%; bottom: 24px; transform: translate(-50%, 20px);
+      background: var(--ink-900); color: #fff; padding: 12px 22px; border-radius: var(--radius-base);
+      border: 2px solid var(--border); box-shadow: 4px 4px 0 #000;
+      opacity: 0; pointer-events: none; transition: all .25s ease; z-index: 2000;
+      max-width: calc(100vw - 40px); text-align: center; font-family: var(--font-itim);
+      font-size: 15px; font-weight: 700;
+    }
+    .toast.show { opacity: 1; transform: translate(-50%, 0); }
+  
+  /* ========================================================
+     CHẾ ĐỘ SÁNG / TỐI (LIGHT / DARK THEME) - NEO-BRUTALISM CHUẨN
+     ======================================================== */
+  [data-theme="dark"] {
+    --paper-0: #18181b;
+    --paper-1: #24242b;
+    --ink-900: #fafafa;
+    --ink-700: #e4e4e7;
+    --ink-500: #a1a1aa;
+    --ink-300: #52525b;
+    --main-hi: #ffd94a;
+    --background: #0d0d11;
+    --border: #444452;
+    --shadow: 4px 4px 0 0 #000000;
+    --shadow-sm: 2px 2px 0 0 #000000;
+    --shadow-lg: 6px 6px 0 0 #000000;
+  }
+
+  [data-theme="dark"] body {
+    background-color: var(--background) !important;
+    background-image:
+      linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px) !important;
+    color: #fafafa !important;
+  }
+
+  [data-theme="dark"] h1,
+  [data-theme="dark"] h2,
+  [data-theme="dark"] h3,
+  [data-theme="dark"] h4 {
+    color: #fafafa;
+  }
+
+  [data-theme="dark"] p {
+    color: #e4e4e7;
+  }
+
+  /* Topbar & Thương hiệu */
+  [data-theme="dark"] .topbar {
+    background: #16161b !important;
+    border-bottom: 3px solid var(--border) !important;
+  }
+
+  [data-theme="dark"] .brand-word {
+    color: #fafafa !important;
+  }
+
+  [data-theme="dark"] .status-clock-badge {
+    background: #222229 !important;
+    border-color: var(--border) !important;
+    color: #fafafa !important;
+  }
+
+  [data-theme="dark"] .status-text-label,
+  [data-theme="dark"] .digital-clock-val {
+    color: #fafafa !important;
+  }
+
+  [data-theme="dark"] .tz-badge {
+    background: #18181b !important;
+    border-color: var(--border) !important;
+    color: #a1a1aa !important;
+  }
+
+  /* Bộ chọn ngôn ngữ */
+  [data-theme="dark"] .lang-toggle-btn {
+    background: #222229 !important;
+    border-color: var(--border) !important;
+    color: #fafafa !important;
+  }
+
+  [data-theme="dark"] .lang-menu {
+    background: #1e1e26 !important;
+    border-color: var(--border) !important;
+    box-shadow: 4px 4px 0 0 #000000 !important;
+  }
+
+  [data-theme="dark"] .lang-item {
+    color: #e4e4e7 !important;
+  }
+
+  [data-theme="dark"] .lang-item:hover {
+    background: #2d2d3a !important;
+    color: #ffffff !important;
+  }
+
+  [data-theme="dark"] .lang-item.active {
+    background: var(--main-hi) !important;
+    color: #111111 !important;
+  }
+
+  /* NÚT BẤM (BUTTONS) - KHẮC PHỤC TRIỆT ĐỂ CHỮ TRẮNG NỀN TRẮNG */
+  [data-theme="dark"] .btn-dark {
+    background: var(--main-hi) !important;
+    color: #111111 !important;
+    border-color: var(--main-hi) !important;
+    box-shadow: var(--shadow-sm) !important;
+  }
+
+  [data-theme="dark"] .btn-dark:hover {
+    background: #facc15 !important;
+    color: #000000 !important;
+    border-color: #facc15 !important;
+  }
+
+  [data-theme="dark"] .btn-dark * {
+    color: #111111 !important;
+  }
+
+  [data-theme="dark"] .btn-ghost {
+    background: #22222a !important;
+    color: #fafafa !important;
+    border-color: var(--border) !important;
+  }
+
+  [data-theme="dark"] .btn-ghost:hover {
+    background: #2e2e38 !important;
+    color: #ffffff !important;
+  }
+
+  [data-theme="dark"] .btn-ghost * {
+    color: #fafafa !important;
+  }
+
+  /* THẺ NỘI DUNG (NEO-CARDS) */
+  [data-theme="dark"] .neo-card {
+    background: #18181f !important;
+    border-color: var(--border) !important;
+    box-shadow: 4px 4px 0 0 #000000 !important;
+  }
+
+  [data-theme="dark"] .neo-card:hover {
+    box-shadow: 6px 6px 0 0 #000000 !important;
+    border-color: #68687a !important;
+  }
+
+  [data-theme="dark"] .card-title {
+    color: #fafafa !important;
+  }
+
+  [data-theme="dark"] .card-desc {
+    color: #d4d4d8 !important;
+  }
+
+  [data-theme="dark"] .card-subtext {
+    color: #a1a1aa !important;
+  }
+
+  [data-theme="dark"] .card-bottom {
+    border-top-color: #3b3b48 !important;
+  }
+
+  [data-theme="dark"] .card-status-badge {
+    background: #22222a !important;
+    color: #fafafa !important;
+    border-color: var(--border) !important;
+  }
+
+  /* KHỐI CHỨNG CHỈ P12 FLAGSHIP (VNTCERT) */
+  [data-theme="dark"] .card-featured {
+    background: #181820 !important;
+    border-color: var(--border) !important;
+    box-shadow: var(--shadow-lg) !important;
+  }
+
+  [data-theme="dark"] .card-featured h2 {
+    color: #fafafa !important;
+  }
+
+  [data-theme="dark"] .card-featured p {
+    color: #e4e4e7 !important;
+  }
+
+  [data-theme="dark"] .card-featured .hl {
+    background: #2a2a36 !important;
+    color: #fbbf24 !important;
+    border-color: var(--border) !important;
+  }
+
+  [data-theme="dark"] .card-featured div[style*="background:rgba(255,255,255,0.9)"] {
+    background: #22222a !important;
+    border-color: var(--border) !important;
+    color: #fafafa !important;
+  }
+
+  [data-theme="dark"] .card-featured div[style*="background:rgba(255,255,255,0.9)"] span {
+    color: #fafafa !important;
+  }
+
+  [data-theme="dark"] .card-featured div[style*="background:#fff"],
+  [data-theme="dark"] .card-featured div[style*="background: #fff"],
+  [data-theme="dark"] .card-featured span[style*="background:#fff"],
+  [data-theme="dark"] .card-featured span[style*="background: #fff"] {
+    background: #24242e !important;
+    border-color: var(--border) !important;
+    color: #fafafa !important;
+  }
+
+  [data-theme="dark"] .card-featured div[style*="background:var(--paper-1)"] {
+    background: #1f1f27 !important;
+    border-color: var(--border) !important;
+  }
+
+  /* KHỐI DONATE & NGÂN HÀNG (SUPPORT SECTION) */
+  [data-theme="dark"] #support .neo-card {
+    background: #181820 !important;
+    border-color: var(--border) !important;
+  }
+
+  [data-theme="dark"] #support .neo-card h2 {
+    color: #fafafa !important;
+  }
+
+  [data-theme="dark"] #support .neo-card p {
+    color: #e4e4e7 !important;
+  }
+
+  [data-theme="dark"] .bank-box {
+    background: #1f1f28 !important;
+    border-color: var(--border) !important;
+    color: #fafafa !important;
+    box-shadow: 4px 4px 0 0 #000000 !important;
+  }
+
+  [data-theme="dark"] .bank-row {
+    border-bottom-color: #383846 !important;
+  }
+
+  [data-theme="dark"] .bank-label {
+    color: #a1a1aa !important;
+  }
+
+  [data-theme="dark"] .bank-val {
+    color: #fafafa !important;
+  }
+
+  [data-theme="dark"] .bank-stk {
+    color: #fb7185 !important; /* Đỏ san hô sắc nét dễ nhìn */
+  }
+
+  /* CÁC THẺ TAG CÔNG NGHỆ (ABOUT SECTION) */
+  [data-theme="dark"] .about-box {
+    background: #181820 !important;
+    border-color: var(--border) !important;
+  }
+
+  [data-theme="dark"] .about-box p {
+    color: #d4d4d8 !important;
+  }
+
+  [data-theme="dark"] .tech-tag {
+    background: #24242e !important;
+    border-color: var(--border) !important;
+    color: #fafafa !important;
+  }
+
+  /* PHẦN CHÂN TRANG & MENU MOBILE */
+  [data-theme="dark"] .sec-badge {
+    background: #202028 !important;
+    border-color: var(--border) !important;
+    color: #fbbf24 !important;
+  }
+
+  [data-theme="dark"] .marquee {
+    background: #121217 !important;
+    border-color: var(--border) !important;
+    color: #ffd94a !important;
+  }
+
+  [data-theme="dark"] .footer {
+    background: #121216 !important;
+    border-color: var(--border) !important;
+  }
+
+  [data-theme="dark"] .footer a {
+    color: #d4d4d8 !important;
+  }
+
+  [data-theme="dark"] .drawer {
+    background: #18181e !important;
+    border-color: var(--border) !important;
+  }
+
+  [data-theme="dark"] .drawer-header {
+    border-color: var(--border) !important;
+    color: #fafafa !important;
+  }
+
+  [data-theme="dark"] .modal {
+    background: #1c1c24 !important;
+    border-color: var(--border) !important;
+    color: #fafafa !important;
+    box-shadow: 8px 8px 0 0 #000000 !important;
+  }
+
+  /* Nút chuyển theme */
+  .theme-toggle-btn {
+    font-family: var(--font-mono) !important;
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 36px; height: 36px;
+    background: var(--paper-0);
+    border: 2px solid var(--border);
+    border-radius: var(--radius-base);
+    box-shadow: var(--shadow-sm);
+    cursor: pointer;
+    color: var(--ink-900);
+    font-size: 15px;
+    transition: transform .14s cubic-bezier(.34,1.56,.64,1), box-shadow .14s ease, background .2s ease, color .2s ease;
+  }
+
+  .theme-toggle-btn:hover {
+    transform: translate(-1px, -1px);
+    box-shadow: 3px 3px 0 var(--border);
+  }
+
+  .theme-toggle-btn:active {
+    transform: translate(1px, 1px);
+    box-shadow: 1px 1px 0 var(--border);
+  }
+
+  [data-theme="dark"] .theme-toggle-btn {
+    background: #24242b !important;
+    color: #fde047 !important;
+    border-color: var(--border) !important;
+    box-shadow: 2px 2px 0 0 #000000 !important;
+  }
+</style>
+<script>
+  (function() {
+    const saved = localStorage.getItem('vnt_theme');
+    const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    document.documentElement.setAttribute('data-theme', saved ? saved : (prefersDark ? 'dark' : 'light'));
+  })();
+</script>
+</head>
+
+<body>
+  <!-- Floating background orbs -->
+  <div class="bg-orbs" aria-hidden="true">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+  <!-- Audio Element -->
+  <audio id="bgMusic" preload="auto"></audio>
+
+  <!-- Sticky Topbar -->
+  <header class="topbar">
+    <a class="brand" href="#home">
+      <img src="images/profile.jpg" alt="VNT Tricks Avatar" class="brand-avatar" onerror="this.src='https://ui-avatars.com/api/?name=VNT&background=ffd94a&color=111'">
+      <span class="brand-word">VNT <span class="brand-cam">TRICKS</span></span>
+    </a>
+
+    <!-- Desktop Navigation -->
+    <nav class="topbar-center">
+      <a class="btn btn-ghost btn-sm" href="#home" data-i18n="nav_home"><i class="fas fa-home"></i> Trang Chủ</a>
+      <a class="btn btn-dark btn-sm" href="#vntcert" data-i18n="nav_cert" style="background:#111;color:#ffd94a;border:2px solid #111;"><i class="fas fa-certificate" style="color:#ffd94a"></i> Chứng Chỉ P12 <span style="background:#ef4444;color:#fff;padding:1px 5px;border-radius:3px;font-size:10px;margin-left:4px;font-family:var(--font-mono);">HOT</span></a>
+      <a class="btn btn-ghost btn-sm" href="#community" data-i18n="nav_community"><i class="fas fa-users"></i> Cộng Đồng</a>
+      <a class="btn btn-ghost btn-sm" href="#services" data-i18n="nav_services"><i class="fas fa-star"></i> Dịch Vụ</a>
+      <a class="btn btn-ghost btn-sm" href="#development" data-i18n="nav_dev"><i class="fas fa-code"></i> Dự Án</a>
+      <a class="btn btn-ghost btn-sm" href="#social" data-i18n="nav_social"><i class="fas fa-share-alt"></i> Mạng Xã Hội</a>
+      <a class="btn btn-gold btn-sm" href="#support" data-i18n="nav_donate"><i class="fas fa-heart" style="color:#e11d48"></i> Donate</a>
+    </nav>
+
+    <!-- Topbar Right: Status/Clock & Language Switcher -->
+    <div class="topbar-right">
+      <!-- Live Clock & Status Badge -->
+      <div class="status-clock-badge" title="Giờ địa phương Việt Nam (UTC+7)">
+        <span class="status-live-dot"></span>
+        <span class="status-text-label" data-i18n="status_online">TRỰC TUYẾN</span>
+        <span class="status-sep">|</span>
+        <i class="far fa-clock" style="font-size:12px;color:var(--ink-700)"></i>
+        <span class="digital-clock-val" id="digitalClock">12:00:00</span>
+        <span class="tz-badge">UTC+7</span>
+      </div>
+
+      <!-- Language Switcher Dropdown -->
+      
+      <!-- Theme Switcher Button -->
+      <button class="theme-toggle-btn" id="themeToggleBtn" onclick="toggleTheme()" aria-label="Chế độ Sáng / Tối" title="Chuyển chế độ Sáng / Tối">
+        <i class="fas fa-moon theme-toggle-icon"></i>
+      </button>
+
+      <div class="lang-wrapper" id="langWrapper">
+        <button class="lang-toggle-btn" onclick="toggleLangDropdown(event)" aria-label="Bộ chọn ngôn ngữ" title="Đổi ngôn ngữ">
+          <i class="fas fa-globe"></i>
+          <span id="currentLangLabel">VI</span>
+          <i class="fas fa-chevron-down lang-chevron"></i>
+        </button>
+        <div class="lang-menu" id="langMenu" role="listbox">
+          <div class="lang-item active" data-lang="vi" onclick="setLanguage('vi')">
+            <span>Tiếng Việt</span>
+            <span class="lang-item-code">[VI]</span>
+          </div>
+          <div class="lang-item" data-lang="en" onclick="setLanguage('en')">
+            <span>English</span>
+            <span class="lang-item-code">[EN]</span>
+          </div>
+          <div class="lang-item" data-lang="id" onclick="setLanguage('id')">
+            <span>Indonesia</span>
+            <span class="lang-item-code">[ID]</span>
+          </div>
+          <div class="lang-item" data-lang="zh" onclick="setLanguage('zh')">
+            <span>简体中文</span>
+            <span class="lang-item-code">[中文]</span>
+          </div>
+          <div class="lang-item" data-lang="pt" onclick="setLanguage('pt')">
+            <span>Português</span>
+            <span class="lang-item-code">[PT-BR]</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <button class="btn btn-ghost btn-sm mobile-menu-btn" onclick="toggleDrawer()" aria-label="Mở menu">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Overlay & Menu -->
+  <div class="drawer-overlay" id="drawerOverlay" onclick="toggleDrawer()"></div>
+  <aside class="drawer" id="mobileDrawer">
+    <div class="drawer-header">
+      <span data-i18n="drawer_title">Menu Điều Hướng</span>
+      <button class="modal-x" style="position:static" onclick="toggleDrawer()"><i class="fas fa-times"></i></button>
+    </div>
+
+    <!-- Mobile Theme Switcher -->
+    <div style="display:flex;align-items:center;justify-content:space-between;background:var(--paper-0);border:2px solid var(--border);border-radius:var(--radius-base);padding:8px 12px;margin-bottom:10px;box-shadow:var(--shadow-sm);">
+      <span style="font-weight:700;font-size:14px;"><i class="fas fa-adjust" style="margin-right:6px"></i>Giao diện:</span>
+      <button class="btn btn-sm btn-ghost" onclick="toggleTheme()" style="padding:4px 10px;font-size:13px;display:inline-flex;align-items:center;gap:6px;">
+        <i class="fas fa-moon theme-toggle-icon"></i>
+        <span id="mobileThemeLabel">Sáng / Tối</span>
+      </button>
+    </div>
+
+
+    <!-- Mobile Drawer Live Clock & Language Picker -->
+    <div style="background:#fff;border:2px solid var(--border);border-radius:var(--radius-base);padding:10px;margin-bottom:6px;box-shadow:var(--shadow-sm);">
+      <div class="status-clock-badge" style="display:flex;justify-content:center;border:none;box-shadow:none;padding:2px 0 8px 0;border-bottom:1px dashed var(--ink-300);margin-bottom:8px;">
+        <span class="status-live-dot"></span>
+        <span class="status-text-label" data-i18n="status_online">TRỰC TUYẾN</span>
+        <span class="status-sep">|</span>
+        <i class="far fa-clock" style="font-size:12px;"></i>
+        <span class="digital-clock-val drawer-clock">12:00:00</span>
+        <span class="tz-badge">UTC+7</span>
+      </div>
+      <div style="font-size:12px;font-weight:700;color:var(--ink-500);margin-bottom:6px;text-align:center;font-family:var(--font-mono);">CHỌN NGÔN NGỮ / LANGUAGE:</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;">
+        <button class="btn btn-sm btn-ghost" style="font-size:12px;padding:5px 8px;" onclick="setLanguage('vi')">🇻🇳 Tiếng Việt</button>
+        <button class="btn btn-sm btn-ghost" style="font-size:12px;padding:5px 8px;" onclick="setLanguage('en')">🇬🇧 English</button>
+        <button class="btn btn-sm btn-ghost" style="font-size:12px;padding:5px 8px;" onclick="setLanguage('id')">🇮🇩 Indonesia</button>
+        <button class="btn btn-sm btn-ghost" style="font-size:12px;padding:5px 8px;" onclick="setLanguage('zh')">🇨🇳 简体中文</button>
+        <button class="btn btn-sm btn-ghost" style="grid-column:span 2;font-size:12px;padding:5px 8px;" onclick="setLanguage('pt')">🇧🇷 Português</button>
+      </div>
+    </div>
+    <a class="btn btn-ghost" href="#home" onclick="toggleDrawer()" data-i18n="nav_home"><i class="fas fa-home"></i> Trang Chủ</a>
+    <a class="btn btn-dark" href="#vntcert" onclick="toggleDrawer()" data-i18n="nav_cert" style="background:#111;color:#ffd94a;"><i class="fas fa-certificate" style="color:#ffd94a"></i> Mua Chứng Chỉ P12 <span style="background:#ef4444;color:#fff;padding:1px 6px;border-radius:3px;font-size:11px;margin-left:6px;font-family:var(--font-mono);">HOT</span></a>
+    <a class="btn btn-ghost" href="#community" onclick="toggleDrawer()" data-i18n="nav_community"><i class="fas fa-users"></i> Cộng Đồng</a>
+    <a class="btn btn-ghost" href="#services" onclick="toggleDrawer()" data-i18n="nav_services"><i class="fas fa-star"></i> Dịch Vụ</a>
+    <a class="btn btn-ghost" href="#development" onclick="toggleDrawer()" data-i18n="nav_dev"><i class="fas fa-code"></i> Dự Án &amp; Phát Triển</a>
+    <a class="btn btn-ghost" href="#social" onclick="toggleDrawer()" data-i18n="nav_social"><i class="fas fa-share-alt"></i> Mạng Xã Hội</a>
+    <a class="btn btn-gold" href="#support" onclick="toggleDrawer()" data-i18n="nav_donate"><i class="fas fa-heart" style="color:#e11d48"></i> Ủng Hộ / Donate</a>
+    <a class="btn btn-ghost" href="#about" onclick="toggleDrawer()" data-i18n="nav_about"><i class="fas fa-info-circle"></i> Về Nghiên Cứu</a>
+  </aside>
+
+  <main>
+    <!-- HERO SECTION (#home) -->
+    <section id="home" class="hero">
+      <div class="hero-avatar-wrap">
+        <img src="images/profile.jpg" alt="VNT Tricks Avatar" class="hero-avatar" onerror="this.src='https://ui-avatars.com/api/?name=VNT+Tricks&size=200&background=ffd94a&color=111'">
+        <span class="hero-badge-tag">APPLE RESEARCH</span>
+      </div>
+
+      <div class="pill-live">
+        <span class="dot"></span> <span data-i18n="hero_pill">HOẠT ĐỘNG TỐT • ALL SYSTEMS NOMINAL</span>
+      </div>
+
+      <h1>VNT Tricks <span class="hl">Apple Security Research</span></h1>
+      
+      <p class="lead">
+        <strong data-i18n="hero_sub1">Independent iOS Security Research &amp; Education</strong><br>
+        <span data-i18n="hero_sub2">Khám phá hệ sinh thái Apple, nghiên cứu bảo mật iOS, tinh chỉnh hệ điều hành và phát triển các tiện ích cộng đồng.</span>
+      </p>
+
+      <div class="hero-actions">
+        <a class="btn btn-gold btn-lg" href="#community" data-i18n="hero_btn_comm"><i class="fas fa-users"></i> Tham Gia Cộng Đồng</a>
+        <a class="btn btn-dark btn-lg" href="#support" data-i18n="hero_btn_donate"><i class="fas fa-hand-holding-heart"></i> Donate Dự Án</a>
+        <a class="btn btn-ghost btn-lg" href="https://www.tiktok.com/@truong_2099?_t=ZS-90asY1eqRID&_r=1" target="_blank" rel="noopener noreferrer"><i class="fab fa-tiktok"></i> TikTok</a>
+      </div>
+    </section>
+
+    <!-- MARQUEE TICKER (STYLE MATCHED TO TEMP-MAIL) -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track">
+        <span><i class="fas fa-shield-alt"></i> <span data-i18n="mq_1">BẢO MẬT TUYỆT ĐỐI</span></span>
+        <span><i class="fas fa-bolt"></i> <span data-i18n="mq_2">SIÊU TỐC</span></span>
+        <span><i class="fab fa-apple"></i> APPLE ECOSYSTEM RESEARCH</span>
+        <span><i class="fas fa-code"></i> IOS TWEAKS &amp; TOOLS</span>
+        <span><i class="fas fa-user-shield"></i> <span data-i18n="mq_3">BẢO VỆ QUYỀN RIÊNG TƯ</span></span>
+        <span><i class="fas fa-crown"></i> LOCKET GOLD SERVICE</span>
+        <span><i class="fas fa-envelope"></i> TEMP MAIL VASNET360</span>
+        <!-- Duplicated for continuous loop -->
+        <span><i class="fas fa-shield-alt"></i> <span data-i18n="mq_1">BẢO MẬT TUYỆT ĐỐI</span></span>
+        <span><i class="fas fa-bolt"></i> <span data-i18n="mq_2">SIÊU TỐC</span></span>
+        <span><i class="fab fa-apple"></i> APPLE ECOSYSTEM RESEARCH</span>
+        <span><i class="fas fa-code"></i> IOS TWEAKS &amp; TOOLS</span>
+        <span><i class="fas fa-user-shield"></i> <span data-i18n="mq_3">BẢO VỆ QUYỀN RIÊNG TƯ</span></span>
+        <span><i class="fas fa-crown"></i> LOCKET GOLD SERVICE</span>
+        <span><i class="fas fa-envelope"></i> TEMP MAIL VASNET360</span>
+      </div>
+    </div>
+
+        <!-- FEATURED FLAGSHIP SECTION: VNTCERT.CLICK (#vntcert) -->
+    <section id="vntcert" class="section" style="padding-top:20px;">
+      <div class="section-head" style="border-bottom:3px solid var(--border);">
+        <div class="sec-badge" style="color:#b45309;">
+          <span class="num-pill" style="background:#ff5722;color:#fff;"><i class="fas fa-star"></i> DỊCH VỤ TRỌNG TÂM</span>
+          <span data-i18n="cert_sec_badge">VNTCERT.CLICK • MUA BÁN CHỨNG CHỈ APPLE P12</span>
+        </div>
+        <span class="sec-hex" style="color:#b45309;font-weight:700;">//HOT-FLAGSHIP</span>
+      </div>
+
+      <!-- High-Impact Neo-brutalism Showcase Banner -->
+      <div class="neo-card card-featured" style="background:linear-gradient(135deg, #ffd94a 0%, #ffeaa7 100%);border:3px solid var(--border);box-shadow:var(--shadow-lg);padding:clamp(20px, 4vw, 36px);margin-bottom:28px;">
+        <div style="display:grid;grid-template-columns:1fr;gap:28px;" class="vntcert-grid">
+          
+          <!-- Left Column: Information, Highlights & CTAs -->
+          <div>
+            <div style="display:inline-flex;align-items:center;gap:8px;background:#fff;border:2px solid var(--border);border-radius:var(--radius-base);padding:4px 12px;font-size:13px;font-weight:700;box-shadow:var(--shadow-sm);margin-bottom:12px;font-family:var(--font-mono);">
+              <i class="fab fa-apple" style="font-size:16px;color:#111;"></i>
+              <span data-i18n="cert_tag">APPLE CERTIFICATE P12 &amp; MOBILEPROVISION</span>
+            </div>
+
+            <h2 style="font-size:clamp(26px, 4.5vw, 42px);margin:0 0 10px;line-height:1.2;color:var(--ink-900);">
+              <span data-i18n="cert_title">Chứng Chỉ Apple P12 Cho iPhone &amp; iPad</span><br>
+              <span class="hl" data-i18n="cert_highlight" style="background:#fff;border-color:var(--border);color:#d9381e;margin-top:6px;">Cài Mọi App IPA • Không Cần Jailbreak</span>
+            </h2>
+
+            <p style="font-size:clamp(15px, 2vw, 17px);color:var(--ink-700);line-height:1.65;margin:12px 0 20px;" data-i18n="cert_desc">
+              Hệ thống bán chứng chỉ Apple cá nhân (file .p12 + .mobileprovision) tự động 24/7. Ký và cài ứng dụng ngoài App Store với ESign, GBox, Scarlet, mở khóa mọi thiết bị dính Blacklist/Ban, bảo hành uy tín lên đến 300 ngày.
+            </p>
+
+            <!-- Feature Badges Grid -->
+            <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(200px, 1fr));gap:10px;margin-bottom:24px;">
+              <div style="background:rgba(255,255,255,0.9);border:1.5px solid var(--border);border-radius:var(--radius-base);padding:8px 12px;display:flex;align-items:center;gap:8px;font-size:14px;font-weight:700;box-shadow:var(--shadow-sm);">
+                <span style="color:#22c55e;"><i class="fas fa-bolt"></i></span> <span data-i18n="cert_f1">Cấp tự động 24/7 (Có ngay)</span>
+              </div>
+              <div style="background:rgba(255,255,255,0.9);border:1.5px solid var(--border);border-radius:var(--radius-base);padding:8px 12px;display:flex;align-items:center;gap:8px;font-size:14px;font-weight:700;box-shadow:var(--shadow-sm);">
+                <span style="color:#3b82f6;"><i class="fas fa-shield-alt"></i></span> <span data-i18n="cert_f2">Kiểm tra Apple OCSP trực tiếp</span>
+              </div>
+              <div style="background:rgba(255,255,255,0.9);border:1.5px solid var(--border);border-radius:var(--radius-base);padding:8px 12px;display:flex;align-items:center;gap:8px;font-size:14px;font-weight:700;box-shadow:var(--shadow-sm);">
+                <span style="color:#e11d48;"><i class="fas fa-qrcode"></i></span> <span data-i18n="cert_f3">Nạp VietQR tự động cộng tiền</span>
+              </div>
+              <div style="background:rgba(255,255,255,0.9);border:1.5px solid var(--border);border-radius:var(--radius-base);padding:8px 12px;display:flex;align-items:center;gap:8px;font-size:14px;font-weight:700;box-shadow:var(--shadow-sm);">
+                <span style="color:#a855f7;"><i class="fas fa-unlock-alt"></i></span> <span data-i18n="cert_f4">Mở khóa thiết bị Blacklist / Ban</span>
+              </div>
+              <div style="background:rgba(255,255,255,0.9);border:1.5px solid var(--border);border-radius:var(--radius-base);padding:8px 12px;display:flex;align-items:center;gap:8px;font-size:14px;font-weight:700;box-shadow:var(--shadow-sm);">
+                <span style="color:#f59e0b;"><i class="fas fa-calendar-check"></i></span> <span data-i18n="cert_f5">Thời hạn 365 ngày toàn quyền</span>
+              </div>
+              <div style="background:rgba(255,255,255,0.9);border:1.5px solid var(--border);border-radius:var(--radius-base);padding:8px 12px;display:flex;align-items:center;gap:8px;font-size:14px;font-weight:700;box-shadow:var(--shadow-sm);">
+                <span style="color:#06b6d4;"><i class="fas fa-mobile-alt"></i></span> <span data-i18n="cert_f6">Làm 100% trên iPhone, không cần PC</span>
+              </div>
+            </div>
+
+            <!-- Price & Package Summary Tags -->
+            <div style="background:var(--paper-1);border:2px solid var(--border);border-radius:var(--radius-base);padding:14px;margin-bottom:24px;box-shadow:var(--shadow-sm);">
+              <div style="font-size:13px;font-weight:700;color:var(--ink-500);text-transform:uppercase;margin-bottom:8px;font-family:var(--font-mono);display:flex;align-items:center;justify-content:space-between;">
+                <span data-i18n="cert_pkg_title">CÁC GÓI CHỨNG CHỈ ĐANG BÁN:</span>
+                <span style="color:#22c55e;"><i class="fas fa-circle" style="font-size:8px;"></i> SẴN HÀNG</span>
+              </div>
+              <div style="display:flex;gap:8px;flex-wrap:wrap;">
+                <span style="background:#fff;border:1.5px solid var(--border);border-radius:4px;padding:4px 10px;font-size:13px;font-weight:700;box-shadow:2px 2px 0 var(--border);">UNBAN: <strong>50.000đ</strong></span>
+                <span style="background:#fff;border:1.5px solid var(--border);border-radius:4px;padding:4px 10px;font-size:13px;font-weight:700;box-shadow:2px 2px 0 var(--border);">Basic (BH 30 ngày): <strong>70.000đ</strong></span>
+                <span style="background:#fff;border:1.5px solid var(--border);border-radius:4px;padding:4px 10px;font-size:13px;font-weight:700;box-shadow:2px 2px 0 var(--border);">Plus (BH 180 ngày): <strong>140.000đ</strong></span>
+                <span style="background:#fff;border:1.5px solid var(--border);border-radius:4px;padding:4px 10px;font-size:13px;font-weight:700;box-shadow:2px 2px 0 var(--border);color:#d9381e;">Premium (BH 300 ngày): <strong>299.000đ</strong></span>
+              </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:center;">
+              <a href="https://vntcert.click/" target="_blank" rel="noopener noreferrer" class="btn btn-dark btn-lg" style="background:#111;color:#ffd94a;border:2.5px solid #111;font-size:17px;box-shadow:5px 5px 0 0 #000;">
+                <i class="fas fa-shopping-cart"></i> <span data-i18n="cert_btn_buy">MUA CHỨNG CHỈ TẠI VNTCERT.CLICK</span> <i class="fas fa-arrow-up-right-from-square"></i>
+              </a>
+              <a href="https://vntcert.click/check" target="_blank" rel="noopener noreferrer" class="btn btn-ghost btn-lg" style="border:2.5px solid var(--border);">
+                <i class="fas fa-search"></i> <span data-i18n="cert_btn_check">Kiểm Tra Đơn / Nhận Hàng</span>
+              </a>
+              <a href="https://t.me/ngoctruong_store" target="_blank" rel="noopener noreferrer" class="btn btn-blue btn-lg" style="border:2.5px solid var(--border);">
+                <i class="fab fa-telegram-plane"></i> <span data-i18n="cert_btn_support">Hỗ Trợ Admin</span>
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- 01 / PROFILE OVERVIEW -->
+    <section class="section">
+      <div class="section-head">
+        <div class="sec-badge">
+          <span class="num-pill">01</span> <span data-i18n="sec_01">PROFILE OVERVIEW</span>
+        </div>
+        <span class="sec-hex">//0x01</span>
+      </div>
+
+      <div class="cards-grid">
+        <div class="neo-card">
+          <div>
+            <div class="card-top">
+              <div class="card-icon-box icon-gold"><i class="fab fa-apple"></i></div>
+              <div class="card-info">
+                <div class="card-title" data-i18n="c1_title">iOS Security Research</div>
+                <div class="card-desc" data-i18n="c1_desc">Nghiên cứu độc lập về kiến trúc bảo mật iOS, sandbox, kernel, và các phương thức tối ưu hóa hệ thống.</div>
+              </div>
+            </div>
+          </div>
+          <div class="card-bottom">
+            <span class="card-status-badge"><i class="fas fa-check-circle" style="color:#22c55e"></i> <span data-i18n="badge_active">Hoạt động</span></span>
+            <span class="card-subtext">Apple Ecosystem</span>
+          </div>
+        </div>
+
+        <div class="neo-card">
+          <div>
+            <div class="card-top">
+              <div class="card-icon-box icon-blue"><i class="fas fa-tools"></i></div>
+              <div class="card-info">
+                <div class="card-title" data-i18n="c2_title">Tools &amp; Tweaks</div>
+                <div class="card-desc" data-i18n="c2_desc">Xây dựng và duy trì các công cụ tinh chỉnh: WorkSlop, Temp Mail, hệ thống bypass và chia sẻ file IPA.</div>
+              </div>
+            </div>
+          </div>
+          <div class="card-bottom">
+            <span class="card-status-badge"><i class="fas fa-sync-alt" style="color:#3b82f6"></i> <span data-i18n="badge_update">Liên tục update</span></span>
+            <span class="card-subtext">Desktop &amp; Web</span>
+          </div>
+        </div>
+
+        <div class="neo-card">
+          <div>
+            <div class="card-top">
+              <div class="card-icon-box icon-purple"><i class="fas fa-heart"></i></div>
+              <div class="card-info">
+                <div class="card-title" data-i18n="c3_title">Cộng Đồng &amp; Chia Sẻ</div>
+                <div class="card-desc" data-i18n="c3_desc">Kênh Telegram, Zalo, TikTok với hàng chục ngàn anh em chia sẻ kinh nghiệm sử dụng iPhone và iPad an toàn.</div>
+              </div>
+            </div>
+          </div>
+          <div class="card-bottom">
+            <span class="card-status-badge"><i class="fas fa-users" style="color:#a855f7"></i> 10K+ Member</span>
+            <span class="card-subtext">Free Community</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 02 / CỘNG ĐỒNG CỦA TÔI (#community) -->
+    <section id="community" class="section">
+      <div class="section-head">
+        <div class="sec-badge">
+          <span class="num-pill">02</span> <span data-i18n="sec_02">CỘNG ĐỒNG CỦA TÔI</span>
+        </div>
+        <span class="sec-hex">//0x02</span>
+      </div>
+
+      <!-- Accordion Toggle Button -->
+      <button class="accordion-toggle open" id="commToggleBtn" onclick="toggleCommunityList()">
+        <div class="accordion-toggle-title">
+          <span class="card-icon-box icon-gold" style="width:40px;height:40px;font-size:18px"><i class="fas fa-users"></i></span>
+          <span data-i18n="comm_all_btn">TẤT CẢ CỘNG ĐỒNG VNT TRICKS</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:10px">
+          <span class="card-status-badge" data-i18n="comm_count_badge">8 Nhóm Hoạt Động</span>
+          <i class="fas fa-chevron-down accordion-icon-spin" id="commChevron"></i>
+        </div>
+      </button>
+
+      <!-- Community Grid -->
+      <div class="cards-grid-2" id="communityGrid">
+        <!-- Telegram Channel -->
+        <div class="neo-card">
+          <div>
+            <div class="card-top">
+              <div class="card-icon-box icon-blue"><i class="fab fa-telegram-plane"></i></div>
+              <div class="card-info">
+                <div class="card-title" data-i18n="tg_ch_title">Kênh Telegram Mẹo &amp; Trick</div>
+                <div class="card-desc" data-i18n="tg_ch_desc">Cập nhật nhanh nhất mẹo iOS, thông tin jailbreak, sideload và thủ thuật độc quyền.</div>
+                <div class="card-subtext">t.me/trickvnt</div>
+              </div>
+            </div>
+          </div>
+          <div class="card-bottom">
+            <button class="btn btn-ghost btn-sm" onclick="copyToClipboard('https://t.me/trickvnt', 'Đã copy link Telegram Channel!')"><i class="fas fa-copy"></i> Copy</button>
+            <a class="btn btn-dark btn-sm" href="https://t.me/trickvnt" target="_blank" rel="noopener noreferrer"><span data-i18n="btn_open">MỞ LIÊN KẾT</span> <i class="fas fa-external-link-alt"></i></a>
+          </div>
+        </div>
+
+        <!-- Telegram Chat -->
+        <div class="neo-card">
+          <div>
+            <div class="card-top">
+              <div class="card-icon-box icon-blue"><i class="fas fa-comments"></i></div>
+              <div class="card-info">
+                <div class="card-title" data-i18n="tg_chat_title">Box Telegram Giao Lưu Mẹo</div>
+                <div class="card-desc" data-i18n="tg_chat_desc">Nhóm chat cộng đồng hỏi đáp kỹ thuật, hỗ trợ sửa lỗi iOS và chia sẻ kinh nghiệm.</div>
+                <div class="card-subtext">t.me/trickvntchat</div>
+              </div>
+            </div>
+          </div>
+          <div class="card-bottom">
+            <button class="btn btn-ghost btn-sm" onclick="copyToClipboard('https://t.me/trickvntchat', 'Đã copy link Telegram Chat!')"><i class="fas fa-copy"></i> Copy</button>
+            <a class="btn btn-dark btn-sm" href="https://t.me/trickvntchat" target="_blank" rel="noopener noreferrer"><span data-i18n="btn_open">MỞ LIÊN KẾT</span> <i class="fas fa-external-link-alt"></i></a>
+          </div>
+        </div>
+
+        <!-- TikTok Group 1 -->
+        <div class="neo-card">
+          <div>
+            <div class="card-top">
+              <div class="card-icon-box icon-red"><i class="fab fa-tiktok"></i></div>
+              <div class="card-info">
+                <div class="card-title">Box Tik Tok 1</div>
+                <div class="card-desc" data-i18n="tt1_desc">Nhóm cộng đồng TikTok chính thức 1 trao đổi thông tin mẹo hay mỗi ngày.</div>
+                <div class="card-subtext">tiktok.me/group/ZSVBywqH9/</div>
+              </div>
+            </div>
+          </div>
+          <div class="card-bottom">
+            <button class="btn btn-ghost btn-sm" onclick="copyToClipboard('https://tiktok.me/group/ZSVBywqH9/', 'Đã copy link Box TikTok 1!')"><i class="fas fa-copy"></i> Copy</button>
+            <a class="btn btn-dark btn-sm" href="https://tiktok.me/group/ZSVBywqH9/" target="_blank" rel="noopener noreferrer"><span data-i18n="btn_open">MỞ LIÊN KẾT</span> <i class="fas fa-external-link-alt"></i></a>
+          </div>
+        </div>
+
+        <!-- TikTok Group 2 -->
+        <div class="neo-card">
+          <div>
+            <div class="card-top">
+              <div class="card-icon-box icon-red"><i class="fab fa-tiktok"></i></div>
+              <div class="card-info">
+                <div class="card-title">Box Tik Tok 2</div>
+                <div class="card-desc" data-i18n="tt2_desc">Nhóm cộng đồng TikTok dự phòng 2 kết nối thành viên đam mê công nghệ.</div>
+                <div class="card-subtext">tiktok.me/group/ZSbaqJyMh/</div>
+              </div>
+            </div>
+          </div>
+          <div class="card-bottom">
+            <button class="btn btn-ghost btn-sm" onclick="copyToClipboard('https://tiktok.me/group/ZSbaqJyMh/', 'Đã copy link Box TikTok 2!')"><i class="fas fa-copy"></i> Copy</button>
+            <a class="btn btn-dark btn-sm" href="https://tiktok.me/group/ZSbaqJyMh/" target="_blank" rel="noopener noreferrer"><span data-i18n="btn_open">MỞ LIÊN KẾT</span> <i class="fas fa-external-link-alt"></i></a>
+          </div>
+        </div>
+
+        <!-- Zalo Group 1 -->
+        <div class="neo-card">
+          <div>
+            <div class="card-top">
+              <div class="card-icon-box icon-blue"><i class="fas fa-comment-dots"></i></div>
+              <div class="card-info">
+                <div class="card-title">Group Zalo Cộng Đồng 1</div>
+                <div class="card-desc" data-i18n="zalo1_desc">Nhóm Zalo giao lưu giải đáp thắc mắc về iOS, cấu hình và tinh chỉnh hệ điều hành.</div>
+                <div class="card-subtext">zalo.me/g/pepfgl755</div>
+              </div>
+            </div>
+          </div>
+          <div class="card-bottom">
+            <button class="btn btn-ghost btn-sm" onclick="copyToClipboard('https://zalo.me/g/pepfgl755', 'Đã copy link Zalo 1!')"><i class="fas fa-copy"></i> Copy</button>
+            <a class="btn btn-dark btn-sm" href="https://zalo.me/g/pepfgl755" target="_blank" rel="noopener noreferrer"><span data-i18n="btn_open">MỞ LIÊN KẾT</span> <i class="fas fa-external-link-alt"></i></a>
+          </div>
+        </div>
+
+        <!-- Zalo Group 2 -->
+        <div class="neo-card">
+          <div>
+            <div class="card-top">
+              <div class="card-icon-box icon-blue"><i class="fas fa-comment-dots"></i></div>
+              <div class="card-info">
+                <div class="card-title">Group Zalo Cộng Đồng 2</div>
+                <div class="card-desc" data-i18n="zalo2_desc">Không gian trao đổi phụ cho anh em thảo luận và hỗ trợ cài app, cấu hình.</div>
+                <div class="card-subtext">zalo.me/g/nbgvxu864</div>
+              </div>
+            </div>
+          </div>
+          <div class="card-bottom">
+            <button class="btn btn-ghost btn-sm" onclick="copyToClipboard('https://zalo.me/g/nbgvxu864', 'Đã copy link Zalo 2!')"><i class="fas fa-copy"></i> Copy</button>
+            <a class="btn btn-dark btn-sm" href="https://zalo.me/g/nbgvxu864" target="_blank" rel="noopener noreferrer"><span data-i18n="btn_open">MỞ LIÊN KẾT</span> <i class="fas fa-external-link-alt"></i></a>
+          </div>
+        </div>
+
+        <!-- Shopee Voucher Group -->
+        <div class="neo-card">
+          <div>
+            <div class="card-top">
+              <div class="card-icon-box icon-gold"><i class="fas fa-tags"></i></div>
+              <div class="card-info">
+                <div class="card-title" data-i18n="shopee_title">Box Share Voucher Shopee</div>
+                <div class="card-desc" data-i18n="shopee_desc">Nhóm chia sẻ mã giảm giá Shopee, voucher công nghệ và deal mua sắm hời mỗi ngày.</div>
+                <div class="card-subtext">zalo.me/g/ueupuq889</div>
+              </div>
+            </div>
+          </div>
+          <div class="card-bottom">
+            <button class="btn btn-ghost btn-sm" onclick="copyToClipboard('https://zalo.me/g/ueupuq889', 'Đã copy link nhóm voucher!')"><i class="fas fa-copy"></i> Copy</button>
+            <a class="btn btn-dark btn-sm" href="https://zalo.me/g/ueupuq889" target="_blank" rel="noopener noreferrer"><span data-i18n="btn_open">MỞ LIÊN KẾT</span> <i class="fas fa-external-link-alt"></i></a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 03 / CÁC DỊCH VỤ CỦA TÔI (#services) -->
+    <section id="services" class="section">
+      <div class="section-head">
+        <div class="sec-badge">
+          <span class="num-pill">03</span> <span data-i18n="sec_03">DỊCH VỤ CỦA TÔI</span>
+        </div>
+        <span class="sec-hex">//0x03</span>
+      </div>
+
+      <div class="cards-grid-2">
+        <!-- Locket Gold -->
+        <div class="neo-card card-featured">
+          <div>
+            <div class="card-top">
+              <div class="card-icon-box icon-gold" style="background:#fff"><i class="fas fa-crown" style="color:#f59e0b"></i></div>
+              <div class="card-info">
+                <div class="card-title" data-i18n="locket_title">Hỗ Trợ Up Locket Gold</div>
+                <div class="card-desc" data-i18n="locket_desc">Dịch vụ nâng cấp tài khoản Locket Gold uy tín, hỗ trợ cả iOS và Android, kích hoạt nhanh chóng và bảo hành dài lâu.</div>
+                <div class="card-subtext">instabio.cc/Locketgoldiosadr</div>
+              </div>
+            </div>
+          </div>
+          <div class="card-bottom" style="border-top-color:rgba(0,0,0,0.2)">
+            <span class="card-status-badge"><i class="fas fa-star" style="color:#f59e0b"></i> <span data-i18n="badge_featured">Dịch Vụ Nổi Bật</span></span>
+            <a class="btn btn-dark btn-sm" href="https://instabio.cc/Locketgoldiosadr?utm_medium=graphext&amp;utm_source=instabio&amp;utm_campaign=H%E1%BB%97%20tr%E1%BB%A3%20up%20locket%20gold%20" target="_blank" rel="noopener noreferrer"><span data-i18n="btn_upgrade">NÂNG CẤP NGAY</span> <i class="fas fa-external-link-alt"></i></a>
+          </div>
+        </div>
+
+        <!-- Kho IPA -->
+        <div class="neo-card">
+          <div>
+            <div class="card-top">
+              <div class="card-icon-box icon-purple"><i class="fas fa-box-open"></i></div>
+              <div class="card-info">
+                <div class="card-title" data-i18n="ipa_title">Kho Chia Sẻ IPA</div>
+                <div class="card-desc" data-i18n="ipa_desc">Kho ứng dụng IPA phong phú đã qua kiểm duyệt: app tinh chỉnh, tiện ích mở rộng, hỗ trợ cài qua TrollStore hoặc Sideloadly.</div>
+                <div class="card-subtext">instabio.cc/Shareipavnt</div>
+              </div>
+            </div>
+          </div>
+          <div class="card-bottom">
+            <span class="card-status-badge"><i class="fas fa-download"></i> <span data-i18n="badge_free_dl">Tải Miễn Phí</span></span>
+            <a class="btn btn-dark btn-sm" href="https://instabio.cc/Shareipavnt?utm_medium=graphext&amp;utm_source=instabio&amp;utm_campaign=Share%20IPA" target="_blank" rel="noopener noreferrer"><span data-i18n="btn_access_ipa">TRUY CẬP KHO IPA</span> <i class="fas fa-external-link-alt"></i></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 04 / DỰ ÁN & PHÁT TRIỂN (#development) -->
+    <section id="development" class="section">
+      <div class="section-head">
+        <div class="sec-badge">
+          <span class="num-pill">04</span> <span data-i18n="sec_04">DỰ ÁN &amp; PHÁT TRIỂN</span>
+        </div>
+        <span class="sec-hex">//0x04</span>
+      </div>
+
+      <div class="cards-grid">
+        <!-- Temp Mail -->
+        <div class="neo-card">
+          <div>
+            <div class="card-top">
+              <div class="card-icon-box icon-green"><i class="fas fa-envelope-open-text"></i></div>
+              <div class="card-info">
+                <div class="card-title">Temp Mail Vasnet360</div>
+                <div class="card-desc" data-i18n="tm_desc">Email tạm thời 1 chạm là xong. Tạo hộp thư ẩn danh miễn phí trọn đời, tự động nhận thư và bảo vệ thông tin riêng tư.</div>
+                <div class="card-subtext">temp-mail.vasnet360.site</div>
+              </div>
+            </div>
+          </div>
+          <div class="card-bottom">
+            <span class="card-status-badge" style="background:#dcfce7;color:#15803d"><i class="fas fa-circle" style="font-size:8px"></i> <span data-i18n="badge_online">Đang Online</span></span>
+            <a class="btn btn-dark btn-sm" href="https://temp-mail.vasnet360.site" target="_blank" rel="noopener noreferrer"><span data-i18n="btn_open_web">MỞ WEB</span> <i class="fas fa-external-link-alt"></i></a>
+          </div>
+        </div>
+
+        <!-- WorkSlop Desktop Version -->
+        <div class="neo-card">
+          <div>
+            <div class="card-top">
+              <div class="card-icon-box icon-blue"><i class="fas fa-desktop"></i></div>
+              <div class="card-info">
+                <div class="card-title">WorkSlop Desktop Version</div>
+                <div class="card-desc" data-i18n="ws_desc">Desktop Tweaking App for iOS. Ứng dụng trên máy tính giúp quản lý, backup và tinh chỉnh hệ thống iPhone/iPad.</div>
+                <div class="card-subtext">github.com/trickvnt/WorkSlop-Desktop-Version</div>
+              </div>
+            </div>
+          </div>
+          <div class="card-bottom">
+            <span class="card-status-badge" style="background:#fef3c7;color:#b45309"><i class="fas fa-clock"></i> <span data-i18n="badge_coming">Sắp ra mắt</span></span>
+            <button class="btn btn-ghost btn-sm" onclick="showNoticeModal('WorkSlop Desktop Version', currentLang === 'en' ? 'The desktop application for iOS is undergoing final security testing. Official version coming soon!' : 'Phiên bản ứng dụng máy tính dành cho iOS đang trong giai đoạn thử nghiệm bảo mật và tối ưu giao diện. Bản chính thức sẽ sớm có mặt!')" data-i18n="btn_view_notice">XEM THÔNG BÁO</button>
+          </div>
+        </div>
+
+        <!-- VNT Tricks WorkSlop Archive -->
+        <div class="neo-card">
+          <div>
+            <div class="card-top">
+              <div class="card-icon-box icon-dark"><i class="fab fa-github"></i></div>
+              <div class="card-info">
+                <div class="card-title">WorkSlop iOS (Archive)</div>
+                <div class="card-desc" data-i18n="wsa_desc">iOS System Modification Tools. Kho lưu trữ các công cụ, script và tinh chỉnh hệ điều hành iOS từ VNT Tricks.</div>
+                <div class="card-subtext">github.com/truong2099</div>
+              </div>
+            </div>
+          </div>
+          <div class="card-bottom">
+            <span class="card-status-badge" style="background:#fee2e2;color:#b91c1c"><i class="fas fa-archive"></i> <span data-i18n="badge_archived">Đang cập nhật</span></span>
+            <button class="btn btn-ghost btn-sm" onclick="showNoticeModal('Kho Lưu Trữ WorkSlop', currentLang === 'en' ? 'The GitHub repository is being restructured with updated documentation and source code. It will be made public again soon!' : 'Kho lưu trữ GitHub đang được tái cấu trúc tài liệu hướng dẫn và mã nguồn. Sẽ công bố công khai trở lại sớm nhất!')" data-i18n="btn_view_notice">XEM THÔNG BÁO</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 05 / MẠNG XÃ HỘI (#social) -->
+    <section id="social" class="section">
+      <div class="section-head">
+        <div class="sec-badge">
+          <span class="num-pill">05</span> <span data-i18n="sec_05">MẠNG XÃ HỘI</span>
+        </div>
+        <span class="sec-hex">//0x05</span>
+      </div>
+
+      <div class="cards-grid-2">
+        <!-- TikTok -->
+        <div class="neo-card">
+          <div>
+            <div class="card-top">
+              <div class="card-icon-box icon-red"><i class="fab fa-tiktok"></i></div>
+              <div class="card-info">
+                <div class="card-title" data-i18n="tt_card_title">Mẹo VNT Trên TikTok</div>
+                <div class="card-desc" data-i18n="tt_card_desc">Kênh TikTok cá nhân chia sẻ video ngắn về mẹo ẩn trên iPhone, cập nhật phiên bản iOS, cảnh báo lừa đảo và bảo mật Apple.</div>
+                <div class="card-subtext">tiktok.com/@truong_2099</div>
+              </div>
+            </div>
+          </div>
+          <div class="card-bottom">
+            <button class="btn btn-ghost btn-sm" onclick="copyToClipboard('https://www.tiktok.com/@truong_2099?_t=ZS-90asY1eqRID&_r=1', 'Đã copy link TikTok!')"><i class="fas fa-copy"></i> Copy Link</button>
+            <a class="btn btn-dark btn-sm" href="https://www.tiktok.com/@truong_2099?_t=ZS-90asY1eqRID&_r=1" target="_blank" rel="noopener noreferrer">FOLLOW TIKTOK <i class="fas fa-external-link-alt"></i></a>
+          </div>
+        </div>
+
+        <!-- Facebook -->
+        <div class="neo-card">
+          <div>
+            <div class="card-top">
+              <div class="card-icon-box icon-blue"><i class="fab fa-facebook-f"></i></div>
+              <div class="card-info">
+                <div class="card-title" data-i18n="fb_card_title">Mẹo VNT Trên Facebook</div>
+                <div class="card-desc" data-i18n="fb_card_desc">Trang cá nhân và bài viết cập nhật thủ thuật, tin tức công nghệ iOS, hỗ trợ giải đáp trực tiếp cho cộng đồng người theo dõi.</div>
+                <div class="card-subtext">facebook.com/vungoctruong.vnt</div>
+              </div>
+            </div>
+          </div>
+          <div class="card-bottom">
+            <button class="btn btn-ghost btn-sm" onclick="copyToClipboard('https://www.facebook.com/share/1H9WErMLbo/?mibextid=wwXIfr', 'Đã copy link Facebook!')"><i class="fas fa-copy"></i> Copy Link</button>
+            <a class="btn btn-dark btn-sm" href="https://www.facebook.com/share/1H9WErMLbo/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer"><span data-i18n="btn_fb">KẾT BẠN FACEBOOK</span> <i class="fas fa-external-link-alt"></i></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 06 / SUPPORT & DONATE (#support) -->
+    <section id="support" class="section">
+      <div class="section-head">
+        <div class="sec-badge">
+          <span class="num-pill">06</span> <span data-i18n="sec_06">SUPPORT &amp; DONATE</span>
+        </div>
+        <span class="sec-hex">//0x06</span>
+      </div>
+
+      <div class="donate-panel">
+        <div style="display:inline-flex;align-items:center;gap:10px;margin-bottom:12px">
+          <span class="card-icon-box icon-gold" style="background:#fff;font-size:24px"><i class="fas fa-hand-holding-heart" style="color:#e11d48"></i></span>
+          <h2 style="font-size:clamp(22px, 4vw, 32px);margin:0">DONATE VNT TRICKS / GIEVANO</h2>
+        </div>
+        
+        <p style="font-size:16px;max-width:680px;margin:0 auto 16px;line-height:1.6;color:var(--ink-900)" data-i18n="donate_desc">
+          Ủng hộ các dự án nghiên cứu bảo mật độc lập, duy trì server và phát triển thêm các tiện ích miễn phí phục vụ cộng đồng. Mỗi sự ủng hộ của bạn đều là nguồn động lực to lớn!
+        </p>
+
+        <!-- Bank details card -->
+        <div class="bank-box">
+          <div class="bank-row">
+            <span class="bank-label"><i class="fas fa-university"></i> <span data-i18n="bank_name_lbl">Ngân Hàng:</span></span>
+            <span class="bank-val">MB BANK (Ngân hàng Quân Đội)</span>
+          </div>
+          <div class="bank-row">
+            <span class="bank-label"><i class="fas fa-credit-card"></i> <span data-i18n="bank_acc_lbl">Số Tài Khoản:</span></span>
+            <span class="bank-val bank-stk" id="stkValue">22220009999</span>
+          </div>
+          <div class="bank-row">
+            <span class="bank-label"><i class="fas fa-user"></i> <span data-i18n="bank_owner_lbl">Chủ Tài Khoản:</span></span>
+            <span class="bank-val" style="color:var(--ink-900)">VU NGOC TRUONG</span>
+          </div>
+        </div>
+
+        <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+          <button class="btn btn-dark btn-lg" onclick="copyToClipboard('22220009999', currentLang === 'en' ? 'Copied MB Bank account: 22220009999!' : 'Đã copy STK: 22220009999 (MB Bank)!')">
+            <i class="fas fa-copy"></i> <span data-i18n="btn_copy_stk">COPY SỐ TÀI KHOẢN</span>
+          </button>
+          
+          <button class="btn btn-ghost btn-lg" id="qrToggleBtn" onclick="toggleVietQR()">
+            <i class="fas fa-qrcode"></i> <span id="qrToggleText" data-i18n="btn_show_qr">HIỆN MÃ QR THANH TOÁN</span>
+          </button>
+        </div>
+
+        <!-- QR Display Container -->
+        <div class="qr-container" id="vietQrContainer">
+          <div style="margin-bottom:10px;font-weight:700;font-size:15px" data-i18n="qr_subtext">
+            <i class="fas fa-camera"></i> Quét mã bằng ứng dụng ngân hàng bất kỳ:
+          </div>
+          <img src="https://img.vietqr.io/image/MB-22220009999-compact.png?accountName=VU%20NGOC%20TRUONG" alt="VietQR MB Bank 22220009999 - VU NGOC TRUONG" class="qr-image" loading="lazy">
+          <div style="margin-top:12px">
+            <button class="btn btn-sm btn-ghost" onclick="downloadQR()"><i class="fas fa-download"></i> <span data-i18n="btn_save_qr">Lưu Ảnh QR</span></button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 07 / ABOUT MY RESEARCH (#about) -->
+    <section id="about" class="section">
+      <div class="section-head">
+        <div class="sec-badge">
+          <span class="num-pill">07</span> <span data-i18n="sec_07">ABOUT MY RESEARCH</span>
+        </div>
+        <span class="sec-hex">//0x07</span>
+      </div>
+
+      <div class="about-box">
+        <p class="about-quote">
+          <i class="fas fa-quote-left" style="color:var(--main-hi);margin-right:8px"></i>
+          <span data-i18n="about_quote">Independent educational content covering iOS technology, Apple ecosystem research, mobile development, and general security concepts.</span>
+        </p>
+        <p style="color:var(--ink-700);line-height:1.7;margin-bottom:12px" data-i18n="about_desc1">
+          Trang web cá nhân độc lập này được tạo ra nhằm chia sẻ kiến thức, tài liệu học tập và các dự án tiện ích xoay quanh nền tảng iOS của Apple. Chúng tôi cam kết tôn trọng nguyên tắc bảo mật thông tin và quyền riêng tư của người dùng.
+        </p>
+        <p style="font-size:13px;color:var(--ink-500);line-height:1.5;margin-bottom:0" data-i18n="about_disclaimer">
+          <strong>Miễn trừ trách nhiệm:</strong> Đây là trang web cá nhân độc lập và không liên kết, không được chứng thực hoặc tài trợ bởi Apple Inc. Tất cả nhãn hiệu Apple, iOS, iPhone là tài sản thuộc sở hữu của Apple Inc.
+        </p>
+
+        <div class="about-tags">
+          <span class="tech-tag"><i class="fab fa-apple"></i> iOS Ecosystem</span>
+          <span class="tech-tag"><i class="fas fa-shield-alt"></i> Security Research</span>
+          <span class="tech-tag"><i class="fas fa-terminal"></i> Reverse Engineering</span>
+          <span class="tech-tag"><i class="fas fa-mobile-alt"></i> Mobile Tweaking</span>
+          <span class="tech-tag"><i class="fas fa-globe"></i> Open Web</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Mini Music Player Popup -->
+  <div class="music-player-popup" id="musicPlayerPopup" aria-hidden="true">
+    <div class="mpp-header">
+      <div class="mpp-header-title">
+        <i class="fas fa-compact-disc mpp-disc-icon"></i>
+        <span>TRÌNH PHÁT NHẠC</span>
+      </div>
+      <div class="mpp-actions">
+        <button class="mpp-icon-btn" id="mppListToggleBtn" onclick="toggleMppPlaylist()" title="Danh sách bài hát">
+          <i class="fas fa-list-ul"></i>
+        </button>
+        <button class="mpp-icon-btn" onclick="toggleMusicPopup(false)" title="Đóng cửa sổ">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+    </div>
+    <div class="mpp-body">
+      <div class="mpp-track-info">
+        <div class="mpp-vinyl-wrap">
+          <div class="mpp-vinyl" id="mppVinyl">
+            <i class="fas fa-music"></i>
+          </div>
+        </div>
+        <div class="mpp-meta">
+          <div class="mpp-title" id="mppTitle">5 In 1 Chờ Chút</div>
+          <div class="mpp-artist" id="mppArtist">prod.tuansieu</div>
+        </div>
+      </div>
+
+      <div class="mpp-progress-wrap">
+        <input type="range" class="mpp-progress-bar" id="mppProgressBar" min="0" max="100" value="0" step="0.1" oninput="onProgressInput(this.value)" onchange="onProgressChange(this.value)">
+        <div class="mpp-time-display">
+          <span id="mppCurrentTime">00:00</span>
+          <span id="mppDuration">00:00</span>
+        </div>
+      </div>
+
+      <div class="mpp-controls-row">
+        <button class="mpp-ctrl-btn" onclick="prevSong()" title="Bài trước">
+          <i class="fas fa-step-backward"></i>
+        </button>
+        <button class="mpp-ctrl-btn mpp-play-btn" id="mppPlayBtn" onclick="togglePlayPause()" title="Phát / Tạm dừng">
+          <i class="fas fa-play" id="mppPlayIcon"></i>
+        </button>
+        <button class="mpp-ctrl-btn" onclick="nextSong()" title="Bài kế tiếp">
+          <i class="fas fa-step-forward"></i>
+        </button>
+      </div>
+
+      <div class="mpp-playlist-drawer" id="mppPlaylistDrawer">
+        <div class="mpp-playlist-head">
+          <span>DANH SÁCH BÀI HÁT (6)</span>
+          <span style="font-size:10px;opacity:0.7">Tự động chuyển bài</span>
+        </div>
+        <div id="mppPlaylistItems"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Floating Audio Player Button -->
+  <button class="floating-music-btn" id="musicToggleBtn" onclick="toggleMusicPopup()" title="Trình phát nhạc" aria-label="Trình phát nhạc">
+    <i class="fas fa-music" id="musicIcon"></i>
+    <span class="floating-music-badge">6</span>
+  </button>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-in">
+      <div class="footer-links">
+        <a href="#home" data-i18n="nav_home">Trang Chủ</a> •
+        <a href="#community" data-i18n="nav_community">Cộng Đồng</a> •
+        <a href="#services" data-i18n="nav_services">Dịch Vụ</a> •
+        <a href="#development" data-i18n="nav_dev">Dự Án</a> •
+        <a href="#support" data-i18n="nav_donate">Ủng Hộ</a> •
+        <a href="https://temp-mail.vasnet360.site" target="_blank">Temp Mail</a>
+      </div>
+      <div class="footer-copy">
+        © 2026 <strong>VNT Tricks</strong>. All rights reserved. • status: all systems nominal
+      </div>
+    </div>
+  </footer>
+
+  <!-- Notification Modal -->
+  <div class="modal-back" id="noticeModal" onclick="closeNoticeModal(event)">
+    <div class="modal" onclick="event.stopPropagation()">
+      <button class="modal-x" onclick="closeNoticeModal()"><i class="fas fa-times"></i></button>
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:14px">
+        <span class="card-icon-box icon-gold" style="width:40px;height:40px;font-size:18px"><i class="fas fa-rocket"></i></span>
+        <h3 id="modalTitle" style="font-size:20px">Thông Báo</h3>
+      </div>
+      <p id="modalBody" style="color:var(--ink-700);line-height:1.6;font-size:16px"></p>
+      <div style="margin-top:20px;text-align:right">
+        <button class="btn btn-dark" onclick="closeNoticeModal()" data-i18n="modal_ok">Đã Hiểu</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div id="toast" class="toast">
+    <i class="fas fa-check-circle" style="color:var(--main-hi);margin-right:6px"></i>
+    <span id="toastMsg">Thành công!</span>
+  </div>
+
+  <!-- Interactive JavaScript Logic & Multi-Language Engine -->
+  <script>
+    // ===== Multi-language Translation Dictionaries =====
+    const translations = {
+      vi: {
+        code: 'VI',
+        status_online: 'TRỰC TUYẾN',
+        drawer_title: 'Menu Điều Hướng',
+        nav_home: '<i class="fas fa-home"></i> Trang Chủ',
+        nav_community: '<i class="fas fa-users"></i> Cộng Đồng',
+        nav_services: '<i class="fas fa-star"></i> Dịch Vụ',
+        nav_dev: '<i class="fas fa-code"></i> Dự Án',
+        nav_social: '<i class="fas fa-share-alt"></i> Mạng Xã Hội',
+        nav_donate: '<i class="fas fa-heart" style="color:#e11d48"></i> Donate',
+        nav_about: '<i class="fas fa-info-circle"></i> Về Nghiên Cứu',
+        hero_pill: 'HOẠT ĐỘNG TỐT • ALL SYSTEMS NOMINAL',
+        hero_sub1: 'Independent iOS Security Research & Education',
+        hero_sub2: 'Khám phá hệ sinh thái Apple, nghiên cứu bảo mật iOS, tinh chỉnh hệ điều hành và phát triển các tiện ích cộng đồng.',
+        hero_btn_comm: '<i class="fas fa-users"></i> Tham Gia Cộng Đồng',
+        hero_btn_donate: '<i class="fas fa-hand-holding-heart"></i> Donate Dự Án',
+        mq_1: 'BẢO MẬT TUYỆT ĐỐI',
+        mq_2: 'SIÊU TỐC',
+        mq_3: 'BẢO VỆ QUYỀN RIÊNG TƯ',
+        sec_01: 'PROFILE OVERVIEW',
+        sec_02: 'CỘNG ĐỒNG CỦA TÔI',
+        sec_03: 'DỊCH VỤ CỦA TÔI',
+        sec_04: 'DỰ ÁN & PHÁT TRIỂN',
+        sec_05: 'MẠNG XÃ HỘI',
+        sec_06: 'SUPPORT & DONATE',
+        sec_07: 'ABOUT MY RESEARCH',
+        c1_title: 'iOS Security Research',
+        c1_desc: 'Nghiên cứu độc lập về kiến trúc bảo mật iOS, sandbox, kernel, và các phương thức tối ưu hóa hệ thống.',
+        c2_title: 'Tools & Tweaks',
+        c2_desc: 'Xây dựng và duy trì các công cụ tinh chỉnh: WorkSlop, Temp Mail, hệ thống bypass và chia sẻ file IPA.',
+        c3_title: 'Cộng Đồng & Chia Sẻ',
+        c3_desc: 'Kênh Telegram, Zalo, TikTok với hàng chục ngàn anh em chia sẻ kinh nghiệm sử dụng iPhone và iPad an toàn.',
+        badge_active: 'Hoạt động',
+        badge_update: 'Liên tục update',
+        comm_all_btn: 'TẤT CẢ CỘNG ĐỒNG VNT TRICKS',
+        comm_count_badge: '8 Nhóm Hoạt Động',
+        tg_ch_title: 'Kênh Telegram Mẹo & Trick',
+        tg_ch_desc: 'Cập nhật nhanh nhất mẹo iOS, thông tin jailbreak, sideload và thủ thuật độc quyền.',
+        tg_chat_title: 'Box Telegram Giao Lưu Mẹo',
+        tg_chat_desc: 'Nhóm chat cộng đồng hỏi đáp kỹ thuật, hỗ trợ sửa lỗi iOS và chia sẻ kinh nghiệm.',
+        tt1_desc: 'Nhóm cộng đồng TikTok chính thức 1 trao đổi thông tin mẹo hay mỗi ngày.',
+        tt2_desc: 'Nhóm cộng đồng TikTok dự phòng 2 kết nối thành viên đam mê công nghệ.',
+        zalo1_desc: 'Nhóm Zalo giao lưu giải đáp thắc mắc về iOS, cấu hình và tinh chỉnh hệ điều hành.',
+        zalo2_desc: 'Không gian trao đổi phụ cho anh em thảo luận và hỗ trợ cài app, cấu hình.',
+        shopee_title: 'Box Share Voucher Shopee',
+        shopee_desc: 'Nhóm chia sẻ mã giảm giá Shopee, voucher công nghệ và deal mua sắm hời mỗi ngày.',
+        wa_desc: 'WhatsApp Group quốc tế dành cho cộng đồng Kamera & Mobile Tweaks.',
+        btn_open: 'MỞ LIÊN KẾT',
+        locket_title: 'Hỗ Trợ Up Locket Gold',
+        locket_desc: 'Dịch vụ nâng cấp tài khoản Locket Gold uy tín, hỗ trợ cả iOS và Android, kích hoạt nhanh chóng và bảo hành dài lâu.',
+        badge_featured: 'Dịch Vụ Nổi Bật',
+        btn_upgrade: 'NÂNG CẤP NGAY',
+        ipa_title: 'Kho Chia Sẻ IPA',
+        ipa_desc: 'Kho ứng dụng IPA phong phú đã qua kiểm duyệt: app tinh chỉnh, tiện ích mở rộng, hỗ trợ cài qua TrollStore hoặc Sideloadly.',
+        badge_free_dl: 'Tải Miễn Phí',
+        btn_access_ipa: 'TRUY CẬP KHO IPA',
+        tm_desc: 'Email tạm thời 1 chạm là xong. Tạo hộp thư ẩn danh miễn phí trọn đời, tự động nhận thư và bảo vệ thông tin riêng tư.',
+        badge_online: 'Đang Online',
+        btn_open_web: 'MỞ WEB',
+        ws_desc: 'Desktop Tweaking App for iOS. Ứng dụng trên máy tính giúp quản lý, backup và tinh chỉnh hệ thống iPhone/iPad.',
+        badge_coming: 'Sắp ra mắt',
+        btn_view_notice: 'XEM THÔNG BÁO',
+        wsa_desc: 'iOS System Modification Tools. Kho lưu trữ các công cụ, script và tinh chỉnh hệ điều hành iOS từ VNT Tricks.',
+        badge_archived: 'Đang cập nhật',
+        tt_card_title: 'Mẹo VNT Trên TikTok',
+        tt_card_desc: 'Kênh TikTok cá nhân chia sẻ video ngắn về mẹo ẩn trên iPhone, cập nhật phiên bản iOS, cảnh báo lừa đảo và bảo mật Apple.',
+        fb_card_title: 'Mẹo VNT Trên Facebook',
+        fb_card_desc: 'Trang cá nhân và bài viết cập nhật thủ thuật, tin tức công nghệ iOS, hỗ trợ giải đáp trực tiếp cho cộng đồng người theo dõi.',
+        btn_fb: 'KẾT BẠN FACEBOOK',
+        donate_desc: 'Ủng hộ các dự án nghiên cứu bảo mật độc lập, duy trì server và phát triển thêm các tiện ích miễn phí phục vụ cộng đồng. Mỗi sự ủng hộ của bạn đều là nguồn động lực to lớn!',
+        bank_name_lbl: 'Ngân Hàng:',
+        bank_acc_lbl: 'Số Tài Khoản:',
+        bank_owner_lbl: 'Chủ Tài Khoản:',
+        btn_copy_stk: 'COPY SỐ TÀI KHOẢN',
+        btn_show_qr: 'HIỆN MÃ QR THANH TOÁN',
+        btn_hide_qr: 'ẨN MÃ QR THANH TOÁN',
+        qr_subtext: '<i class="fas fa-camera"></i> Quét mã bằng ứng dụng ngân hàng bất kỳ:',
+        btn_save_qr: 'Lưu Ảnh QR',
+        about_quote: 'Independent educational content covering iOS technology, Apple ecosystem research, mobile development, and general security concepts.',
+        about_desc1: 'Trang web cá nhân độc lập này được tạo ra nhằm chia sẻ kiến thức, tài liệu học tập và các dự án tiện ích xoay quanh nền tảng iOS của Apple. Chúng tôi cam kết tôn trọng nguyên tắc bảo mật thông tin và quyền riêng tư của người dùng.',
+        about_disclaimer: '<strong>Miễn trừ trách nhiệm:</strong> Đây là trang web cá nhân độc lập và không liên kết, không được chứng thực hoặc tài trợ bởi Apple Inc. Tất cả nhãn hiệu Apple, iOS, iPhone là tài sản thuộc sở hữu của Apple Inc.',
+        modal_ok: 'Đã Hiểu',
+        nav_cert: '<i class="fas fa-certificate" style="color:#ffd94a"></i> Chứng Chỉ P12 <span style="background:#ef4444;color:#fff;padding:1px 5px;border-radius:3px;font-size:10px;margin-left:4px;font-family:var(--font-mono);">HOT</span>',
+        cert_sec_badge: 'VNTCERT.CLICK • MUA BÁN CHỨNG CHỈ APPLE P12',
+        cert_tag: 'APPLE CERTIFICATE P12 &amp; MOBILEPROVISION',
+        cert_title: 'Chứng Chỉ Apple P12 Cho iPhone &amp; iPad',
+        cert_highlight: 'Cài Mọi App IPA • Không Cần Jailbreak',
+        cert_desc: 'Hệ thống bán chứng chỉ Apple cá nhân (file .p12 + .mobileprovision) tự động 24/7. Ký và cài ứng dụng ngoài App Store với ESign, GBox, Scarlet, mở khóa mọi thiết bị dính Blacklist/Ban, bảo hành uy tín lên đến 300 ngày.',
+        cert_f1: 'Cấp tự động 24/7 (Có ngay)',
+        cert_f2: 'Kiểm tra Apple OCSP trực tiếp',
+        cert_f3: 'Nạp VietQR tự động cộng tiền',
+        cert_f4: 'Mở khóa thiết bị Blacklist / Ban',
+        cert_f5: 'Thời hạn 365 ngày toàn quyền',
+        cert_f6: 'Làm 100% trên iPhone, không cần PC',
+        cert_pkg_title: 'CÁC GÓI CHỨNG CHỈ ĐANG BÁN:',
+        cert_btn_buy: 'MUA CHỨNG CHỈ TẠI VNTCERT.CLICK',
+        cert_btn_check: 'Kiểm Tra Đơn / Nhận Hàng',
+        cert_btn_support: 'Hỗ Trợ Admin',
+      },
+      en: {
+        code: 'EN',
+        status_online: 'ONLINE',
+        drawer_title: 'Navigation Menu',
+        nav_home: '<i class="fas fa-home"></i> Home',
+        nav_community: '<i class="fas fa-users"></i> Community',
+        nav_services: '<i class="fas fa-star"></i> Services',
+        nav_dev: '<i class="fas fa-code"></i> Projects',
+        nav_social: '<i class="fas fa-share-alt"></i> Social',
+        nav_donate: '<i class="fas fa-heart" style="color:#e11d48"></i> Donate',
+        nav_about: '<i class="fas fa-info-circle"></i> About',
+        hero_pill: 'OPERATIONAL • ALL SYSTEMS NOMINAL',
+        hero_sub1: 'Independent iOS Security Research & Education',
+        hero_sub2: 'Exploring the Apple ecosystem, iOS security architecture, system modifications, and community tools.',
+        hero_btn_comm: '<i class="fas fa-users"></i> Join Community',
+        hero_btn_donate: '<i class="fas fa-hand-holding-heart"></i> Support Projects',
+        mq_1: 'ABSOLUTE SECURITY',
+        mq_2: 'ULTRA FAST',
+        mq_3: 'PRIVACY FIRST',
+        sec_01: 'PROFILE OVERVIEW',
+        sec_02: 'MY COMMUNITY',
+        sec_03: 'MY SERVICES',
+        sec_04: 'PROJECTS & DEVELOPMENT',
+        sec_05: 'SOCIAL MEDIA',
+        sec_06: 'SUPPORT & DONATE',
+        sec_07: 'ABOUT MY RESEARCH',
+        c1_title: 'iOS Security Research',
+        c1_desc: 'Independent research on iOS security architectures, sandboxing, kernel internals, and system optimizations.',
+        c2_title: 'Tools & Tweaks',
+        c2_desc: 'Building and maintaining tweaking apps: WorkSlop, Temp Mail, bypass tools, and IPA repository.',
+        c3_title: 'Community & Sharing',
+        c3_desc: 'Telegram, Zalo, and TikTok channels with tens of thousands of members sharing iOS tips and tricks safely.',
+        badge_active: 'Active',
+        badge_update: 'Frequent Updates',
+        comm_all_btn: 'ALL VNT TRICKS COMMUNITIES',
+        comm_count_badge: '8 Active Groups',
+        tg_ch_title: 'Telegram Channel (Tricks)',
+        tg_ch_desc: 'Fastest updates on iOS tips, jailbreak news, sideloading guides, and exclusive tweaks.',
+        tg_chat_title: 'Telegram Community Chat',
+        tg_chat_desc: 'Official group chat for iOS technical Q&A, troubleshooting, and peer assistance.',
+        tt1_desc: 'Official TikTok Community Group 1 for everyday tech tips and discussions.',
+        tt2_desc: 'Backup TikTok Community Group 2 connecting tech enthusiasts.',
+        zalo1_desc: 'Zalo Community Group 1 discussing iOS configurations, apps, and system tweaks.',
+        zalo2_desc: 'Secondary Zalo group for iOS app setup and technical support.',
+        shopee_title: 'Shopee Voucher Box',
+        shopee_desc: 'Daily curated tech deals, discounts, and verified voucher shares.',
+        wa_desc: 'International WhatsApp community for Kamera & mobile tweaks.',
+        btn_open: 'OPEN LINK',
+        locket_title: 'Locket Gold Upgrade Service',
+        locket_desc: 'Reliable Locket Gold account upgrade service for iOS & Android with fast delivery and long-term warranty.',
+        badge_featured: 'Featured Service',
+        btn_upgrade: 'UPGRADE NOW',
+        ipa_title: 'IPA Library & Repository',
+        ipa_desc: 'Verified library of tweaked IPAs and extensions ready to install via TrollStore or Sideloadly.',
+        badge_free_dl: 'Free Download',
+        btn_access_ipa: 'ACCESS IPA HUB',
+        tm_desc: 'One-click disposable temporary email. Free anonymous inbox forever, auto-receiving emails with zero tracking.',
+        badge_online: 'Online',
+        btn_open_web: 'OPEN APP',
+        ws_desc: 'Desktop Tweaking App for iOS. PC companion software for device management, backup, and advanced tweaks.',
+        badge_coming: 'Coming Soon',
+        btn_view_notice: 'VIEW NOTICE',
+        wsa_desc: 'iOS System Modification Tools. Code archives, scripts, and open-source system tweaks from VNT Tricks.',
+        badge_archived: 'Updating',
+        tt_card_title: 'VNT Tricks on TikTok',
+        tt_card_desc: 'Personal TikTok channel sharing iOS hidden features, Apple updates, scam alerts, and security tips.',
+        fb_card_title: 'VNT Tricks on Facebook',
+        fb_card_desc: 'Official Facebook profile sharing technology news, updates, and direct community support.',
+        btn_fb: 'CONNECT ON FACEBOOK',
+        donate_desc: 'Support upcoming independent iOS security research, server hosting, and free tools for the community. Every contribution is deeply appreciated!',
+        bank_name_lbl: 'Bank Name:',
+        bank_acc_lbl: 'Account No:',
+        bank_owner_lbl: 'Beneficiary:',
+        btn_copy_stk: 'COPY ACCOUNT NUMBER',
+        btn_show_qr: 'SHOW PAYMENT QR CODE',
+        btn_hide_qr: 'HIDE PAYMENT QR CODE',
+        qr_subtext: '<i class="fas fa-camera"></i> Scan using any banking or payment app:',
+        btn_save_qr: 'Save QR Image',
+        about_quote: 'Independent educational content covering iOS technology, Apple ecosystem research, mobile development, and general security concepts.',
+        about_desc1: 'This personal website is created for educational and sharing purposes regarding Apple iOS platforms. We strictly adhere to user privacy and information security principles.',
+        about_disclaimer: '<strong>Disclaimer:</strong> This is an independent personal website and is not affiliated with, endorsed by, or sponsored by Apple Inc. Apple, iOS, and iPhone are trademarks of Apple Inc.',
+        modal_ok: 'Got It',
+        nav_cert: '<i class="fas fa-certificate" style="color:#ffd94a"></i> Apple Cert P12 <span style="background:#ef4444;color:#fff;padding:1px 5px;border-radius:3px;font-size:10px;margin-left:4px;font-family:var(--font-mono);">HOT</span>',
+        cert_sec_badge: 'VNTCERT.CLICK • APPLE P12 CERTIFICATE HUB',
+        cert_tag: 'APPLE CERTIFICATE P12 &amp; MOBILEPROVISION',
+        cert_title: 'Apple P12 Certificates for iPhone &amp; iPad',
+        cert_highlight: 'Install Any IPA • No Jailbreak Required',
+        cert_desc: 'Automated 24/7 personal Apple developer certificate (.p12 + .mobileprovision) delivery. Sign & install apps outside App Store via ESign, GBox, Scarlet, unlock blacklisted devices with up to 300 days warranty.',
+        cert_f1: 'Instant 24/7 Automated Delivery',
+        cert_f2: 'Direct Apple OCSP Status Check',
+        cert_f3: 'Auto VietQR & Balance Top-up',
+        cert_f4: 'Unban Blacklisted Devices',
+        cert_f5: '365 Days Full Access Validity',
+        cert_f6: '100% on iPhone/iPad, No PC Needed',
+        cert_pkg_title: 'AVAILABLE CERTIFICATE PACKAGES:',
+        cert_btn_buy: 'BUY CERTIFICATES AT VNTCERT.CLICK',
+        cert_btn_check: 'Check Orders & Delivery',
+        cert_btn_support: 'Admin Support',
+      },
+      id: {
+        code: 'ID',
+        status_online: 'ONLINE',
+        drawer_title: 'Menu Navigasi',
+        nav_home: '<i class="fas fa-home"></i> Beranda',
+        nav_community: '<i class="fas fa-users"></i> Komunitas',
+        nav_services: '<i class="fas fa-star"></i> Layanan',
+        nav_dev: '<i class="fas fa-code"></i> Proyek',
+        nav_social: '<i class="fas fa-share-alt"></i> Sosial',
+        nav_donate: '<i class="fas fa-heart" style="color:#e11d48"></i> Donasi',
+        nav_about: '<i class="fas fa-info-circle"></i> Tentang',
+        hero_pill: 'SISTEM NORMAL • OPERASIONAL',
+        hero_sub1: 'Riset & Edukasi Keamanan iOS Independen',
+        hero_sub2: 'Mengeksplorasi ekosistem Apple, keamanan iOS, modifikasi sistem, dan alat komunitas.',
+        hero_btn_comm: '<i class="fas fa-users"></i> Gabung Komunitas',
+        hero_btn_donate: '<i class="fas fa-hand-holding-heart"></i> Dukung Riset',
+        mq_1: 'KEAMANAN MUTLAK',
+        mq_2: 'SUPER CEPAT',
+        mq_3: 'PRIVASI UTAMA',
+        sec_01: 'TINJAUAN PROFIL',
+        sec_02: 'KOMUNITAS SAYA',
+        sec_03: 'LAYANAN SAYA',
+        sec_04: 'PROYEK & PENGEMBANGAN',
+        sec_05: 'MEDIA SOSIAL',
+        sec_06: 'DUKUNGAN & DONASI',
+        sec_07: 'TENTANG RISET',
+        btn_open: 'BUKA TAUTAN',
+        badge_active: 'Aktif',
+        badge_update: 'Pembaruan Rutin',
+        comm_all_btn: 'SEMUA KOMUNITAS VNT TRICKS',
+        comm_count_badge: '8 Grup Aktif',
+        badge_featured: 'Layanan Unggulan',
+        btn_upgrade: 'UPGRADE SEKARANG',
+        badge_free_dl: 'Unduh Gratis',
+        btn_access_ipa: 'AKSES HUB IPA',
+        badge_online: 'Online',
+        btn_open_web: 'BUKA WEB',
+        badge_coming: 'Segera Hadir',
+        btn_view_notice: 'LIHAT PENGUMUMAN',
+        badge_archived: 'Memperbarui',
+        btn_fb: 'TEMAN DI FACEBOOK',
+        donate_desc: 'Dukung kelanjutan riset keamanan independen iOS dan pembuatan perkakas gratis untuk komunitas.',
+        bank_name_lbl: 'Bank:',
+        bank_acc_lbl: 'No. Rekening:',
+        bank_owner_lbl: 'Nama Penerima:',
+        btn_copy_stk: 'SALIN NO REKENING',
+        btn_show_qr: 'TAMPILKAN QR PEMBAYARAN',
+        btn_hide_qr: 'SEMBUNYIKAN QR PEMBAYARAN',
+        qr_subtext: '<i class="fas fa-camera"></i> Pindai dengan aplikasi perbankan:',
+        btn_save_qr: 'Simpan Gambar QR',
+        modal_ok: 'Mengerti',
+        nav_cert: '<i class="fas fa-certificate" style="color:#ffd94a"></i> Sertifikat P12 <span style="background:#ef4444;color:#fff;padding:1px 5px;border-radius:3px;font-size:10px;margin-left:4px;font-family:var(--font-mono);">HOT</span>',
+        cert_sec_badge: 'VNTCERT.CLICK • BELI SERTIFIKAT APPLE P12',
+        cert_tag: 'APPLE CERTIFICATE P12 &amp; MOBILEPROVISION',
+        cert_title: 'Sertifikat Apple P12 untuk iPhone &amp; iPad',
+        cert_highlight: 'Pasang Semua IPA • Tanpa Jailbreak',
+        cert_desc: 'Sistem penerbitan sertifikat Apple pribadi (.p12 + .mobileprovision) otomatis 24/7. Pasang aplikasi luar App Store dengan ESign, GBox, Scarlet, buka blokir perangkat blacklist, garansi hingga 300 hari.',
+        cert_f1: 'Penerbitan Otomatis 24/7',
+        cert_f2: 'Pemeriksaan Apple OCSP Langsung',
+        cert_f3: 'Isi Saldo VietQR Otomatis',
+        cert_f4: 'Buka Blokir Perangkat Blacklist',
+        cert_f5: 'Masa Aktif Penuh 365 Hari',
+        cert_f6: '100% di iPhone/iPad, Tanpa PC',
+        cert_pkg_title: 'PAKET SERTIFIKAT TERSEDIA:',
+        cert_btn_buy: 'BELI SERTIFIKAT DI VNTCERT.CLICK',
+        cert_btn_check: 'Cek Pesanan & Unduh',
+        cert_btn_support: 'Dukungan Admin',
+      },
+      zh: {
+        code: '中文',
+        status_online: '在线运行',
+        drawer_title: '导航菜单',
+        nav_home: '<i class="fas fa-home"></i> 首页',
+        nav_community: '<i class="fas fa-users"></i> 社区群组',
+        nav_services: '<i class="fas fa-star"></i> 特色服务',
+        nav_dev: '<i class="fas fa-code"></i> 开发项目',
+        nav_social: '<i class="fas fa-share-alt"></i> 社交媒体',
+        nav_donate: '<i class="fas fa-heart" style="color:#e11d48"></i> 赞助支持',
+        nav_about: '<i class="fas fa-info-circle"></i> 关于研究',
+        hero_pill: '所有系统状态正常 • 稳定运行',
+        hero_sub1: '独立 iOS 安全研究与技术分享',
+        hero_sub2: '探索 Apple 生态架构、iOS 逆向安全机制、系统微调及实用开源项目。',
+        hero_btn_comm: '<i class="fas fa-users"></i> 加入技术社区',
+        hero_btn_donate: '<i class="fas fa-hand-holding-heart"></i> 赞助研究项目',
+        mq_1: '安全隐私保障',
+        mq_2: '极速响应',
+        mq_3: '注重数据隐私',
+        sec_01: '个人简介概要',
+        sec_02: '我的社区群组',
+        sec_03: '精选特色服务',
+        sec_04: '项目与软件开发',
+        sec_05: '社交媒体平台',
+        sec_06: '赞助与开发支持',
+        sec_07: '关于我的研究',
+        btn_open: '打开链接',
+        badge_active: '正常活跃',
+        badge_update: '持续更新',
+        comm_all_btn: '所有 VNT TRICKS 交流群',
+        comm_count_badge: '8 个活跃社群',
+        badge_featured: '推荐服务',
+        btn_upgrade: '立即升级',
+        badge_free_dl: '免费下载',
+        btn_access_ipa: '访问 IPA 软件源',
+        badge_online: '在线运行',
+        btn_open_web: '打开网站',
+        badge_coming: '即将发布',
+        btn_view_notice: '查看公告',
+        badge_archived: '代码归档',
+        btn_fb: 'FACEBOOK 好友',
+        donate_desc: '感谢您的赞助与支持！您的支持是我们持续进行 iOS 安全研究和向社区免费提供工具的最大动力。',
+        bank_name_lbl: '收款银行:',
+        bank_acc_lbl: '银行账号:',
+        bank_owner_lbl: '收款姓名:',
+        btn_copy_stk: '复制银行账号',
+        btn_show_qr: '显示付款二维码',
+        btn_hide_qr: '隐藏付款二维码',
+        qr_subtext: '<i class="fas fa-camera"></i> 使用支持的银行扫码支付:',
+        btn_save_qr: '保存二维码图片',
+        modal_ok: '我知道了',
+        nav_cert: '<i class="fas fa-certificate" style="color:#ffd94a"></i> P12 证书专区 <span style="background:#ef4444;color:#fff;padding:1px 5px;border-radius:3px;font-size:10px;margin-left:4px;font-family:var(--font-mono);">HOT</span>',
+        cert_sec_badge: 'VNTCERT.CLICK • APPLE P12 个人证书商城',
+        cert_tag: 'APPLE CERTIFICATE P12 &amp; MOBILEPROVISION',
+        cert_title: '适用于 iPhone &amp; iPad 的 Apple P12 证书',
+        cert_highlight: '签名任意 IPA 软件 • 免越狱手机直装',
+        cert_desc: '全自动 24/7 个人 Apple 证书 (.p12 + .mobileprovision) 发行系统。通过 ESign、GBox、Scarlet 轻松自签安装 App Store 以外的软件，完美解封被苹果拉黑的设备，提供长达 300 天质保。',
+        cert_f1: '24/7 自动秒级极速出证',
+        cert_f2: '直连 Apple OCSP 验签有效性',
+        cert_f3: 'VietQR 自动扫码秒到账',
+        cert_f4: '解锁被拉黑设备 (Blacklist Unban)',
+        cert_f5: '365 天完整权限稳定使用',
+        cert_f6: '手机 Safari 即可操作 无需电脑',
+        cert_pkg_title: '在售证书套餐一览:',
+        cert_btn_buy: '进入官网购买证书 (VNTCERT.CLICK)',
+        cert_btn_check: '查询订单与提单',
+        cert_btn_support: '联系在线客服',
+      },
+      pt: {
+        code: 'PT',
+        status_online: 'ONLINE',
+        drawer_title: 'Menu de Navegação',
+        nav_home: '<i class="fas fa-home"></i> Início',
+        nav_community: '<i class="fas fa-users"></i> Comunidade',
+        nav_services: '<i class="fas fa-star"></i> Serviços',
+        nav_dev: '<i class="fas fa-code"></i> Projetos',
+        nav_social: '<i class="fas fa-share-alt"></i> Redes Sociais',
+        nav_donate: '<i class="fas fa-heart" style="color:#e11d48"></i> Doar',
+        nav_about: '<i class="fas fa-info-circle"></i> Sobre',
+        hero_pill: 'SISTEMAS OPERACIONAIS • NOMINAIS',
+        hero_sub1: 'Pesquisa e Educação Independente em Segurança iOS',
+        hero_sub2: 'Explorando o ecossistema Apple, arquitetura iOS, tweaks e ferramentas para a comunidade.',
+        hero_btn_comm: '<i class="fas fa-users"></i> Entrar na Comunidade',
+        hero_btn_donate: '<i class="fas fa-hand-holding-heart"></i> Apoiar Projeto',
+        mq_1: 'SEGURANÇA TOTAL',
+        mq_2: 'ULTRA RÁPIDO',
+        mq_3: 'PRIVACIDADE EM PRIMEIRO LUGAR',
+        sec_01: 'VISÃO GERAL DO PERFIL',
+        sec_02: 'MINHAS COMUNIDADES',
+        sec_03: 'MEUS SERVIÇOS',
+        sec_04: 'PROJETOS & DESENVOLVIMENTO',
+        sec_05: 'REDES SOCIAIS',
+        sec_06: 'APOIO & DOAÇÃO',
+        sec_07: 'SOBRE A PESQUISA',
+        btn_open: 'ABRIR LINK',
+        badge_active: 'Ativo',
+        badge_update: 'Atualizações',
+        comm_all_btn: 'TODAS AS COMUNIDADES VNT TRICKS',
+        comm_count_badge: '8 Grupos Ativos',
+        badge_featured: 'Destaque',
+        btn_upgrade: 'ATUALIZAR AGORA',
+        badge_free_dl: 'Download Grátis',
+        btn_access_ipa: 'ACESSAR REPOSITÓRIO IPA',
+        badge_online: 'Online',
+        btn_open_web: 'ABRIR SITE',
+        badge_coming: 'Em Breve',
+        btn_view_notice: 'VER AVISO',
+        badge_archived: 'Atualizando',
+        btn_fb: 'AMIGOS NO FACEBOOK',
+        donate_desc: 'Apoie a pesquisa independente sobre iOS e o desenvolvimento de soluções gratuitas para a comunidade.',
+        bank_name_lbl: 'Banco:',
+        bank_acc_lbl: 'Nº da Conta:',
+        bank_owner_lbl: 'Titular:',
+        btn_copy_stk: 'COPIAR NÚMERO DA CONTA',
+        btn_show_qr: 'EXIBIR QR CODE DE PAGAMENTO',
+        btn_hide_qr: 'OCULTAR QR CODE DE PAGAMENTO',
+        qr_subtext: '<i class="fas fa-camera"></i> Escaneie com seu aplicativo bancário:',
+        btn_save_qr: 'Salvar Imagem QR',
+        modal_ok: 'Entendido',
+        nav_cert: '<i class="fas fa-certificate" style="color:#ffd94a"></i> Certificado P12 <span style="background:#ef4444;color:#fff;padding:1px 5px;border-radius:3px;font-size:10px;margin-left:4px;font-family:var(--font-mono);">HOT</span>',
+        cert_sec_badge: 'VNTCERT.CLICK • CERTIFICADOS APPLE P12',
+        cert_tag: 'APPLE CERTIFICATE P12 &amp; MOBILEPROVISION',
+        cert_title: 'Certificados Apple P12 para iPhone &amp; iPad',
+        cert_highlight: 'Instale Qualquer IPA • Sem Jailbreak',
+        cert_desc: 'Sistema automatizado 24/7 de certificados de desenvolvedor Apple (.p12 + .mobileprovision). Assine apps fora da App Store com ESign, GBox, Scarlet, desbloqueie aparelhos na blacklist com até 300 dias de garantia.',
+        cert_f1: 'Emissão Automática 24/7',
+        cert_f2: 'Verificação Direta Apple OCSP',
+        cert_f3: 'Recarga Automática VietQR',
+        cert_f4: 'Desbloqueio de Blacklist',
+        cert_f5: 'Validade Total de 365 Dias',
+        cert_f6: '100% no iPhone/iPad, Sem PC',
+        cert_pkg_title: 'PACOTES DE CERTIFICADOS DISPONÍVEIS:',
+        cert_btn_buy: 'COMPRAR CERTIFICADO (VNTCERT.CLICK)',
+        cert_btn_check: 'Verificar Pedido & Baixar',
+        cert_btn_support: 'Suporte Admin',
+      }
+    };
+
+    let currentLang = 'vi';
+
+    function setLanguage(lang) {
+      if (!translations[lang]) lang = 'vi';
+      currentLang = lang;
+      localStorage.setItem('vnt_lang', lang);
+
+      // Update current label
+      document.getElementById('currentLangLabel').textContent = translations[lang].code;
+
+      // Update active option in dropdown
+      document.querySelectorAll('.lang-item').forEach(el => {
+        if (el.getAttribute('data-lang') === lang) {
+          el.classList.add('active');
+        } else {
+          el.classList.remove('active');
+        }
+      });
+
+      // Update all data-i18n elements
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (translations[lang] && translations[lang][key] !== undefined) {
+          el.innerHTML = translations[lang][key];
+        } else if (translations['en'][key] !== undefined) {
+          el.innerHTML = translations['en'][key];
+        }
+      });
+
+      // Update QR toggle text state
+      const qrContainer = document.getElementById('vietQrContainer');
+      const qrBtnText = document.getElementById('qrToggleText');
+      if (qrContainer.classList.contains('show')) {
+        qrBtnText.textContent = (translations[lang] && translations[lang].btn_hide_qr) || 'ẨN MÃ QR THANH TOÁN';
+      } else {
+        qrBtnText.textContent = (translations[lang] && translations[lang].btn_show_qr) || 'HIỆN MÃ QR THANH TOÁN';
+      }
+
+      // Close dropdown
+      const wrapper = document.getElementById('langWrapper');
+      if (wrapper) wrapper.classList.remove('open');
+    }
+
+    function toggleLangDropdown(e) {
+      e.stopPropagation();
+      const wrapper = document.getElementById('langWrapper');
+      wrapper.classList.toggle('open');
+    }
+
+    // Close language dropdown when clicking outside
+    document.addEventListener('click', (e) => {
+      const wrapper = document.getElementById('langWrapper');
+      if (wrapper && !wrapper.contains(e.target)) {
+        wrapper.classList.remove('open');
+      }
+    });
+
+    // ===== Local Digital Clock (Vietnam Time UTC+7) =====
+    function updateClock() {
+      const now = new Date();
+      // Calculate Vietnam time (UTC+7)
+      const utcTime = now.getTime() + (now.getTimezoneOffset() * 60000);
+      const vnTime = new Date(utcTime + (7 * 3600000));
+      
+      const hours = String(vnTime.getHours()).padStart(2, '0');
+      const minutes = String(vnTime.getMinutes()).padStart(2, '0');
+      const seconds = String(vnTime.getSeconds()).padStart(2, '0');
+      const timeStr = `${hours}:${minutes}:${seconds}`;
+      
+      const clockEl = document.getElementById('digitalClock');
+      if (clockEl) {
+        clockEl.textContent = timeStr;
+      }
+      const drawerClockEl = document.querySelector('.drawer-clock');
+      if (drawerClockEl) {
+        drawerClockEl.textContent = timeStr;
+      }
+    }
+    setInterval(updateClock, 1000);
+    updateClock();
+
+    // ===== Mini Music Player Controller =====
+    const PLAYLIST = [
+      {
+        title: "5 In 1 Chờ Chút",
+        artist: "prod.tuansieu",
+        src: "audio/5_in_1_cho_chut.mp3"
+      },
+      {
+        title: "Love Story",
+        artist: "Taylor Swift",
+        src: "audio/love_story.mp3"
+      },
+      {
+        title: "Để Dành Cho Em",
+        artist: "Trần Hoàng Thái Toàn",
+        src: "audio/de_danh_cho_em.mp3"
+      },
+      {
+        title: "Đừng Về Trễ",
+        artist: "Chạm Vào Tim",
+        src: "audio/dung_ve_tre.mp3"
+      },
+      {
+        title: "Người Như Anh Xứng Đáng Cô Đơn",
+        artist: "honf",
+        src: "audio/nguoi_nhu_anh_xung_dang_co_don.mp3"
+      },
+      {
+        title: "Giáng Sinh Chẳng Giống Giáng Sinh (Cover)",
+        artist: "taosthichhat",
+        src: "audio/giang_sinh_chang_giong_giang_sinh.mp3"
+      }
+    ];
+
+    let currentTrackIdx = 0;
+    let isPlaying = false;
+    const bgMusic = document.getElementById('bgMusic');
+    const musicBtn = document.getElementById('musicToggleBtn');
+    const musicIcon = document.getElementById('musicIcon');
+    const musicPopup = document.getElementById('musicPlayerPopup');
+    const mppPlayBtn = document.getElementById('mppPlayBtn');
+    const mppPlayIcon = document.getElementById('mppPlayIcon');
+    const mppTitle = document.getElementById('mppTitle');
+    const mppArtist = document.getElementById('mppArtist');
+    const mppCurrentTime = document.getElementById('mppCurrentTime');
+    const mppDuration = document.getElementById('mppDuration');
+    const mppProgressBar = document.getElementById('mppProgressBar');
+    const mppPlaylistDrawer = document.getElementById('mppPlaylistDrawer');
+    const mppPlaylistItems = document.getElementById('mppPlaylistItems');
+
+    bgMusic.volume = 0.55;
+
+    function formatTime(sec) {
+      if (!sec || isNaN(sec)) return "00:00";
+      const m = Math.floor(sec / 60);
+      const s = Math.floor(sec % 60);
+      return `${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`;
+    }
+
+    function renderPlaylistUI() {
+      if (!mppPlaylistItems) return;
+      mppPlaylistItems.innerHTML = PLAYLIST.map((t, idx) => `
+        <div class="mpp-item ${idx === currentTrackIdx ? 'active' : ''} ${idx === currentTrackIdx && isPlaying ? 'playing' : ''}" onclick="selectTrack(${idx})">
+          <div class="mpp-item-left">
+            <span class="mpp-item-num">${String(idx + 1).padStart(2, '0')}</span>
+            <span class="mpp-item-title" title="${t.title}">${t.title}</span>
+          </div>
+          <div class="mpp-wave">
+            <span></span><span></span><span></span>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    let hasTriggeredAutoNext = false;
+
+    function loadTrack(index, shouldPlay = false) {
+      if (index < 0) index = PLAYLIST.length - 1;
+      if (index >= PLAYLIST.length) index = 0;
+      currentTrackIdx = index;
+      const track = PLAYLIST[currentTrackIdx];
+      
+      hasTriggeredAutoNext = false;
+      bgMusic.loop = false;
+      bgMusic.src = track.src;
+      mppTitle.textContent = track.title;
+      mppArtist.textContent = track.artist;
+      mppCurrentTime.textContent = "00:00";
+      mppDuration.textContent = "00:00";
+      mppProgressBar.value = 0;
+      
+      renderPlaylistUI();
+
+      if (shouldPlay) {
+        playTrack();
+      }
+    }
+
+    function playTrack() {
+      bgMusic.play().then(() => {
+        isPlaying = true;
+        updatePlayerUIState();
+      }).catch(err => {
+        console.warn("Play error:", err);
+      });
+    }
+
+    function pauseTrack() {
+      bgMusic.pause();
+      isPlaying = false;
+      updatePlayerUIState();
+    }
+
+    function togglePlayPause() {
+      if (bgMusic.paused) {
+        playTrack();
+      } else {
+        pauseTrack();
+      }
+    }
+
+    function prevSong() {
+      loadTrack(currentTrackIdx - 1, true);
+    }
+
+    function nextSong() {
+      loadTrack(currentTrackIdx + 1, true);
+    }
+
+    function selectTrack(idx) {
+      if (idx === currentTrackIdx) {
+        togglePlayPause();
+      } else {
+        loadTrack(idx, true);
+      }
+    }
+
+    function updatePlayerUIState() {
+      if (isPlaying) {
+        musicBtn.classList.add('playing');
+        musicIcon.className = 'fas fa-volume-up';
+        musicPopup.classList.add('is-playing');
+        mppPlayIcon.className = 'fas fa-pause';
+        mppPlayBtn.title = "Tạm dừng";
+      } else {
+        musicBtn.classList.remove('playing');
+        musicIcon.className = 'fas fa-music';
+        musicPopup.classList.remove('is-playing');
+        mppPlayIcon.className = 'fas fa-play';
+        mppPlayBtn.title = "Phát nhạc";
+      }
+      renderPlaylistUI();
+    }
+
+    function toggleMusicPopup(forceState) {
+      const isOpen = musicPopup.classList.contains('open');
+      const newState = typeof forceState === 'boolean' ? forceState : !isOpen;
+      if (newState) {
+        musicPopup.classList.add('open');
+        musicBtn.classList.add('active-popup');
+      } else {
+        musicPopup.classList.remove('open');
+        musicBtn.classList.remove('active-popup');
+      }
+    }
+
+    function toggleMppPlaylist() {
+      if (!mppPlaylistDrawer) return;
+      const isHidden = mppPlaylistDrawer.style.display === 'none';
+      mppPlaylistDrawer.style.display = isHidden ? 'block' : 'none';
+    }
+
+    let isSeeking = false;
+
+    function onProgressInput(pct) {
+      isSeeking = true;
+      if (bgMusic.duration) {
+        const targetTime = (pct / 100) * bgMusic.duration;
+        mppCurrentTime.textContent = formatTime(targetTime);
+      }
+    }
+
+    function onProgressChange(pct) {
+      if (bgMusic.duration) {
+        const targetTime = (pct / 100) * bgMusic.duration;
+        bgMusic.currentTime = targetTime;
+        mppCurrentTime.textContent = formatTime(targetTime);
+      }
+      setTimeout(() => {
+        isSeeking = false;
+      }, 100);
+    }
+
+    mppProgressBar.addEventListener('mousedown', () => { isSeeking = true; });
+    mppProgressBar.addEventListener('touchstart', () => { isSeeking = true; }, { passive: true });
+    window.addEventListener('mouseup', () => {
+      if (isSeeking) {
+        setTimeout(() => { isSeeking = false; }, 100);
+      }
+    });
+    window.addEventListener('touchend', () => {
+      if (isSeeking) {
+        setTimeout(() => { isSeeking = false; }, 100);
+      }
+    });
+
+    bgMusic.addEventListener('loadedmetadata', () => {
+      mppDuration.textContent = formatTime(bgMusic.duration);
+    });
+
+    bgMusic.addEventListener('timeupdate', () => {
+      if (bgMusic.duration && !isSeeking) {
+        const pct = (bgMusic.currentTime / bgMusic.duration) * 100;
+        mppProgressBar.value = pct;
+        mppCurrentTime.textContent = formatTime(bgMusic.currentTime);
+        mppDuration.textContent = formatTime(bgMusic.duration);
+
+        // Auto-switch to next song if near end of track
+        if (bgMusic.duration > 2 && bgMusic.currentTime >= bgMusic.duration - 0.25 && !hasTriggeredAutoNext) {
+          hasTriggeredAutoNext = true;
+          nextSong();
+        }
+      }
+    });
+
+    function onTrackEnded() {
+      if (!hasTriggeredAutoNext) {
+        hasTriggeredAutoNext = true;
+        nextSong();
+      }
+    }
+
+    bgMusic.addEventListener('ended', onTrackEnded);
+    bgMusic.onended = onTrackEnded;
+
+    document.addEventListener('click', (e) => {
+      if (musicPopup.classList.contains('open')) {
+        if (!musicPopup.contains(e.target) && !musicBtn.contains(e.target)) {
+          toggleMusicPopup(false);
+        }
+      }
+    });
+
+    loadTrack(0, false);
+
+    // ===== Mobile Menu Drawer =====
+    function toggleDrawer() {
+      const drawer = document.getElementById('mobileDrawer');
+      const overlay = document.getElementById('drawerOverlay');
+      drawer.classList.toggle('active');
+      overlay.classList.toggle('active');
+    }
+
+    // ===== Community List Collapse / Expand =====
+    function toggleCommunityList() {
+      const grid = document.getElementById('communityGrid');
+      const btn = document.getElementById('commToggleBtn');
+      if (grid.style.display === 'none') {
+        grid.style.display = 'grid';
+        btn.classList.add('open');
+      } else {
+        grid.style.display = 'none';
+        btn.classList.remove('open');
+      }
+    }
+
+    // ===== VietQR Toggle =====
+    function toggleVietQR() {
+      const container = document.getElementById('vietQrContainer');
+      const btnText = document.getElementById('qrToggleText');
+      const langData = translations[currentLang] || translations.vi;
+      if (container.classList.contains('show')) {
+        container.classList.remove('show');
+        btnText.textContent = langData.btn_show_qr || 'HIỆN MÃ QR THANH TOÁN';
+      } else {
+        container.classList.add('show');
+        btnText.textContent = langData.btn_hide_qr || 'ẨN MÃ QR THANH TOÁN';
+        container.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
+    }
+
+    // ===== Download QR Code =====
+    function downloadQR() {
+      const qrImg = document.querySelector('.qr-image');
+      if (qrImg) {
+        window.open(qrImg.src, '_blank');
+        showToast(currentLang === 'en' ? 'Opening high-res QR image...' : 'Đang mở ảnh QR độ phân giải cao...');
+      }
+    }
+
+    // ===== Toast Functionality =====
+    let toastTimeout;
+    function showToast(msg) {
+      const toast = document.getElementById('toast');
+      const toastMsg = document.getElementById('toastMsg');
+      toastMsg.textContent = msg;
+      toast.classList.add('show');
+      clearTimeout(toastTimeout);
+      toastTimeout = setTimeout(() => {
+        toast.classList.remove('show');
+      }, 2600);
+    }
+
+    // ===== Copy to Clipboard =====
+    function copyToClipboard(text, successMsg) {
+      if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(text).then(() => {
+          showToast(successMsg || (currentLang === 'en' ? 'Copied to clipboard!' : 'Đã sao chép vào bộ nhớ tạm!'));
+        }).catch(() => fallbackCopy(text, successMsg));
+      } else {
+        fallbackCopy(text, successMsg);
+      }
+    }
+
+    function fallbackCopy(text, successMsg) {
+      const textArea = document.createElement('textarea');
+      textArea.value = text;
+      textArea.style.position = 'fixed';
+      textArea.style.left = '-9999px';
+      document.body.appendChild(textArea);
+      textArea.select();
+      try {
+        document.execCommand('copy');
+        showToast(successMsg || (currentLang === 'en' ? 'Copied to clipboard!' : 'Đã sao chép vào bộ nhớ tạm!'));
+      } catch (err) {
+        prompt('Copy:', text);
+      }
+      document.body.removeChild(textArea);
+    }
+
+    // ===== Notice Modal =====
+    function showNoticeModal(title, text) {
+      document.getElementById('modalTitle').textContent = title;
+      document.getElementById('modalBody').textContent = text;
+      document.getElementById('noticeModal').classList.add('open');
+    }
+
+    function closeNoticeModal(e) {
+      if (!e || e.target.id === 'noticeModal' || e.target.closest('.modal-x') || e.target.tagName === 'BUTTON') {
+        document.getElementById('noticeModal').classList.remove('open');
+      }
+    }
+
+    // Close modal on Escape
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeNoticeModal();
+    });
+
+    // ===== Initialize Saved Language on Page Load =====
+    window.addEventListener('DOMContentLoaded', () => {
+      const savedLang = localStorage.getItem('vnt_lang') || 'vi';
+      setLanguage(savedLang);
+    });
+  </script>
+
+  <!-- ========================================================
+       HIỆU ỨNG TUYẾT RƠI 3D (SNOWFALL EFFECT) - 60FPS VANILLA JS
+       ======================================================== -->
+  <style>
+    #snow-canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none;
+      z-index: 9999;
+    }
+  </style>
+  <canvas id="snow-canvas"></canvas>
+  <script>
+  (function() {
+    'use strict';
+    const CONFIG = {
+      countDesktop: 180,
+      countMobile: 70,
+      minRadius: 0.8,
+      maxRadius: 4.2,
+      minSpeedY: 0.6,
+      maxSpeedY: 2.2,
+      baseWind: 0.3,
+      mouseWindFactor: 1.8,
+      mouseDamping: 0.05,
+      wobbleSpeed: 0.02
+    };
+
+    const canvas = document.getElementById('snow-canvas');
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+
+    let width = 0;
+    let height = 0;
+    let dpr = 1;
+    let flakes = [];
+    let mouseTargetWind = 0;
+    let mouseCurrentWind = 0;
+
+    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || window.innerWidth <= 768;
+    const flakeCount = isMobile ? CONFIG.countMobile : CONFIG.countDesktop;
+
+    class Snowflake {
+      constructor(initRandomY = true) {
+        this.reset(initRandomY);
+      }
+
+      reset(initRandomY = false) {
+        this.z = Math.random() * 0.9 + 0.1;
+        this.x = Math.random() * width;
+        this.y = initRandomY ? Math.random() * height : -10;
+        this.radius = CONFIG.minRadius + this.z * (CONFIG.maxRadius - CONFIG.minRadius);
+        this.speedY = (CONFIG.minSpeedY + this.z * (CONFIG.maxSpeedY - CONFIG.minSpeedY)) * (0.8 + Math.random() * 0.4);
+        this.alpha = 0.2 + this.z * 0.7;
+        this.angle = Math.random() * Math.PI * 2;
+        this.angleSpeed = CONFIG.wobbleSpeed * (0.6 + Math.random() * 0.8);
+        this.amplitude = 0.5 + this.z * 1.2;
+      }
+
+      update(globalWind) {
+        this.angle += this.angleSpeed;
+        const sway = Math.sin(this.angle) * this.amplitude;
+        const windEffect = (CONFIG.baseWind + globalWind) * this.z;
+        this.x += sway + windEffect;
+        this.y += this.speedY;
+
+        if (this.y > height + 10) {
+          this.reset(false);
+        }
+        if (this.x > width + 15) {
+          this.x = -15;
+        } else if (this.x < -15) {
+          this.x = width + 15;
+        }
+      }
+
+      draw() {
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+        if (this.z > 0.65) {
+          const gradient = ctx.createRadialGradient(
+            this.x, this.y, 0,
+            this.x, this.y, this.radius
+          );
+          gradient.addColorStop(0, `rgba(255, 255, 255, ${this.alpha})`);
+          gradient.addColorStop(0.7, `rgba(255, 255, 255, ${this.alpha * 0.7})`);
+          gradient.addColorStop(1, 'rgba(255, 255, 255, 0)');
+          ctx.fillStyle = gradient;
+        } else {
+          ctx.fillStyle = `rgba(255, 255, 255, ${this.alpha})`;
+        }
+        ctx.fill();
+      }
+    }
+
+    function handleResize() {
+      dpr = window.devicePixelRatio || 1;
+      width = window.innerWidth;
+      height = window.innerHeight;
+      canvas.width = width * dpr;
+      canvas.height = height * dpr;
+      ctx.scale(dpr, dpr);
+    }
+
+    function init() {
+      handleResize();
+      flakes = [];
+      for (let i = 0; i < flakeCount; i++) {
+        flakes.push(new Snowflake(true));
+      }
+    }
+
+    function render() {
+      mouseCurrentWind += (mouseTargetWind - mouseCurrentWind) * CONFIG.mouseDamping;
+      ctx.clearRect(0, 0, width, height);
+      for (let i = 0; i < flakes.length; i++) {
+        flakes[i].update(mouseCurrentWind);
+        flakes[i].draw();
+      }
+      requestAnimationFrame(render);
+    }
+
+    if (!isMobile) {
+      window.addEventListener('mousemove', function(e) {
+        const normalizedX = (e.clientX / width) * 2 - 1;
+        mouseTargetWind = normalizedX * CONFIG.mouseWindFactor;
+      }, { passive: true });
+
+      window.addEventListener('mouseleave', function() {
+        mouseTargetWind = 0;
+      });
+    }
+
+    window.addEventListener('resize', handleResize, { passive: true });
+    window.addEventListener('orientationchange', handleResize, { passive: true });
+
+    init();
+    requestAnimationFrame(render);
+  })();
+  </script>
+
+
+
+  <!-- ==========================================
+       BỘ ĐIỀU KHIỂN GIAO DIỆN SÁNG / TỐI (LIGHT / DARK THEME)
+       ========================================== -->
+  <script>
+    function getPreferredTheme() {
+      const saved = localStorage.getItem('vnt_theme');
+      if (saved) return saved;
+      return (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) ? 'dark' : 'light';
+    }
+
+    function applyTheme(theme) {
+      document.documentElement.setAttribute('data-theme', theme);
+      localStorage.setItem('vnt_theme', theme);
+
+      const themeIcons = document.querySelectorAll('.theme-toggle-icon');
+      themeIcons.forEach(icon => {
+        if (theme === 'dark') {
+          icon.className = 'fas fa-sun theme-toggle-icon';
+          icon.style.color = '#fde047';
+        } else {
+          icon.className = 'fas fa-moon theme-toggle-icon';
+          icon.style.color = '';
+        }
+      });
+
+      const mobileLabel = document.getElementById('mobileThemeLabel');
+      if (mobileLabel) {
+        mobileLabel.textContent = theme === 'dark' ? 'Chế độ Tối' : 'Chế độ Sáng';
+      }
+    }
+
+    function toggleTheme() {
+      const current = document.documentElement.getAttribute('data-theme') || 'light';
+      const next = current === 'dark' ? 'light' : 'dark';
+      applyTheme(next);
+    }
+
+    // Đảm bảo chạy ngay khi DOM sẵn sàng
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', function() {
+        applyTheme(getPreferredTheme());
+      });
+    } else {
+      applyTheme(getPreferredTheme());
+    }
+  </script>
+
+</body>
+</html>

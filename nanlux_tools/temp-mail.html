@@ -1,0 +1,468 @@
+e
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Temp Mail - Miễn phí trọn đời</title>
+    <link href="https://fonts.googleapis.com/css2?family=Itim&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="locket-style.css">
+</head>
+
+<body>
+    <div class="bg-orbs" aria-hidden="true"><span></span><span></span><span></span></div>
+
+    <header class="topbar" style="padding-left:8px">
+        <a class="brand" href="/" style="margin-left:0">
+            <span class="brand-word">Temp <span class="brand-cam">Mail</span></span>
+        </a>
+        <div style="margin-left:auto;display:flex;gap:8px;align-items:center">
+            <a class="btn btn-ghost btn-sm" href="https://profile.vasnet360.site/#home">Trang Chủ</a>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero reveal in">
+            <div class="hero-copy" style="text-align: center; max-width: 800px; margin: 0 auto; align-self: center;">
+                <div class="pill-live"><span class="dot"></span> Hoạt động tốt</div>
+                <h1>Email tạm thời <span class="hl">1 chạm là xong</span></h1>
+                <p class="lead">Email tạm thời miễn phí - Bảo vệ quyền riêng tư của bạn</p>
+            </div>
+        </section>
+
+        <!-- Marquee separator -->
+        <div class="marquee" aria-hidden="true">
+            <div class="marquee-track">
+                <span><i class="fas fa-shield-alt"></i> Bảo mật tuyệt đối</span>
+                <span><i class="fas fa-bolt"></i> Siêu tốc</span>
+                <span><i class="fas fa-trash-alt"></i> Xóa tự động</span>
+                <span><i class="fas fa-shield-alt"></i> Bảo mật tuyệt đối</span>
+                <span><i class="fas fa-bolt"></i> Siêu tốc</span>
+                <span><i class="fas fa-trash-alt"></i> Xóa tự động</span>
+                <span><i class="fas fa-shield-alt"></i> Bảo mật tuyệt đối</span>
+                <span><i class="fas fa-bolt"></i> Siêu tốc</span>
+                <span><i class="fas fa-trash-alt"></i> Xóa tự động</span>
+            </div>
+        </div>
+
+        <section id="startContainer" class="section reveal in" style="text-align: center; margin: 40px 0;">
+            <button class="btn btn-gold btn-lg" style="font-size: 20px; padding: 16px 32px;" onclick="startApp()"><i
+                    class="fas fa-envelope-open-text" style="margin-right: 8px;"></i> Nhận Email Ngay</button>
+        </section>
+
+        <section id="app" class="section reveal in" style="max-width: 800px; margin: 0 auto; display: none;">
+            <div class="plan plan-hot" style="margin-bottom: 24px; text-align: center;">
+                <div style="font-size: 24px; font-weight: bold; font-family: monospace; letter-spacing: 1px; word-break: break-all; margin-bottom: 16px; background: rgba(255,255,255,0.7); padding: 12px; border-radius: var(--radius-base); border: 2px solid var(--border);"
+                    id="emailText">Đang tạo...</div>
+
+                <div
+                    style="display: flex; justify-content: center; align-items: center; gap: 12px; margin-bottom: 20px;">
+                    <div
+                        style="font-size: 18px; font-weight: bold; color: var(--red); background: var(--paper-1); padding: 4px 12px; border: 2px solid var(--border); border-radius: var(--radius-base); box-shadow: var(--shadow-sm);">
+                        <i class="fas fa-clock"></i> <span id="timerText">10:00</span>
+                    </div>
+                    <button id="addHourBtn" class="btn btn-sm btn-ghost" onclick="addOneHour()"><i
+                            class="fas fa-plus"></i> 1 Giờ</button>
+                </div>
+
+                <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-bottom: 20px;">
+                    <button class="btn btn-dark" onclick="copyEmail()"><i class="fas fa-copy"></i> Copy</button>
+                    <button class="btn btn-ghost" onclick="refreshInbox()"><i class="fas fa-sync-alt"></i>
+                        Refresh</button>
+                    <button class="btn btn-gold" onclick="generateNewEmail()"><i class="fas fa-plus"></i> Email
+                        Mới</button>
+                </div>
+
+                <div style="display: flex; flex-direction: column; gap: 10px; max-width: 400px; margin: 0 auto;">
+                    <div class="fld">
+                        <label>Domain</label>
+                        <select id="domainSelect" onchange="changeDomain()">
+                            <option value="">Đang tải...</option>
+                        </select>
+                    </div>
+                    <div class="fld">
+                        <label>Username</label>
+                        <input type="text" id="usernameInput" placeholder="username" onchange="changeUsername()">
+                    </div>
+                </div>
+            </div>
+
+            <div class="plan" style="padding: 0; overflow: hidden;">
+                <div
+                    style="background: var(--paper-1); border-bottom: 2px solid var(--border); padding: 16px 24px; display: flex; justify-content: space-between; align-items: center;">
+                    <h3 style="margin: 0; font-size: 18px;"><i class="fas fa-inbox"></i> Hộp thư đến</h3>
+                    <span
+                        style="background: var(--main-hi); padding: 4px 12px; border-radius: 20px; font-size: 14px; font-weight: bold; border: 2px solid var(--border);"
+                        id="emailCount">0</span>
+                </div>
+
+                <div style="display: grid; grid-template-columns: 1fr; min-height: 400px;">
+                    <!-- Email List -->
+                    <div id="emailList" style="overflow-y: auto; max-height: 500px; padding-bottom: 12px;">
+                        <div style="padding: 40px 20px; text-align: center; color: var(--ink-500);">
+                            <div class="spinner" style="margin: 0 auto;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="emailDetailModal" class="modal-back">
+                <div class="modal" style="max-width: 700px;">
+                    <button class="modal-x" onclick="closeEmailModal()"><i class="fas fa-times"></i></button>
+                    <div id="emailDetailContent"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-in">
+            <span>© 2026 Temp Mail by VNT</span>
+        </div>
+    </footer>
+
+    <div id="toast" class="toast"><i class="fas fa-check-circle"></i><span id="toastMsg" style="margin-left: 8px;">Đã
+            copy!</span></div>
+
+    <script>
+        // API logic
+        const API_BASE = 'https://tinyhost.shop';
+        let currentDomain = '';
+        let currentUsername = '';
+        let currentEmails = [];
+        let refreshInterval = null;
+        let timerInterval = null;
+
+        function startTimer(durationInMs) {
+            const expiry = Date.now() + durationInMs;
+            localStorage.setItem('tempmail_expiry', expiry);
+            document.getElementById('addHourBtn').style.display = 'inline-flex';
+            runTimer(expiry);
+        }
+
+        function runTimer(expiry) {
+            if (timerInterval) clearInterval(timerInterval);
+
+            function update() {
+                const now = Date.now();
+                const diff = expiry - now;
+
+                if (diff <= 0) {
+                    clearInterval(timerInterval);
+                    document.getElementById('timerText').textContent = '00:00';
+                    showToast('Email đã hết hạn, đang tạo mới...', true);
+                    generateNewEmail();
+                    return;
+                }
+
+                const minutes = Math.floor(diff / 60000);
+                const seconds = Math.floor((diff % 60000) / 1000);
+                document.getElementById('timerText').textContent =
+                    `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+            }
+
+            update();
+            timerInterval = setInterval(update, 1000);
+        }
+
+        function addOneHour() {
+            const currentExpiry = localStorage.getItem('tempmail_expiry');
+            const expiry = (currentExpiry && parseInt(currentExpiry) > Date.now())
+                ? parseInt(currentExpiry) + (60 * 60 * 1000)
+                : Date.now() + (60 * 60 * 1000);
+
+            localStorage.setItem('tempmail_expiry', expiry);
+            document.getElementById('addHourBtn').style.display = 'none';
+            runTimer(expiry);
+            showToast('Đã gia hạn thêm 1 giờ!');
+        }
+
+        function generateUsername() {
+            const chars = 'abcdefghijklmnopqrstuvwxyz0123456789';
+            let result = '';
+            for (let i = 0; i < 10; i++) {
+                result += chars.charAt(Math.floor(Math.random() * chars.length));
+            }
+            return result;
+        }
+
+        async function loadDomains() {
+            try {
+                const response = await fetch(`${API_BASE}/api/random-domains/?limit=50`);
+                const data = await response.json();
+
+                const select = document.getElementById('domainSelect');
+                select.innerHTML = '';
+
+                if (data.domains && data.domains.length > 0) {
+                    data.domains.forEach((domain, index) => {
+                        const option = document.createElement('option');
+                        option.value = domain;
+                        option.textContent = domain;
+                        if (index === 0) option.selected = true;
+                        select.appendChild(option);
+                    });
+                    currentDomain = data.domains[0];
+                } else {
+                    select.innerHTML = '<option value="">Không có domain</option>';
+                }
+            } catch (error) {
+                console.error('Error loading domains:', error);
+                document.getElementById('domainSelect').innerHTML = '<option value="">Lỗi tải domain</option>';
+            }
+        }
+
+        function updateEmailDisplay() {
+            const email = `${currentUsername}@${currentDomain}`;
+            document.getElementById('emailText').textContent = email;
+            localStorage.setItem('tempmail_email', email);
+            localStorage.setItem('tempmail_domain', currentDomain);
+            localStorage.setItem('tempmail_username', currentUsername);
+        }
+
+        function changeDomain() {
+            currentDomain = document.getElementById('domainSelect').value;
+            updateEmailDisplay();
+            startTimer(10 * 60 * 1000);
+            refreshInbox();
+        }
+
+        function changeUsername() {
+            const input = document.getElementById('usernameInput').value.trim().toLowerCase();
+            if (input && /^[a-z0-9]+$/.test(input)) {
+                currentUsername = input;
+                updateEmailDisplay();
+                startTimer(10 * 60 * 1000);
+                refreshInbox();
+            } else {
+                showToast('Username chỉ được chứa chữ thường và số', true);
+            }
+        }
+
+        function generateNewEmail() {
+            currentUsername = generateUsername();
+            document.getElementById('usernameInput').value = currentUsername;
+
+            const select = document.getElementById('domainSelect');
+            if (select.options.length > 0) {
+                const randomIndex = Math.floor(Math.random() * select.options.length);
+                select.selectedIndex = randomIndex;
+                currentDomain = select.options[randomIndex].value;
+            }
+
+            updateEmailDisplay();
+            startTimer(10 * 60 * 1000);
+            refreshInbox();
+            showToast('Đã tạo email mới!');
+        }
+
+        function copyEmail() {
+            const email = `${currentUsername}@${currentDomain}`;
+            navigator.clipboard.writeText(email).then(() => {
+                showToast('Đã copy email!');
+            });
+        }
+
+        async function refreshInbox() {
+            if (!currentDomain || !currentUsername) return;
+            const emailList = document.getElementById('emailList');
+
+            try {
+                const response = await fetch(`${API_BASE}/api/email/${currentDomain}/${currentUsername}/?limit=50`);
+                const data = await response.json();
+
+                currentEmails = data.emails || [];
+                document.getElementById('emailCount').textContent = currentEmails.length;
+
+                if (currentEmails.length === 0) {
+                    emailList.innerHTML = `
+                        <div style="padding: 40px 20px; text-align: center; color: var(--ink-500);">
+                            <i class="fas fa-inbox" style="font-size: 32px; margin-bottom: 12px; opacity: 0.5;"></i>
+                            <p>Chưa có email nào</p>
+                            <p style="font-size: 0.8rem; margin-top: 10px; opacity: 0.8;">Email mới sẽ xuất hiện tự động</p>
+                        </div>
+                    `;
+                } else {
+                    emailList.innerHTML = currentEmails.map((email) => `
+                        <div class="mo-row" style="cursor: pointer; margin: 12px 16px; display: flex; flex-direction: column; align-items: flex-start; gap: 4px;" onclick="viewEmail(${email.id})">
+                            <div style="width: 100%; display: flex; justify-content: space-between;">
+                                <b style="color: var(--ink-900); font-size: 15px;">${escapeHtml(email.sender || 'Unknown')}</b>
+                                <span style="font-size: 12px; color: var(--ink-500);">${formatDate(email.date)}</span>
+                            </div>
+                            <span style="font-size: 14px; color: var(--ink-700); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; width: 100%;">${escapeHtml(email.subject || '(No subject)')}</span>
+                        </div>
+                    `).join('');
+                }
+            } catch (error) {
+                console.error('Error refreshing inbox:', error);
+                emailList.innerHTML = `
+                    <div style="padding: 40px 20px; text-align: center; color: var(--red);">
+                        <i class="fas fa-exclamation-triangle" style="font-size: 32px; margin-bottom: 12px;"></i>
+                        <p>Lỗi tải email</p>
+                    </div>
+                `;
+            }
+        }
+
+        async function viewEmail(emailId) {
+            const modal = document.getElementById('emailDetailModal');
+            const content = document.getElementById('emailDetailContent');
+
+            modal.classList.add('open');
+            content.innerHTML = '<div style="text-align: center; padding: 40px;"><div class="spinner" style="margin:0 auto;"></div></div>';
+
+            try {
+                const response = await fetch(`${API_BASE}/api/email/${currentDomain}/${currentUsername}/${emailId}`);
+                const email = await response.json();
+
+                content.innerHTML = `
+                    <div style="margin-bottom: 16px; padding-bottom: 12px; border-bottom: 2px solid var(--border); margin-right: 20px;">
+                        <h2 style="margin-bottom: 8px; font-size: 20px;">${escapeHtml(email.subject || '(No subject)')}</h2>
+                        <div style="display: flex; gap: 16px; font-size: 13px; color: var(--ink-700); flex-wrap: wrap;">
+                            <span><i class="fas fa-user"></i> ${escapeHtml(email.sender || 'Unknown')}</span>
+                            <span><i class="fas fa-clock"></i> ${formatDate(email.date)}</span>
+                        </div>
+                    </div>
+                    <div style="background: white; border: 2px solid var(--border); border-radius: var(--radius-base); padding: 12px; min-height: 200px; max-height: 50vh; overflow-y: auto;">
+                        ${email.html_body ? `<iframe id="emailFrame" sandbox="allow-same-origin" style="width:100%;height:400px;border:none;"></iframe>` : `<pre style="white-space: pre-wrap; font-family: inherit; margin:0;">${escapeHtml(email.body || 'No content')}</pre>`}
+                    </div>
+                    <div style="margin-top: 16px; display: flex; justify-content: flex-end;">
+                        <button class="btn btn-dark" style="background: var(--red);" onclick="deleteEmail(${emailId})"><i class="fas fa-trash"></i> Xóa Email</button>
+                    </div>
+                `;
+
+                if (email.html_body) {
+                    const iframe = document.getElementById('emailFrame');
+                    if (iframe) {
+                        iframe.srcdoc = email.html_body;
+                    }
+                }
+            } catch (error) {
+                console.error('Error viewing email:', error);
+                content.innerHTML = `
+                    <div style="text-align: center; padding: 40px; color: var(--red);">
+                        <i class="fas fa-exclamation-triangle" style="font-size: 32px; margin-bottom: 12px;"></i>
+                        <p>Lỗi tải email</p>
+                    </div>
+                `;
+            }
+        }
+
+        function closeEmailModal() {
+            document.getElementById('emailDetailModal').classList.remove('open');
+        }
+
+        async function deleteEmail(emailId) {
+            if (!confirm('Bạn có chắc muốn xóa email này?')) return;
+
+            try {
+                await fetch(`${API_BASE}/api/email/${currentDomain}/${currentUsername}/${emailId}`, {
+                    method: 'DELETE'
+                });
+
+                showToast('Đã xóa email!');
+                closeEmailModal();
+                refreshInbox();
+            } catch (error) {
+                console.error('Error deleting email:', error);
+                showToast('Lỗi xóa email', true);
+            }
+        }
+
+        function escapeHtml(text) {
+            if (!text) return '';
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+
+        function formatDate(dateStr) {
+            if (!dateStr) return '';
+            const date = new Date(dateStr);
+            return date.toLocaleString('vi-VN');
+        }
+
+        function showToast(msg, isError = false) {
+            const toast = document.getElementById('toast');
+            const toastMsg = document.getElementById('toastMsg');
+            toastMsg.textContent = msg;
+            toast.className = isError ? 'toast show error' : 'toast show';
+            setTimeout(() => toast.classList.remove('show'), 3000);
+        }
+
+        function startApp() {
+            document.getElementById('startContainer').style.display = 'none';
+            document.getElementById('app').style.display = 'block';
+
+            currentUsername = generateUsername();
+            document.getElementById('usernameInput').value = currentUsername;
+
+            const select = document.getElementById('domainSelect');
+            if (select.options.length > 0) {
+                currentDomain = select.options[0].value;
+            }
+
+            updateEmailDisplay();
+            startTimer(10 * 60 * 1000);
+            refreshInbox();
+
+            if (!refreshInterval) refreshInterval = setInterval(refreshInbox, 10000);
+            showToast('Đã tạo email mới!');
+        }
+
+        async function init() {
+            const savedDomain = localStorage.getItem('tempmail_domain');
+            const savedUsername = localStorage.getItem('tempmail_username');
+
+            await loadDomains();
+
+            if (savedDomain && savedUsername) {
+                document.getElementById('startContainer').style.display = 'none';
+                document.getElementById('app').style.display = 'block';
+
+                currentDomain = savedDomain;
+                currentUsername = savedUsername;
+
+                const select = document.getElementById('domainSelect');
+                let found = false;
+                for (let option of select.options) {
+                    if (option.value === savedDomain) {
+                        option.selected = true;
+                        found = true;
+                        break;
+                    }
+                }
+
+                if (!found && select.options.length > 0) {
+                    currentDomain = select.options[0].value;
+                }
+
+                const savedExpiry = localStorage.getItem('tempmail_expiry');
+                if (savedExpiry && parseInt(savedExpiry) > Date.now()) {
+                    const timeLeft = parseInt(savedExpiry) - Date.now();
+                    if (timeLeft > 15 * 60 * 1000) { // If more than 15 mins left, they probably clicked +1 hour
+                        document.getElementById('addHourBtn').style.display = 'none';
+                    }
+                    runTimer(parseInt(savedExpiry));
+                } else {
+                    // Email expired while away, generate a new one
+                    currentUsername = generateUsername();
+                    startTimer(10 * 60 * 1000);
+                }
+
+                document.getElementById('usernameInput').value = currentUsername;
+                updateEmailDisplay();
+                refreshInbox();
+
+                refreshInterval = setInterval(refreshInbox, 10000);
+            }
+            // If no saved email, just wait for user to click "Nhận Email Ngay"
+        }
+
+        document.addEventListener('DOMContentLoaded', init);
+    </script>
+</body>
+
+</html>

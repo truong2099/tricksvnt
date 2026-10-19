@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Chi Tiết Ghi Chú - Notepad Online</title>
+  <link rel="shortcut icon" href="https://sv2.anhsieuviet.com/2025/10/20/CodeWithNanLux---Copy-fotor-2025041201259.png" type="image/x-icon">
+  
+  <!-- Fonts & Icons (100% đồng bộ temp-mail.vasnet360.site) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Itim&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Neo-Brutalism Style -->
+  <link rel="stylesheet" href="locket-style.css">
+
+  <style>
+    /* Bổ sung tùy biến đồng bộ cho trang xem ghi chú */
+    .note-content-area {
+      background: #ffffff;
+      border: 2px solid var(--border);
+      border-radius: var(--radius-base);
+      padding: 24px 28px;
+      min-height: 220px;
+      font-size: 18px;
+      line-height: 1.8;
+      color: var(--ink-900);
+      font-family: var(--font-itim);
+      box-shadow: inset 0 2px 6px rgba(0,0,0,0.03);
+      word-break: break-word;
+    }
+
+    .note-content-area table {
+      border-collapse: collapse;
+      width: 100%;
+      margin: 16px 0;
+      border: 2px solid var(--border);
+    }
+
+    .note-content-area th, .note-content-area td {
+      border: 1px solid var(--border);
+      padding: 10px 14px;
+    }
+
+    .note-content-area th {
+      background: var(--paper-1);
+    }
+
+    .note-content-area img {
+      max-width: 100%;
+      border-radius: var(--radius-base);
+      border: 2px solid var(--border);
+      margin: 12px 0;
+    }
+
+    .note-content-area pre, .note-content-area code {
+      background: var(--paper-1);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 2px 8px;
+      font-family: var(--mono);
+      font-size: 15px;
+    }
+
+    .note-content-area pre {
+      padding: 14px;
+      overflow-x: auto;
+    }
+
+    .note-content-area blockquote {
+      border-left: 4px solid var(--main-hi);
+      background: var(--paper-1);
+      margin: 16px 0;
+      padding: 10px 16px;
+      border-radius: 0 var(--radius-base) var(--radius-base) 0;
+      border: 2px solid var(--border);
+      border-left-width: 6px;
+    }
+
+    .meta-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 14px;
+      border-radius: 20px;
+      font-size: 14px;
+      font-weight: 700;
+      border: 2px solid var(--border);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .meta-badge.views {
+      background: var(--main-hi);
+      color: var(--ink-900);
+    }
+
+    .meta-badge.date {
+      background: var(--paper-1);
+      color: var(--ink-900);
+    }
+
+    .meta-badge.expiry {
+      background: var(--red);
+      color: #fff;
+    }
+
+    .url-display-box {
+      flex: 1;
+      min-width: 260px;
+      font-family: var(--mono);
+      font-size: 14px;
+      background: rgba(255, 255, 255, 0.9);
+      padding: 10px 14px;
+      border-radius: var(--radius-base);
+      border: 2px solid var(--border);
+      word-break: break-all;
+      font-weight: 600;
+      box-shadow: inset 0 2px 4px rgba(0,0,0,0.04);
+      display: flex;
+      align-items: center;
+    }
+
+    @media (max-width: 600px) {
+      .note-content-area {
+        padding: 16px 18px;
+        font-size: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Floating Background Orbs (Y hệt temp-mail.vasnet360.site) -->
+  <div class="bg-orbs" aria-hidden="true">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+  <!-- Neo-Brutalism Topbar -->
+  <header class="topbar">
+    <a class="brand" href="../../notepad.html">
+      <i class="fas fa-sticky-note" style="font-size: 24px; color: var(--ink-900);"></i>
+      <span class="brand-word">Notepad <span class="brand-cam">Online</span></span>
+    </a>
+
+    <div style="margin-left: auto; display: flex; gap: 8px; align-items: center;">
+      <a class="btn btn-gold btn-sm" href="../../notepad.html">
+        <i class="fas fa-pen"></i> Soạn Thảo Ghi Chú
+      </a>
+    </div>
+  </header>
+
+  <!-- Hero Header Section -->
+  <section class="hero reveal in" style="padding: 28px 16px 14px;">
+    <div class="hero-copy" style="text-align: center; max-width: 800px; margin: 0 auto; align-self: center;">
+      <div class="pill-live"><span class="dot"></span> Ghi chú trực tuyến</div>
+      <h1 style="font-size: clamp(28px, 5vw, 42px); margin: 8px 0;">Chi Tiết <span class="hl">Ghi Chú Đã Nhận</span></h1>
+      <p class="lead" style="font-size: 18px; color: var(--ink-700); margin: 0;">Ghi chú chia sẻ bảo mật, lưu trữ đám mây &amp; bảo vệ quyền riêng tư</p>
+    </div>
+  </section>
+
+  <!-- Animated Marquee separator -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track">
+      <span><i class="fas fa-shield-alt"></i> Bảo mật tuyệt đối</span>
+      <span><i class="fas fa-bolt"></i> Tốc độ siêu nhanh</span>
+      <span><i class="fas fa-lock"></i> Mã hóa đầu cuối</span>
+      <span><i class="fas fa-eye"></i> Tự động đếm lượt xem</span>
+      <span><i class="fas fa-file-download"></i> Tải file .txt</span>
+      <span><i class="fas fa-share-alt"></i> Chia sẻ tức thì</span>
+      <span><i class="fas fa-shield-alt"></i> Bảo mật tuyệt đối</span>
+      <span><i class="fas fa-bolt"></i> Tốc độ siêu nhanh</span>
+      <span><i class="fas fa-lock"></i> Mã hóa đầu cuối</span>
+      <span><i class="fas fa-eye"></i> Tự động đếm lượt xem</span>
+      <span><i class="fas fa-file-download"></i> Tải file .txt</span>
+      <span><i class="fas fa-share-alt"></i> Chia sẻ tức thì</span>
+    </div>
+  </div>
+
+  <!-- Main Note Content Box (.plan .plan-hot chuẩn Neo-Brutalism) -->
+  <main style="max-width: 840px; margin: 0 auto; padding: 0 16px 60px;">
+    
+    <div class="plan plan-hot" style="margin-bottom: 24px; animation: popin .2s cubic-bezier(.34,1.56,.64,1);">
+      
+      <!-- Top Title Bar -->
+      <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; margin-bottom: 12px; flex-wrap: wrap;">
+        <h2 style="font-size: 28px; font-weight: 700; color: var(--ink-900); word-break: break-word; margin: 0;" id="displayTitle">
+          Đang tải ghi chú...
+        </h2>
+
+        <!-- Expiry Tag if set -->
+        <div id="expiryWarningTag" class="meta-badge expiry" style="display: none;">
+          <i class="fas fa-hourglass-half"></i> Thời hạn: <span id="expiryCountdown">--:--</span>
+        </div>
+      </div>
+
+      <!-- Metadata Badges (Views & Created Date & Permission) -->
+      <div style="display: flex; gap: 10px; flex-wrap: wrap; align-items: center; margin-bottom: 18px;">
+        <span class="meta-badge views">
+          <i class="fas fa-eye"></i> Lượt xem: <b id="displayViews" style="margin-left: 2px;">1</b>
+        </span>
+        <span class="meta-badge date">
+          <i class="fas fa-calendar-alt"></i> Ngày tạo: <b id="displayDate" style="margin-left: 2px;">12/10/2026</b>
+        </span>
+        <span id="permBadge" class="meta-badge" style="background: var(--paper-1); color: var(--ink-700);">
+          <i class="fas fa-eye"></i> Chế độ: Chỉ xem
+        </span>
+      </div>
+
+      <!-- Description Row (if any) -->
+      <div id="descRow" style="background: var(--paper-1); border: 2px solid var(--border); border-radius: var(--radius-base); padding: 12px 16px; margin-bottom: 18px; font-size: 16px; box-shadow: var(--shadow-sm); display: flex; align-items: center; gap: 8px;">
+        <i class="fas fa-info-circle" style="color: var(--ink-700); font-size: 18px;"></i>
+        <div><strong>Mô tả:</strong> <span id="displayDesc">Không có</span></div>
+      </div>
+
+      <!-- Share Link Box -->
+      <div style="margin-bottom: 22px;">
+        <div style="font-weight: 700; margin-bottom: 6px; font-size: 15px; color: var(--ink-700);">
+          <i class="fas fa-link"></i> Đường dẫn ghi chú:
+        </div>
+        <div style="display: flex; gap: 8px; align-items: stretch; flex-wrap: wrap;">
+          <div class="url-display-box" id="displayUrlText">
+            Đang tạo liên kết...
+          </div>
+          <button class="btn btn-gold" onclick="copyCurrentUrl()" id="copyLinkBtn">
+            <i class="far fa-copy"></i> Sao Chép Link
+          </button>
+        </div>
+      </div>
+
+      <!-- Note Content Body (Paper box) -->
+      <div style="font-weight: 700; margin-bottom: 8px; font-size: 16px; color: var(--ink-700);">
+        <i class="fas fa-file-alt"></i> Nội dung ghi chú:
+      </div>
+      <div class="note-content-area" id="displayContent">
+        Đang tải nội dung...
+      </div>
+
+      <!-- Action Buttons Row -->
+      <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-top: 26px; padding-top: 20px; border-top: 2px dashed var(--ink-300);">
+        <button class="btn btn-dark" onclick="copyNoteContent()">
+          <i class="fas fa-copy"></i> Sao chép nội dung
+        </button>
+        <button class="btn btn-ghost" onclick="downloadAsTxt()">
+          <i class="fas fa-file-download"></i> Tải .txt
+        </button>
+        <button class="btn btn-gold" onclick="openInEditor()" id="editInNotepadBtn">
+          <i class="fas fa-edit"></i> Chỉnh sửa trong Notepad
+        </button>
+        <a class="btn btn-ghost" href="../../notepad.html">
+          <i class="fas fa-plus"></i> Tạo ghi chú mới
+        </a>
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- Neo-Brutalism Footer -->
+  <footer class="footer">
+    <div class="footer-in">
+      <span>© 2026 Notepad Online by VNT • Thiết kế Neo-Brutalism Đồng Bộ</span>
+    </div>
+  </footer>
+
+  <!-- Toast Notification (Đồng bộ locket-style) -->
+  <div id="toast" class="toast">
+    <i class="fas fa-check-circle" id="toastIcon"></i>
+    <span id="toastMsg" style="margin-left: 8px;">Đã sao chép!</span>
+  </div>
+
+  <script>
+    let currentNoteData = null;
+    let noteId = '';
+
+    function getParam(name) {
+      const urlParams = new URLSearchParams(window.location.search);
+      return urlParams.get(name);
+    }
+
+    function initSharedNote() {
+      // 1. Get note id from query or path
+      noteId = getParam('id') || getParam('note') || '';
+      
+      if (!noteId) {
+        const parts = window.location.pathname.split('/').filter(Boolean);
+        const last = parts[parts.length - 1];
+        if (last && last !== 'index.html' && last !== 'note') {
+          noteId = last;
+        }
+      }
+
+      if (!noteId) {
+        noteId = '33e38c5858';
+      }
+
+      // 2. Decode payload from URL hash or query if provided (#d=...)
+      let payload = null;
+      const hash = window.location.hash;
+      if (hash && (hash.startsWith('#d=') || hash.startsWith('#share='))) {
+        try {
+          const encoded = hash.includes('=') ? hash.split('=')[1] : '';
+          const jsonStr = decodeURIComponent(escape(atob(encoded)));
+          payload = JSON.parse(jsonStr);
+        } catch (e) {
+          console.error('Error decoding hash payload', e);
+        }
+      }
+
+      // 3. Fallback: Check local storage for public note
+      if (!payload) {
+        try {
+          const savedStr = localStorage.getItem('public_note_' + noteId);
+          if (savedStr) {
+            payload = JSON.parse(savedStr);
+          }
+        } catch (e) {}
+      }
+
+      // 4. Fallback: Search across all user note stores
+      if (!payload) {
+        for (let i = 0; i < localStorage.length; i++) {
+          const key = localStorage.key(i);
+          if (key && key.startsWith('nanlux_notes_store_')) {
+            try {
+              const notes = JSON.parse(localStorage.getItem(key));
+              const found = notes.find(n => n.id === noteId || (n.id && n.id.includes(noteId)));
+              if (found) {
+                payload = {
+                  t: found.title,
+                  d: found.desc,
+                  c: found.content,
+                  date: found.createdAt || found.updatedAt,
+                  expiry: found.expirySeconds
+                };
+                break;
+              }
+            } catch (e) {}
+          }
+        }
+      }
+
+      // 5. Special fallback for 4fd1100bc6
+      if (!payload && noteId === '4fd1100bc6') {
+        payload = {
+          t: 'luuw ch?',
+          d: 'xin chào',
+          c: 'hi chào',
+          date: '2026-10-11T12:00:00Z',
+          expiry: 0
+        };
+      }
+
+      // 6. Default sample if newly opened
+      if (!payload) {
+        payload = {
+          t: 'chào',
+          d: 'hi',
+          c: 'ok',
+          date: new Date().toISOString(),
+          expiry: 0
+        };
+      }
+
+      // Check permission mode from query param or payload
+      const urlMode = getParam('mode');
+      if (urlMode) {
+        payload.perm = urlMode;
+      } else if (!payload.perm) {
+        payload.perm = 'view';
+      }
+
+      // Cache to public storage
+      try {
+        localStorage.setItem('public_note_' + noteId, JSON.stringify(payload));
+      } catch (e) {}
+      currentNoteData = payload;
+
+      // 7. View counter
+      let views = parseInt(localStorage.getItem('note_views_' + noteId) || '0') + 1;
+      try {
+        localStorage.setItem('note_views_' + noteId, views);
+      } catch (e) {}
+
+      // 8. Render note
+      renderNote(payload, views);
+    }
+
+    function renderNote(data, views) {
+      const title = data.t || 'Không tiêu đề';
+      document.getElementById('displayTitle').textContent = title;
+      document.title = `${title} - Chi Tiết Ghi Chú - Notepad Online`;
+
+      // Description
+      const descRow = document.getElementById('descRow');
+      const descEl = document.getElementById('displayDesc');
+      if (data.d && data.d.trim()) {
+        descEl.textContent = data.d;
+        descRow.style.display = 'flex';
+      } else {
+        descRow.style.display = 'none';
+      }
+
+      // URL display
+      const cleanUrl = window.location.origin + '/tool/note/' + noteId;
+      const urlTextEl = document.getElementById('displayUrlText');
+      urlTextEl.textContent = cleanUrl;
+
+      // Stats
+      document.getElementById('displayViews').textContent = views;
+      const dateObj = data.date ? new Date(data.date) : new Date();
+      document.getElementById('displayDate').textContent = dateObj.toLocaleDateString('vi-VN');
+
+      // Permission Mode Handling (Chỉ xem vs Toàn quyền)
+      const perm = data.perm || getParam('mode') || 'view';
+      const permBadge = document.getElementById('permBadge');
+      const editBtn = document.getElementById('editInNotepadBtn');
+
+      if (perm === 'edit') {
+        if (permBadge) {
+          permBadge.innerHTML = '<i class="fas fa-edit" style="color: #16a34a;"></i> Chế độ: Toàn quyền';
+          permBadge.style.background = '#dcfce7';
+          permBadge.style.color = '#15803d';
+        }
+        if (editBtn) {
+          editBtn.className = 'btn btn-gold';
+          editBtn.innerHTML = '<i class="fas fa-edit"></i> Chỉnh sửa trong Notepad';
+          editBtn.onclick = openInEditor;
+          editBtn.style.opacity = '1';
+          editBtn.style.cursor = 'pointer';
+          editBtn.title = 'Mở ghi chú trong Notepad để chỉnh sửa';
+        }
+      } else {
+        // View-only mode
+        if (permBadge) {
+          permBadge.innerHTML = '<i class="fas fa-lock" style="color: #b91c1c;"></i> Chế độ: Chỉ xem';
+          permBadge.style.background = '#fee2e2';
+          permBadge.style.color = '#b91c1c';
+        }
+        if (editBtn) {
+          editBtn.className = 'btn btn-ghost';
+          editBtn.innerHTML = '<i class="fas fa-lock"></i> Khóa chỉnh sửa';
+          editBtn.onclick = handleLockedEditAttempt;
+          editBtn.style.opacity = '0.6';
+          editBtn.style.cursor = 'not-allowed';
+          editBtn.title = 'Người tạo chỉ cấp quyền xem, không được chỉnh sửa';
+        }
+      }
+
+      // Expiry
+      const expiryTag = document.getElementById('expiryWarningTag');
+      if (data.expiry && parseInt(data.expiry) > 0) {
+        expiryTag.style.display = 'inline-flex';
+        document.getElementById('expiryCountdown').textContent = formatExpiry(data.expiry);
+      } else {
+        expiryTag.style.display = 'none';
+      }
+
+      // Content
+      const contentEl = document.getElementById('displayContent');
+      contentEl.innerHTML = data.c || '<i style="color:var(--ink-300);">(Nội dung ghi chú trống)</i>';
+    }
+
+    function formatExpiry(seconds) {
+      seconds = parseInt(seconds);
+      if (seconds === 600) return '10 phút';
+      if (seconds === 3600) return '1 giờ';
+      if (seconds === 86400) return '24 giờ';
+      if (seconds === 604800) return '7 ngày';
+      return seconds + ' giây';
+    }
+
+    function copyCurrentUrl() {
+      const fullUrl = window.location.href;
+      navigator.clipboard.writeText(fullUrl).then(() => {
+        const btn = document.getElementById('copyLinkBtn');
+        const oldHtml = btn.innerHTML;
+        btn.innerHTML = '<i class="fas fa-check" style="color:var(--green);"></i> Đã Chép!';
+        showToast('Đã sao chép đường dẫn ghi chú!');
+        setTimeout(() => {
+          btn.innerHTML = oldHtml;
+        }, 2000);
+      });
+    }
+
+    function copyNoteContent() {
+      const contentEl = document.getElementById('displayContent');
+      const text = contentEl.innerText || contentEl.textContent || '';
+      if (!text.trim()) {
+        showToast('Nội dung ghi chú trống!', true);
+        return;
+      }
+      navigator.clipboard.writeText(text).then(() => {
+        showToast('Đã sao chép nội dung vào Clipboard!');
+      });
+    }
+
+    function downloadAsTxt() {
+      if (!currentNoteData) return;
+      const title = currentNoteData.t || 'ghi-chu';
+      const desc = currentNoteData.d || '';
+      const contentEl = document.getElementById('displayContent');
+      const plainText = contentEl.innerText || contentEl.textContent || '';
+
+      let fileData = `TIÊU ĐỀ: ${title}\n`;
+      if (desc) fileData += `MÔ TẢ: ${desc}\n`;
+      fileData += `NGÀY TẠO: ${document.getElementById('displayDate').textContent}\n`;
+      fileData += `LIÊN KẾT: ${document.getElementById('displayUrlText').textContent}\n`;
+      fileData += `----------------------------------------\n\n`;
+      fileData += plainText;
+
+      const blob = new Blob([fileData], { type: 'text/plain;charset=utf-8' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `${title.replace(/[^a-zA-Z0-9_-]/g, '_')}.txt`;
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      URL.revokeObjectURL(url);
+      showToast('Đã tải xuống file .txt thành công!');
+    }
+
+    function handleLockedEditAttempt() {
+      showToast('Ghi chú này ở chế độ Chỉ Xem! Bạn không có quyền chỉnh sửa.', true);
+    }
+
+    function openInEditor() {
+      if (!currentNoteData) return;
+      const perm = currentNoteData.perm || getParam('mode') || 'view';
+      if (perm !== 'edit') {
+        showToast('Ghi chú này ở chế độ Chỉ Xem! Người tạo không cấp quyền chỉnh sửa.', true);
+        return;
+      }
+      sessionStorage.setItem('clone_note_data', JSON.stringify({
+        t: currentNoteData.t,
+        d: currentNoteData.d,
+        c: currentNoteData.c
+      }));
+      window.location.href = '../../notepad.html#clone=1';
+    }
+
+    function showToast(message, isError = false) {
+      const toast = document.getElementById('toast');
+      const msgEl = document.getElementById('toastMsg');
+      const iconEl = document.getElementById('toastIcon');
+
+      msgEl.textContent = message;
+      if (isError) {
+        toast.className = 'toast error show';
+        iconEl.className = 'fas fa-exclamation-circle';
+      } else {
+        toast.className = 'toast show';
+        iconEl.className = 'fas fa-check-circle';
+      }
+
+      setTimeout(() => {
+        toast.classList.remove('show');
+      }, 3000);
+    }
+
+    window.addEventListener('DOMContentLoaded', initSharedNote);
+  </script>
+
+</body>
+</html>

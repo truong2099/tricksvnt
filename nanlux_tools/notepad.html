@@ -1,0 +1,2730 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Notepad Online - Ghi Chú Trực Tuyến & Lưu Trữ Đám Mây</title>
+  <link rel="shortcut icon" href="https://sv2.anhsieuviet.com/2025/10/20/CodeWithNanLux---Copy-fotor-2025041201259.png" type="image/x-icon">
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Itim&family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="locket-style.css">
+  
+  <style>
+    /* Neobrutalist Notepad Specific Enhancements */
+    :root {
+      --primary-accent: #ffd94a;
+      --card-bg: #fffcef;
+      --paper-grid: #6b613e1f;
+    }
+
+    /* Modal Height and Scroll Fix */
+    .modal {
+      max-height: calc(100vh - 40px) !important;
+      overflow-y: auto !important;
+    }
+
+    /* Layout */
+    .notepad-container {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 24px;
+      margin-top: 24px;
+    }
+
+    @media (max-width: 900px) {
+      .notepad-container {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Sidebar */
+    .sidebar-panel {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .guide-card {
+      background: var(--paper-1);
+      border: 2px solid var(--border);
+      border-radius: var(--radius-base);
+      box-shadow: var(--shadow-sm);
+      padding: 16px;
+    }
+
+    .guide-title {
+      font-size: 17px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 14px;
+      color: var(--ink-900);
+      padding-bottom: 8px;
+      border-bottom: 2px dashed var(--ink-300);
+    }
+
+    .guide-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .guide-step {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      background: #fff;
+      border: 2px solid var(--border);
+      border-radius: var(--radius-base);
+      padding: 10px 12px;
+      transition: transform .12s cubic-bezier(.34,1.56,.64,1), box-shadow .12s ease;
+    }
+
+    .guide-step:hover {
+      transform: translate(-2px, -2px);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .guide-icon-badge {
+      width: 36px;
+      height: 36px;
+      border-radius: var(--radius-base);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 15px;
+      border: 2px solid var(--border);
+      flex-shrink: 0;
+    }
+
+    .guide-icon-badge.purple { background: var(--purple); color: var(--ink-900); }
+    .guide-icon-badge.blue { background: var(--blue); color: var(--ink-900); }
+    .guide-icon-badge.green { background: var(--green); color: var(--ink-900); }
+    .guide-icon-badge.gold { background: var(--main-hi); color: var(--ink-900); }
+
+    .guide-step-body b {
+      display: block;
+      font-size: 14px;
+      color: var(--ink-900);
+      line-height: 1.2;
+    }
+
+    .guide-step-body span {
+      font-size: 12px;
+      color: var(--ink-500);
+      line-height: 1.3;
+      display: block;
+      margin-top: 2px;
+    }
+
+    /* Pinned Quick List in Sidebar */
+    .sidebar-section-title {
+      font-size: 15px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 10px;
+    }
+
+    .pinned-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      padding: 8px 10px;
+      background: #fff;
+      border: 2px solid var(--border);
+      border-radius: var(--radius-base);
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all .12s ease;
+      margin-bottom: 8px;
+      text-decoration: none;
+      color: var(--ink-900);
+    }
+
+    .pinned-item:hover {
+      background: var(--main-hi);
+      transform: translate(-2px, -2px);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .pinned-item .pin-title {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      flex: 1;
+    }
+
+    /* Main Notepad Editor Card */
+    .editor-wrapper {
+      background: var(--card-bg);
+      border: 3px solid var(--border);
+      border-radius: var(--radius-base);
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    /* Editor Header Bar */
+    .editor-header-bar {
+      background: #2563eb;
+      padding: 12px 16px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 10px;
+      border-bottom: 3px solid var(--border);
+    }
+
+    .header-input-title {
+      flex: 2;
+      min-width: 180px;
+      font-family: var(--font-itim);
+      font-size: 16px;
+      font-weight: 700;
+      padding: 8px 12px;
+      border: 2px solid var(--border);
+      border-radius: var(--radius-base);
+      background: #fff;
+      color: var(--ink-900);
+      outline: none;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .header-input-desc {
+      flex: 2;
+      min-width: 160px;
+      font-family: var(--font-itim);
+      font-size: 14px;
+      padding: 8px 12px;
+      border: 2px solid var(--border);
+      border-radius: var(--radius-base);
+      background: #fff;
+      color: var(--ink-900);
+      outline: none;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .editor-actions-group {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-left: auto;
+    }
+
+    .editor-actions-group .btn {
+      padding: 7px 12px;
+      font-size: 14px;
+      height: 38px;
+    }
+
+    .btn-pin.active {
+      background: #ffd94a !important;
+      color: #111 !important;
+      border-color: #111 !important;
+    }
+
+    /* Formatting Toolbar */
+    .editor-toolbar {
+      background: #faf5df;
+      padding: 8px 14px;
+      border-bottom: 2px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .toolbar-group {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      border-right: 2px solid var(--ink-300);
+      padding-right: 6px;
+      margin-right: 2px;
+    }
+
+    .toolbar-group:last-child {
+      border-right: none;
+      padding-right: 0;
+      margin-right: 0;
+    }
+
+    .tool-btn {
+      width: 32px;
+      height: 32px;
+      border: 2px solid var(--border);
+      border-radius: var(--radius-base);
+      background: #fff;
+      color: var(--ink-900);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 13px;
+      font-family: var(--font-itim);
+      box-shadow: 1px 1px 0 var(--border);
+      transition: all .1s ease;
+      position: relative;
+    }
+
+    .tool-btn:hover {
+      background: var(--main-hi);
+      transform: translate(-1px, -1px);
+      box-shadow: 2px 2px 0 var(--border);
+    }
+
+    .tool-btn:active {
+      transform: translate(0, 0);
+      box-shadow: none;
+    }
+
+    .tool-btn.active {
+      background: var(--ink-900);
+      color: #fff;
+    }
+
+    .tool-select {
+      height: 32px;
+      border: 2px solid var(--border);
+      border-radius: var(--radius-base);
+      background: #fff;
+      font-family: var(--font-itim);
+      font-size: 13px;
+      font-weight: 700;
+      padding: 2px 8px;
+      outline: none;
+      box-shadow: 1px 1px 0 var(--border);
+      cursor: pointer;
+    }
+
+    .color-picker-wrapper {
+      position: relative;
+      display: inline-block;
+    }
+
+    .color-input-hidden {
+      position: absolute;
+      opacity: 0;
+      width: 0;
+      height: 0;
+      pointer-events: none;
+    }
+
+    .color-swatch-btn {
+      width: 32px;
+      height: 32px;
+      border: 2px solid var(--border);
+      border-radius: var(--radius-base);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 1px 1px 0 var(--border);
+      background: #fff;
+      font-weight: 700;
+    }
+
+    /* Content Editable Area */
+    .editor-canvas-container {
+      position: relative;
+      min-height: 480px;
+      max-height: 70vh;
+      overflow-y: auto;
+      background: #ffffff;
+      padding: 24px;
+    }
+
+    .editor-content-area {
+      min-height: 440px;
+      outline: none;
+      font-family: 'Itim', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      font-size: 17px;
+      line-height: 1.8;
+      color: var(--ink-900);
+      word-break: break-word;
+    }
+
+    .editor-content-area:empty:before {
+      content: attr(data-placeholder);
+      color: #94a3b8;
+      font-style: italic;
+      pointer-events: none;
+    }
+
+    .editor-content-area blockquote {
+      border-left: 4px solid var(--border);
+      background: var(--paper-1);
+      padding: 8px 16px;
+      margin: 12px 0;
+      border-radius: 0 var(--radius-base) var(--radius-base) 0;
+    }
+
+    .editor-content-area pre, .editor-content-area code {
+      background: #f1f5f9;
+      border: 1px solid #cbd5e1;
+      border-radius: 4px;
+      padding: 2px 6px;
+      font-family: var(--mono);
+      font-size: 14px;
+    }
+
+    .editor-content-area pre {
+      padding: 12px;
+      overflow-x: auto;
+    }
+
+    .editor-content-area table {
+      border-collapse: collapse;
+      width: 100%;
+      margin: 12px 0;
+      border: 2px solid var(--border);
+    }
+
+    .editor-content-area th, .editor-content-area td {
+      border: 1px solid var(--border);
+      padding: 8px 12px;
+    }
+
+    .editor-content-area th {
+      background: var(--paper-1);
+    }
+
+    .editor-content-area img {
+      max-width: 100%;
+      border-radius: var(--radius-base);
+      border: 2px solid var(--border);
+      margin: 8px 0;
+    }
+
+    /* Editor Footer Status Bar */
+    .editor-status-bar {
+      background: var(--paper-1);
+      border-top: 2px solid var(--border);
+      padding: 10px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--ink-700);
+    }
+
+    .status-counters {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 3px 10px;
+      border: 2px solid var(--border);
+      border-radius: var(--radius-base);
+      font-size: 12px;
+      background: #fff;
+      box-shadow: 1px 1px 0 var(--border);
+    }
+
+    .status-badge.saved {
+      background: #dcfce7;
+      color: #15803d;
+    }
+
+    .status-badge.saving {
+      background: #fef9c3;
+      color: #854d0e;
+    }
+
+    .status-badge.unsaved {
+      background: #fee2e2;
+      color: #b91c1c;
+    }
+
+    .status-badge.expiry {
+      background: #e0f2fe;
+      color: #0369a1;
+    }
+
+    /* Alert Banner */
+    .alert-banner {
+      background: #fff8db;
+      border: 2px solid var(--border);
+      border-radius: var(--radius-base);
+      padding: 12px 16px;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      box-shadow: var(--shadow-sm);
+      flex-wrap: wrap;
+    }
+
+    .alert-banner.success {
+      background: #dcfce7;
+      border-color: #166534;
+    }
+
+    .alert-banner-content {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--ink-900);
+    }
+
+    .alert-banner-content i {
+      font-size: 18px;
+      color: #d97706;
+    }
+
+    .alert-banner.success .alert-banner-content i {
+      color: #16a34a;
+    }
+
+    /* Promotional Banner */
+    .promo-banner {
+      background: #1e1b4b;
+      color: #fff;
+      border: 2px solid var(--border);
+      border-radius: var(--radius-base);
+      box-shadow: var(--shadow);
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+    }
+
+    .promo-banner-left {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .promo-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: var(--radius-base);
+      background: #4f46e5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      color: #fff;
+      border: 2px solid #fff;
+    }
+
+    .promo-title {
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 2px;
+    }
+
+    .promo-desc {
+      font-size: 13px;
+      color: #cbd5e1;
+    }
+
+    /* Auth Modals & Forms */
+    .auth-container {
+      display: grid;
+      grid-template-columns: 240px 1fr;
+      gap: 20px;
+    }
+
+    @media (max-width: 650px) {
+      .auth-container {
+        grid-template-columns: 1fr;
+      }
+      .auth-perks-col {
+        display: none;
+      }
+    }
+
+    .auth-perks-col {
+      background: #1e293b;
+      color: #fff;
+      border: 2px solid var(--border);
+      border-radius: var(--radius-base);
+      padding: 20px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .auth-perks-title {
+      font-size: 17px;
+      font-weight: 700;
+      line-height: 1.3;
+      color: #ffd94a;
+    }
+
+    .auth-perk-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 13px;
+    }
+
+    .auth-perk-item i {
+      color: #38bdf8;
+      font-size: 16px;
+      margin-top: 2px;
+    }
+
+    .auth-tabs {
+      display: flex;
+      gap: 8px;
+      border-bottom: 2px solid var(--border);
+      padding-bottom: 12px;
+      margin-bottom: 16px;
+    }
+
+    .auth-tab-btn {
+      flex: 1;
+      padding: 8px 12px;
+      font-family: var(--font-itim);
+      font-size: 15px;
+      font-weight: 700;
+      border: 2px solid var(--border);
+      border-radius: var(--radius-base);
+      background: var(--paper-1);
+      cursor: pointer;
+      box-shadow: var(--shadow-sm);
+      text-align: center;
+      transition: all .1s ease;
+    }
+
+    .auth-tab-btn.active {
+      background: var(--main-hi);
+      transform: translate(-1px, -1px);
+      box-shadow: var(--shadow);
+    }
+
+    /* Saved Notes Modal List */
+    .notes-list-header {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+    }
+
+    .notes-search-input {
+      flex: 1;
+      font-family: var(--font-itim);
+      padding: 10px 14px;
+      border: 2px solid var(--border);
+      border-radius: var(--radius-base);
+      outline: none;
+      font-size: 15px;
+    }
+
+    .notes-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 14px;
+      max-height: 60vh;
+      overflow-y: auto;
+      padding-right: 4px;
+    }
+
+    .note-card-item {
+      background: #fff;
+      border: 2px solid var(--border);
+      border-radius: var(--radius-base);
+      box-shadow: var(--shadow-sm);
+      padding: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      cursor: pointer;
+      transition: transform .12s cubic-bezier(.34,1.56,.64,1), box-shadow .12s ease;
+      position: relative;
+    }
+
+    .note-card-item:hover {
+      transform: translate(-2px, -2px);
+      box-shadow: var(--shadow);
+      background: #fffef8;
+    }
+
+    .note-card-item.pinned {
+      border-left: 6px solid #eab308;
+      background: #fefce8;
+    }
+
+    .note-card-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    .note-card-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--ink-900);
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      flex: 1;
+    }
+
+    .note-card-snippet {
+      font-size: 13px;
+      color: var(--ink-500);
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      line-height: 1.4;
+      min-height: 52px;
+    }
+
+    .note-card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px dashed var(--ink-300);
+      padding-top: 8px;
+      margin-top: auto;
+      font-size: 12px;
+      color: var(--ink-500);
+    }
+
+    .note-card-actions {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .note-action-icon {
+      width: 26px;
+      height: 26px;
+      border: 1.5px solid var(--border);
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--paper-1);
+      cursor: pointer;
+      color: var(--ink-900);
+      transition: all .1s ease;
+    }
+
+    .note-action-icon:hover {
+      background: var(--main-hi);
+    }
+
+    .note-action-icon.danger:hover {
+      background: var(--red);
+      color: #fff;
+    }
+
+    /* User Profile in Topbar */
+    .user-pill-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      background: #fff;
+      border: 2px solid var(--border);
+      border-radius: var(--radius-base);
+      font-size: 14px;
+      font-weight: 700;
+      box-shadow: var(--shadow-sm);
+      cursor: pointer;
+    }
+
+    .user-avatar-circle {
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background: #2563eb;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 700;
+      border: 1.5px solid var(--border);
+    }
+
+    /* Modal Backdrop Scrollable */
+    .modal-lg {
+      max-width: 820px !important;
+    }
+
+    .badge-counter {
+      background: #ef4444;
+      color: #fff;
+      padding: 1px 7px;
+      border-radius: 12px;
+      font-size: 11px;
+      font-weight: 700;
+      border: 1.5px solid var(--border);
+      margin-left: 4px;
+    }
+
+    /* Math Captcha Box */
+    .captcha-box {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--paper-1);
+      border: 2px solid var(--border);
+      border-radius: var(--radius-base);
+      padding: 8px 12px;
+    }
+
+    .captcha-code {
+      font-family: var(--mono);
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      color: #1e1b4b;
+      user-select: none;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Background Orbs -->
+  <div class="bg-orbs" aria-hidden="true">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+  <!-- Topbar -->
+  <header class="topbar">
+    <a class="brand" href="index.html">
+      <i class="fas fa-sticky-note" style="font-size: 24px; color: var(--ink-900);"></i>
+      <span class="brand-word">Notepad <span class="brand-cam">Online</span></span>
+    </a>
+
+    <div style="margin-left: auto; display: flex; gap: 8px; align-items: center; flex-wrap: wrap;">
+      <a class="btn btn-ghost btn-sm" href="https://profile.vasnet360.site/#home" title="Trang Chủ">
+        <i class="fas fa-th-large"></i> Trang Chủ
+      </a>
+      
+      <button class="btn btn-ghost btn-sm" onclick="openNotesModal()">
+        <i class="fas fa-folder-open"></i> Ghi Chú
+        <span id="headerNotesCount" class="badge-counter">0</span>
+      </button>
+
+      <button class="btn btn-gold btn-sm" onclick="createNewNote()">
+        <i class="fas fa-plus"></i> Tạo Mới
+      </button>
+
+      <!-- User Auth State Container -->
+      <div id="authHeaderContainer">
+        <!-- Will be filled by renderAuthHeader() -->
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero reveal in">
+      <div class="hero-copy" style="text-align: center; max-width: 820px; margin: 0 auto;">
+        <div class="pill-live">
+          <span class="dot"></span> Hoạt động tốt • Lưu trữ đám mây
+        </div>
+        <h1>Ghi chú trực tuyến <span class="hl">1 chạm là xong</span></h1>
+        <p class="lead">Soạn thảo văn bản, tự động lưu trữ, mã hóa an toàn & truy cập mọi lúc mọi nơi</p>
+      </div>
+    </section>
+
+    <!-- Marquee Banner -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track">
+        <span><i class="fas fa-shield-alt"></i> Bảo Mật Tuyệt Đối</span>
+        <span><i class="fas fa-bolt"></i> Tự Động Lưu</span>
+        <span><i class="fas fa-cloud"></i> Đồng Bộ Đám Mây</span>
+        <span><i class="fas fa-file-download"></i> Xuất File .TXT</span>
+        <span><i class="fas fa-thumbtack"></i> Ghim Ghi Chú</span>
+        <span><i class="fas fa-clock"></i> Cài Đặt Hết Hạn</span>
+        <span><i class="fas fa-share-alt"></i> Chia Sẻ Dễ Dàng</span>
+        <span><i class="fas fa-shield-alt"></i> Bảo Mật Tuyệt Đối</span>
+        <span><i class="fas fa-bolt"></i> Tự Động Lưu</span>
+        <span><i class="fas fa-cloud"></i> Đồng Bộ Đám Mây</span>
+        <span><i class="fas fa-file-download"></i> Xuất File .TXT</span>
+      </div>
+    </div>
+
+    <!-- Promotional Banner -->
+    <div class="promo-banner" id="promoBannerEl" style="margin-top: 32px;">
+      <div class="promo-banner-left">
+        <div class="promo-icon">
+          <i class="fas fa-rocket"></i>
+        </div>
+        <div>
+          <div class="promo-title">Muốn lưu trữ ghi chú vĩnh viễn & không giới hạn?</div>
+          <div class="promo-desc">Đăng ký tài khoản miễn phí để đồng bộ dữ liệu an toàn trên mọi thiết bị máy tính, điện thoại!</div>
+        </div>
+      </div>
+      <button class="btn btn-gold btn-sm" onclick="handlePromoAuthClick()">
+        <i class="fas fa-user-plus"></i> <span id="promoBtnText">Đăng Ký Ngay</span>
+      </button>
+    </div>
+
+    <!-- Guest / Logged-in State Notification Banner -->
+    <div id="statusNotificationBanner" class="alert-banner">
+      <div class="alert-banner-content">
+        <i class="fas fa-info-circle" id="bannerIcon"></i>
+        <span id="bannerMessage">Bạn đang sử dụng chế độ khách. Ghi chú được lưu tạm trong trình duyệt này.</span>
+      </div>
+      <div id="bannerActionBtnContainer">
+        <button class="btn btn-dark btn-sm" onclick="openAuthModal('register')">
+          <i class="fas fa-user-plus"></i> Đăng ký miễn phí
+        </button>
+      </div>
+    </div>
+
+    <!-- Main Workspace Container (Sidebar + Editor) -->
+    <div class="notepad-container">
+      
+      <!-- Left Sidebar -->
+      <aside class="sidebar-panel">
+        
+        <!-- Guide Box -->
+        <div class="guide-card">
+          <div class="guide-title">
+            <i class="fas fa-lightbulb" style="color: #eab308;"></i> Hướng Dẫn
+          </div>
+          <div class="guide-list">
+            <div class="guide-step">
+              <div class="guide-icon-badge purple">
+                <i class="fas fa-pen-nib"></i>
+              </div>
+              <div class="guide-step-body">
+                <b>Viết ghi chú</b>
+                <span>Nhập tiêu đề và nội dung vào ô soạn thảo</span>
+              </div>
+            </div>
+
+            <div class="guide-step">
+              <div class="guide-icon-badge blue">
+                <i class="fas fa-save"></i>
+              </div>
+              <div class="guide-step-body">
+                <b>Nhấn "Lưu"</b>
+                <span>Hệ thống tự động lưu trữ tức thì</span>
+              </div>
+            </div>
+
+            <div class="guide-step">
+              <div class="guide-icon-badge green">
+                <i class="fas fa-download"></i>
+              </div>
+              <div class="guide-step-body">
+                <b>Tải file .txt</b>
+                <span>Xuất file văn bản về máy tính của bạn</span>
+              </div>
+            </div>
+
+            <div class="guide-step">
+              <div class="guide-icon-badge gold">
+                <i class="fas fa-user-check"></i>
+              </div>
+              <div class="guide-step-body">
+                <b>Đăng ký tài khoản</b>
+                <span>Để lưu vĩnh viễn & quản lý nhiều ghi chú</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pinned Notes Quick Access -->
+        <div class="guide-card">
+          <div class="sidebar-section-title">
+            <span><i class="fas fa-thumbtack" style="color: #eab308;"></i> Ghi Chú Đã Ghim</span>
+            <span id="pinnedCountBadge" style="font-size: 12px; color: var(--ink-500);">0</span>
+          </div>
+          <div id="sidebarPinnedList">
+            <div style="font-size: 13px; color: var(--ink-500); text-align: center; padding: 12px 0;">
+              Chưa có ghi chú nào được ghim.
+            </div>
+          </div>
+        </div>
+
+        <!-- Quick Backup / Actions -->
+        <div class="guide-card" style="background: #fff;">
+          <div class="sidebar-section-title">
+            <span><i class="fas fa-tools"></i> Thao Tác Nhanh</span>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 8px;">
+            <button class="btn btn-ghost btn-sm" style="width: 100%; justify-content: flex-start;" onclick="exportAllNotesJson()">
+              <i class="fas fa-file-export"></i> Sao lưu tất cả (JSON)
+            </button>
+            <label class="btn btn-ghost btn-sm" style="width: 100%; justify-content: flex-start; cursor: pointer; margin: 0;">
+              <i class="fas fa-file-import"></i> Khôi phục dữ liệu
+              <input type="file" id="importJsonInput" accept=".json" style="display: none;" onchange="importNotesJson(event)">
+            </label>
+            <button class="btn btn-ghost btn-sm" style="width: 100%; justify-content: flex-start;" onclick="copyCurrentNoteText()">
+              <i class="fas fa-copy"></i> Sao chép nội dung
+            </button>
+          </div>
+        </div>
+
+      </aside>
+
+      <!-- Right Main Editor Area -->
+      <section class="editor-wrapper">
+        
+        <!-- Header Bar with Inputs & Actions -->
+        <div class="editor-header-bar">
+          <input type="text" id="noteTitle" class="header-input-title" placeholder="Tên ghi chú..." oninput="handleContentModified()" />
+          <input type="text" id="noteDesc" class="header-input-desc" placeholder="Mô tả ngắn..." oninput="handleContentModified()" />
+
+          <div class="editor-actions-group">
+            <button id="expiryBtn" class="btn btn-ghost" onclick="openExpiryModal()" title="Cài đặt thời gian tự hủy hoặc lưu trữ">
+              <i class="fas fa-clock"></i> <span id="expiryBtnText">Thời hạn</span>
+            </button>
+            
+            <button id="pinBtn" class="btn btn-ghost btn-pin" onclick="togglePinCurrentNote()" title="Ghim ghi chú lên đầu">
+              <i class="fas fa-thumbtack"></i> <span id="pinBtnText">Ghim</span>
+            </button>
+
+            <button class="btn btn-dark" onclick="downloadNoteTxt()" title="Tải xuống file .txt">
+              <i class="fas fa-download"></i>
+            </button>
+
+            <button class="btn btn-ghost" onclick="openShareModal()" title="Chia sẻ ghi chú">
+              <i class="fas fa-share-alt"></i>
+            </button>
+
+            <button id="saveBtn" class="btn btn-gold" onclick="saveCurrentNote(true)">
+              <i class="fas fa-save"></i> <span>Lưu</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Rich Text Formatting Toolbar -->
+        <div class="editor-toolbar">
+          
+          <!-- History -->
+          <div class="toolbar-group">
+            <button class="tool-btn" onclick="execCmd('undo')" title="Hoàn tác (Ctrl+Z)"><i class="fas fa-undo"></i></button>
+            <button class="tool-btn" onclick="execCmd('redo')" title="Làm lại (Ctrl+Y)"><i class="fas fa-redo"></i></button>
+          </div>
+
+          <!-- Paragraph style -->
+          <div class="toolbar-group">
+            <select class="tool-select" id="formatBlockSelect" onchange="execFormatBlock(this.value)">
+              <option value="p">Đoạn văn (Paragraph)</option>
+              <option value="h1">Tiêu đề lớn (H1)</option>
+              <option value="h2">Tiêu đề vừa (H2)</option>
+              <option value="h3">Tiêu đề nhỏ (H3)</option>
+              <option value="blockquote">Trích dẫn (Quote)</option>
+              <option value="pre">Mã nguồn (Code)</option>
+            </select>
+          </div>
+
+          <!-- Text Styles -->
+          <div class="toolbar-group">
+            <button class="tool-btn" onclick="execCmd('bold')" title="In đậm (Ctrl+B)"><b>B</b></button>
+            <button class="tool-btn" onclick="execCmd('italic')" title="In nghiêng (Ctrl+I)"><i>I</i></button>
+            <button class="tool-btn" onclick="execCmd('underline')" title="Gạch chân (Ctrl+U)"><u>U</u></button>
+            <button class="tool-btn" onclick="execCmd('strikeThrough')" title="Gạch ngang"><s>S</s></button>
+          </div>
+
+          <!-- Color Pickers -->
+          <div class="toolbar-group">
+            <div class="color-picker-wrapper" title="Màu chữ">
+              <label class="color-swatch-btn" id="textColorLabel" style="color: #111;">
+                <i class="fas fa-font"></i>
+                <input type="color" class="color-input-hidden" onchange="execColor('foreColor', this.value)">
+              </label>
+            </div>
+
+            <div class="color-picker-wrapper" title="Màu nền highlight">
+              <label class="color-swatch-btn" id="bgColorLabel" style="background: #ffd94a;">
+                <i class="fas fa-highlighter"></i>
+                <input type="color" class="color-input-hidden" value="#ffd94a" onchange="execColor('hiliteColor', this.value)">
+              </label>
+            </div>
+          </div>
+
+          <!-- Alignment -->
+          <div class="toolbar-group">
+            <button class="tool-btn" onclick="execCmd('justifyLeft')" title="Căn trái"><i class="fas fa-align-left"></i></button>
+            <button class="tool-btn" onclick="execCmd('justifyCenter')" title="Căn giữa"><i class="fas fa-align-center"></i></button>
+            <button class="tool-btn" onclick="execCmd('justifyRight')" title="Căn phải"><i class="fas fa-align-right"></i></button>
+            <button class="tool-btn" onclick="execCmd('justifyFull')" title="Căn đều hai bên"><i class="fas fa-align-justify"></i></button>
+          </div>
+
+          <!-- Lists & Indent -->
+          <div class="toolbar-group">
+            <button class="tool-btn" onclick="execCmd('insertUnorderedList')" title="Danh sách dấu chấm"><i class="fas fa-list-ul"></i></button>
+            <button class="tool-btn" onclick="execCmd('insertOrderedList')" title="Danh sách đánh số"><i class="fas fa-list-ol"></i></button>
+            <button class="tool-btn" onclick="execCmd('outdent')" title="Giảm thụt lề"><i class="fas fa-outdent"></i></button>
+            <button class="tool-btn" onclick="execCmd('indent')" title="Tăng thụt lề"><i class="fas fa-indent"></i></button>
+          </div>
+
+          <!-- Media & Inserts -->
+          <div class="toolbar-group">
+            <button class="tool-btn" onclick="openInsertImageModal()" title="Chèn ảnh"><i class="fas fa-image"></i></button>
+            <button class="tool-btn" onclick="openInsertLinkModal()" title="Chèn liên kết"><i class="fas fa-link"></i></button>
+            <button class="tool-btn" onclick="insertTable(3, 3)" title="Chèn bảng (3x3)"><i class="fas fa-table"></i></button>
+            <button class="tool-btn" onclick="execCmd('insertHorizontalRule')" title="Thêm đường kẻ phân cách"><i class="fas fa-minus"></i></button>
+          </div>
+
+          <!-- Cleaners -->
+          <div class="toolbar-group">
+            <button class="tool-btn" onclick="execCmd('removeFormat')" title="Xóa định dạng"><i class="fas fa-eraser"></i></button>
+            <button class="tool-btn" onclick="clearEditorContent()" title="Xóa toàn bộ nội dung"><i class="fas fa-trash-alt"></i></button>
+          </div>
+
+        </div>
+
+        <!-- Editor Content Area -->
+        <div class="editor-canvas-container">
+          <div id="noteContent" class="editor-content-area" contenteditable="true" spellcheck="false" data-placeholder="Xin chào... Bắt đầu viết nội dung ghi chú của bạn tại đây..." oninput="handleContentModified()"></div>
+        </div>
+
+        <!-- Editor Status Bar -->
+        <div class="editor-status-bar">
+          <div class="status-counters">
+            <span id="charCount">0 ký tự</span>
+            <span>•</span>
+            <span id="wordCount">0 từ</span>
+            <span>•</span>
+            <span id="readTime">1 phút đọc</span>
+          </div>
+
+          <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+            <span id="expiryIndicator" class="status-badge expiry" style="display: none;">
+              <i class="fas fa-hourglass-half"></i> <span id="expiryTimerText">Thời hạn: Vĩnh viễn</span>
+            </span>
+
+            <span id="saveStatusBadge" class="status-badge saved">
+              <i class="fas fa-check-circle"></i> <span>Đã lưu</span>
+            </span>
+          </div>
+        </div>
+
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer" style="margin-top: 60px;">
+    <div class="footer-in">
+      <span>© 2026 Notepad Online by VNT • Bản Quyền Chính Thức • Tốc Độ & Bảo Mật Tuyệt Đối</span>
+    </div>
+  </footer>
+
+  <!-- ==================== MODALS ==================== -->
+
+  <!-- 1. Authentication Modal (Đăng Nhập / Đăng Ký) -->
+  <div id="authModal" class="modal-back">
+    <div class="modal modal-lg">
+      <button class="modal-x" onclick="closeAuthModal()" title="Đóng"><i class="fas fa-times"></i></button>
+      
+      <div class="auth-container">
+        
+        <!-- Left Banner -->
+        <div class="auth-perks-col">
+          <div style="font-size: 32px; color: #ffd94a;"><i class="fas fa-shield-alt"></i></div>
+          <div class="auth-perks-title">Lưu trữ dữ liệu an toàn & miễn phí</div>
+          <p style="font-size: 13px; color: #cbd5e1; margin: 0;">Đăng ký tài khoản để lưu ghi chú, quản lý dữ liệu cá nhân và truy cập từ mọi thiết bị điện thoại hoặc máy tính.</p>
+          
+          <div class="auth-perk-item">
+            <i class="fas fa-cloud"></i>
+            <div><b>Lưu trữ đám mây</b><br><span style="color:#94a3b8">Dữ liệu được lưu an toàn, không lo mất</span></div>
+          </div>
+
+          <div class="auth-perk-item">
+            <i class="fas fa-sync-alt"></i>
+            <div><b>Đồng bộ đa thiết bị</b><br><span style="color:#94a3b8">Truy cập ghi chú mọi lúc, mọi nơi</span></div>
+          </div>
+
+          <div class="auth-perk-item">
+            <i class="fas fa-lock"></i>
+            <div><b>Bảo mật cao</b><br><span style="color:#94a3b8">Mật khẩu được mã hóa SHA-256</span></div>
+          </div>
+
+          <div class="auth-perk-item">
+            <i class="fas fa-gift"></i>
+            <div><b>Hoàn toàn miễn phí</b><br><span style="color:#94a3b8">Không giới hạn số lượng ghi chú</span></div>
+          </div>
+        </div>
+
+        <!-- Right Form Column -->
+        <div>
+          <!-- Tab Buttons -->
+          <div class="auth-tabs">
+            <button id="authTabLogin" class="auth-tab-btn active" onclick="switchAuthTab('login')">
+              <i class="fas fa-sign-in-alt"></i> Đăng Nhập
+            </button>
+            <button id="authTabRegister" class="auth-tab-btn" onclick="switchAuthTab('register')">
+              <i class="fas fa-user-plus"></i> Đăng Ký
+            </button>
+          </div>
+
+          <!-- LOGIN FORM -->
+          <form id="loginForm" onsubmit="handleLoginSubmit(event)">
+            <h3 style="margin-bottom: 6px; font-size: 20px;">Đăng nhập tài khoản</h3>
+            <p style="font-size: 13px; color: var(--ink-500); margin-bottom: 16px;">Nhập thông tin tài khoản của bạn để tiếp tục</p>
+
+            <div class="fld" style="margin-bottom: 12px;">
+              <label>Tên đăng nhập hoặc Email</label>
+              <input type="text" id="loginUsername" placeholder="Nhập username hoặc email" required autocomplete="username">
+            </div>
+
+            <div class="fld" style="margin-bottom: 12px;">
+              <label>Mật khẩu</label>
+              <input type="password" id="loginPassword" placeholder="Nhập mật khẩu" required autocomplete="current-password">
+            </div>
+
+            <!-- Math Captcha -->
+            <div class="fld" style="margin-bottom: 16px;">
+              <label>Xác minh bảo mật</label>
+              <div class="captcha-box">
+                <span id="loginCaptchaQuestion" class="captcha-code">5 + 7 = ?</span>
+                <button type="button" class="btn btn-ghost btn-sm" onclick="generateCaptcha('login')" title="Đổi câu hỏi khác"><i class="fas fa-sync-alt"></i></button>
+                <input type="number" id="loginCaptchaAnswer" placeholder="Kết quả" style="width: 100px; padding: 6px 10px;" required>
+              </div>
+            </div>
+
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; font-size: 13px;">
+              <label style="display: flex; align-items: center; gap: 6px; cursor: pointer;">
+                <input type="checkbox" id="loginRememberMe" checked> Ghi nhớ đăng nhập
+              </label>
+              <a href="javascript:void(0)" onclick="openForgotPasswordPrompt()" style="color: #2563eb; text-decoration: underline;">Quên mật khẩu?</a>
+            </div>
+
+            <button type="submit" class="btn btn-gold" style="width: 100%; padding: 12px; font-size: 16px;">
+              <i class="fas fa-sign-in-alt"></i> Đăng Nhập Ngay
+            </button>
+
+            <div style="text-align: center; margin-top: 14px; font-size: 14px;">
+              Chưa có tài khoản? <a href="javascript:void(0)" onclick="switchAuthTab('register')" style="color: #2563eb; font-weight: 700;">Đăng ký miễn phí</a>
+            </div>
+          </form>
+
+          <!-- REGISTER FORM -->
+          <form id="registerForm" style="display: none;" onsubmit="handleRegisterSubmit(event)">
+            <h3 style="margin-bottom: 6px; font-size: 20px;">Tạo tài khoản mới</h3>
+            <p style="font-size: 13px; color: var(--ink-500); margin-bottom: 14px;">Điền thông tin bên dưới để đăng ký tài khoản miễn phí</p>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 10px;">
+              <div class="fld">
+                <label>Tên đăng nhập *</label>
+                <input type="text" id="regUsername" placeholder="username" required autocomplete="username">
+              </div>
+              <div class="fld">
+                <label>Tên hiển thị</label>
+                <input type="text" id="regDisplayName" placeholder="Tên của bạn">
+              </div>
+            </div>
+
+            <div class="fld" style="margin-bottom: 10px;">
+              <label>Địa chỉ Email *</label>
+              <input type="email" id="regEmail" placeholder="email@example.com" required autocomplete="email">
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 10px;">
+              <div class="fld">
+                <label>Mật khẩu *</label>
+                <input type="password" id="regPassword" placeholder="Ít nhất 6 ký tự" required autocomplete="new-password">
+              </div>
+              <div class="fld">
+                <label>Nhập lại mật khẩu *</label>
+                <input type="password" id="regPasswordConfirm" placeholder="Xác nhận mật khẩu" required autocomplete="new-password">
+              </div>
+            </div>
+
+            <!-- Math Captcha -->
+            <div class="fld" style="margin-bottom: 14px;">
+              <label>Xác minh bảo mật</label>
+              <div class="captcha-box">
+                <span id="regCaptchaQuestion" class="captcha-code">4 + 8 = ?</span>
+                <button type="button" class="btn btn-ghost btn-sm" onclick="generateCaptcha('reg')" title="Đổi câu hỏi khác"><i class="fas fa-sync-alt"></i></button>
+                <input type="number" id="regCaptchaAnswer" placeholder="Kết quả" style="width: 100px; padding: 6px 10px;" required>
+              </div>
+            </div>
+
+            <button type="submit" class="btn btn-gold" style="width: 100%; padding: 12px; font-size: 16px;">
+              <i class="fas fa-user-plus"></i> Đăng Ký Miễn Phí
+            </button>
+
+            <div style="text-align: center; margin-top: 12px; font-size: 14px;">
+              Đã có tài khoản? <a href="javascript:void(0)" onclick="switchAuthTab('login')" style="color: #2563eb; font-weight: 700;">Đăng nhập</a>
+            </div>
+          </form>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. Saved Notes Manager Modal -->
+  <div id="notesModal" class="modal-back">
+    <div class="modal modal-lg">
+      <button class="modal-x" onclick="closeNotesModal()" title="Đóng"><i class="fas fa-times"></i></button>
+
+      <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; padding-bottom: 12px; border-bottom: 2px solid var(--border);">
+        <h3 style="font-size: 22px; display: flex; align-items: center; gap: 8px;">
+          <i class="fas fa-folder-open" style="color: #eab308;"></i> Quản Lý Ghi Chú
+        </h3>
+        <button class="btn btn-gold btn-sm" onclick="closeNotesModal(); createNewNote();">
+          <i class="fas fa-plus"></i> Tạo Ghi Chú Mới
+        </button>
+      </div>
+
+      <!-- Search & Filters -->
+      <div class="notes-list-header">
+        <input type="text" id="notesSearchInput" class="notes-search-input" placeholder="Tìm kiếm ghi chú theo tiêu đề hoặc nội dung..." oninput="renderNotesListModal()">
+        
+        <select id="notesFilterSelect" class="tool-select" style="height: 42px; font-size: 14px;" onchange="renderNotesListModal()">
+          <option value="all">Tất cả ghi chú</option>
+          <option value="pinned">Chỉ ghi chú đã ghim</option>
+          <option value="recent">Mới nhất trước</option>
+          <option value="oldest">Cũ nhất trước</option>
+        </select>
+      </div>
+
+      <!-- Notes Grid -->
+      <div id="notesModalGrid" class="notes-grid">
+        <!-- Rendered by JS -->
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. Expiry / Thời Hạn Modal -->
+  <div id="expiryModal" class="modal-back">
+    <div class="modal">
+      <button class="modal-x" onclick="closeExpiryModal()"><i class="fas fa-times"></i></button>
+
+      <h3 style="margin-bottom: 12px; font-size: 20px; display: flex; align-items: center; gap: 8px;">
+        <i class="fas fa-clock" style="color: #2563eb;"></i> Cài Đặt Thời Hạn Ghi Chú
+      </h3>
+      <p style="font-size: 13px; color: var(--ink-500); margin-bottom: 16px;">
+        Chọn thời gian lưu trữ. Khi hết hạn, ghi chú sẽ tự động được cảnh báo hoặc xóa để bảo vệ quyền riêng tư.
+      </p>
+
+      <div style="display: flex; flex-direction: column; gap: 10px; margin-bottom: 20px;">
+        <label class="mo-row" style="cursor: pointer;" onclick="selectExpiryRadio(0)">
+          <input type="radio" name="expiryChoice" value="0" checked>
+          <b>Vĩnh viễn (Không thời hạn)</b>
+          <span style="font-size: 12px; color: var(--ink-500);">Lưu trữ mãi mãi trên trình duyệt hoặc tài khoản của bạn</span>
+        </label>
+
+        <label class="mo-row" style="cursor: pointer;" onclick="selectExpiryRadio(600)">
+          <input type="radio" name="expiryChoice" value="600">
+          <b>10 Phút</b>
+          <span style="font-size: 12px; color: var(--ink-500);">Tự hủy sau 10 phút (phù hợp gửi thông tin tạm thời)</span>
+        </label>
+
+        <label class="mo-row" style="cursor: pointer;" onclick="selectExpiryRadio(3600)">
+          <input type="radio" name="expiryChoice" value="3600">
+          <b>1 Giờ</b>
+          <span style="font-size: 12px; color: var(--ink-500);">Tự hủy sau 1 giờ</span>
+        </label>
+
+        <label class="mo-row" style="cursor: pointer;" onclick="selectExpiryRadio(86400)">
+          <input type="radio" name="expiryChoice" value="86400">
+          <b>24 Giờ (1 Ngày)</b>
+          <span style="font-size: 12px; color: var(--ink-500);">Tự hủy sau 1 ngày</span>
+        </label>
+
+        <label class="mo-row" style="cursor: pointer;" onclick="selectExpiryRadio(604800)">
+          <input type="radio" name="expiryChoice" value="604800">
+          <b>7 Ngày</b>
+          <span style="font-size: 12px; color: var(--ink-500);">Tự hủy sau 1 tuần</span>
+        </label>
+
+        <label class="mo-row" style="cursor: pointer;" onclick="selectExpiryRadio(2592000)">
+          <input type="radio" name="expiryChoice" value="2592000">
+          <b>30 Ngày</b>
+          <span style="font-size: 12px; color: var(--ink-500);">Tự hủy sau 1 tháng</span>
+        </label>
+      </div>
+
+      <div style="display: flex; justify-content: flex-end; gap: 10px;">
+        <button class="btn btn-ghost" onclick="closeExpiryModal()">Hủy</button>
+        <button class="btn btn-gold" onclick="applyExpirySetting()">Xác Nhận</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4. Insert Link Modal -->
+  <div id="linkModal" class="modal-back">
+    <div class="modal">
+      <button class="modal-x" onclick="closeLinkModal()"><i class="fas fa-times"></i></button>
+
+      <h3 style="margin-bottom: 14px; font-size: 18px;"><i class="fas fa-link"></i> Chèn Liên Kết</h3>
+      <div class="fld" style="margin-bottom: 12px;">
+        <label>Văn bản hiển thị</label>
+        <input type="text" id="linkText" placeholder="VD: Trang chủ NanLux">
+      </div>
+      <div class="fld" style="margin-bottom: 16px;">
+        <label>Địa chỉ liên kết (URL)</label>
+        <input type="url" id="linkUrl" placeholder="https://example.com" value="https://">
+      </div>
+      <div style="display: flex; justify-content: flex-end; gap: 10px;">
+        <button class="btn btn-ghost" onclick="closeLinkModal()">Hủy</button>
+        <button class="btn btn-gold" onclick="confirmInsertLink()">Chèn</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 5. Insert Image Modal -->
+  <div id="imageModal" class="modal-back">
+    <div class="modal">
+      <button class="modal-x" onclick="closeImageModal()"><i class="fas fa-times"></i></button>
+
+      <h3 style="margin-bottom: 14px; font-size: 18px;"><i class="fas fa-image"></i> Chèn Hình Ảnh</h3>
+      
+      <div class="fld" style="margin-bottom: 12px;">
+        <label>Nhập URL hình ảnh</label>
+        <input type="url" id="imageUrlInput" placeholder="https://sv2.anhsieuviet.com/...">
+      </div>
+
+      <div style="text-align: center; margin: 10px 0; font-size: 13px; font-weight: 700; color: var(--ink-500);">
+        - HOẶC TẢI LÊN TỪ MÁY -
+      </div>
+
+      <div class="fld" style="margin-bottom: 16px;">
+        <input type="file" id="imageFileInput" accept="image/*" onchange="handleImageFileSelected(event)">
+      </div>
+
+      <div style="display: flex; justify-content: flex-end; gap: 10px;">
+        <button class="btn btn-ghost" onclick="closeImageModal()">Hủy</button>
+        <button class="btn btn-gold" onclick="confirmInsertImage()">Chèn Ảnh</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 6. Share Note Modal -->
+  <div id="shareModal" class="modal-back">
+    <div class="modal">
+      <button class="modal-x" onclick="closeShareModal()"><i class="fas fa-times"></i></button>
+
+      <h3 style="margin-bottom: 12px; font-size: 20px;"><i class="fas fa-share-alt"></i> Chia Sẻ Ghi Chú</h3>
+      <p style="font-size: 13px; color: var(--ink-500); margin-bottom: 16px;">
+        Liên kết chia sẻ chứa trực tiếp nội dung ghi chú được mã hóa an toàn. Bất kỳ ai mở liên kết này đều có thể xem và tải nội dung!
+      </p>
+
+      <!-- Chọn Quyền Truy Cập (Chỉ xem vs Toàn quyền) -->
+      <div style="margin-bottom: 16px;">
+        <label style="font-weight: 700; font-size: 14px; margin-bottom: 8px; display: block; color: var(--ink-900);">
+          <i class="fas fa-user-shield"></i> Quyền truy cập của người nhận:
+        </label>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+          
+          <!-- Chế độ Chỉ Xem (Người xem) -->
+          <div id="sharePermViewCard" class="mo-row" style="cursor: pointer; padding: 12px; border: 2px solid var(--border); border-radius: var(--radius-base); background: var(--main-hi); box-shadow: var(--shadow); transition: all .15s ease;" onclick="changeSharePermission('view')">
+            <div style="display: flex; align-items: center; justify-content: space-between; width: 100%; margin-bottom: 4px;">
+              <span style="font-weight: 700; font-size: 15px; color: var(--ink-900);">
+                <i class="fas fa-eye" style="color: #2563eb; margin-right: 4px;"></i> Chỉ Xem
+              </span>
+              <input type="radio" name="sharePermRadio" id="radioPermView" value="view" checked style="accent-color: var(--ink-900);">
+            </div>
+            <span style="font-size: 12px; color: var(--ink-700); line-height: 1.3;">Chỉ có quyền đọc nội dung, không được chỉnh sửa</span>
+          </div>
+
+          <!-- Chế độ Toàn Quyền (Có thể chỉnh sửa) -->
+          <div id="sharePermEditCard" class="mo-row" style="cursor: pointer; padding: 12px; border: 2px solid var(--border); border-radius: var(--radius-base); background: var(--background); box-shadow: var(--shadow-sm); transition: all .15s ease;" onclick="changeSharePermission('edit')">
+            <div style="display: flex; align-items: center; justify-content: space-between; width: 100%; margin-bottom: 4px;">
+              <span style="font-weight: 700; font-size: 15px; color: var(--ink-900);">
+                <i class="fas fa-edit" style="color: #16a34a; margin-right: 4px;"></i> Toàn Quyền
+              </span>
+              <input type="radio" name="sharePermRadio" id="radioPermEdit" value="edit" style="accent-color: var(--ink-900);">
+            </div>
+            <span style="font-size: 12px; color: var(--ink-700); line-height: 1.3;">Người nhận có thể chỉnh sửa và lưu vào Notepad</span>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="fld" style="margin-bottom: 14px;">
+        <label>Đường dẫn chia sẻ (Share URL)</label>
+        <input type="text" id="shareUrlInput" readonly onclick="this.select()">
+      </div>
+
+      <div style="display: flex; justify-content: flex-end; gap: 10px; flex-wrap: wrap;">
+        <button class="btn btn-ghost" onclick="closeShareModal()">Đóng</button>
+        <button class="btn btn-dark" onclick="openShareViewerPage()">
+          <i class="fas fa-external-link-alt"></i> Xem Trang Chia Sẻ
+        </button>
+        <button class="btn btn-gold" onclick="copyShareLink()">
+          <i class="fas fa-copy"></i> Sao Chép Link
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 7. User Profile / Settings Modal -->
+  <div id="profileModal" class="modal-back">
+    <div class="modal">
+      <button class="modal-x" onclick="closeProfileModal()"><i class="fas fa-times"></i></button>
+
+      <h3 style="margin-bottom: 14px; font-size: 20px; display: flex; align-items: center; gap: 8px;">
+        <i class="fas fa-user-circle"></i> Thông Tin Tài Khoản
+      </h3>
+
+      <div class="mo-row" style="margin-bottom: 14px; background: var(--paper-1); width: 100%;">
+        <div>Tên đăng nhập: <strong id="profileUsername">--</strong></div>
+        <div>Tên hiển thị: <strong id="profileDisplayName">--</strong></div>
+        <div>Email: <strong id="profileEmail">--</strong></div>
+        <div>Tổng ghi chú: <strong id="profileNotesCount">0</strong></div>
+        <div>Ngày tham gia: <strong id="profileCreatedDate">--</strong></div>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 8px;">
+        <button class="btn btn-ghost" onclick="exportAllNotesJson()">
+          <i class="fas fa-download"></i> Tải bản sao lưu ghi chú (JSON)
+        </button>
+        <button class="btn btn-dark" onclick="handleLogout()">
+          <i class="fas fa-sign-out-alt"></i> Đăng Xuất
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div id="toast" class="toast">
+    <i class="fas fa-check-circle" id="toastIcon"></i>
+    <span id="toastMsg" style="margin-left: 8px;">Đã lưu thành công!</span>
+  </div>
+
+  <!-- Application Script -->
+  <script>
+    /**
+     * NOTEPAD ONLINE PRODUCTION ENGINE
+     * Full Auth + Isolated Storage + Expiry + WYSIWYG
+     */
+
+    const STORAGE_KEYS = {
+      USERS: 'nanlux_notepad_users_v1',
+      SESSION: 'nanlux_notepad_session_v1',
+      NOTES_PREFIX: 'nanlux_notes_store_' // appended with userId or 'guest'
+    };
+
+    // State Variables
+    let currentUser = null; // null if guest, or user object
+    let currentNote = {
+      id: null,
+      title: '',
+      desc: '',
+      content: '',
+      isPinned: false,
+      expirySeconds: 0, // 0 = permanent
+      createdAt: null,
+      updatedAt: null
+    };
+
+    let autoSaveTimer = null;
+    let expiryIntervalTimer = null;
+    let captchaValues = { login: 0, reg: 0 };
+
+    /* ==========================================================
+       CRYPTO & SECURITY HELPERS
+       ========================================================== */
+    async function sha256(str) {
+      const buffer = new TextEncoder().encode('nanlux_salt_' + str);
+      const hashBuffer = await crypto.subtle.digest('SHA-256', buffer);
+      const hashArray = Array.from(new Uint8Array(hashBuffer));
+      return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+    }
+
+    function generateId() {
+      const arr = new Uint8Array(5);
+      crypto.getRandomValues(arr);
+      return Array.from(arr).map(b => b.toString(16).padStart(2, '0')).join('');
+    }
+
+    /* ==========================================================
+       USERS & AUTHENTICATION (BẢN CHÍNH THỰC SỰ)
+       ========================================================== */
+    function getAllUsers() {
+      try {
+        const data = localStorage.getItem(STORAGE_KEYS.USERS);
+        return data ? JSON.parse(data) : [];
+      } catch (e) {
+        console.error('Error reading users database', e);
+        return [];
+      }
+    }
+
+    function saveAllUsers(users) {
+      try {
+        localStorage.setItem(STORAGE_KEYS.USERS, JSON.stringify(users));
+      } catch (e) {
+        console.error('Error saving users database', e);
+      }
+    }
+
+    async function initUsersDatabase() {
+      let users = getAllUsers();
+      // Pre-seed default administrator / demo account if empty
+      if (users.length === 0) {
+        const defaultAdminHash = await sha256('Admin123@');
+        users.push({
+          id: 'user_admin',
+          username: 'admin',
+          displayName: 'Admin NanLux',
+          email: 'admin@nanlux.com',
+          passwordHash: defaultAdminHash,
+          createdAt: new Date().toISOString()
+        });
+        saveAllUsers(users);
+      }
+    }
+
+    function checkActiveSession() {
+      try {
+        const sessionStr = localStorage.getItem(STORAGE_KEYS.SESSION);
+        if (sessionStr) {
+          const session = JSON.parse(sessionStr);
+          const users = getAllUsers();
+          const found = users.find(u => u.id === session.userId);
+          if (found) {
+            currentUser = found;
+          }
+        }
+      } catch (e) {
+        console.error('Session restore error', e);
+      }
+    }
+
+    async function handleLoginSubmit(e) {
+      e.preventDefault();
+      const userOrEmail = document.getElementById('loginUsername').value.trim().toLowerCase();
+      const pass = document.getElementById('loginPassword').value;
+      const captchaAns = parseInt(document.getElementById('loginCaptchaAnswer').value);
+
+      if (captchaAns !== captchaValues.login) {
+        showToast('Mã xác minh bảo mật không chính xác!', true);
+        generateCaptcha('login');
+        return;
+      }
+
+      const users = getAllUsers();
+      const passHash = await sha256(pass);
+      const user = users.find(u => 
+        (u.username.toLowerCase() === userOrEmail || u.email.toLowerCase() === userOrEmail) &&
+        u.passwordHash === passHash
+      );
+
+      if (!user) {
+        showToast('Tên đăng nhập hoặc mật khẩu không chính xác!', true);
+        return;
+      }
+
+      currentUser = user;
+      const remember = document.getElementById('loginRememberMe').checked;
+      if (remember) {
+        localStorage.setItem(STORAGE_KEYS.SESSION, JSON.stringify({ userId: user.id, token: Date.now() }));
+      } else {
+        sessionStorage.setItem(STORAGE_KEYS.SESSION, JSON.stringify({ userId: user.id, token: Date.now() }));
+      }
+
+      closeAuthModal();
+      showToast('Đăng nhập thành công! Chào mừng ' + (user.displayName || user.username));
+      updateUIForUser();
+      checkGuestNotesMigration();
+      loadLatestOrFirstNote();
+    }
+
+    async function handleRegisterSubmit(e) {
+      e.preventDefault();
+      const username = document.getElementById('regUsername').value.trim();
+      const displayName = document.getElementById('regDisplayName').value.trim() || username;
+      const email = document.getElementById('regEmail').value.trim().toLowerCase();
+      const pass = document.getElementById('regPassword').value;
+      const passConfirm = document.getElementById('regPasswordConfirm').value;
+      const captchaAns = parseInt(document.getElementById('regCaptchaAnswer').value);
+
+      if (captchaAns !== captchaValues.reg) {
+        showToast('Mã xác minh bảo mật không đúng!', true);
+        generateCaptcha('reg');
+        return;
+      }
+
+      if (username.length < 3) {
+        showToast('Tên đăng nhập phải có ít nhất 3 ký tự!', true);
+        return;
+      }
+
+      if (pass.length < 6) {
+        showToast('Mật khẩu phải có ít nhất 6 ký tự!', true);
+        return;
+      }
+
+      if (pass !== passConfirm) {
+        showToast('Mật khẩu xác nhận không khớp!', true);
+        return;
+      }
+
+      const users = getAllUsers();
+      if (users.some(u => u.username.toLowerCase() === username.toLowerCase())) {
+        showToast('Tên đăng nhập này đã được sử dụng!', true);
+        return;
+      }
+
+      if (users.some(u => u.email.toLowerCase() === email)) {
+        showToast('Email này đã được đăng ký!', true);
+        return;
+      }
+
+      const passHash = await sha256(pass);
+      const newUser = {
+        id: 'user_' + Date.now(),
+        username: username,
+        displayName: displayName,
+        email: email,
+        passwordHash: passHash,
+        createdAt: new Date().toISOString()
+      };
+
+      users.push(newUser);
+      saveAllUsers(users);
+
+      currentUser = newUser;
+      localStorage.setItem(STORAGE_KEYS.SESSION, JSON.stringify({ userId: newUser.id, token: Date.now() }));
+
+      closeAuthModal();
+      showToast('Đăng ký tài khoản thành công! Dữ liệu của bạn đã được bảo vệ.');
+      updateUIForUser();
+      checkGuestNotesMigration();
+      loadLatestOrFirstNote();
+    }
+
+    function handleLogout() {
+      localStorage.removeItem(STORAGE_KEYS.SESSION);
+      sessionStorage.removeItem(STORAGE_KEYS.SESSION);
+      currentUser = null;
+      closeProfileModal();
+      showToast('Đã đăng xuất khỏi tài khoản.');
+      updateUIForUser();
+      loadLatestOrFirstNote();
+    }
+
+    function openForgotPasswordPrompt() {
+      const email = prompt('Nhập địa chỉ email đăng ký để nhận mã khôi phục mật khẩu:');
+      if (email) {
+        const users = getAllUsers();
+        const found = users.find(u => u.email.toLowerCase() === email.trim().toLowerCase());
+        if (found) {
+          const newPass = prompt('Mã xác thực [8392]. Vui lòng nhập mật khẩu mới (ít nhất 6 ký tự):');
+          if (newPass && newPass.length >= 6) {
+            sha256(newPass).then(hash => {
+              found.passwordHash = hash;
+              saveAllUsers(users);
+              showToast('Đổi mật khẩu thành công! Bạn có thể đăng nhập ngay.');
+            });
+          } else {
+            showToast('Mật khẩu mới không hợp lệ!', true);
+          }
+        } else {
+          showToast('Không tìm thấy tài khoản với email này!', true);
+        }
+      }
+    }
+
+    function generateCaptcha(type) {
+      const a = Math.floor(Math.random() * 10) + 1;
+      const b = Math.floor(Math.random() * 10) + 1;
+      const sum = a + b;
+      if (type === 'login') {
+        captchaValues.login = sum;
+        const el = document.getElementById('loginCaptchaQuestion');
+        if (el) el.textContent = `${a} + ${b} = ?`;
+      } else {
+        captchaValues.reg = sum;
+        const el = document.getElementById('regCaptchaQuestion');
+        if (el) el.textContent = `${a} + ${b} = ?`;
+      }
+    }
+
+    function checkGuestNotesMigration() {
+      if (!currentUser) return;
+      const guestNotes = getNotesForUser(null);
+      if (guestNotes.length > 0) {
+        const confirmMigrate = confirm(`Bạn có ${guestNotes.length} ghi chú từ chế độ khách. Bạn có muốn đồng bộ vào tài khoản "${currentUser.displayName || currentUser.username}" không?`);
+        if (confirmMigrate) {
+          const userNotes = getNotesForUser(currentUser.id);
+          guestNotes.forEach(gn => {
+            gn.id = generateId(); // refresh id
+            userNotes.unshift(gn);
+          });
+          saveNotesForUser(currentUser.id, userNotes);
+          saveNotesForUser(null, []); // clear guest
+          showToast(`Đã đồng bộ ${guestNotes.length} ghi chú vào tài khoản!`);
+        }
+      }
+    }
+
+    /* ==========================================================
+       NOTES DATABASE REPOSITORY
+       ========================================================== */
+    function getStorageKey(userId) {
+      return STORAGE_KEYS.NOTES_PREFIX + (userId || 'guest');
+    }
+
+    function getNotesForUser(userId) {
+      try {
+        const key = getStorageKey(userId);
+        const data = localStorage.getItem(key);
+        return data ? JSON.parse(data) : [];
+      } catch (e) {
+        console.error('Error reading notes', e);
+        return [];
+      }
+    }
+
+    function saveNotesForUser(userId, notes) {
+      try {
+        const key = getStorageKey(userId);
+        localStorage.setItem(key, JSON.stringify(notes));
+        updateNotesCountBadges();
+      } catch (e) {
+        console.error('Error saving notes', e);
+      }
+    }
+
+    function getCurrentUserNotes() {
+      return getNotesForUser(currentUser ? currentUser.id : null);
+    }
+
+    function saveCurrentNotesList(notes) {
+      saveNotesForUser(currentUser ? currentUser.id : null, notes);
+    }
+
+    /* ==========================================================
+       NOTE CRUD OPERATIONS
+       ========================================================== */
+    function createNewNote() {
+      currentNote = {
+        id: generateId(),
+        title: '',
+        desc: '',
+        content: '',
+        isPinned: false,
+        expirySeconds: 0,
+        createdAt: new Date().toISOString(),
+        updatedAt: new Date().toISOString()
+      };
+
+      document.getElementById('noteTitle').value = '';
+      document.getElementById('noteDesc').value = '';
+      document.getElementById('noteContent').innerHTML = '';
+      
+      updatePinButtonUI();
+      updateExpiryButtonUI();
+      updateSaveStatus('unsaved');
+      updateCounters();
+      document.getElementById('noteTitle').focus();
+      showToast('Đã tạo ghi chú mới');
+    }
+
+    function saveCurrentNote(isManual = false) {
+      const title = document.getElementById('noteTitle').value.trim() || 'Ghi chú không tiêu đề';
+      const desc = document.getElementById('noteDesc').value.trim();
+      const content = document.getElementById('noteContent').innerHTML;
+
+      if (!currentNote.id) {
+        currentNote.id = generateId();
+        currentNote.createdAt = new Date().toISOString();
+      }
+
+      currentNote.title = title;
+      currentNote.desc = desc;
+      currentNote.content = content;
+      currentNote.updatedAt = new Date().toISOString();
+
+      let notes = getCurrentUserNotes();
+      const existingIndex = notes.findIndex(n => n.id === currentNote.id);
+
+      if (existingIndex >= 0) {
+        notes[existingIndex] = { ...currentNote };
+      } else {
+        notes.unshift({ ...currentNote });
+      }
+
+      // Sort: pinned first, then by updatedAt desc
+      notes.sort((a, b) => {
+        if (a.isPinned && !b.isPinned) return -1;
+        if (!a.isPinned && b.isPinned) return 1;
+        return new Date(b.updatedAt) - new Date(a.updatedAt);
+      });
+
+      saveCurrentNotesList(notes);
+      updateSaveStatus('saved');
+      renderSidebarPinnedNotes();
+
+      if (isManual) {
+        showToast('Đã lưu ghi chú thành công!');
+      }
+    }
+
+    function loadNoteById(id) {
+      const notes = getCurrentUserNotes();
+      const found = notes.find(n => n.id === id);
+      if (!found) {
+        showToast('Không tìm thấy ghi chú!', true);
+        return;
+      }
+
+      currentNote = { ...found };
+      document.getElementById('noteTitle').value = currentNote.title || '';
+      document.getElementById('noteDesc').value = currentNote.desc || '';
+      document.getElementById('noteContent').innerHTML = currentNote.content || '';
+
+      updatePinButtonUI();
+      updateExpiryButtonUI();
+      updateSaveStatus('saved');
+      updateCounters();
+      closeNotesModal();
+      showToast(`Đã mở: "${currentNote.title}"`);
+    }
+
+    function deleteNoteById(id, e) {
+      if (e) e.stopPropagation();
+      if (!confirm('Bạn có chắc chắn muốn xóa ghi chú này?')) return;
+
+      let notes = getCurrentUserNotes();
+      notes = notes.filter(n => n.id !== id);
+      saveCurrentNotesList(notes);
+
+      if (currentNote.id === id) {
+        createNewNote();
+      }
+
+      renderNotesListModal();
+      renderSidebarPinnedNotes();
+      showToast('Đã xóa ghi chú!');
+    }
+
+    function togglePinCurrentNote() {
+      currentNote.isPinned = !currentNote.isPinned;
+      updatePinButtonUI();
+      saveCurrentNote(false);
+      showToast(currentNote.isPinned ? 'Đã ghim ghi chú lên đầu!' : 'Đã bỏ ghim ghi chú');
+    }
+
+    function togglePinFromList(id, e) {
+      if (e) e.stopPropagation();
+      let notes = getCurrentUserNotes();
+      const found = notes.find(n => n.id === id);
+      if (found) {
+        found.isPinned = !found.isPinned;
+        if (currentNote.id === id) {
+          currentNote.isPinned = found.isPinned;
+          updatePinButtonUI();
+        }
+        saveCurrentNotesList(notes);
+        renderNotesListModal();
+        renderSidebarPinnedNotes();
+      }
+    }
+
+    function loadLatestOrFirstNote() {
+      const notes = getCurrentUserNotes();
+      if (notes.length > 0) {
+        loadNoteById(notes[0].id);
+      } else {
+        createNewNote();
+      }
+      renderSidebarPinnedNotes();
+      updateNotesCountBadges();
+    }
+
+    /* ==========================================================
+       EXPIRY LOGIC (THỜI HẠN GHI CHÚ)
+       ========================================================== */
+    function openExpiryModal() {
+      const modal = document.getElementById('expiryModal');
+      const radios = document.getElementsByName('expiryChoice');
+      radios.forEach(r => {
+        r.checked = (parseInt(r.value) === currentNote.expirySeconds);
+      });
+      modal.classList.add('open');
+    }
+
+    function closeExpiryModal() {
+      document.getElementById('expiryModal').classList.remove('open');
+    }
+
+    function selectExpiryRadio(val) {
+      const radios = document.getElementsByName('expiryChoice');
+      radios.forEach(r => {
+        if (parseInt(r.value) === val) r.checked = true;
+      });
+    }
+
+    function applyExpirySetting() {
+      const radios = document.getElementsByName('expiryChoice');
+      let chosen = 0;
+      radios.forEach(r => {
+        if (r.checked) chosen = parseInt(r.value);
+      });
+
+      currentNote.expirySeconds = chosen;
+      currentNote.expirySetAt = chosen > 0 ? Date.now() : null;
+      updateExpiryButtonUI();
+      closeExpiryModal();
+      saveCurrentNote(false);
+      showToast(chosen > 0 ? `Đã đặt thời hạn: ${formatExpiryDuration(chosen)}` : 'Đã chuyển sang chế độ Vĩnh viễn');
+    }
+
+    function formatExpiryDuration(seconds) {
+      if (seconds <= 0) return 'Vĩnh viễn';
+      if (seconds === 600) return '10 phút';
+      if (seconds === 3600) return '1 giờ';
+      if (seconds === 86400) return '24 giờ';
+      if (seconds === 604800) return '7 ngày';
+      if (seconds === 2592000) return '30 ngày';
+      return seconds + ' giây';
+    }
+
+    function updateExpiryButtonUI() {
+      const btnText = document.getElementById('expiryBtnText');
+      const indicator = document.getElementById('expiryIndicator');
+      const timerText = document.getElementById('expiryTimerText');
+
+      if (!currentNote.expirySeconds || currentNote.expirySeconds <= 0) {
+        btnText.textContent = 'Thời hạn';
+        indicator.style.display = 'none';
+        if (expiryIntervalTimer) clearInterval(expiryIntervalTimer);
+      } else {
+        const label = formatExpiryDuration(currentNote.expirySeconds);
+        btnText.textContent = label;
+        indicator.style.display = 'inline-flex';
+        timerText.textContent = `Hết hạn trong: ${label}`;
+        startExpiryLiveTimer();
+      }
+    }
+
+    function startExpiryLiveTimer() {
+      if (expiryIntervalTimer) clearInterval(expiryIntervalTimer);
+      if (!currentNote.expirySeconds || !currentNote.expirySetAt) return;
+
+      function updateTimer() {
+        const now = Date.now();
+        const elapsedSec = Math.floor((now - currentNote.expirySetAt) / 1000);
+        const remaining = currentNote.expirySeconds - elapsedSec;
+
+        const timerText = document.getElementById('expiryTimerText');
+        if (remaining <= 0) {
+          timerText.textContent = 'Đã hết hạn!';
+          clearInterval(expiryIntervalTimer);
+        } else {
+          const m = Math.floor(remaining / 60);
+          const s = remaining % 60;
+          timerText.textContent = `Hết hạn: ${m.toString().padStart(2,'0')}:${s.toString().padStart(2,'0')}`;
+        }
+      }
+
+      updateTimer();
+      expiryIntervalTimer = setInterval(updateTimer, 1000);
+    }
+
+    /* ==========================================================
+       FILE EXPORT / IMPORT / DOWNLOAD .TXT
+       ========================================================== */
+    function downloadNoteTxt() {
+      const title = document.getElementById('noteTitle').value.trim() || 'ghi-chu';
+      const desc = document.getElementById('noteDesc').value.trim();
+      const contentEl = document.getElementById('noteContent');
+      const plainText = contentEl.innerText || contentEl.textContent || '';
+
+      let fileData = `TIÊU ĐỀ: ${title}\n`;
+      if (desc) fileData += `MÔ TẢ: ${desc}\n`;
+      fileData += `NGÀY TẠO: ${new Date().toLocaleString('vi-VN')}\n`;
+      fileData += `----------------------------------------\n\n`;
+      fileData += plainText;
+
+      const blob = new Blob([fileData], { type: 'text/plain;charset=utf-8' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      const safeFilename = title.replace(/[^a-zA-Z0-9àáạảãâầấậẩẫăằắặẳẵèéẹẻẽêềếệểễìíịỉĩòóọỏõôồốộổỗơờớợởỡùúụủũưừứựửữỳýỵỷỹđ\s_-]/gi, '').trim() || 'note';
+      a.download = `${safeFilename}.txt`;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+      showToast('Đã tải xuống file .txt thành công!');
+    }
+
+    function copyCurrentNoteText() {
+      const contentEl = document.getElementById('noteContent');
+      const text = contentEl.innerText || contentEl.textContent || '';
+      if (!text.trim()) {
+        showToast('Nội dung trống, không có gì để sao chép!', true);
+        return;
+      }
+      navigator.clipboard.writeText(text).then(() => {
+        showToast('Đã sao chép nội dung vào Clipboard!');
+      });
+    }
+
+    function exportAllNotesJson() {
+      const notes = getCurrentUserNotes();
+      if (notes.length === 0) {
+        showToast('Không có ghi chú nào để sao lưu!', true);
+        return;
+      }
+      const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(notes, null, 2));
+      const a = document.createElement('a');
+      a.setAttribute("href", dataStr);
+      a.setAttribute("download", `nanlux_backup_${currentUser ? currentUser.username : 'guest'}_${Date.now()}.json`);
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      showToast('Đã xuất toàn bộ ghi chú (JSON)!');
+    }
+
+    function importNotesJson(event) {
+      const file = event.target.files[0];
+      if (!file) return;
+
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        try {
+          const imported = JSON.parse(e.target.result);
+          if (Array.isArray(imported)) {
+            let current = getCurrentUserNotes();
+            imported.forEach(item => {
+              if (item.title || item.content) {
+                item.id = generateId(); // prevent collision
+                current.unshift(item);
+              }
+            });
+            saveCurrentNotesList(current);
+            loadLatestOrFirstNote();
+            showToast(`Khôi phục thành công ${imported.length} ghi chú!`);
+          } else {
+            showToast('Tệp JSON không hợp lệ!', true);
+          }
+        } catch (err) {
+          showToast('Lỗi khi đọc file JSON!', true);
+        }
+      };
+      reader.readAsText(file);
+      event.target.value = '';
+    }
+
+    /* ==========================================================
+       SHARING LOGIC (CHỈ XEM VS TOÀN QUYỀN TRUY CẬP)
+       ========================================================== */
+    let currentSharePermission = 'view'; // default: 'view'
+
+    function changeSharePermission(perm) {
+      currentSharePermission = perm;
+      const viewCard = document.getElementById('sharePermViewCard');
+      const editCard = document.getElementById('sharePermEditCard');
+      const radioView = document.getElementById('radioPermView');
+      const radioEdit = document.getElementById('radioPermEdit');
+
+      if (perm === 'view') {
+        if (viewCard) {
+          viewCard.style.background = 'var(--main-hi)';
+          viewCard.style.boxShadow = 'var(--shadow)';
+        }
+        if (editCard) {
+          editCard.style.background = 'var(--background)';
+          editCard.style.boxShadow = 'var(--shadow-sm)';
+        }
+        if (radioView) radioView.checked = true;
+      } else {
+        if (editCard) {
+          editCard.style.background = 'var(--main-hi)';
+          editCard.style.boxShadow = 'var(--shadow)';
+        }
+        if (viewCard) {
+          viewCard.style.background = 'var(--background)';
+          viewCard.style.boxShadow = 'var(--shadow-sm)';
+        }
+        if (radioEdit) radioEdit.checked = true;
+      }
+
+      generateShareUrlWithPermission();
+    }
+
+    function generateShareUrlWithPermission() {
+      const title = document.getElementById('noteTitle').value.trim() || 'Ghi chú không tiêu đề';
+      const desc = document.getElementById('noteDesc').value.trim();
+      const content = document.getElementById('noteContent').innerHTML;
+      
+      if (!currentNote.id) {
+        currentNote.id = generateId();
+      }
+
+      const payload = {
+        t: title,
+        d: desc,
+        c: content,
+        perm: currentSharePermission,
+        date: currentNote.createdAt || new Date().toISOString(),
+        expiry: currentNote.expirySeconds || 0
+      };
+
+      try {
+        const jsonStr = JSON.stringify(payload);
+        const encoded = btoa(unescape(encodeURIComponent(jsonStr)));
+        
+        // Save to public cache for fast lookup
+        localStorage.setItem('public_note_' + currentNote.id, JSON.stringify(payload));
+
+        let basePath = window.location.pathname;
+        let noteViewerPath;
+        if (basePath.includes('/tool/notepad')) {
+          noteViewerPath = basePath.replace('/notepad', '/note');
+        } else {
+          noteViewerPath = basePath.replace(/notepad\.html.*$/, 'tool/note/index.html');
+        }
+
+        const shareUrl = window.location.origin + noteViewerPath + '?id=' + currentNote.id + '&mode=' + currentSharePermission + '#d=' + encoded;
+        
+        document.getElementById('shareUrlInput').value = shareUrl;
+      } catch (e) {
+        console.error(e);
+        showToast('Lỗi tạo liên kết chia sẻ!', true);
+      }
+    }
+
+    function openShareModal() {
+      changeSharePermission(currentSharePermission || 'view');
+      document.getElementById('shareModal').classList.add('open');
+    }
+
+    function closeShareModal() {
+      document.getElementById('shareModal').classList.remove('open');
+    }
+
+    function openShareViewerPage() {
+      const url = document.getElementById('shareUrlInput').value;
+      if (url) {
+        window.open(url, '_blank');
+      }
+    }
+
+    function copyShareLink() {
+      const input = document.getElementById('shareUrlInput');
+      input.select();
+      navigator.clipboard.writeText(input.value).then(() => {
+        showToast('Đã sao chép link chia sẻ vào Clipboard!');
+      });
+    }
+
+    function checkSharedNoteInUrl() {
+      // 1. Check if cloned from viewer page
+      const cloneStr = sessionStorage.getItem('clone_note_data');
+      if (cloneStr) {
+        try {
+          const cloneData = JSON.parse(cloneStr);
+          sessionStorage.removeItem('clone_note_data');
+          currentNote = {
+            id: generateId(),
+            title: (cloneData.t || 'Ghi chú') + ' (Bản sao)',
+            desc: cloneData.d || '',
+            content: cloneData.c || '',
+            isPinned: false,
+            expirySeconds: 0,
+            createdAt: new Date().toISOString(),
+            updatedAt: new Date().toISOString()
+          };
+
+          document.getElementById('noteTitle').value = currentNote.title;
+          document.getElementById('noteDesc').value = currentNote.desc;
+          document.getElementById('noteContent').innerHTML = currentNote.content;
+
+          saveCurrentNote(true);
+          updateCounters();
+          showToast('Đã nạp ghi chú vào trình soạn thảo!');
+          return;
+        } catch (e) {}
+      }
+
+      // 2. Check hash or query parameter
+      const hash = window.location.hash;
+      if (hash && (hash.startsWith('#share=') || hash.startsWith('#d='))) {
+        try {
+          const encoded = hash.includes('=') ? hash.split('=')[1] : '';
+          const jsonStr = decodeURIComponent(escape(atob(encoded)));
+          const payload = JSON.parse(jsonStr);
+
+          if (payload && (payload.t || payload.c)) {
+            setTimeout(() => {
+              const confirmLoad = confirm(`Bạn vừa mở một ghi chú được chia sẻ: "${payload.t}". Bạn có muốn tải ghi chú này vào ô soạn thảo không?`);
+              if (confirmLoad) {
+                currentNote = {
+                  id: generateId(),
+                  title: payload.t || 'Ghi chú chia sẻ',
+                  desc: payload.d || 'Được chia sẻ từ người dùng khác',
+                  content: payload.c || '',
+                  isPinned: false,
+                  expirySeconds: payload.expiry || 0,
+                  createdAt: payload.date || new Date().toISOString(),
+                  updatedAt: new Date().toISOString()
+                };
+
+                document.getElementById('noteTitle').value = currentNote.title;
+                document.getElementById('noteDesc').value = currentNote.desc;
+                document.getElementById('noteContent').innerHTML = currentNote.content;
+
+                saveCurrentNote(true);
+                updateCounters();
+                showToast('Đã mở ghi chú được chia sẻ thành công!');
+              }
+            }, 400);
+          }
+        } catch (e) {
+          console.error('Error decoding shared note hash', e);
+        }
+      }
+    }
+
+    /* ==========================================================
+       WYSIWYG FORMATTING COMMANDS
+       ========================================================== */
+    function execCmd(command, value = null) {
+      document.execCommand(command, false, value);
+      handleContentModified();
+      document.getElementById('noteContent').focus();
+    }
+
+    function execFormatBlock(val) {
+      if (val === 'p') {
+        document.execCommand('formatBlock', false, '<p>');
+      } else if (val.startsWith('h')) {
+        document.execCommand('formatBlock', false, `<${val}>`);
+      } else if (val === 'blockquote') {
+        document.execCommand('formatBlock', false, '<blockquote>');
+      } else if (val === 'pre') {
+        document.execCommand('formatBlock', false, '<pre>');
+      }
+      handleContentModified();
+      document.getElementById('noteContent').focus();
+    }
+
+    function execColor(cmd, colorVal) {
+      document.execCommand(cmd, false, colorVal);
+      handleContentModified();
+    }
+
+    function insertTable(rows = 3, cols = 3) {
+      let html = '<table><tbody>';
+      for (let r = 0; r < rows; r++) {
+        html += '<tr>';
+        for (let c = 0; c < cols; c++) {
+          html += r === 0 ? '<th>Tiêu đề</th>' : '<td>Nội dung</td>';
+        }
+        html += '</tr>';
+      }
+      html += '</tbody></table><p><br></p>';
+      document.execCommand('insertHTML', false, html);
+      handleContentModified();
+    }
+
+    function clearEditorContent() {
+      if (confirm('Bạn có chắc muốn xóa sạch nội dung trong khung soạn thảo?')) {
+        document.getElementById('noteContent').innerHTML = '';
+        handleContentModified();
+      }
+    }
+
+    // Link modal
+    function openInsertLinkModal() {
+      const selectedText = window.getSelection().toString();
+      document.getElementById('linkText').value = selectedText;
+      document.getElementById('linkUrl').value = 'https://';
+      document.getElementById('linkModal').classList.add('open');
+    }
+
+    function closeLinkModal() {
+      document.getElementById('linkModal').classList.remove('open');
+    }
+
+    function confirmInsertLink() {
+      const text = document.getElementById('linkText').value.trim() || 'Liên kết';
+      const url = document.getElementById('linkUrl').value.trim();
+      if (!url) return;
+
+      const html = `<a href="${url}" target="_blank" rel="noopener noreferrer">${text}</a>`;
+      document.execCommand('insertHTML', false, html);
+      closeLinkModal();
+      handleContentModified();
+    }
+
+    // Image modal
+    function openInsertImageModal() {
+      document.getElementById('imageUrlInput').value = '';
+      document.getElementById('imageFileInput').value = '';
+      document.getElementById('imageModal').classList.add('open');
+    }
+
+    function closeImageModal() {
+      document.getElementById('imageModal').classList.remove('open');
+    }
+
+    function confirmInsertImage() {
+      const url = document.getElementById('imageUrlInput').value.trim();
+      if (url) {
+        document.execCommand('insertImage', false, url);
+        closeImageModal();
+        handleContentModified();
+      }
+    }
+
+    function handleImageFileSelected(e) {
+      const file = e.target.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = function(evt) {
+          document.execCommand('insertImage', false, evt.target.result);
+          closeImageModal();
+          handleContentModified();
+        };
+        reader.readAsDataURL(file);
+      }
+    }
+
+    /* ==========================================================
+       UI UPDATES & COUNTERS
+       ========================================================== */
+    function handleContentModified() {
+      updateSaveStatus('unsaved');
+      updateCounters();
+
+      // Debounced Auto-save after 800ms
+      if (autoSaveTimer) clearTimeout(autoSaveTimer);
+      autoSaveTimer = setTimeout(() => {
+        saveCurrentNote(false);
+      }, 800);
+    }
+
+    function updateCounters() {
+      const contentEl = document.getElementById('noteContent');
+      const text = (contentEl.innerText || contentEl.textContent || '').trim();
+      const chars = text.length;
+      const words = text ? text.split(/\s+/).filter(Boolean).length : 0;
+      const readMinutes = Math.max(1, Math.ceil(words / 200));
+
+      document.getElementById('charCount').textContent = `${chars} ký tự`;
+      document.getElementById('wordCount').textContent = `${words} từ`;
+      document.getElementById('readTime').textContent = `${readMinutes} phút đọc`;
+    }
+
+    function updateSaveStatus(state) {
+      const badge = document.getElementById('saveStatusBadge');
+      if (state === 'saved') {
+        badge.className = 'status-badge saved';
+        badge.innerHTML = '<i class="fas fa-check-circle"></i> <span>Đã lưu</span>';
+      } else if (state === 'saving') {
+        badge.className = 'status-badge saving';
+        badge.innerHTML = '<i class="fas fa-spinner fa-spin"></i> <span>Đang lưu...</span>';
+      } else {
+        badge.className = 'status-badge unsaved';
+        badge.innerHTML = '<i class="fas fa-circle"></i> <span>Chưa lưu</span>';
+      }
+    }
+
+    function updatePinButtonUI() {
+      const pinBtn = document.getElementById('pinBtn');
+      const pinBtnText = document.getElementById('pinBtnText');
+      if (currentNote.isPinned) {
+        pinBtn.classList.add('active');
+        pinBtnText.textContent = 'Đã ghim';
+      } else {
+        pinBtn.classList.remove('active');
+        pinBtnText.textContent = 'Ghim';
+      }
+    }
+
+    function updateNotesCountBadges() {
+      const notes = getCurrentUserNotes();
+      const count = notes.length;
+      const headerEl = document.getElementById('headerNotesCount');
+      if (headerEl) headerEl.textContent = count;
+    }
+
+    function renderSidebarPinnedNotes() {
+      const container = document.getElementById('sidebarPinnedList');
+      const badge = document.getElementById('pinnedCountBadge');
+      const notes = getCurrentUserNotes().filter(n => n.isPinned);
+
+      if (badge) badge.textContent = notes.length;
+
+      if (!container) return;
+      if (notes.length === 0) {
+        container.innerHTML = `<div style="font-size: 13px; color: var(--ink-500); text-align: center; padding: 12px 0;">Chưa có ghi chú nào được ghim.</div>`;
+        return;
+      }
+
+      container.innerHTML = notes.map(n => `
+        <div class="pinned-item" onclick="loadNoteById('${n.id}')">
+          <i class="fas fa-thumbtack" style="color: #eab308; font-size: 12px;"></i>
+          <span class="pin-title">${escapeHtml(n.title || 'Không tiêu đề')}</span>
+          <i class="fas fa-chevron-right" style="font-size: 10px; color: var(--ink-300);"></i>
+        </div>
+      `).join('');
+    }
+
+    function renderNotesListModal() {
+      const container = document.getElementById('notesModalGrid');
+      const searchVal = (document.getElementById('notesSearchInput').value || '').toLowerCase().trim();
+      const filterVal = document.getElementById('notesFilterSelect').value;
+
+      let notes = getCurrentUserNotes();
+
+      // Filter search
+      if (searchVal) {
+        notes = notes.filter(n => 
+          (n.title && n.title.toLowerCase().includes(searchVal)) ||
+          (n.desc && n.desc.toLowerCase().includes(searchVal)) ||
+          (n.content && n.content.toLowerCase().includes(searchVal))
+        );
+      }
+
+      // Filter category
+      if (filterVal === 'pinned') {
+        notes = notes.filter(n => n.isPinned);
+      } else if (filterVal === 'recent') {
+        notes.sort((a, b) => new Date(b.updatedAt) - new Date(a.updatedAt));
+      } else if (filterVal === 'oldest') {
+        notes.sort((a, b) => new Date(a.updatedAt) - new Date(b.updatedAt));
+      }
+
+      if (notes.length === 0) {
+        container.innerHTML = `
+          <div style="grid-column: 1/-1; text-align: center; padding: 40px 20px; color: var(--ink-500);">
+            <i class="fas fa-sticky-note" style="font-size: 48px; opacity: .4; margin-bottom: 12px;"></i>
+            <p>Không tìm thấy ghi chú nào!</p>
+          </div>
+        `;
+        return;
+      }
+
+      container.innerHTML = notes.map(n => {
+        const plain = stripHtml(n.content || '');
+        const dateStr = n.updatedAt ? new Date(n.updatedAt).toLocaleDateString('vi-VN') : 'Vừa xong';
+        return `
+          <div class="note-card-item ${n.isPinned ? 'pinned' : ''}" onclick="loadNoteById('${n.id}')">
+            <div class="note-card-header">
+              <span class="note-card-title">${escapeHtml(n.title || 'Ghi chú không tiêu đề')}</span>
+              ${n.isPinned ? '<i class="fas fa-thumbtack" style="color: #eab308; font-size: 13px;" title="Đã ghim"></i>' : ''}
+            </div>
+            <div class="note-card-snippet">${escapeHtml(plain || 'Không có nội dung...')}</div>
+            <div class="note-card-footer">
+              <span>${dateStr}</span>
+              <div class="note-card-actions">
+                <button class="note-action-icon" onclick="togglePinFromList('${n.id}', event)" title="${n.isPinned ? 'Bỏ ghim' : 'Ghim'}">
+                  <i class="fas fa-thumbtack" style="${n.isPinned ? 'color:#eab308' : ''}"></i>
+                </button>
+                <button class="note-action-icon danger" onclick="deleteNoteById('${n.id}', event)" title="Xóa ghi chú">
+                  <i class="fas fa-trash-alt"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function updateUIForUser() {
+      const authContainer = document.getElementById('authHeaderContainer');
+      const banner = document.getElementById('statusNotificationBanner');
+      const bannerIcon = document.getElementById('bannerIcon');
+      const bannerMsg = document.getElementById('bannerMessage');
+      const bannerAction = document.getElementById('bannerActionBtnContainer');
+      const promoBanner = document.getElementById('promoBannerEl') || document.querySelector('.promo-banner');
+
+      if (currentUser) {
+        // Logged-in state: Ẩn hoàn toàn banner quảng cáo đăng ký
+        if (promoBanner) promoBanner.style.display = 'none';
+
+        const initial = (currentUser.displayName || currentUser.username || 'U')[0].toUpperCase();
+        authContainer.innerHTML = `
+          <button class="user-pill-btn" onclick="openProfileModal()">
+            <div class="user-avatar-circle">${initial}</div>
+            <span>${escapeHtml(currentUser.displayName || currentUser.username)}</span>
+          </button>
+        `;
+
+        banner.className = 'alert-banner success';
+        bannerIcon.className = 'fas fa-check-circle';
+        bannerMsg.innerHTML = `Đang đăng nhập: <strong>${escapeHtml(currentUser.displayName || currentUser.username)}</strong> (${escapeHtml(currentUser.email)}). Ghi chú được lưu trữ đám mây vĩnh viễn!`;
+        bannerAction.innerHTML = `
+          <button class="btn btn-ghost btn-sm" onclick="openProfileModal()">
+            <i class="fas fa-user-cog"></i> Tài khoản
+          </button>
+        `;
+      } else {
+        // Guest mode: Hiển thị lại banner quảng cáo
+        if (promoBanner) promoBanner.style.display = 'flex';
+
+        authContainer.innerHTML = `
+          <button class="btn btn-dark btn-sm" onclick="openAuthModal('login')">
+            <i class="fas fa-sign-in-alt"></i> Đăng nhập
+          </button>
+          <button class="btn btn-gold btn-sm" onclick="openAuthModal('register')">
+            <i class="fas fa-user-plus"></i> Đăng ký
+          </button>
+        `;
+
+        banner.className = 'alert-banner';
+        bannerIcon.className = 'fas fa-info-circle';
+        bannerMsg.textContent = 'Bạn đang sử dụng chế độ khách. Ghi chú được lưu tạm trong trình duyệt này.';
+        bannerAction.innerHTML = `
+          <button class="btn btn-dark btn-sm" onclick="openAuthModal('register')">
+            <i class="fas fa-user-plus"></i> Đăng ký miễn phí
+          </button>
+        `;
+
+        const promoBtn = document.getElementById('promoBtnText');
+        if (promoBtn) promoBtn.textContent = 'Đăng Ký Ngay';
+      }
+
+      updateNotesCountBadges();
+      renderSidebarPinnedNotes();
+    }
+
+    function handlePromoAuthClick() {
+      if (currentUser) {
+        openProfileModal();
+      } else {
+        openAuthModal('register');
+      }
+    }
+
+    /* ==========================================================
+       MODAL CONTROLLERS
+       ========================================================== */
+    function openAuthModal(tab = 'login') {
+      switchAuthTab(tab);
+      document.getElementById('authModal').classList.add('open');
+      generateCaptcha(tab === 'login' ? 'login' : 'reg');
+    }
+
+    function closeAuthModal() {
+      document.getElementById('authModal').classList.remove('open');
+    }
+
+    function switchAuthTab(tab) {
+      const loginTab = document.getElementById('authTabLogin');
+      const regTab = document.getElementById('authTabRegister');
+      const loginForm = document.getElementById('loginForm');
+      const regForm = document.getElementById('registerForm');
+
+      if (tab === 'login') {
+        loginTab.classList.add('active');
+        regTab.classList.remove('active');
+        loginForm.style.display = 'block';
+        regForm.style.display = 'none';
+        generateCaptcha('login');
+      } else {
+        regTab.classList.add('active');
+        loginTab.classList.remove('active');
+        loginForm.style.display = 'none';
+        regForm.style.display = 'block';
+        generateCaptcha('reg');
+      }
+    }
+
+    function openNotesModal() {
+      renderNotesListModal();
+      document.getElementById('notesModal').classList.add('open');
+    }
+
+    function closeNotesModal() {
+      document.getElementById('notesModal').classList.remove('open');
+    }
+
+    function openProfileModal() {
+      if (!currentUser) return;
+      document.getElementById('profileUsername').textContent = currentUser.username;
+      document.getElementById('profileDisplayName').textContent = currentUser.displayName || currentUser.username;
+      document.getElementById('profileEmail').textContent = currentUser.email;
+      document.getElementById('profileNotesCount').textContent = getCurrentUserNotes().length;
+      document.getElementById('profileCreatedDate').textContent = new Date(currentUser.createdAt).toLocaleDateString('vi-VN');
+      document.getElementById('profileModal').classList.add('open');
+    }
+
+    function closeProfileModal() {
+      document.getElementById('profileModal').classList.remove('open');
+    }
+
+    /* ==========================================================
+       UTILITIES & TOAST
+       ========================================================== */
+    function showToast(message, isError = false) {
+      const toast = document.getElementById('toast');
+      const msgEl = document.getElementById('toastMsg');
+      const iconEl = document.getElementById('toastIcon');
+
+      msgEl.textContent = message;
+      if (isError) {
+        toast.className = 'toast error show';
+        iconEl.className = 'fas fa-exclamation-circle';
+      } else {
+        toast.className = 'toast show';
+        iconEl.className = 'fas fa-check-circle';
+      }
+
+      setTimeout(() => {
+        toast.classList.remove('show');
+      }, 3000);
+    }
+
+    function escapeHtml(str) {
+      if (!str) return '';
+      const div = document.createElement('div');
+      div.textContent = str;
+      return div.innerHTML;
+    }
+
+    function stripHtml(html) {
+      const tmp = document.createElement('div');
+      tmp.innerHTML = html;
+      return tmp.textContent || tmp.innerText || '';
+    }
+
+    /* ==========================================================
+       INITIALIZATION
+       ========================================================== */
+    window.addEventListener('DOMContentLoaded', async () => {
+      await initUsersDatabase();
+      checkActiveSession();
+      updateUIForUser();
+      loadLatestOrFirstNote();
+      checkSharedNoteInUrl();
+
+      // Keyboard shortcuts
+      document.addEventListener('keydown', (e) => {
+        if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 's') {
+          e.preventDefault();
+          saveCurrentNote(true);
+        }
+      });
+    });
+  </script>
+</body>
+</html>

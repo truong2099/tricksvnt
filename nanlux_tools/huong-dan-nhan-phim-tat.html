@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Hướng Dẫn Nhận & Cài Đặt Phím Tắt - Phím Tắt iPhone (VNT TRICKS)</title>
+    <meta name="description" content="Hướng dẫn chi tiết từng bước nhận và cài đặt phím tắt Siri Shortcuts trên iPhone và iPad. So sánh cách tải trên Phím Tắt iPhone và Phim Tắt VN.">
+    <link rel="shortcut icon" href="https://sv2.anhsieuviet.com/2025/10/20/CodeWithNanLux---Copy-fotor-2025041201259.png" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Itim&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+:root {
+  --paper-0: #fffcef;
+  --paper-1: #faf5df;
+  --paper-2: #f4edd0;
+  --ink-900: #111111;
+  --ink-700: #33322d;
+  --ink-500: #6b613e;
+  --ink-300: #b6b09a;
+  --main-hi: #ffd94a;
+  --main-hover: #ffcf25;
+  --green: #7bd88f;
+  --red: #ff8f8f;
+  --blue: #8fc7ff;
+  --purple: #d7b3ff;
+  --orange: #ffb076;
+  --background: var(--paper-0);
+  --border: var(--ink-900);
+  --shadow: 4px 4px 0 0 var(--ink-900);
+  --shadow-sm: 2px 2px 0 0 var(--ink-900);
+  --shadow-lg: 6px 6px 0 0 var(--ink-900);
+  --shadow-hover: 6px 6px 0 0 var(--ink-900);
+  --radius-base: 6px;
+  --radius-lg: 14px;
+  --radius-pill: 999px;
+  --font-itim: "Itim", "Inter", -apple-system, BlinkMacSystemFont, cursive, sans-serif;
+  --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  --topbar-h: 66px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: var(--paper-1); border-left: 2px solid var(--border); }
+::-webkit-scrollbar-thumb { background: var(--main-hi); border: 2px solid var(--border); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: var(--orange); }
+
+body {
+  font-family: var(--font-itim);
+  font-size: 16px;
+  line-height: 1.65;
+  background: var(--background);
+  color: var(--ink-900);
+  background-image:
+    linear-gradient(to right, #6b613e1f 1px, transparent 1px),
+    linear-gradient(to bottom, #6b613e2f 1px, transparent 1px);
+  background-size: 20px 20px;
+  overflow-x: hidden;
+  -webkit-tap-highlight-color: transparent;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+h1, h2, h3, h4, h5 { font-family: var(--font-itim); line-height: 1.3; }
+a { color: inherit; text-decoration: none; }
+button { font-family: inherit; }
+
+.bg-orbs { position: fixed; inset: 0; z-index: -1; overflow: hidden; pointer-events: none; }
+.bg-orbs span {
+  position: absolute; border-radius: 50%; filter: blur(75px); opacity: .35;
+  animation: drift 14s ease-in-out infinite alternate;
+}
+.bg-orbs span:nth-child(1) { width: min(380px, 65vw); height: min(380px, 65vw); background: #ffd94a; top: -90px; left: -90px; }
+.bg-orbs span:nth-child(2) { width: min(300px, 55vw); height: min(300px, 55vw); background: #8fc7ff; top: 35%; right: -110px; animation-delay: -4s; }
+.bg-orbs span:nth-child(3) { width: min(240px, 50vw); height: min(240px, 50vw); background: #ff8f8f; bottom: -70px; left: 25%; animation-delay: -8s; }
+@keyframes drift { to { transform: translate(45px, 35px) scale(1.12); } }
+
+/* Topbar */
+.topbar {
+  position: sticky; top: 0; z-index: 50;
+  min-height: var(--topbar-h);
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 10px 24px; background: var(--main-hi);
+  border-bottom: 3px solid var(--border);
+  box-shadow: 0 4px 0 rgba(0,0,0,0.06);
+}
+.brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+.brand-icon {
+  width: 40px; height: 40px; background: #fff;
+  border: 2px solid var(--border); border-radius: var(--radius-base);
+  box-shadow: var(--shadow-sm);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 20px; color: var(--ink-900);
+}
+.brand-word { font-size: 26px; font-weight: 700; color: var(--ink-900); display: flex; align-items: center; }
+.brand-cam {
+  background: var(--ink-900); color: #fff;
+  font-size: 13px; font-weight: 800;
+  padding: 3px 8px; border-radius: var(--radius-base);
+  margin-left: 8px; letter-spacing: 0.5px;
+}
+.brand-vnt {
+  font-size: 11px; font-weight: 800; color: var(--ink-700);
+  background: rgba(255,255,255,0.7); border: 1.5px solid var(--border);
+  border-radius: 4px; padding: 1px 6px; margin-left: 6px;
+}
+
+.nav-links { display: flex; gap: 8px; align-items: center; }
+.nav-btn {
+  font-family: var(--font-itim); font-weight: 700; font-size: 14.5px;
+  border: 2px solid var(--border); border-radius: var(--radius-base);
+  padding: 8px 14px; box-shadow: var(--shadow-sm); background: #fff;
+  display: inline-flex; align-items: center; gap: 6px; color: var(--ink-900);
+  transition: transform .12s, box-shadow .12s, background .12s;
+}
+.nav-btn:hover { transform: translate(-2px, -2px); box-shadow: var(--shadow); background: var(--paper-1); }
+.nav-btn.active { background: var(--ink-900); color: #fff; }
+
+.btn {
+  font-family: var(--font-itim); font-weight: 700; font-size: 15px; cursor: pointer;
+  border: 2px solid var(--border); border-radius: var(--radius-base);
+  padding: 9px 16px; box-shadow: var(--shadow-sm);
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  text-decoration: none; color: var(--ink-900); background: var(--background);
+  transition: transform .12s cubic-bezier(.34,1.56,.64,1), box-shadow .12s ease, background .15s ease;
+  white-space: nowrap; user-select: none;
+}
+.btn:hover { transform: translate(-2px, -2px); box-shadow: var(--shadow); }
+.btn:active { transform: translate(1px, 1px); box-shadow: none; }
+.btn-gold { background: var(--main-hi); }
+.btn-gold:hover { background: var(--main-hover); }
+.btn-dark { background: var(--ink-900); color: #fff; }
+.btn-ghost { background: #fff; }
+.btn-lg { font-size: 17px; padding: 12px 22px; border-width: 2.5px; }
+
+/* Main Container */
+main.page-container {
+  max-width: 1040px; margin: 0 auto; padding: 36px 20px 80px; width: 100%; flex: 1;
+}
+
+.breadcrumb-nav {
+  display: flex; gap: 8px; align-items: center; font-size: 14px; font-weight: 700;
+  margin-bottom: 24px; color: var(--ink-500);
+}
+.breadcrumb-nav a { color: var(--ink-900); }
+.breadcrumb-nav a:hover { text-decoration: underline; color: #d90429; }
+
+.page-header {
+  text-align: center; margin-bottom: 36px;
+}
+.pill-live {
+  display: inline-flex; align-items: center; gap: 8px; background: var(--background);
+  border: 2px solid var(--border); border-radius: var(--radius-pill); padding: 6px 16px;
+  font-size: 14px; font-weight: 700; box-shadow: var(--shadow-sm); margin-bottom: 12px;
+}
+.hl {
+  background: var(--main-hi); border: 2.5px solid var(--border);
+  border-radius: var(--radius-base); padding: 0 12px; box-shadow: var(--shadow-sm);
+  display: inline-block; transform: rotate(-1deg);
+}
+.page-header h1 {
+  font-size: clamp(30px, 4.5vw, 46px); font-weight: 800; margin: 10px 0 12px;
+}
+.page-header p {
+  font-size: 17px; color: var(--ink-700); max-width: 760px; margin: 0 auto;
+}
+
+/* Card Content Blocks */
+.content-card {
+  position: relative; background: var(--background); border: 2.5px solid var(--border);
+  border-radius: var(--radius-base); box-shadow: var(--shadow); padding: 32px 28px;
+  margin-bottom: 28px;
+}
+.content-card-hot { background: var(--paper-1); }
+
+.card-heading {
+  font-size: 22px; font-weight: 800; margin-bottom: 16px; display: flex;
+  align-items: center; gap: 10px; border-bottom: 2px dashed rgba(17,17,17,0.2);
+  padding-bottom: 12px;
+}
+.card-heading i { color: #f59e0b; font-size: 22px; }
+
+/* Callout box */
+.callout-box {
+  background: #fff; border: 2px solid var(--border); border-radius: var(--radius-base);
+  box-shadow: var(--shadow-sm); padding: 18px 20px; margin: 18px 0;
+}
+.callout-box.yellow { background: #fffde6; border-left: 6px solid var(--main-hi); }
+.callout-box.blue { background: #eff6ff; border-left: 6px solid var(--blue); }
+.callout-box.green { background: #f0fdf4; border-left: 6px solid var(--green); }
+
+/* Steps list */
+.step-item {
+  display: flex; gap: 16px; margin-bottom: 22px; align-items: flex-start;
+}
+.step-num {
+  width: 38px; height: 38px; flex: none; border-radius: 50%;
+  border: 2px solid var(--border); background: var(--main-hi);
+  box-shadow: 2px 2px 0 var(--border); display: flex; align-items: center;
+  justify-content: center; font-size: 17px; font-weight: 800;
+}
+.step-content { flex: 1; }
+.step-content h3 { font-size: 18px; font-weight: 800; margin-bottom: 6px; }
+.step-content p { color: var(--ink-700); font-size: 15.5px; }
+
+/* Comparison Image Box */
+.compare-img-box {
+  background: #fff; border: 2.5px solid var(--border); border-radius: var(--radius-base);
+  box-shadow: var(--shadow); padding: 14px; margin: 24px 0; text-align: center;
+}
+.compare-img {
+  width: 100%; max-height: 540px; object-fit: contain; border-radius: 4px;
+  border: 1.5px solid var(--border); display: block; margin: 0 auto 10px;
+}
+.compare-caption {
+  font-size: 14.5px; font-weight: 700; color: var(--ink-700);
+}
+
+/* Comparison Table */
+.compare-table {
+  width: 100%; border-collapse: collapse; margin: 20px 0;
+  border: 2px solid var(--border); background: #fff; border-radius: var(--radius-base);
+  overflow: hidden; box-shadow: var(--shadow-sm);
+}
+.compare-table th, .compare-table td {
+  padding: 12px 16px; border: 1.5px solid var(--border); text-align: left;
+}
+.compare-table th {
+  background: var(--paper-1); font-weight: 800; font-size: 16px;
+}
+.compare-table tr:nth-child(even) { background: #fafafa; }
+
+/* Footer */
+.footer {
+  border-top: 3px solid var(--border); background: var(--paper-1); margin-top: auto;
+}
+.footer-in {
+  max-width: 1240px; margin: 0 auto; padding: 36px 20px 24px;
+  display: grid; grid-template-columns: 2fr 1.2fr 1.2fr; gap: 32px;
+}
+@media (max-width: 860px) {
+  .footer-in { grid-template-columns: 1fr; gap: 24px; }
+}
+.footer-col h4 {
+  font-size: 18px; font-weight: 800; margin-bottom: 12px;
+  display: flex; align-items: center; gap: 8px;
+}
+.footer-col p { font-size: 14.5px; color: var(--ink-700); line-height: 1.6; }
+.footer-links-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+.footer-links-list a {
+  font-size: 14.5px; font-weight: 700; color: var(--ink-700); display: inline-flex;
+  align-items: center; gap: 6px; transition: color .12s, transform .12s;
+}
+.footer-links-list a:hover { color: #d90429; transform: translateX(3px); }
+.footer-bottom {
+  max-width: 1240px; margin: 0 auto; padding: 16px 20px; border-top: 1.5px dashed rgba(17,17,17,0.2);
+  display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;
+  font-size: 13.5px; font-weight: 700; color: var(--ink-500);
+}
+
+@media (max-width: 768px) {
+  .topbar { padding: 8px 14px; }
+  .brand-word { font-size: 21px; }
+  .nav-btn span { display: none; }
+  .page-header h1 { font-size: 28px; }
+  .content-card { padding: 22px 16px; }
+  .step-item { gap: 12px; }
+}
+</style>
+</head>
+<body>
+    <div class="bg-orbs" aria-hidden="true"><span></span><span></span><span></span></div>
+    
+    <header class="topbar">
+        <a class="brand" href="./phim-tat.html">
+            <div class="brand-icon"><i class="fab fa-apple"></i></div>
+            <span class="brand-word">Phím Tắt <span class="brand-cam">IPHONE</span> <span class="brand-vnt">VNT TRICKS</span></span>
+        </a>
+        <div class="nav-links">
+            <a href="./phim-tat.html" class="nav-btn "><i class="fas fa-home"></i> <span>Trang Chủ</span></a>
+            <a href="./phim-tat.html#bxhSection" class="nav-btn"><i class="fas fa-trophy"></i> <span>BXH Top</span></a>
+            <a href="./huong-dan-nhan-phim-tat.html" class="nav-btn active"><i class="fas fa-book-open"></i> <span>Hướng Dẫn</span></a>
+            <a href="./gioi-thieu.html" class="nav-btn "><i class="fas fa-circle-info"></i> <span>Giới Thiệu</span></a>
+        </div>
+    </header>
+    
+
+    <main class="page-container">
+        <div class="breadcrumb-nav">
+            <a href="./phim-tat.html"><i class="fas fa-home"></i> Trang Chủ</a>
+            <span><i class="fas fa-angle-right"></i></span>
+            <span>Hướng Dẫn Nhận Phím Tắt</span>
+        </div>
+
+        <div class="page-header">
+            <div class="pill-live"><span class="dot"></span> Cập nhật chi tiết 2026 • iOS 15 - iOS 18+</div>
+            <h1>Hướng Dẫn Nhận Phím Tắt <span class="hl">1 Chạm Là Xong</span></h1>
+            <p>Tài liệu hướng dẫn nhận và cài đặt Siri Shortcuts trên iPhone, iPad an toàn và nhanh nhất. Tích hợp so sánh trực quan giữa website <b>Phím Tắt iPhone (VNT TRICKS)</b> và nguồn <b>Phim Tắt VN</b>.</p>
+        </div>
+
+        <!-- Section: So Sánh Trực Quan 2 Giao Diện -->
+        <section class="content-card content-card-hot">
+            <div class="card-heading"><i class="fas fa-code-compare"></i> So Sánh Trực Quan Giữa 2 Website Khi Nhận Phím Tắt</div>
+            <p style="margin-bottom: 16px;">Để bạn dễ dàng hình dung quy trình nhận phím tắt, dưới đây là hình ảnh so sánh thực tế giữa giao diện website <b>Phím Tắt iPhone (VNT TRICKS)</b> và website đối tác nguồn <b>Phim Tắt VN (phimtat.vn)</b>:</p>
+            
+            <div class="compare-img-box">
+                <img class="compare-img" src="images/so-sanh-huong-dan.png" alt="So sánh giao diện Phím Tắt iPhone và Phim Tắt VN" onerror="this.onerror=null; this.src='../images/so-sanh-huong-dan.png';">
+                <div class="compare-caption">
+                    <i class="fas fa-image"></i> <b>Hình minh họa thực tế:</b> Bên trái là Popup nhận phím tắt hiện đại trên <i>Phím Tắt iPhone</i>; bên phải là giao diện gốc tại <i>Phim Tắt VN</i>.
+                </div>
+            </div>
+
+            <!-- Bảng So Sánh -->
+            <table class="compare-table">
+                <thead>
+                    <tr>
+                        <th style="width: 25%;">Đặc Điểm</th>
+                        <th style="width: 37.5%; background: #fffde6;"><i class="fab fa-apple"></i> Phím Tắt iPhone (VNT TRICKS)</th>
+                        <th style="width: 37.5%; background: #eff6ff;"><i class="fas fa-link"></i> Nguồn Phim Tắt VN (phimtat.vn)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><b>Nút Thao Tác</b></td>
+                        <td>Nút <b>"Cài Đặt Ngay"</b> (Màu Vàng Retro) nổi bật, bấm là mở iCloud ngay.</td>
+                        <td>Nút <b>"Nhận phím tắt"</b> (Màu Xanh Dương) ở đầu bài viết.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Tải Bằng Mã QR</b></td>
+                        <td><b>Tích hợp sẵn mã QR Code tự động</b>: Mở Camera iPhone quét trực tiếp trên màn hình máy tính để tải cực nhanh!</td>
+                        <td>Cần truy cập trực tiếp bằng trình duyệt Safari trên iPhone.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Lưu Yêu Thích</b></td>
+                        <td>Có nút <b>"Yêu Thích ❤️"</b> và lưu vào danh sách cá nhân trên trình duyệt.</td>
+                        <td>Chức năng chia sẻ Facebook / Group hỗ trợ.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Kiểm Soát Trùng Lặp</b></td>
+                        <td>Đã <b>lọc sạch 100% phím tắt trùng nhau</b>, dữ liệu cập nhật liên tục.</td>
+                        <td>Kho bài viết phong phú theo danh mục WordPress.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Section: Hướng dẫn Cách 1 -->
+        <section class="content-card">
+            <div class="card-heading"><i class="fas fa-bolt"></i> Cách 1: Nhận Phím Tắt Trên Website Phím Tắt iPhone (VNT TRICKS)</div>
+            
+            <div class="step-item">
+                <div class="step-num">1</div>
+                <div class="step-content">
+                    <h3>Chọn phím tắt cần cài đặt</h3>
+                    <p>Truy cập vào trang chủ <a href="./phim-tat.html" style="font-weight: 800; text-decoration: underline;">Kho Phím Tắt iPhone</a> hoặc <a href="./phim-tat.html#bxhSection" style="font-weight: 800; text-decoration: underline;">Bảng Xếp Hạng TOP</a>. Sử dụng ô tìm kiếm để gõ từ khóa phím tắt bạn cần (ví dụ: <i>Snap Video, Loa ting ting, Lịch sử sao chép, Làm đẹp AI...</i>).</p>
+                </div>
+            </div>
+
+            <div class="step-item">
+                <div class="step-num">2</div>
+                <div class="step-content">
+                    <h3>Bấm "Cài Đặt" hoặc xem "Chi Tiết"</h3>
+                    <p>Bạn có thể bấm ngay nút <b>"Cài Đặt"</b> màu vàng để mở link iCloud, hoặc bấm nút <b>"Chi Tiết"</b> để mở popup bảng điều khiển có đầy đủ hướng dẫn sử dụng và mã QR.</p>
+                </div>
+            </div>
+
+            <div class="step-item">
+                <div class="step-num">3</div>
+                <div class="step-content">
+                    <h3>Quét mã QR (Nếu duyệt bằng Máy tính / Laptop)</h3>
+                    <p>Nếu bạn đang đọc web trên máy tính: Mở ứng dụng <b>Camera</b> trên iPhone của bạn, hướng ống kính vào <b>Mã QR Code</b> hiển thị trong popup. Trên màn hình iPhone sẽ hiện thông báo <i>"Mở trong Phím tắt"</i>, bạn chỉ cần chạm vào là xong!</p>
+                </div>
+            </div>
+
+            <div class="step-item">
+                <div class="step-num">4</div>
+                <div class="step-content">
+                    <h3>Bấm "Thêm Phím Tắt" (Add Shortcut) trên iPhone</h3>
+                    <p>Ứng dụng Shortcuts chính chủ của Apple sẽ mở ra và hiển thị các lệnh bên trong. Bạn chỉ cần cuộn xuống dưới cùng và nhấn <b>"Thêm phím tắt"</b> (hoặc <b>"Thiết lập phím tắt"</b> nếu có hướng dẫn cấu hình). Phím tắt sẽ được lưu vĩnh viễn trên máy và đồng bộ iCloud.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section: Hướng dẫn Cách 2 -->
+        <section class="content-card">
+            <div class="card-heading"><i class="fas fa-globe"></i> Cách 2: Nhận Phím Tắt Từ Nguồn Gốc Phim Tắt VN (phimtat.vn)</div>
+            
+            <div class="step-item">
+                <div class="step-num">1</div>
+                <div class="step-content">
+                    <h3>Mở bài viết phím tắt trên phimtat.vn</h3>
+                    <p>Truy cập trực tiếp vào bài viết chi tiết tại website đối tác <a href="https://phimtat.vn/" target="_blank" style="font-weight: 800; text-decoration: underline;">phimtat.vn</a> bằng trình duyệt Safari trên iPhone.</p>
+                </div>
+            </div>
+
+            <div class="step-item">
+                <div class="step-num">2</div>
+                <div class="step-content">
+                    <h3>Kiểm tra mục "Yêu cầu" trước khi tải</h3>
+                    <p>Kéo xuống xem phần <b>Yêu cầu</b> của phím tắt: Nếu phím tắt yêu cầu thêm ứng dụng phụ (như app <i>Tệp (Files)</i>, <i>Google Chrome</i>, hoặc phiên bản iOS tối thiểu), bạn hãy chắc chắn máy đã cài đặt đủ các app này.</p>
+                </div>
+            </div>
+
+            <div class="step-item">
+                <div class="step-num">3</div>
+                <div class="step-content">
+                    <h3>Nhấn nút "Nhận phím tắt" màu xanh</h3>
+                    <p>Bấm vào nút lớn màu xanh có chữ <b>"Nhận phím tắt"</b>. iPhone sẽ hiển thị thông báo <i>"Trang web này đang cố gắng mở Phím tắt..."</i>, bạn nhấn <b>"Mở"</b> (Open).</p>
+                </div>
+            </div>
+
+            <div class="callout-box yellow">
+                <div style="font-weight: 800; margin-bottom: 6px;"><i class="fas fa-exclamation-triangle" style="color: #d97706;"></i> Lưu ý quan trọng khi Safari bị đơ hoặc hiện trang trắng:</div>
+                <p>Nếu bạn nhấn nhận phím tắt trên Safari mà trang không chuyển tiếp sang ứng dụng Shortcuts: Hãy nhìn vào thanh địa chỉ Safari, bấm vào biểu tượng <b>aA</b> ở góc trái > Chọn <b>"Ẩn trình đọc" (Hide Reader)</b>, sau đó bấm tải lại trang là sẽ nhận được bình thường!</p>
+            </div>
+        </section>
+
+        <!-- Section: Chuẩn bị & Bật phím tắt chưa tin cậy -->
+        <section class="content-card">
+            <div class="card-heading"><i class="fas fa-sliders"></i> Các Bước Chuẩn Bị & Khắc Phục Lỗi Trên iPhone</div>
+            
+            <div class="callout-box green">
+                <div style="font-weight: 800; font-size: 16px; margin-bottom: 6px;"><i class="fas fa-check-circle"></i> Yêu cầu cơ bản đối với máy iPhone / iPad:</div>
+                <ul style="padding-left: 20px;">
+                    <li>Máy chạy hệ điều hành <b>iOS 15, iOS 16, iOS 17, iOS 18</b> hoặc mới hơn.</li>
+                    <li>Đã tải ứng dụng <b>Phím tắt (Shortcuts)</b> miễn phí từ App Store của Apple.</li>
+                    <li>Đã tải ứng dụng <b>Tệp (Files)</b> của Apple để lưu trữ ảnh/video xuất ra.</li>
+                </ul>
+            </div>
+
+            <h3 style="font-size: 18px; font-weight: 800; margin: 18px 0 8px;"><i class="fas fa-lock-open"></i> Cách bật "Cho phép phím tắt chưa tin cậy":</h3>
+            <p>1. Mở ứng dụng <b>Cài đặt (Settings)</b> trên iPhone.</p>
+            <p>2. Cuộn xuống tìm và chọn mục <b>Phím tắt (Shortcuts)</b>.</p>
+            <p>3. Gạt bật mục <b>Cho phép phím tắt chưa được tin cậy (Allow Untrusted Shortcuts)</b> hoặc cho phép chia sẻ cá nhân.</p>
+            <p><i>* Mẹo: Nếu bạn không thấy mục này xuất hiện, hãy mở app Phím tắt lên, chạy thử 1 phím tắt có sẵn bất kỳ trong Thư viện, rồi quay lại Cài đặt là mục này sẽ hiện ra ngay!</i></p>
+
+            <div style="margin-top: 24px; text-align: center;">
+                <a href="./phim-tat.html" class="btn btn-gold btn-lg"><i class="fas fa-arrow-left"></i> Khám Phá Kho Phím Tắt Ngay</a>
+            </div>
+        </section>
+    </main>
+
+    
+    <footer class="footer">
+        <div class="footer-in">
+            <div class="footer-col">
+                <h4><i class="fab fa-apple"></i> Phím Tắt iPhone • VNT TRICKS</h4>
+                <p>Kho lưu trữ và chia sẻ Siri Shortcuts cho thiết bị iPhone & iPad lớn nhất Việt Nam. Được vận hành và quản lý bởi thương hiệu <b>VNT TRICKS</b> với sứ mệnh phi lợi nhuận, hoàn toàn miễn phí trọn đời.</p>
+                <p style="margin-top: 8px; font-size: 13.5px; color: var(--ink-500);">
+                    Nguồn phím tắt & tài liệu tham khảo được cấp phép và tổng hợp từ cộng đồng <a href="https://phimtat.vn/" target="_blank" style="text-decoration: underline; font-weight: 800;">Phim Tắt VN</a> & <a href="https://mmonanlux.click/shortcut-library" target="_blank" style="text-decoration: underline; font-weight: 800;">NanLux</a>.
+                </p>
+            </div>
+            <div class="footer-col">
+                <h4><i class="fas fa-compass"></i> Khám Phá & Hướng Dẫn</h4>
+                <ul class="footer-links-list">
+                    <li><a href="./phim-tat.html"><i class="fas fa-chevron-right"></i> Kho 110 Phím Tắt iPhone</a></li>
+                    <li><a href="./phim-tat.html#bxhSection"><i class="fas fa-chevron-right"></i> Bảng Xếp Hạng TOP Phím Tắt</a></li>
+                    <li><a href="./huong-dan-nhan-phim-tat.html"><i class="fas fa-chevron-right"></i> Hướng Dẫn Nhận & Cài Phím Tắt</a></li>
+                    <li><a href="./gioi-thieu.html"><i class="fas fa-chevron-right"></i> Giới Thiệu VNT TRICKS</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4><i class="fas fa-shield-alt"></i> Chính Sách & Điều Khoản</h4>
+                <ul class="footer-links-list">
+                    <li><a href="./dieu-khoan-su-dung.html"><i class="fas fa-chevron-right"></i> Điều Khoản Sử Dụng (Phi Thương Mại)</a></li>
+                    <li><a href="./chinh-sach-quyen-rieng-tu.html"><i class="fas fa-chevron-right"></i> Chính Sách Quyền Riêng Tư</a></li>
+                    <li><a href="https://phimtat.vn/" target="_blank"><i class="fas fa-external-link-alt"></i> Cộng Đồng Phim Tắt VN</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>© 2026 <b>Phím Tắt iPhone</b> • Quản lý bởi <b>VNT TRICKS</b> • 100% Phi Thương Mại</span>
+            <span>Bản quyền Siri Shortcuts thuộc về Apple Inc.</span>
+        </div>
+    </footer>
+    
+</body>
+</html>

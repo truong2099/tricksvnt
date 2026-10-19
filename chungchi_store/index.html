@@ -1,0 +1,1066 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mua chứng chỉ Apple Chính hãng - Uy tín - Giá rẻ số 1 Việt Nam · Cert New</title>
+  <meta name="description" content="Chứng chỉ Apple Developer dùng cho ESign, GBox, Feather trên iPhone và iPad. Hỗ trợ ký IPA, cài ứng dụng ngoài App Store mà không cần Jailbreak.">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="style.css?v=certnew_1.0">
+</head>
+<body>
+  <div class="grid-pattern" aria-hidden="true"></div>
+
+  <!-- Header Navigation (Cert New Style) -->
+  <header class="header-nav">
+    <div class="wrap header-inner">
+      <a href="#home" class="brand-logo" onclick="navigateTo('home')">
+        <span class="brand-icon"><i class="fab fa-apple"></i></span>
+        <span>Cert New</span>
+      </a>
+
+      <nav class="nav-links" id="mainNav">
+        <a href="#bang-gia" class="nav-item active" data-nav="home" onclick="navigateTo('home')">Bảng giá</a>
+        <a href="#check" class="nav-item" data-nav="check" onclick="navigateTo('check')">Đơn hàng & Ký app</a>
+        <a href="#dashboard" class="nav-item" data-nav="dashboard" onclick="navigateTo('dashboard')">Tổng quan (Dashboard)</a>
+        <a href="#docs" class="nav-item" data-nav="docs" onclick="navigateTo('docs')">Tài liệu API</a>
+        <a href="#udid" class="nav-item" data-nav="udid" onclick="navigateTo('udid')">Lấy UDID</a>
+      </nav>
+
+      <div class="header-actions">
+        <!-- Auth topbar slot -->
+        <div id="authTopBarSlot">
+          <button class="btn btn-lime btn-sm" onclick="openAuthModal('login')">
+            <i class="fas fa-sign-in-alt"></i> Đăng nhập
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- =========================================================================
+       VIEW 1: TRANG CHỦ & BẢNG GIÁ (Cert New Homepage)
+       ========================================================================= -->
+  <div id="view-home" class="view-panel active">
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <div class="hero-shape-circle"></div>
+      <div class="hero-shape-square"></div>
+      <div class="hero-shape-pill"></div>
+
+      <div class="wrap" style="position: relative; z-index: 2;">
+        <span class="eyebrow" style="background: var(--c-cta);">
+          <i class="fas fa-certificate text-red"></i> Apple Certificate
+        </span>
+
+        <h1 class="hero-title">
+          Mua chứng chỉ <span class="highlight-cta">Apple</span> chính hãng - uy tín - giá rẻ <span class="text-red">số 1 Việt Nam</span>
+        </h1>
+
+        <p class="hero-sub">
+          Chứng chỉ Apple Developer cấp tự động 24/7 cho iPhone và iPad. Cài ứng dụng ngoài App Store mà không cần jailbreak, hỗ trợ máy bypass và ẩn iCloud.
+        </p>
+
+        <div class="hero-actions">
+          <button class="btn btn-red" onclick="scrollToPricing()">
+            <i class="fas fa-shopping-cart"></i> Mua ngay
+          </button>
+          <button class="btn btn-line" onclick="navigateTo('docs')">
+            <i class="fas fa-book"></i> Tài liệu API
+          </button>
+          <button class="btn btn-lime" onclick="navigateTo('check')">
+            <i class="fas fa-search"></i> Kiểm tra & Ký app
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- App Logo Marquee (ESign, Feather, GBox, KSign, Scarlet, LCSign) -->
+    <section class="marquee-bar" aria-label="Tương thích các ứng dụng ký">
+      <div class="marquee-track">
+        <!-- Repeat items for infinite smooth loop -->
+        <div class="marquee-item"><img src="images/esign.png" onerror="this.src='https://raw.githubusercontent.com/NguyenHuy2k8/chungchi.store/main/public/images/esign.png'" class="app-icon-squircle" alt="ESign"><span class="app-name-text" style="color: #3D95F2;">ESign</span></div>
+        <div class="marquee-item"><img src="images/feather.png" onerror="this.src='https://raw.githubusercontent.com/NguyenHuy2k8/chungchi.store/main/public/images/feather.png'" class="app-icon-squircle" alt="Feather"><span class="app-name-text" style="color: #6770EE;">Feather</span></div>
+        <div class="marquee-item"><img src="images/gbox.png" onerror="this.src='https://raw.githubusercontent.com/NguyenHuy2k8/chungchi.store/main/public/images/gbox.png'" class="app-icon-squircle" alt="GBox"><span class="app-name-text" style="color: #32C759;">GBox</span></div>
+        <div class="marquee-item"><img src="images/ksign.png" onerror="this.src='https://raw.githubusercontent.com/NguyenHuy2k8/chungchi.store/main/public/images/ksign.png'" class="app-icon-squircle" alt="KSign"><span class="app-name-text" style="color: #2584FF;">KSign</span></div>
+        <div class="marquee-item"><img src="images/scarlet.png" onerror="this.src='https://raw.githubusercontent.com/NguyenHuy2k8/chungchi.store/main/public/images/scarlet.png'" class="app-icon-squircle" alt="Scarlet"><span class="app-name-text" style="color: #FF2400;">Scarlet</span></div>
+        <div class="marquee-item"><img src="images/lcsign.png" onerror="this.src='https://raw.githubusercontent.com/NguyenHuy2k8/chungchi.store/main/public/images/lcsign.png'" class="app-icon-squircle" alt="LCSign"><span class="app-name-text" style="color: #0ED8AF;">LCSign</span></div>
+
+        <!-- Duplicated loop for smooth infinite translation -->
+        <div class="marquee-item"><img src="images/esign.png" onerror="this.src='https://raw.githubusercontent.com/NguyenHuy2k8/chungchi.store/main/public/images/esign.png'" class="app-icon-squircle" alt="ESign"><span class="app-name-text" style="color: #3D95F2;">ESign</span></div>
+        <div class="marquee-item"><img src="images/feather.png" onerror="this.src='https://raw.githubusercontent.com/NguyenHuy2k8/chungchi.store/main/public/images/feather.png'" class="app-icon-squircle" alt="Feather"><span class="app-name-text" style="color: #6770EE;">Feather</span></div>
+        <div class="marquee-item"><img src="images/gbox.png" onerror="this.src='https://raw.githubusercontent.com/NguyenHuy2k8/chungchi.store/main/public/images/gbox.png'" class="app-icon-squircle" alt="GBox"><span class="app-name-text" style="color: #32C759;">GBox</span></div>
+        <div class="marquee-item"><img src="images/ksign.png" onerror="this.src='https://raw.githubusercontent.com/NguyenHuy2k8/chungchi.store/main/public/images/ksign.png'" class="app-icon-squircle" alt="KSign"><span class="app-name-text" style="color: #2584FF;">KSign</span></div>
+        <div class="marquee-item"><img src="images/scarlet.png" onerror="this.src='https://raw.githubusercontent.com/NguyenHuy2k8/chungchi.store/main/public/images/scarlet.png'" class="app-icon-squircle" alt="Scarlet"><span class="app-name-text" style="color: #FF2400;">Scarlet</span></div>
+        <div class="marquee-item"><img src="images/lcsign.png" onerror="this.src='https://raw.githubusercontent.com/NguyenHuy2k8/chungchi.store/main/public/images/lcsign.png'" class="app-icon-squircle" alt="LCSign"><span class="app-name-text" style="color: #0ED8AF;">LCSign</span></div>
+      </div>
+    </section>
+
+    <!-- Pricing Section (Bảng giá chuẩn Cert New) -->
+    <section id="bang-gia" class="wrap" style="padding-top: 4rem; padding-bottom: 4rem;">
+      <div style="margin-bottom: 2.5rem;">
+        <span class="eyebrow"><i class="fas fa-tags"></i> BẢNG GIÁ</span>
+        <h2 style="font-size: clamp(28px, 4.5vw, 46px); margin-top: 0.75rem; text-transform: uppercase;">
+          Chọn gói chứng chỉ phù hợp
+        </h2>
+        <p class="text-muted" style="margin-top: 0.5rem; max-width: 34rem;">
+          Cấp phát tự động trực tiếp từ Apple Developer, bảo hành uy tín và hỗ trợ kỹ thuật tận tình 24/7.
+        </p>
+      </div>
+
+      <div class="pricing-grid" id="certPricingGrid">
+        <!-- Plans will be rendered dynamically by app.js from API / plans -->
+      </div>
+    </section>
+
+    <!-- Why Choose Us Section (Tại sao nên chọn chúng tôi) -->
+    <section class="wrap" style="padding-bottom: 4.5rem;">
+      <div style="margin-bottom: 2.5rem;">
+        <span class="eyebrow"><i class="fas fa-shield-alt"></i> TẠI SAO</span>
+        <h2 style="font-size: clamp(28px, 4.5vw, 46px); margin-top: 0.75rem; text-transform: uppercase;">
+          Nên chọn <span class="highlight-cta">Cert New</span>
+        </h2>
+      </div>
+
+      <div class="features-grid">
+        <div class="card" style="padding: 1.75rem;">
+          <div class="feature-icon-box" style="background: var(--c-cta);"><i class="fas fa-check-double text-ink"></i></div>
+          <h3 style="font-size: 1.15rem; text-transform: uppercase; margin-bottom: 0.5rem;">Chính Hãng</h3>
+          <p class="text-muted" style="font-size: 14px; line-height: 1.6;">
+            Chứng chỉ được tạo trực tiếp từ tài khoản Apple Developer, đăng ký đúng UDID thiết bị, đảm bảo độ ổn định cao nhất khi sử dụng lâu dài.
+          </p>
+        </div>
+
+        <div class="card" style="padding: 1.75rem;">
+          <div class="feature-icon-box" style="background: var(--c-red); color: #fff;"><i class="fas fa-lock"></i></div>
+          <h3 style="font-size: 1.15rem; text-transform: uppercase; margin-bottom: 0.5rem;">Bảo Mật</h3>
+          <p class="text-muted" style="font-size: 14px; line-height: 1.6;">
+            Thông tin người dùng và mã UDID được mã hóa an toàn. File chứng chỉ .p12 và mật khẩu do bạn toàn quyền quản lý.
+          </p>
+        </div>
+
+        <div class="card" style="padding: 1.75rem;">
+          <div class="feature-icon-box" style="background: #38bdf8; color: #fff;"><i class="fas fa-medal"></i></div>
+          <h3 style="font-size: 1.15rem; text-transform: uppercase; margin-bottom: 0.5rem;">Bảo Hành 1 Đổi 1</h3>
+          <p class="text-muted" style="font-size: 14px; line-height: 1.6;">
+            Các gói có cam kết bảo hành nếu bị Apple thu hồi (revoke) sẽ được cấp lại miễn phí trực tiếp qua hệ thống kiểm tra đơn hàng.
+          </p>
+        </div>
+
+        <div class="card" style="padding: 1.75rem;">
+          <div class="feature-icon-box" style="background: var(--c-success); color: #fff;"><i class="fas fa-headset"></i></div>
+          <h3 style="font-size: 1.15rem; text-transform: uppercase; margin-bottom: 0.5rem;">Hỗ Trợ 24/7</h3>
+          <p class="text-muted" style="font-size: 14px; line-height: 1.6;">
+            Đội ngũ hỗ trợ qua Telegram và Zalo luôn túc trực hỗ trợ cài đặt, ký file iPA và tư vấn chọn gói chứng chỉ phù hợp.
+          </p>
+        </div>
+
+        <div class="card" style="padding: 1.75rem;">
+          <div class="feature-icon-box" style="background: #ff8a00; color: #fff;"><i class="fas fa-wallet"></i></div>
+          <h3 style="font-size: 1.15rem; text-transform: uppercase; margin-bottom: 0.5rem;">Thanh Toán Tiện Lợi</h3>
+          <p class="text-muted" style="font-size: 14px; line-height: 1.6;">
+            Thanh toán linh hoạt qua số dư ví hoặc quét mã VietQR tự động 24/7 với MB Bank. Không phát sinh chi phí ẩn.
+          </p>
+        </div>
+
+        <div class="card" style="padding: 1.75rem;">
+          <div class="feature-icon-box" style="background: #a855f7; color: #fff;"><i class="fas fa-code"></i></div>
+          <h3 style="font-size: 1.15rem; text-transform: uppercase; margin-bottom: 0.5rem;">API Đại Lý</h3>
+          <p class="text-muted" style="font-size: 14px; line-height: 1.6;">
+            Cung cấp REST API đầy đủ giúp đại lý và nhà phát triển dễ dàng tích hợp mua và cấp chứng chỉ tự động vào website hoặc Telegram bot.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section (Cert New Accordion) -->
+    <section id="faq" class="wrap" style="padding-bottom: 4.5rem;">
+      <div style="margin-bottom: 2.5rem;">
+        <span class="eyebrow"><i class="fas fa-question-circle"></i> FAQ</span>
+        <h2 style="font-size: clamp(28px, 4.5vw, 46px); margin-top: 0.75rem; text-transform: uppercase;">
+          Câu hỏi thường gặp
+        </h2>
+      </div>
+
+      <div class="faq-grid">
+        <details class="faq-item" open>
+          <summary>
+            <span>Chứng chỉ iOS dùng để làm gì?</span>
+            <span class="faq-toggle-icon">+</span>
+          </summary>
+          <div class="faq-content">
+            Chứng chỉ gồm file <code>.p12</code> (kèm mật khẩu) và file <code>.mobileprovision</code>, dùng để ký các ứng dụng iPA. Chỉ thiết bị có UDID đã đăng ký trong chứng chỉ mới cài đặt và mở được ứng dụng vĩnh viễn mà không lo bị chặn bởi App Store.
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>
+            <span>Có cần Jailbreak máy hay kết nối máy tính không?</span>
+            <span class="faq-toggle-icon">+</span>
+          </summary>
+          <div class="faq-content">
+            Hoàn toàn không cần jailbreak hay kết nối máy tính. Bạn chỉ cần tải file chứng chỉ về điện thoại và nhập vào công cụ ký ứng dụng như ESign, Feather, GBox hoặc dùng tính năng ký trực tiếp trên Cert New.
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>
+            <span>Lấy mã UDID của thiết bị như thế nào?</span>
+            <span class="faq-toggle-icon">+</span>
+          </summary>
+          <div class="faq-content">
+            Mở mục <strong>Lấy UDID</strong> bằng trình duyệt Safari trên chính iPhone/iPad của bạn, bấm "Tải profile lấy UDID", vào Cài đặt → Đã tải về hồ sơ → Cài đặt. Máy sẽ tự động đọc chính xác UDID mà không cần nhập tay.
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>
+            <span>Máy Bypass hoặc ẩn iCloud có dùng được không?</span>
+            <span class="faq-toggle-icon">+</span>
+          </summary>
+          <div class="faq-content">
+            Có! Các gói chứng chỉ của Cert New hỗ trợ tốt thiết bị Bypass và ẩn iCloud. Đối với máy bypass, bạn nên lấy UDID qua 3uTools trên máy tính để đảm bảo tính chuẩn xác.
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>
+            <span>Bao lâu sau khi thanh toán thì nhận được chứng chỉ?</span>
+            <span class="faq-toggle-icon">+</span>
+          </summary>
+          <div class="faq-content">
+            Hệ thống cấp tự động qua Apple API trong vòng 1 đến 5 phút. Bạn có thể theo dõi tiến trình trực tiếp tại trang Đơn hàng hoặc trong mục Tổng quan Dashboard.
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>
+            <span>Nếu chứng chỉ bị thu hồi (Revoke) thì sao?</span>
+            <span class="faq-toggle-icon">+</span>
+          </summary>
+          <div class="faq-content">
+            Đối với các gói có bảo hành (30 ngày, 180 ngày, 300 ngày), nếu chứng chỉ bị thu hồi trong thời gian bảo hành, bạn chỉ cần bấm nút <strong>"Yêu cầu bảo hành"</strong> trong mục Đơn hàng để được cấp lại chứng chỉ mới hoàn toàn miễn phí.
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <!-- API Banner Section -->
+    <section class="wrap" style="padding-bottom: 5rem;">
+      <div class="api-banner-card">
+        <div>
+          <span class="eyebrow" style="background: var(--c-cta);"><i class="fas fa-terminal"></i> NHÀ PHÁT TRIỂN</span>
+          <h2 style="font-size: clamp(24px, 3.8vw, 38px); margin-top: 0.75rem; text-transform: uppercase;">
+            Tích hợp mua chứng chỉ bằng API
+          </h2>
+          <p class="text-muted" style="margin-top: 1rem; font-size: 15px; line-height: 1.6;">
+            Tự tạo API token trong bảng điều khiển cá nhân, gọi REST API để tra cứu thiết bị, tạo đơn hàng và nhận chứng chỉ tự động 24/7.
+          </p>
+          <button class="btn btn-blue" style="margin-top: 1.5rem;" onclick="navigateTo('docs')">
+            <i class="fas fa-code"></i> Đọc tài liệu API
+          </button>
+        </div>
+
+        <div>
+          <pre class="code-pre"><code><span style="color: #888;"># Tạo đơn chứng chỉ qua REST API</span>
+curl -X POST http://localhost:8080/api/proxy/orders \
+  -H <span style="color: var(--c-cta);">"Authorization: Bearer YOUR_API_TOKEN"</span> \
+  -H "Content-Type: application/json" \
+  -d '{
+    "plan_id": 2,
+    "udid": "00008110-001A2B3C4D5E6F70",
+    "device": "iphone",
+    "p12_password": "1"
+  }'</code></pre>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- =========================================================================
+       VIEW 2: ĐƠN HÀNG & KÝ APP ONLINE (#check)
+       ========================================================================= -->
+  <div id="view-check" class="view-panel wrap" style="padding-top: 2.5rem; padding-bottom: 5rem;">
+    <div style="border-bottom: 3px solid var(--c-border); padding-bottom: 1.5rem; margin-bottom: 2rem;">
+      <span class="eyebrow"><i class="fas fa-search"></i> TRA CỨU & KÝ APP</span>
+      <h1 style="font-size: clamp(28px, 4vw, 42px); text-transform: uppercase; margin-top: 0.5rem;">
+        Kiểm tra đơn hàng & Ký ứng dụng
+      </h1>
+      <p class="text-muted" style="margin-top: 0.5rem; max-width: 44rem;">
+        Nhập UDID thiết bị hoặc Mã đơn hàng để kiểm tra trạng thái chứng chỉ còn hoạt động hay bị thu hồi, tải file chứng chỉ và ký cài ứng dụng ngay trên iPhone.
+      </p>
+    </div>
+
+    <div style="display: grid; gap: 2rem; grid-template-columns: repeat(1, minmax(0, 1fr));" id="checkLayoutGrid">
+      <!-- Search Form Box -->
+      <div class="card" style="padding: 1.75rem;">
+        <h3 style="font-size: 1.25rem; text-transform: uppercase; margin-bottom: 1rem;">
+          <i class="fas fa-barcode"></i> Nhập UDID hoặc Mã Đơn Hàng
+        </h3>
+
+        <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+          <input type="text" class="input font-mono" id="checkOrderUdidInput" placeholder="VD: 00008110-001A2B3C4D5E6F70 hoặc ORDXXXX" style="font-size: 16px;">
+          <button class="btn btn-lime" onclick="handleCheckCertAndOrder()" id="btnCheckCertSubmit">
+            <i class="fas fa-search"></i> Kiểm tra ngay
+          </button>
+        </div>
+
+        <p class="text-muted" style="font-size: 12.5px; margin-top: 0.75rem;">
+          Chưa biết UDID? Mở mục <a href="#udid" onclick="navigateTo('udid')" style="font-weight: 800; text-decoration: underline; color: #000;">Lấy UDID</a> trên Safari để lấy tự động.
+        </p>
+
+        <!-- Result Box Container -->
+        <div id="checkCertResultContainer" style="margin-top: 1.5rem; display: none;"></div>
+      </div>
+
+      <!-- Quick Sign Tools Box (ESign, GBox, Feather, LCSign) -->
+      <div class="card" style="padding: 1.75rem;">
+        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.25rem;">
+          <h3 style="font-size: 1.25rem; text-transform: uppercase;">
+            <i class="fas fa-file-signature text-blue"></i> Ký & Cài Ứng Dụng Online
+          </h3>
+          <span class="pill" style="background: var(--c-cta);">Auto Sign 24/7</span>
+        </div>
+
+        <p class="text-muted" style="font-size: 13.5px; margin-bottom: 1.25rem;">
+          Hỗ trợ ký trực tiếp chứng chỉ Apple của bạn vào các app phổ biến để cài đặt ngay không cần máy tính.
+        </p>
+
+        <div style="display: grid; gap: 1rem; grid-template-columns: repeat(1, minmax(0, 1fr));" id="presetAppsGrid">
+          <!-- Preset apps rendered by app.js -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       VIEW 3: TỔNG QUAN DASHBOARD (#dashboard) - https://certnew.com/dashboard
+       ========================================================================= -->
+  <div id="view-dashboard" class="view-panel">
+    <!-- If not logged in: Show Cert New clean login box -->
+    <div id="dashAuthGate" class="wrap" style="padding: 4rem 1rem; max-width: 440px;">
+      <div class="card" style="padding: 2.25rem 2rem; border-width: 3px;">
+        <div style="text-align: center; margin-bottom: 1.5rem;">
+          <span class="brand-icon" style="margin: auto; margin-bottom: 0.75rem;"><i class="fab fa-apple"></i></span>
+          <h2 style="font-size: 1.75rem; text-transform: uppercase;">Đăng Nhập Dashboard</h2>
+          <p class="text-muted" style="font-size: 13px; margin-top: 0.25rem;">Vui lòng đăng nhập để truy cập Bảng điều khiển Cert New</p>
+        </div>
+
+        <form onsubmit="handleDashLoginForm(event)" style="display: flex; flex-direction: column; gap: 1rem;">
+          <div>
+            <label class="label">Tài khoản hoặc Email:</label>
+            <input type="text" class="input" id="dashLoginUsername" placeholder="vungoctruong22@gmail.com" required>
+          </div>
+          <div>
+            <label class="label">Mật khẩu:</label>
+            <input type="password" class="input" id="dashLoginPassword" placeholder="••••••••" required>
+          </div>
+
+          <button type="submit" class="btn btn-lime btn-block" style="margin-top: 0.5rem;" id="btnDashLoginSubmit">
+            <i class="fas fa-sign-in-alt"></i> Đăng Nhập Ngay
+          </button>
+        </form>
+
+        <div style="margin-top: 1.5rem; text-align: center; font-size: 13px; border-top: 1.5px dashed var(--c-border); padding-top: 1rem;">
+          <p class="text-muted">Chưa có tài khoản? <a href="javascript:void(0)" onclick="openAuthModal('register')" style="font-weight: 800; text-decoration: underline; color: var(--c-red);">Đăng ký tài khoản mới</a></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- If logged in: Full Dashboard Layout (https://certnew.com/dashboard) -->
+    <div id="dashMainWrapper" class="dashboard-container" style="display: none;">
+      <!-- Sidebar -->
+      <aside class="dash-sidebar">
+        <div>
+          <!-- User info box -->
+          <div class="dash-user-card">
+            <div class="dash-user-info">
+              <div class="dash-avatar"><i class="fas fa-user"></i></div>
+              <div style="overflow: hidden;">
+                <h4 style="font-size: 15px; text-transform: uppercase; white-space: nowrap; text-overflow: ellipsis; overflow: hidden;" id="dashUsernameText">vungoctruong22</h4>
+                <p class="text-muted" style="font-size: 12px; white-space: nowrap; text-overflow: ellipsis; overflow: hidden;" id="dashEmailText">vungoctruong22@gmail.com</p>
+                <div style="margin-top: 4px;">
+                  <span class="user-balance-pill" id="dashBalancePill">0 đ</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Navigation Menu -->
+          <ul class="dash-menu">
+            <li>
+              <button class="dash-menu-btn active" data-tab="overview" onclick="switchDashTab('overview')">
+                <i class="fas fa-chart-pie" style="width: 20px;"></i> <span>Tổng Quan</span>
+              </button>
+            </li>
+            <li>
+              <button class="dash-menu-btn" data-tab="devices" onclick="switchDashTab('devices')">
+                <i class="fas fa-mobile-alt" style="width: 20px;"></i> <span>Thiết Bị</span>
+              </button>
+            </li>
+            <li>
+              <button class="dash-menu-btn" data-tab="orders" onclick="switchDashTab('orders')">
+                <i class="fas fa-box" style="width: 20px;"></i> <span>Đơn Hàng</span>
+              </button>
+            </li>
+            <li>
+              <button class="dash-menu-btn" data-tab="wallet" onclick="switchDashTab('wallet')">
+                <i class="fas fa-wallet" style="width: 20px;"></i> <span>Ví & Nạp Tiền</span>
+              </button>
+            </li>
+            <li>
+              <button class="dash-menu-btn" data-tab="api" onclick="switchDashTab('api')">
+                <i class="fas fa-key" style="width: 20px;"></i> <span>Quản Lý Token</span>
+              </button>
+            </li>
+            <li>
+              <button class="dash-menu-btn" data-tab="settings" onclick="switchDashTab('settings')">
+                <i class="fas fa-cog" style="width: 20px;"></i> <span>Cài Đặt</span>
+              </button>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Logout Button in Sidebar -->
+        <div style="padding: 1rem; border-top: 2px solid var(--c-border);">
+          <button class="dash-menu-btn btn-logout" id="sidebarLogoutBtn" onclick="handleLogout(event)" style="border: 2px solid var(--c-red); justify-content: center;">
+            <i class="fas fa-sign-out-alt"></i> <span>Đăng Xuất</span>
+          </button>
+        </div>
+      </aside>
+
+      <!-- Main Content Area -->
+      <main class="dash-content">
+        <!-- SUB-TAB 1: TỔNG QUAN (OVERVIEW) -->
+        <div id="dash-tab-overview" class="dash-subtab active">
+          <div class="dash-header-row">
+            <div>
+              <span class="eyebrow"><i class="fas fa-tachometer-alt"></i> DASHBOARD</span>
+              <h2 style="font-size: 28px; text-transform: uppercase; margin-top: 0.35rem;">Tổng Quan Tài Khoản</h2>
+            </div>
+            <div>
+              <button class="btn btn-lime btn-sm" onclick="switchDashTab('wallet')">
+                <i class="fas fa-plus-circle"></i> Nạp tiền ngay
+              </button>
+              <button class="btn btn-red btn-sm" onclick="scrollToPricing()">
+                <i class="fas fa-cart-plus"></i> Mua chứng chỉ
+              </button>
+            </div>
+          </div>
+
+          <!-- 4 Metric Cards -->
+          <div class="stats-grid">
+            <div class="stat-card">
+              <div class="stat-top">
+                <span class="stat-label">Số dư khả dụng</span>
+                <span class="stat-icon" style="background: #dcfce7; color: #166534;"><i class="fas fa-wallet"></i></span>
+              </div>
+              <div class="stat-value text-success" id="statBalanceValue">0 đ</div>
+              <div style="margin-top: 0.75rem;">
+                <button class="btn btn-lime btn-sm btn-block" onclick="switchDashTab('wallet')" style="padding: 4px 8px; font-size: 11px;">+ Nạp tiền VietQR</button>
+              </div>
+            </div>
+
+            <div class="stat-card">
+              <div class="stat-top">
+                <span class="stat-label">Tổng đơn hàng</span>
+                <span class="stat-icon" style="background: #e0e7ff; color: #3730a3;"><i class="fas fa-box-open"></i></span>
+              </div>
+              <div class="stat-value" id="statOrderCountValue">0</div>
+              <p class="text-muted" style="font-size: 12px; margin-top: 0.5rem;">Đơn mua chứng chỉ Apple</p>
+            </div>
+
+            <div class="stat-card">
+              <div class="stat-top">
+                <span class="stat-label">Thiết bị đăng ký</span>
+                <span class="stat-icon" style="background: #fef3c7; color: #92400e;"><i class="fas fa-mobile-alt"></i></span>
+              </div>
+              <div class="stat-value" id="statDeviceCountValue">0</div>
+              <p class="text-muted" style="font-size: 12px; margin-top: 0.5rem;">iPhone / iPad đã gán</p>
+            </div>
+
+            <div class="stat-card">
+              <div class="stat-top">
+                <span class="stat-label">Trạng thái API</span>
+                <span class="stat-icon" style="background: var(--c-cta);"><i class="fas fa-shield-alt"></i></span>
+              </div>
+              <div class="stat-value" style="font-size: 20px; color: var(--c-success);">LIVE 24/7</div>
+              <p class="text-muted" style="font-size: 12px; margin-top: 0.5rem;">Cấp chứng chỉ tự động</p>
+            </div>
+          </div>
+
+          <!-- Quick Action Tiles -->
+          <h3 style="font-size: 18px; text-transform: uppercase; margin-bottom: 1rem;">
+            <i class="fas fa-bolt text-red"></i> Thao Tác Nhanh
+          </h3>
+          <div class="quick-actions-row">
+            <a href="javascript:void(0)" onclick="scrollToPricing()" class="action-tile">
+              <span class="stat-icon" style="background: var(--c-cta);"><i class="fas fa-shopping-cart"></i></span>
+              <div>
+                <strong>Mua chứng chỉ</strong>
+                <p class="text-muted" style="font-size: 11.5px;">Cấp nhanh 1-5 phút</p>
+              </div>
+            </a>
+
+            <a href="javascript:void(0)" onclick="switchDashTab('wallet')" class="action-tile">
+              <span class="stat-icon" style="background: #dcfce7;"><i class="fas fa-qrcode"></i></span>
+              <div>
+                <strong>Nạp tiền VietQR</strong>
+                <p class="text-muted" style="font-size: 11.5px;">Tự động MB Bank</p>
+              </div>
+            </a>
+
+            <a href="#check" onclick="navigateTo('check')" class="action-tile">
+              <span class="stat-icon" style="background: #e0e7ff;"><i class="fas fa-signature"></i></span>
+              <div>
+                <strong>Ký app online</strong>
+                <p class="text-muted" style="font-size: 11.5px;">ESign, Feather, GBox</p>
+              </div>
+            </a>
+
+            <a href="#udid" onclick="navigateTo('udid')" class="action-tile">
+              <span class="stat-icon" style="background: #fee2e2;"><i class="fas fa-id-card"></i></span>
+              <div>
+                <strong>Lấy mã UDID</strong>
+                <p class="text-muted" style="font-size: 11.5px;">Cài đặt trên Safari</p>
+              </div>
+            </a>
+          </div>
+
+          <!-- Recent Orders Table -->
+          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem; margin-top: 1.5rem;">
+            <h3 style="font-size: 18px; text-transform: uppercase;">
+              <i class="fas fa-history"></i> Đơn Hàng Gần Đây
+            </h3>
+            <button class="btn btn-line btn-sm" onclick="switchDashTab('orders')">Xem tất cả</button>
+          </div>
+
+          <div class="table-container">
+            <table class="cert-table">
+              <thead>
+                <tr>
+                  <th>Mã Đơn</th>
+                  <th>Gói Chứng Chỉ</th>
+                  <th>UDID Thiết Bị</th>
+                  <th>Ngày Tạo</th>
+                  <th>Trạng Thái</th>
+                  <th>Hành Động</th>
+                </tr>
+              </thead>
+              <tbody id="dashRecentOrdersBody">
+                <tr>
+                  <td colspan="6" style="text-align: center; padding: 2.5rem; color: var(--c-muted);">
+                    <i class="fas fa-box-open" style="font-size: 28px; margin-bottom: 0.5rem; display: block;"></i>
+                    Chưa có đơn hàng nào. Hãy mua gói chứng chỉ đầu tiên của bạn!
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- SUB-TAB 2: THIẾT BỊ (DEVICES) -->
+        <div id="dash-tab-devices" class="dash-subtab" style="display: none;">
+          <div class="dash-header-row">
+            <div>
+              <span class="eyebrow"><i class="fas fa-mobile-alt"></i> QUẢN LÝ</span>
+              <h2 style="font-size: 28px; text-transform: uppercase; margin-top: 0.35rem;">Thiết Bị Của Bạn</h2>
+            </div>
+            <div>
+              <a href="/udid/profile.mobileconfig" class="btn btn-lime btn-sm">
+                <i class="fas fa-download"></i> Tải Profile Lấy UDID
+              </a>
+            </div>
+          </div>
+
+          <div class="card" style="padding: 1.5rem; margin-bottom: 2rem;">
+            <h4 style="font-size: 16px; text-transform: uppercase; margin-bottom: 0.5rem;">
+              <i class="fab fa-apple"></i> Hướng dẫn lấy mã UDID tự động
+            </h4>
+            <p class="text-muted" style="font-size: 13.5px; line-height: 1.6;">
+              1. Mở trang này bằng trình duyệt Safari trên iPhone hoặc iPad.<br>
+              2. Bấm nút <strong>"Tải Profile Lấy UDID"</strong> bên trên.<br>
+              3. Mở <strong>Cài đặt</strong> trên máy → Chọn <strong>Đã tải về hồ sơ</strong> → Bấm <strong>Cài đặt</strong>.<br>
+              4. Thiết bị sẽ tự động chuyển hướng quay lại trang web kèm mã UDID chuẩn xác 100%.
+            </p>
+          </div>
+
+          <div class="table-container">
+            <table class="cert-table">
+              <thead>
+                <tr>
+                  <th>Thiết Bị</th>
+                  <th>Mã UDID</th>
+                  <th>Gói Gần Nhất</th>
+                  <th>Ngày Đăng Ký</th>
+                  <th>Trạng Thái</th>
+                  <th>Thao Tác</th>
+                </tr>
+              </thead>
+              <tbody id="dashDevicesTableBody">
+                <tr>
+                  <td colspan="6" style="text-align: center; padding: 2rem; color: var(--c-muted);">
+                    Đang tải danh sách thiết bị...
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- SUB-TAB 3: ĐƠN HÀNG (ORDERS) -->
+        <div id="dash-tab-orders" class="dash-subtab" style="display: none;">
+          <div class="dash-header-row">
+            <div>
+              <span class="eyebrow"><i class="fas fa-box"></i> LỊCH SỬ</span>
+              <h2 style="font-size: 28px; text-transform: uppercase; margin-top: 0.35rem;">Danh Sách Đơn Hàng</h2>
+            </div>
+            <div>
+              <button class="btn btn-red btn-sm" onclick="scrollToPricing()">
+                <i class="fas fa-plus"></i> Đặt Mua Gói Mới
+              </button>
+            </div>
+          </div>
+
+          <div class="table-container">
+            <table class="cert-table">
+              <thead>
+                <tr>
+                  <th>Mã Đơn</th>
+                  <th>Gói Chứng Chỉ</th>
+                  <th>Số Tiền</th>
+                  <th>UDID</th>
+                  <th>Ngày Mua</th>
+                  <th>Trạng Thái</th>
+                  <th>Tải Về & Bảo Hành</th>
+                </tr>
+              </thead>
+              <tbody id="dashAllOrdersBody">
+                <tr>
+                  <td colspan="7" style="text-align: center; padding: 2rem; color: var(--c-muted);">
+                    Đang tải danh sách đơn hàng...
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- SUB-TAB 4: VÍ & NẠP TIỀN (WALLET & VIETQR) -->
+        <div id="dash-tab-wallet" class="dash-subtab" style="display: none;">
+          <div class="dash-header-row">
+            <div>
+              <span class="eyebrow"><i class="fas fa-wallet"></i> TÀI CHÍNH</span>
+              <h2 style="font-size: 28px; text-transform: uppercase; margin-top: 0.35rem;">Số Dư & Nạp Tiền</h2>
+            </div>
+          </div>
+
+          <div style="display: grid; gap: 2rem; grid-template-columns: repeat(1, minmax(0, 1fr));" id="walletLayoutGrid">
+            <!-- Balance and Deposit Form -->
+            <div class="card" style="padding: 2rem;">
+              <div style="background: var(--c-soft); border: 2px solid var(--c-border); padding: 1.5rem; text-align: center; margin-bottom: 1.75rem; box-shadow: 3px 3px 0 var(--c-border);">
+                <span class="text-muted" style="font-size: 13px; font-weight: 800; text-transform: uppercase;">Số dư khả dụng hiện tại:</span>
+                <div style="font-family: var(--font-display); font-size: 38px; font-weight: 900; color: var(--c-success); margin-top: 4px;" id="dashBigBalance">0 đ</div>
+              </div>
+
+              <h4 style="font-size: 17px; text-transform: uppercase; margin-bottom: 0.75rem;">
+                <i class="fas fa-coins text-cta"></i> Nạp tiền vào tài khoản
+              </h4>
+              <p class="text-muted" style="font-size: 13px; margin-bottom: 1.25rem;">
+                Hệ thống tạo mã VietQR tự động. Tiền được cộng trực tiếp vào số dư ví ngay sau khi chuyển khoản thành công.
+              </p>
+
+              <div style="margin-bottom: 1.25rem;">
+                <label class="label">Chọn hoặc nhập số tiền (VND):</label>
+                <input type="number" class="input" id="dashDepositAmountInput" value="100000" min="10000" step="10000" style="font-size: 18px; font-weight: 800;">
+              </div>
+
+              <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem;">
+                <button type="button" class="pill" onclick="selectDashDepositAmount(50000)" style="cursor: pointer; background: var(--c-paper);">+50.000đ</button>
+                <button type="button" class="pill" onclick="selectDashDepositAmount(100000)" style="cursor: pointer; background: var(--c-cta);">+100.000đ</button>
+                <button type="button" class="pill" onclick="selectDashDepositAmount(200000)" style="cursor: pointer; background: var(--c-paper);">+200.000đ</button>
+                <button type="button" class="pill" onclick="selectDashDepositAmount(500000)" style="cursor: pointer; background: var(--c-paper);">+500.000đ</button>
+                <button type="button" class="pill" onclick="selectDashDepositAmount(1000000)" style="cursor: pointer; background: var(--c-paper);">+1.000.000đ</button>
+              </div>
+
+              <button class="btn btn-lime btn-block" onclick="handleCreateDashDeposit()" id="btnCreateDashDeposit">
+                <i class="fas fa-qrcode"></i> Tạo mã nạp tiền VietQR
+              </button>
+            </div>
+
+            <!-- VietQR Code display box (shown when generated) -->
+            <div class="card" id="dashDepositQrBox" style="padding: 2rem; display: none;">
+              <h4 style="font-size: 17px; text-transform: uppercase; margin-bottom: 1rem; text-align: center;">
+                <i class="fas fa-qrcode text-red"></i> Quét mã VietQR chuyển khoản
+              </h4>
+
+              <div style="text-align: center; margin-bottom: 1.25rem;">
+                <img id="dashVietQrImg" src="" alt="VietQR" style="max-width: 260px; width: 100%; border: 2.5px solid var(--c-border); box-shadow: 4px 4px 0 var(--c-border); margin: auto;">
+              </div>
+
+              <div style="border: 2px solid var(--c-border); background: var(--c-soft); padding: 1rem; font-size: 13.5px; margin-bottom: 1.25rem; display: flex; flex-direction: column; gap: 0.5rem;">
+                <div style="display: flex; justify-content: space-between;"><span>Ngân hàng:</span><strong>MB Bank (Quân Đội)</strong></div>
+                <div style="display: flex; justify-content: space-between;"><span>Số tài khoản:</span><strong class="font-mono">0968389378</strong></div>
+                <div style="display: flex; justify-content: space-between;"><span>Chủ tài khoản:</span><strong>CHUNG CHI STORE</strong></div>
+                <div style="display: flex; justify-content: space-between;"><span>Số tiền:</span><strong id="dashDepositAmountText" class="text-red">100.000đ</strong></div>
+                <div style="display: flex; justify-content: space-between;"><span>Nội dung chuyển:</span><strong id="dashDepositContentText" class="text-blue font-mono">NAP1234</strong></div>
+              </div>
+
+              <button class="btn btn-lime btn-block" onclick="handleConfirmDashDeposit()" id="btnConfirmDashDeposit">
+                <i class="fas fa-check-circle"></i> Tôi đã chuyển tiền (Kiểm tra ngay)
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- SUB-TAB 5: QUẢN LÝ TOKEN (API DEVELOPER) -->
+        <div id="dash-tab-api" class="dash-subtab" style="display: none;">
+          <div class="dash-header-row">
+            <div>
+              <span class="eyebrow"><i class="fas fa-key"></i> DEVELOPER</span>
+              <h2 style="font-size: 28px; text-transform: uppercase; margin-top: 0.35rem;">Quản Lý API Token</h2>
+            </div>
+          </div>
+
+          <div class="card" style="padding: 2rem; margin-bottom: 2rem;">
+            <h4 style="font-size: 16px; text-transform: uppercase; margin-bottom: 0.5rem;">Mã API Token Cá Nhân</h4>
+            <p class="text-muted" style="font-size: 13.5px; margin-bottom: 1rem;">
+              Dùng API token này để xác thực trong header <code>Authorization: Bearer &lt;TOKEN&gt;</code> khi gọi các endpoint tạo đơn tự động.
+            </p>
+
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap; margin-bottom: 1.5rem;">
+              <input type="text" class="input font-mono" id="dashApiTokenInput" readonly style="font-size: 14px; background: var(--c-soft);">
+              <button class="btn btn-lime shrink-0" onclick="copyDashApiToken()">
+                <i class="fas fa-copy"></i> Sao chép
+              </button>
+            </div>
+
+            <div style="border-top: 2px solid var(--c-border); padding-top: 1.5rem;">
+              <h4 style="font-size: 15px; text-transform: uppercase; margin-bottom: 0.75rem;">Mẫu lệnh cURL tạo đơn:</h4>
+              <pre class="code-pre" id="dashCurlSampleBlock"><code>curl -X POST http://localhost:8080/api/proxy/orders \
+  -H "Authorization: Bearer YOUR_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "plan_id": 2,
+    "udid": "00008110-001A2B3C4D5E6F70",
+    "device": "iphone",
+    "p12_password": "1"
+  }'</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- SUB-TAB 6: CÀI ĐẶT (SETTINGS & CHANGE PASSWORD) -->
+        <div id="dash-tab-settings" class="dash-subtab" style="display: none;">
+          <div class="dash-header-row">
+            <div>
+              <span class="eyebrow"><i class="fas fa-cog"></i> TÀI KHOẢN</span>
+              <h2 style="font-size: 28px; text-transform: uppercase; margin-top: 0.35rem;">Cài Đặt Tài Khoản</h2>
+            </div>
+          </div>
+
+          <div class="card" style="padding: 2rem; max-width: 500px;">
+            <h4 style="font-size: 16px; text-transform: uppercase; margin-bottom: 1.25rem;">
+              <i class="fas fa-key text-red"></i> Đổi mật khẩu
+            </h4>
+
+            <form onsubmit="handleChangePasswordForm(event)" style="display: flex; flex-direction: column; gap: 1rem;">
+              <div>
+                <label class="label">Mật khẩu hiện tại:</label>
+                <input type="password" class="input" id="settingsOldPassword" required>
+              </div>
+              <div>
+                <label class="label">Mật khẩu mới (tối thiểu 6 ký tự):</label>
+                <input type="password" class="input" id="settingsNewPassword" required>
+              </div>
+              <div>
+                <label class="label">Xác nhận mật khẩu mới:</label>
+                <input type="password" class="input" id="settingsConfirmPassword" required>
+              </div>
+
+              <button type="submit" class="btn btn-lime" style="margin-top: 0.5rem;" id="btnSettingsSubmit">
+                <i class="fas fa-save"></i> Cập Nhật Mật Khẩu
+              </button>
+            </form>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       VIEW 4: TÀI LIỆU API (#docs)
+       ========================================================================= -->
+  <div id="view-docs" class="view-panel wrap" style="padding-top: 2.5rem; padding-bottom: 5rem;">
+    <div style="border-bottom: 3px solid var(--c-border); padding-bottom: 1.5rem; margin-bottom: 2rem;">
+      <span class="eyebrow"><i class="fas fa-book"></i> API DOCS</span>
+      <h1 style="font-size: clamp(28px, 4vw, 42px); text-transform: uppercase; margin-top: 0.5rem;">
+        Tài Liệu Tích Hợp API Cert New
+      </h1>
+      <p class="text-muted" style="margin-top: 0.5rem; max-width: 44rem;">
+        API chuẩn RESTful cho phép đối tác đại lý và nhà phát triển tự động hóa quá trình mua chứng chỉ, ký iPA và tra cứu đơn hàng.
+      </p>
+    </div>
+
+    <div style="display: flex; flex-direction: column; gap: 2rem;">
+      <div class="card" style="padding: 2rem;">
+        <h3 style="font-size: 18px; text-transform: uppercase; margin-bottom: 0.75rem;">1. Xác thực (Authentication)</h3>
+        <p class="text-muted" style="font-size: 14px; margin-bottom: 1rem;">
+          Tất cả yêu cầu API cần truyền token trong header:
+        </p>
+        <pre class="code-pre"><code>Authorization: Bearer &lt;YOUR_API_TOKEN&gt;</code></pre>
+      </div>
+
+      <div class="card" style="padding: 2rem;">
+        <h3 style="font-size: 18px; text-transform: uppercase; margin-bottom: 0.75rem;">2. Lấy danh sách gói chứng chỉ</h3>
+        <p style="font-family: var(--font-mono); font-weight: 700; margin-bottom: 0.5rem;">
+          <span class="pill" style="background: var(--c-cta);">GET</span> /api/proxy/plans
+        </p>
+        <pre class="code-pre"><code>curl -X GET http://localhost:8080/api/proxy/plans \
+  -H "Authorization: Bearer YOUR_API_TOKEN"</code></pre>
+      </div>
+
+      <div class="card" style="padding: 2rem;">
+        <h3 style="font-size: 18px; text-transform: uppercase; margin-bottom: 0.75rem;">3. Tạo đơn hàng chứng chỉ mới</h3>
+        <p style="font-family: var(--font-mono); font-weight: 700; margin-bottom: 0.5rem;">
+          <span class="pill" style="background: var(--c-red); color: #fff;">POST</span> /api/proxy/orders
+        </p>
+        <pre class="code-pre"><code>curl -X POST http://localhost:8080/api/proxy/orders \
+  -H "Authorization: Bearer YOUR_API_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "plan_id": 2,
+    "udid": "00008110-001A2B3C4D5E6F70",
+    "device": "iphone",
+    "p12_password": "1"
+  }'</code></pre>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       VIEW 5: LẤY UDID THIẾT BỊ (#udid)
+       ========================================================================= -->
+  <div id="view-udid" class="view-panel wrap" style="padding-top: 2.5rem; padding-bottom: 5rem;">
+    <div style="border-bottom: 3px solid var(--c-border); padding-bottom: 1.5rem; margin-bottom: 2rem;">
+      <span class="eyebrow"><i class="fas fa-qrcode"></i> UDID TOOL</span>
+      <h1 style="font-size: clamp(28px, 4vw, 42px); text-transform: uppercase; margin-top: 0.5rem;">
+        Lấy Mã UDID Thiết Bị Tự Động
+      </h1>
+      <p class="text-muted" style="margin-top: 0.5rem; max-width: 44rem;">
+        Mỗi thiết bị Apple (iPhone, iPad) có một mã UDID định danh duy nhất dài 25 hoặc 40 ký tự.
+      </p>
+    </div>
+
+    <div class="card" style="padding: 2.5rem; max-width: 640px; margin: auto; text-align: center;">
+      <div class="brand-icon" style="margin: auto; margin-bottom: 1rem; width: 56px; height: 56px; font-size: 26px;">
+        <i class="fab fa-apple"></i>
+      </div>
+      <h3 style="font-size: 22px; text-transform: uppercase; margin-bottom: 0.75rem;">Lấy UDID trực tiếp bằng Safari</h3>
+      <p class="text-muted" style="font-size: 14px; line-height: 1.6; margin-bottom: 1.75rem;">
+        Bấm nút bên dưới để tải file cấu hình Apple Profile. Hệ thống sẽ tự động chuyển hướng và hiển thị mã UDID của bạn.
+      </p>
+
+      <a href="/udid/profile.mobileconfig" class="btn btn-lime btn-block" style="padding: 1rem; font-size: 16px;">
+        <i class="fas fa-download"></i> Tải Hồ Sơ Lấy UDID
+      </a>
+
+      <div id="detectedUdidBox" style="margin-top: 1.5rem; display: none; padding: 1.25rem; border: 2px solid var(--c-border); background: #dcfce7;">
+        <span style="font-size: 12px; font-weight: 800; text-transform: uppercase; color: #166534;">UDID thiết bị của bạn:</span>
+        <div style="font-family: var(--font-mono); font-size: 17px; font-weight: 900; margin-top: 4px;" id="detectedUdidText"></div>
+        <button class="btn btn-line btn-sm" onclick="copyDetectedUdid()" style="margin-top: 0.75rem;">
+          <i class="fas fa-copy"></i> Sao chép UDID
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       MODALS: AUTH MODAL, CHECKOUT MODAL
+       ========================================================================= -->
+  <!-- Auth Modal (Login / Register) -->
+  <div class="modal-overlay" id="authModal">
+    <div class="modal-box" style="max-width: 440px;">
+      <button class="modal-close-btn" onclick="closeAuthModal()"><i class="fas fa-times"></i></button>
+
+      <div style="display: flex; gap: 0.5rem; margin-bottom: 1.5rem; border-bottom: 2px solid var(--c-border); padding-bottom: 0.75rem;">
+        <button type="button" class="btn btn-lime btn-sm" id="authTabLoginBtn" onclick="switchAuthMode('login')">Đăng Nhập</button>
+        <button type="button" class="btn btn-line btn-sm" id="authTabRegBtn" onclick="switchAuthMode('register')">Đăng Ký</button>
+      </div>
+
+      <!-- Login Form -->
+      <form id="formAuthLogin" onsubmit="handleAuthLoginSubmit(event)" style="display: flex; flex-direction: column; gap: 1rem;">
+        <div>
+          <label class="label">Tài khoản hoặc Email:</label>
+          <input type="text" class="input" id="authModalUsername" placeholder="vungoctruong22@gmail.com" required>
+        </div>
+        <div>
+          <label class="label">Mật khẩu:</label>
+          <input type="password" class="input" id="authModalPassword" placeholder="••••••••" required>
+        </div>
+        <button type="submit" class="btn btn-lime btn-block" id="btnModalLoginSubmit">
+          <i class="fas fa-sign-in-alt"></i> Đăng Nhập
+        </button>
+      </form>
+
+      <!-- Register Form -->
+      <form id="formAuthRegister" onsubmit="handleAuthRegisterSubmit(event)" style="display: none; flex-direction: column; gap: 1rem;">
+        <div>
+          <label class="label">Tên đăng nhập:</label>
+          <input type="text" class="input" id="regModalUsername" placeholder="nguyenvana" required>
+        </div>
+        <div>
+          <label class="label">Địa chỉ Email:</label>
+          <input type="email" class="input" id="regModalEmail" placeholder="vana@gmail.com" required>
+        </div>
+        <div>
+          <label class="label">Mật khẩu (tối thiểu 6 ký tự):</label>
+          <input type="password" class="input" id="regModalPassword" placeholder="••••••••" required>
+        </div>
+        <button type="submit" class="btn btn-lime btn-block" id="btnModalRegSubmit">
+          <i class="fas fa-user-plus"></i> Tạo Tài Khoản
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Buy / Checkout Modal -->
+  <div class="modal-overlay" id="checkoutModal">
+    <div class="modal-box">
+      <button class="modal-close-btn" onclick="closeCheckoutModal()"><i class="fas fa-times"></i></button>
+
+      <div style="border-bottom: 2.5px solid var(--c-border); padding-bottom: 1rem; margin-bottom: 1.5rem;">
+        <span class="eyebrow" style="background: var(--c-cta);"><i class="fas fa-shopping-cart"></i> ĐẶT HÀNG</span>
+        <h3 style="font-size: 22px; text-transform: uppercase; margin-top: 0.4rem;" id="checkoutPlanTitle">Gói Basic</h3>
+        <p class="text-muted" style="font-size: 13.5px;" id="checkoutPlanPrice">Giá: 50.000đ</p>
+      </div>
+
+      <div id="checkoutStepForm">
+        <form onsubmit="handleConfirmOrderSubmit(event)" style="display: flex; flex-direction: column; gap: 1rem;">
+          <div>
+            <label class="label">Mã UDID của thiết bị (*):</label>
+            <input type="text" class="input font-mono" id="orderUdidInput" placeholder="VD: 00008110-001A2B3C4D5E6F70" required maxlength="40">
+            <span style="font-size: 11.5px; color: var(--c-muted); margin-top: 4px; display: block;">
+              Chưa có UDID? <a href="#udid" onclick="closeCheckoutModal(); navigateTo('udid')" style="font-weight: 800; text-decoration: underline;">Lấy tự động qua Safari</a>
+            </span>
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+            <div>
+              <label class="label">Thiết bị:</label>
+              <select class="select" id="orderDeviceSelect">
+                <option value="iphone">iPhone</option>
+                <option value="ipad">iPad</option>
+              </select>
+            </div>
+            <div>
+              <label class="label">Mật khẩu file P12:</label>
+              <input type="text" class="input font-mono" id="orderP12PasswordInput" value="1">
+            </div>
+          </div>
+
+          <div style="border: 2px solid var(--c-border); background: var(--c-soft); padding: 0.85rem; display: flex; align-items: center; justify-content: space-between;">
+            <div>
+              <span style="font-size: 13px; font-weight: 800;">Thanh toán bằng số dư ví</span>
+              <p class="text-muted" style="font-size: 11.5px;">Số dư hiện có: <strong id="checkoutUserBalanceText">0 đ</strong></p>
+            </div>
+            <input type="checkbox" id="chkPayWithWallet" style="width: 20px; height: 20px; cursor: pointer;">
+          </div>
+
+          <button type="submit" class="btn btn-red btn-block" style="margin-top: 0.5rem;" id="btnSubmitOrderAction">
+            <i class="fas fa-check-circle"></i> Xác Nhận Tạo Đơn Hàng
+          </button>
+        </form>
+      </div>
+
+      <!-- Payment Step with VietQR (if not paid by balance) -->
+      <div id="checkoutStepPayment" style="display: none; text-align: center;">
+        <h4 style="font-size: 17px; text-transform: uppercase; margin-bottom: 0.75rem;">
+          <i class="fas fa-qrcode text-red"></i> Thanh toán đơn hàng qua VietQR
+        </h4>
+        <img id="orderVietQrImage" src="" alt="VietQR" style="max-width: 240px; width: 100%; border: 2px solid var(--c-border); margin: auto; box-shadow: 3px 3px 0 var(--c-border);">
+
+        <div style="border: 2px solid var(--c-border); background: var(--c-soft); padding: 0.85rem; margin-top: 1rem; text-align: left; font-size: 13px;">
+          <div>Mã đơn hàng: <strong id="orderPayCode" class="font-mono text-red"></strong></div>
+          <div>Số tiền: <strong id="orderPayAmount"></strong></div>
+          <div>Nội dung chuyển khoản: <strong id="orderPayContent" class="font-mono text-blue"></strong></div>
+        </div>
+
+        <button class="btn btn-lime btn-block" style="margin-top: 1rem;" onclick="checkActiveOrderStatus()">
+          <i class="fas fa-sync-alt"></i> Kiểm tra trạng thái thanh toán
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div class="toast-notice" id="toastNotice">
+    <i class="fas fa-info-circle" id="toastIcon"></i>
+    <span id="toastMessage">Thông báo</span>
+  </div>
+
+  <!-- Footer (5 Columns Cert New Style) -->
+  <footer class="footer-section">
+    <div class="wrap footer-grid">
+      <div>
+        <a href="#home" class="brand-logo" onclick="navigateTo('home')">
+          <span class="brand-icon"><i class="fab fa-apple"></i></span>
+          <span>Cert New</span>
+        </a>
+        <p class="text-muted" style="margin-top: 0.75rem; font-size: 13.5px; line-height: 1.6; max-width: 18rem;">
+          Đại lý phân phối chứng chỉ Apple Developer dành cho iPhone/iPad, cấp tự động 24/7, hỗ trợ API cho nhà phát triển.
+        </p>
+      </div>
+
+      <div>
+        <h4 class="footer-col-title">Sản phẩm</h4>
+        <ul class="footer-links">
+          <li><a href="#bang-gia" onclick="navigateTo('home')">Bảng giá</a></li>
+          <li><a href="#check" onclick="navigateTo('check')">Đơn hàng</a></li>
+          <li><a href="#faq" onclick="navigateTo('home')">FAQ</a></li>
+          <li><a href="#udid" onclick="navigateTo('udid')">Lấy UDID</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="footer-col-title">Nhà phát triển</h4>
+        <ul class="footer-links">
+          <li><a href="#docs" onclick="navigateTo('docs')">Tài liệu API</a></li>
+          <li><a href="#dashboard" onclick="navigateTo('dashboard'); switchDashTab('api');">Quản lý token</a></li>
+          <li><a href="/api/proxy/plans" target="_blank">Endpoints JSON</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="footer-col-title">Chính sách</h4>
+        <ul class="footer-links">
+          <li><a href="#faq" onclick="navigateTo('home')">Điều khoản sử dụng</a></li>
+          <li><a href="#faq" onclick="navigateTo('home')">Chính sách bảo hành</a></li>
+          <li><a href="#faq" onclick="navigateTo('home')">Bảo mật thông tin</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="footer-col-title">Hỗ trợ 24/7</h4>
+        <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+          <a href="https://t.me/admcertnew" target="_blank" rel="noopener noreferrer" class="btn btn-lime btn-sm">
+            <i class="fab fa-telegram"></i> Telegram Admin
+          </a>
+          <a href="https://zalo.me/0968389378" target="_blank" rel="noopener noreferrer" class="btn btn-line btn-sm">
+            <i class="fas fa-comment-dots"></i> Zalo Hỗ Trợ
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div style="border-top: 1.5px solid rgba(0, 0, 0, 0.1); padding: 1.25rem 0;">
+      <div class="wrap" style="display: flex; align-items: center; justify-content: space-between; font-size: 12px; font-weight: 800; text-transform: uppercase;">
+        <span>© 2026 Cert New. All rights reserved.</span>
+        <span>Powered by Apple Developer Program</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js?v=certnew_1.0"></script>
+</body>
+</html>

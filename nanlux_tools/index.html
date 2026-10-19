@@ -1,0 +1,1179 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Tiện Ích - NanLux - Premium Services &amp; Free Online Tools</title>
+    <link rel="shortcut icon" href="https://sv2.anhsieuviet.com/2025/10/20/CodeWithNanLux---Copy-fotor-2025041201259.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="includes/no-gradient.css">
+    <link rel="stylesheet" href="includes/footer.css?v=1791367213">
+    <link rel="stylesheet" href="includes/header.css?v=1791367213">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { touch-action: manipulation; }
+        body { touch-action: pan-x pan-y; }
+        input, textarea, select { font-size: 16px !important; }
+        :root {
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --success: #10b981;
+            --dark: #0f172a;
+            --gray: #64748b;
+            --light-bg: #f8fafc;
+            --white: #ffffff;
+            --border: #e2e8f0;
+        }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--light-bg);
+            color: var(--dark);
+            line-height: 1.6;
+            zoom: 0.85;
+        }
+        .page-hero {
+            background: #302c2c;
+            padding: 60px 20px;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 500px;
+            height: 500px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .page-hero::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -5%;
+            width: 400px;
+            height: 400px;
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 50%;
+            animation: float 8s ease-in-out infinite reverse;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .page-hero h1 { font-size: 2.5rem; font-weight: 800; margin-bottom: 15px; position: relative; z-index: 1; }
+        .page-hero p { font-size: 1.1rem; color: rgba(255, 255, 255, 0.8); max-width: 600px; margin: 0 auto; position: relative; z-index: 1; }
+
+        .utilities-section { max-width: 1400px; margin: 0 auto; padding: 60px 40px; }
+        .section-title { text-align: center; font-size: 2rem; font-weight: 800; color: var(--dark); margin-bottom: 15px; }
+        .section-subtitle { text-align: center; font-size: 1rem; color: var(--gray); margin-bottom: 30px; }
+        
+        /* Category Filter */
+        .category-filter { display: flex; justify-content: center; flex-wrap: wrap; gap: 10px; margin-bottom: 40px; }
+        .filter-btn { padding: 10px 20px; border: 2px solid var(--border); border-radius: 25px; background: var(--white); color: var(--gray); font-weight: 600; font-size: 0.9rem; cursor: pointer; transition: all 0.3s; display: flex; align-items: center; gap: 8px; }
+        .filter-btn:hover { border-color: var(--primary); color: var(--primary); }
+        .filter-btn.active { background: var(--primary); border-color: var(--primary); color: white; }
+        .filter-btn .count { background: rgba(0,0,0,0.1); padding: 2px 8px; border-radius: 10px; font-size: 0.8rem; }
+        .filter-btn.active .count { background: rgba(255,255,255,0.2); }
+
+        .utilities-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 30px; }
+        .utility-card { background: var(--white); border-radius: 20px; padding: 30px; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08); border: 1px solid var(--border); transition: all 0.3s ease; cursor: pointer; text-decoration: none; color: inherit; display: flex; flex-direction: column; height: 100%; }
+        .utility-card.hidden { display: none; }
+        .utility-card:hover { transform: translateY(-8px); box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15); border-color: var(--primary); }
+        .utility-header { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 15px; }
+        .utility-icon { width: 60px; height: 60px; border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; }
+        .utility-icon.purple { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; }
+        .utility-icon.blue { background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%); color: white; }
+        .utility-icon.green { background: linear-gradient(135deg, #10b981 0%, #059669 100%); color: white; }
+        .utility-icon.orange { background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); color: white; }
+        .utility-icon.pink { background: linear-gradient(135deg, #ec4899 0%, #db2777 100%); color: white; }
+        .utility-icon.cyan { background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%); color: white; }
+        .utility-icon.red { background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%); color: white; }
+        .utility-category { font-size: 0.75rem; font-weight: 600; padding: 4px 10px; border-radius: 15px; background: var(--light-bg); color: var(--gray); }
+        .utility-title { font-size: 1.2rem; font-weight: 700; color: var(--dark); margin-bottom: 8px; }
+        .utility-description { font-size: 0.9rem; color: var(--gray); line-height: 1.6; margin-bottom: 15px; }
+        .utility-features { display: flex; flex-wrap: wrap; gap: 6px; }
+        .utility-tag { background: var(--light-bg); color: var(--gray); padding: 5px 10px; border-radius: 15px; font-size: 0.75rem; font-weight: 500; }
+        .utility-arrow { display: flex; align-items: center; margin-top: 15px; color: var(--primary); font-weight: 600; font-size: 0.85rem; gap: 8px; transition: gap 0.3s ease; text-decoration: none; }
+        .utility-card:hover .utility-arrow { gap: 12px; }
+        
+        .utility-link { text-decoration: none; color: inherit; display: flex; flex-direction: column; flex: 1; }
+        .utility-description { flex: 1; }
+        
+        /* Favorite Button */
+        .utility-footer { display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 15px; }
+        .btn-fav { background: none; border: 2px solid var(--border); width: 40px; height: 40px; border-radius: 50%; cursor: pointer; color: #94a3b8; font-size: 1rem; transition: all 0.3s; display: flex; align-items: center; justify-content: center; }
+        .btn-fav:hover { border-color: #ec4899; color: #ec4899; transform: scale(1.1); }
+        .btn-fav.active { background: linear-gradient(135deg, #ec4899, #db2777); border-color: transparent; color: white; }
+        .btn-fav.active:hover { box-shadow: 0 4px 15px rgba(236, 72, 153, 0.4); }
+        @keyframes heartPop { 0%{transform:scale(1)} 50%{transform:scale(1.3)} 100%{transform:scale(1)} }
+        .btn-fav.pop { animation: heartPop 0.3s ease; }
+        
+        .no-results { text-align: center; padding: 60px 20px; color: var(--gray); display: none; }
+        .no-results i { font-size: 3rem; margin-bottom: 15px; opacity: 0.5; }
+        .no-results.show { display: block; }
+
+        /* Search Box */
+        .search-box { max-width: 500px; margin: 0 auto 30px; position: relative; }
+        .search-box input { width: 100%; padding: 16px 50px 16px 50px; border: 2px solid var(--border); border-radius: 50px; font-size: 1rem; background: var(--white); transition: all 0.3s; }
+        .search-box input:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1); }
+        .search-box input::placeholder { color: var(--gray); }
+        .search-box .search-icon { position: absolute; left: 20px; top: 50%; transform: translateY(-50%); color: var(--gray); font-size: 1rem; }
+        .search-box .search-clear { position: absolute; right: 15px; top: 50%; transform: translateY(-50%); background: var(--light-bg); border: none; width: 28px; height: 28px; border-radius: 50%; cursor: pointer; color: var(--gray); display: flex; align-items: center; justify-content: center; transition: all 0.2s; }
+        .search-box .search-clear:hover { background: var(--border); color: var(--dark); }
+        .search-highlight { background: linear-gradient(135deg, rgba(99, 102, 241, 0.2), rgba(79, 70, 229, 0.2)); padding: 0 2px; border-radius: 3px; }
+
+        @media (max-width: 768px) {
+            .utilities-section { padding: 40px 20px; }
+            .utilities-grid { grid-template-columns: 1fr; }
+            .page-hero h1 { font-size: 1.8rem; }
+            .category-filter { gap: 8px; }
+            .filter-btn { padding: 8px 15px; font-size: 0.85rem; }
+        }
+    </style>
+    
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9159699436904761" crossorigin="anonymous"></script>
+</head>
+<body>
+
+<!-- Header CSS -->
+<link rel="stylesheet" href="includes/header.css?v=1791367213">
+
+<!-- Progress Bar -->
+<div class="progress-bar" id="progressBar"></div>
+
+<!-- Header -->
+<header class="header" id="mainHeader">
+        <!-- Top Bar -->
+    <div class="header-top">
+        <div class="header-top-content">
+            <div class="header-top-left">
+                <div class="header-top-item">
+                    <i class="fas fa-clock"></i>
+                    <span>Hỗ trợ 24/7</span>
+                </div>
+                <div class="header-top-item">
+                    <i class="fas fa-shield-alt"></i>
+                    <span>Bảo mật tuyệt đối</span>
+                </div>
+            </div>
+            <div class="header-top-right">
+                <div class="header-top-social">
+                                        <a href="https://www.facebook.com/LeNguyenHoangNam.Official" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                                                            <a href="https://t.me/nanlux" title="Telegram"><i class="fab fa-telegram-plane"></i></a>
+                                                            <a href="https://zalo.me/0704623004" title="Zalo"><i class="fas fa-comment-dots"></i></a>
+                                    </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Main Header -->
+    <div class="header-main">
+        <div class="header-content">
+            <!-- Logo -->
+                        <a href="./" class="logo-section">
+                <div class="logo-icon">
+                                        <img src="https://sv2.anhsieuviet.com/2025/10/20/CodeWithNanLux---Copy-fotor-2025041201259.png" alt="NanLux" style="width: 100%; height: 100%; object-fit: contain;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <i class="fas fa-gem" style="display: none; color: white; font-size: 1.2rem;"></i>
+                                    </div>
+                <span class="logo-text">NanLux</span>
+            </a>
+            
+            <!-- Header Actions -->
+            <div class="header-actions">
+                <!-- Navigation Links -->
+                <div class="nav-buttons">
+                                                                                            <a href="./" class="contact-btn " >
+                            <i class="fas fa-home"></i>
+                            <span>Trang Chủ</span>
+                        </a>
+                                                                                                                    <a href="blog_list" class="contact-btn " >
+                            <i class="fas fa-newspaper"></i>
+                            <span>Bài Viết</span>
+                        </a>
+                                                                                                                    <a href="tools" class="contact-btn " >
+                            <i class="fas fa-tools"></i>
+                            <span>Tiện Ích</span>
+                        </a>
+                                                                                                                    <a href="prompt-library" class="contact-btn " >
+                            <i class="fas fa-wand-magic-sparkles"></i>
+                            <span>Prompt AI</span>
+                        </a>
+                                                                                                                    <a href="https://nanluxapp.id.vn" class="contact-btn " target="_blank">
+                            <i class="fa-brands fa-apple"></i>
+                            <span>Thuê ID Apple</span>
+                        </a>
+                                                                                                                    <a href="AntiScam/" class="contact-btn " >
+                            <i class="fas fa-shield-virus"></i>
+                            <span>AntiScam</span>
+                        </a>
+                                                                                                                    <a href="shortcut-library" class="contact-btn " >
+                            <i class="fas fa-link"></i>
+                            <span>Phím Tắt iOS</span>
+                        </a>
+                                                            </div>
+                
+                <!-- Cart Icon -->
+                                
+                <!-- User Auth Section -->
+                <div class="header-auth">
+                                            <a href="tool/login" class="auth-btn login-btn">
+                            <i class="fas fa-sign-in-alt"></i>
+                            <span>Đăng nhập</span>
+                        </a>
+                                    </div>
+                
+                <!-- Mobile Menu Toggle -->
+                <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Mobile Menu Overlay -->
+<div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-menu-header">
+        <h3>
+                        <img src="https://sv2.anhsieuviet.com/2025/10/20/CodeWithNanLux---Copy-fotor-2025041201259.png" alt="NanLux" style="width: 28px; height: 28px; object-fit: contain;" onerror="this.style.display='none';">
+                        NanLux        </h3>
+        <button class="mobile-menu-close" id="mobileMenuClose">
+            <i class="fas fa-times"></i>
+        </button>
+    </div>
+    
+    
+
+        <!-- Mobile Navigation Links -->
+        <div class="mobile-menu-buttons">
+                                                            <a href="./" class="contact-btn " >
+                    <i class="fas fa-home"></i>
+                    Trang Chủ                </a>
+                                                                            <a href="blog_list" class="contact-btn " >
+                    <i class="fas fa-newspaper"></i>
+                    Bài Viết                </a>
+                                                                            <a href="tools" class="contact-btn " >
+                    <i class="fas fa-tools"></i>
+                    Tiện Ích                </a>
+                                                                            <a href="prompt-library" class="contact-btn " >
+                    <i class="fas fa-wand-magic-sparkles"></i>
+                    Prompt AI                </a>
+                                                                            <a href="https://nanluxapp.id.vn" class="contact-btn " target="_blank">
+                    <i class="fa-brands fa-apple"></i>
+                    Thuê ID Apple                </a>
+                                                                            <a href="AntiScam/" class="contact-btn " >
+                    <i class="fas fa-shield-virus"></i>
+                    AntiScam                </a>
+                                                                            <a href="shortcut-library" class="contact-btn " >
+                    <i class="fas fa-link"></i>
+                    Phím Tắt iOS                </a>
+                                    </div>
+        
+        <!-- Mobile Auth Section -->
+        <div class="mobile-auth-section">
+                            <div class="mobile-auth-buttons">
+                    <a href="tool/login" class="mobile-auth-btn primary">
+                        <i class="fas fa-sign-in-alt"></i> Đăng nhập
+                    </a>
+                </div>
+                    </div>
+    </div>
+
+    
+</div>
+
+<!-- Scroll to Top Button -->
+<div class="scroll-top" id="scrollTopBtn" onclick="scrollToTop()">
+    <i class="fas fa-chevron-up"></i>
+</div>
+
+<script>
+(function() {
+    // Kiểm tra nếu đã khởi tạo rồi thì không chạy lại
+    if (window.headerInitialized) return;
+    window.headerInitialized = true;
+
+    // Header scroll effect
+    const header = document.getElementById('mainHeader');
+    const progressBar = document.getElementById('progressBar');
+
+    window.addEventListener('scroll', function() {
+        if (window.scrollY > 50) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
+        }
+
+        const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+        const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const scrolled = (winScroll / height) * 100;
+        if (progressBar) progressBar.style.width = scrolled + '%';
+
+        const scrollTopBtn = document.getElementById('scrollTopBtn');
+        if (scrollTopBtn) {
+            if (window.scrollY > 300) {
+                scrollTopBtn.classList.add('show');
+            } else {
+                scrollTopBtn.classList.remove('show');
+            }
+        }
+    });
+
+    // Mobile Menu
+    const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
+    const mobileMenuClose = document.getElementById('mobileMenuClose');
+
+    function openMobileMenu() {
+        if (mobileMenu) mobileMenu.classList.add('active');
+        if (mobileMenuOverlay) {
+            mobileMenuOverlay.classList.add('active');
+            mobileMenuOverlay.style.display = 'block';
+        }
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeMobileMenu() {
+        if (mobileMenu) mobileMenu.classList.remove('active');
+        if (mobileMenuOverlay) {
+            mobileMenuOverlay.classList.remove('active');
+            setTimeout(() => {
+                mobileMenuOverlay.style.display = 'none';
+            }, 300);
+        }
+        document.body.style.overflow = '';
+    }
+
+    if (mobileMenuToggle) mobileMenuToggle.addEventListener('click', openMobileMenu);
+    if (mobileMenuClose) mobileMenuClose.addEventListener('click', closeMobileMenu);
+    if (mobileMenuOverlay) mobileMenuOverlay.addEventListener('click', closeMobileMenu);
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') closeMobileMenu();
+    });
+
+    document.querySelectorAll('.mobile-nav-link').forEach(link => {
+        link.addEventListener('click', closeMobileMenu);
+    });
+
+    // Scroll to top - gán vào window để có thể gọi từ onclick
+    window.scrollToTop = function() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
+    
+    // User dropdown toggle
+    window.toggleUserDropdown = function() {
+        const menu = document.getElementById('userDropdownMenu');
+        if (menu) menu.classList.toggle('show');
+    };
+    
+    // Close dropdown when clicking outside
+    document.addEventListener('click', function(e) {
+        const dropdown = document.querySelector('.user-dropdown');
+        const menu = document.getElementById('userDropdownMenu');
+        if (dropdown && menu && !dropdown.contains(e.target)) {
+            menu.classList.remove('show');
+        }
+    });
+    
+    // Logout function
+    window.logoutToolUser = function() {
+        const basePath = '';
+        fetch(basePath + 'tool/tool_auth.php', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+            body: 'action=logout'
+        })
+        .then(() => {
+            showGlobalToast('Đã đăng xuất!', 'success');
+            setTimeout(() => location.reload(), 1000);
+        });
+    };
+    
+    // Global Toast function
+    window.showGlobalToast = function(message, type = 'success') {
+        let toast = document.getElementById('globalToast');
+        if (!toast) {
+            toast = document.createElement('div');
+            toast.id = 'globalToast';
+            toast.className = 'global-toast';
+            toast.innerHTML = '<i class="fas fa-check-circle"></i><span></span>';
+            document.body.appendChild(toast);
+        }
+        
+        const icon = toast.querySelector('i');
+        const text = toast.querySelector('span');
+        
+        icon.className = type === 'success' ? 'fas fa-check-circle' : 'fas fa-exclamation-circle';
+        text.textContent = message;
+        toast.className = 'global-toast ' + type + ' show';
+        
+        setTimeout(() => toast.classList.remove('show'), 4000);
+    };
+    
+    // Show toast from PHP session
+    })();
+</script>
+
+<!-- Global Toast Styles -->
+<style>
+.global-toast {
+    position: fixed;
+    top: 100px;
+    right: 30px;
+    background: #10b981;
+    color: white;
+    padding: 16px 24px;
+    border-radius: 12px;
+    box-shadow: 0 10px 40px rgba(16, 185, 129, 0.4);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    z-index: 10000;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transform: translateX(120%);
+    transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+.global-toast.show {
+    transform: translateX(0);
+}
+.global-toast.error {
+    background: #ef4444;
+    box-shadow: 0 10px 40px rgba(239, 68, 68, 0.4);
+}
+.global-toast i {
+    font-size: 1.2rem;
+}
+
+/* Cart Icon Styles */
+.cart-icon-btn {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: transparent;
+    border: 1.5px solid rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    margin-right: 8px;
+}
+.cart-icon-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.5);
+    color: white;
+    transform: translateY(-1px);
+}
+.cart-badge {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background: #ef4444;
+    color: white;
+    font-size: 0.65rem;
+    font-weight: 700;
+    min-width: 16px;
+    height: 16px;
+    padding: 0 4px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #302c2c;
+    line-height: 1;
+}
+
+@media (max-width: 768px) {
+    .global-toast {
+        top: auto;
+        bottom: 30px;
+        right: 20px;
+        left: 20px;
+        justify-content: center;
+    }
+    .cart-icon-btn {
+        width: 36px;
+        height: 36px;
+        font-size: 0.95rem;
+    }
+    .cart-badge {
+        min-width: 14px;
+        height: 14px;
+        font-size: 0.6rem;
+        top: -4px;
+        right: -4px;
+    }
+}
+</style>
+
+<!-- Load Cart Count -->
+
+
+<section class="page-hero">
+    <h1><i class="fas fa-tools"></i> NanLux Tools</h1>
+    <p>Bộ công cụ đa năng hỗ trợ cộng đồng - Miễn phí & Dễ sử dụng</p>
+</section>
+
+<!-- Ad Header -->
+
+<section class="utilities-section">
+    <!-- Ad Content Top -->
+    <style>
+        .ad-container { max-width: 1200px; margin: 20px auto; padding: 0 20px; text-align: center; }
+        .ad-container.ad-header { margin-top: 0; }
+        .ad-container.ad-footer { margin-bottom: 0; }
+        .ad-container.ad-content_top { margin-bottom: 30px; }
+        .ad-container.ad-content_bottom { margin-top: 30px; }
+        .ad-container.ad-sidebar { margin: 0 0 20px 0; padding: 0; }
+        @media (max-width: 768px) { .ad-container { padding: 0 15px; margin: 15px auto; } }
+        </style><div class="ad-container ad-content_top" data-ad-id="3"><!-- ========== BANNER TẠO WEBSITE RIÊNG (COMPACT) ========== -->
+<!-- Copy đoạn code này vào landing.php -->
+
+<section class="cw-banner">
+    <div class="cw-banner-container">
+        <div class="cw-banner-icon">
+            <i class="fas fa-rocket"></i>
+        </div>
+        <div class="cw-banner-content">
+            <h3>Muốn có website bán hàng riêng?</h3>
+            <p>Sở hữu thương hiệu riêng, quản lý độc lập, hưởng toàn bộ lợi nhuận!</p>
+        </div>
+        <a href="https://mmonanlux.site/tao-website" class="cw-banner-btn">
+            Tìm Hiểu <i class="fas fa-arrow-right"></i>
+        </a>
+    </div>
+</section>
+
+<style>
+/* ========== COMPACT BANNER STYLES ========== */
+.cw-banner {
+    background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+    padding: 20px;
+    margin: 0 auto;
+    max-width: 1200px;
+    border-radius: 16px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 10px 40px rgba(30, 41, 59, 0.3);
+    border: 1px solid rgba(99, 102, 241, 0.2);
+}
+
+.cw-banner::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 300px;
+    height: 100%;
+    background: radial-gradient(circle, rgba(99, 102, 241, 0.15) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+.cw-banner-container {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    position: relative;
+    z-index: 10;
+}
+
+.cw-banner-icon {
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, #6366f1, #8b5cf6);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
+}
+
+.cw-banner-icon i {
+    font-size: 1.3rem;
+    color: white;
+}
+
+.cw-banner-content {
+    flex: 1;
+}
+
+.cw-banner-content h3 {
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin: 0 0 4px 0;
+}
+
+.cw-banner-content p {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+.cw-banner-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 24px;
+    background: white;
+    color: var(--primary, #6366f1);
+    text-decoration: none;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+.cw-banner-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+.cw-banner-btn i {
+    transition: transform 0.3s ease;
+}
+
+.cw-banner-btn:hover i {
+    transform: translateX(4px);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .cw-banner {
+        border-radius: 12px;
+        margin: 0 15px;
+    }
+    
+    .cw-banner-container {
+        flex-wrap: wrap;
+    }
+    
+    .cw-banner-content {
+        flex: 1 1 calc(100% - 70px);
+    }
+    
+    .cw-banner-btn {
+        width: 100%;
+        justify-content: center;
+        margin-top: 10px;
+    }
+}
+</style>
+<!-- ========== END BANNER ========== -->
+</div>    <h2 class="section-title">Công Cụ Có Sẵn</h2>
+    <p class="section-subtitle">Chọn danh mục hoặc tiện ích bạn muốn sử dụng</p>
+
+    <!-- Search Box -->
+    <div class="search-box">
+        <i class="fas fa-search search-icon"></i>
+        <input type="text" id="searchInput" placeholder="Tìm kiếm công cụ..." autocomplete="off">
+        <button class="search-clear" id="searchClear" style="display:none;"><i class="fas fa-times"></i></button>
+    </div>
+
+    <div class="category-filter">
+        <button class="filter-btn active" data-category="all">
+            <i class="fas fa-th-large"></i> Tất cả <span class="count">17</span>
+        </button>
+        <button class="filter-btn" data-category="developer">
+            <i class="fas fa-code"></i> Lập trình viên <span class="count">7</span>
+        </button>
+        <button class="filter-btn" data-category="marketer">
+            <i class="fas fa-bullhorn"></i> Marketing <span class="count">6</span>
+        </button>
+        <button class="filter-btn" data-category="office">
+            <i class="fas fa-briefcase"></i> Văn phòng <span class="count">2</span>
+        </button>
+        <button class="filter-btn" data-category="creator">
+            <i class="fas fa-palette"></i> Content Creator <span class="count">3</span>
+        </button>
+    </div>
+
+    <div class="utilities-grid" id="toolsGrid">
+                                            <div class="utility-card" data-category="developer" data-slug="twofa">
+                <a href="tool/twofa" class="utility-link">
+                    <div class="utility-header">
+                        <div class="utility-icon purple"><i class="fas fa-shield-alt"></i></div>
+                        <span class="utility-category">Lập trình viên</span>
+                    </div>
+                    <h3 class="utility-title">Trình Tạo Mã 2FA</h3>
+                    <p class="utility-description">Tạo mã xác thực hai yếu tố (TOTP) từ secret key</p>
+                </a>
+                <div class="utility-footer">
+                    <a href="tool/twofa" class="utility-arrow">Sử dụng ngay <i class="fas fa-arrow-right"></i></a>
+                    <button class="btn-fav " onclick="toggleFav(this, 'twofa')" title="Thêm yêu thích">
+                        <i class="far fa-heart"></i>
+                    </button>
+                </div>
+            </div>
+                                    <div class="utility-card" data-category="utilities" data-slug="temp-mail">
+                <a href="temp-mail.html" class="utility-link">
+                    <div class="utility-header">
+                        <div class="utility-icon red"><i class="fas fa-envelope"></i></div>
+                        <span class="utility-category">Tiện ích</span>
+                    </div>
+                    <h3 class="utility-title">Temp Mail</h3>
+                    <p class="utility-description">Email tạm thời miễn phí - Bảo vệ quyền riêng tư của bạn</p>
+                </a>
+                <div class="utility-footer">
+                    <a href="temp-mail.html" class="utility-arrow">Sử dụng ngay <i class="fas fa-arrow-right"></i></a>
+                    <button class="btn-fav " onclick="toggleFav(this, 'temp-mail')" title="Thêm yêu thích">
+                        <i class="far fa-heart"></i>
+                    </button>
+                </div>
+            </div>
+                                    <div class="utility-card" data-category="developer" data-slug="password">
+                <a href="tool/password" class="utility-link">
+                    <div class="utility-header">
+                        <div class="utility-icon blue"><i class="fas fa-key"></i></div>
+                        <span class="utility-category">Lập trình viên</span>
+                    </div>
+                    <h3 class="utility-title">Tạo Mật Khẩu Mạnh</h3>
+                    <p class="utility-description">Tạo mật khẩu ngẫu nhiên với độ dài và độ phức tạp tùy chỉnh</p>
+                </a>
+                <div class="utility-footer">
+                    <a href="tool/password" class="utility-arrow">Sử dụng ngay <i class="fas fa-arrow-right"></i></a>
+                    <button class="btn-fav " onclick="toggleFav(this, 'password')" title="Thêm yêu thích">
+                        <i class="far fa-heart"></i>
+                    </button>
+                </div>
+            </div>
+                                    <div class="utility-card" data-category="developer" data-slug="base64">
+                <a href="tool/base64" class="utility-link">
+                    <div class="utility-header">
+                        <div class="utility-icon green"><i class="fas fa-code"></i></div>
+                        <span class="utility-category">Lập trình viên</span>
+                    </div>
+                    <h3 class="utility-title">Base64 Encoder/Decoder</h3>
+                    <p class="utility-description">Mã hóa và giải mã văn bản sang định dạng Base64</p>
+                </a>
+                <div class="utility-footer">
+                    <a href="tool/base64" class="utility-arrow">Sử dụng ngay <i class="fas fa-arrow-right"></i></a>
+                    <button class="btn-fav " onclick="toggleFav(this, 'base64')" title="Thêm yêu thích">
+                        <i class="far fa-heart"></i>
+                    </button>
+                </div>
+            </div>
+                                    <div class="utility-card" data-category="developer" data-slug="json">
+                <a href="tool/json" class="utility-link">
+                    <div class="utility-header">
+                        <div class="utility-icon orange"><i class="fab fa-js"></i></div>
+                        <span class="utility-category">Lập trình viên</span>
+                    </div>
+                    <h3 class="utility-title">JSON Formatter</h3>
+                    <p class="utility-description">Định dạng và làm đẹp JSON, kiểm tra cú pháp JSON</p>
+                </a>
+                <div class="utility-footer">
+                    <a href="tool/json" class="utility-arrow">Sử dụng ngay <i class="fas fa-arrow-right"></i></a>
+                    <button class="btn-fav " onclick="toggleFav(this, 'json')" title="Thêm yêu thích">
+                        <i class="far fa-heart"></i>
+                    </button>
+                </div>
+            </div>
+                                    <div class="utility-card" data-category="developer" data-slug="ip-checker">
+                <a href="tool/ip-checker" class="utility-link">
+                    <div class="utility-header">
+                        <div class="utility-icon cyan"><i class="fas fa-globe"></i></div>
+                        <span class="utility-category">Lập trình viên</span>
+                    </div>
+                    <h3 class="utility-title">IP Checker</h3>
+                    <p class="utility-description">Kiểm tra địa chỉ IP và thông tin vị trí địa lý</p>
+                </a>
+                <div class="utility-footer">
+                    <a href="tool/ip-checker" class="utility-arrow">Sử dụng ngay <i class="fas fa-arrow-right"></i></a>
+                    <button class="btn-fav " onclick="toggleFav(this, 'ip-checker')" title="Thêm yêu thích">
+                        <i class="far fa-heart"></i>
+                    </button>
+                </div>
+            </div>
+                                    <div class="utility-card" data-category="marketer" data-slug="email-checker">
+                <a href="tool/email-checker" class="utility-link">
+                    <div class="utility-header">
+                        <div class="utility-icon cyan"><i class="fas fa-envelope-circle-check"></i></div>
+                        <span class="utility-category">Marketing</span>
+                    </div>
+                    <h3 class="utility-title">Kiểm Tra Email</h3>
+                    <p class="utility-description">Xác thực định dạng email và kiểm tra domain</p>
+                </a>
+                <div class="utility-footer">
+                    <a href="tool/email-checker" class="utility-arrow">Sử dụng ngay <i class="fas fa-arrow-right"></i></a>
+                    <button class="btn-fav " onclick="toggleFav(this, 'email-checker')" title="Thêm yêu thích">
+                        <i class="far fa-heart"></i>
+                    </button>
+                </div>
+            </div>
+                                    <div class="utility-card" data-category="marketer" data-slug="google-index">
+                <a href="tool/google-index" class="utility-link">
+                    <div class="utility-header">
+                        <div class="utility-icon blue"><i class="fab fa-google"></i></div>
+                        <span class="utility-category">Marketing</span>
+                    </div>
+                    <h3 class="utility-title">Google Index Checker</h3>
+                    <p class="utility-description">Kiểm tra URL đã được Google index hay chưa</p>
+                </a>
+                <div class="utility-footer">
+                    <a href="tool/google-index" class="utility-arrow">Sử dụng ngay <i class="fas fa-arrow-right"></i></a>
+                    <button class="btn-fav " onclick="toggleFav(this, 'google-index')" title="Thêm yêu thích">
+                        <i class="far fa-heart"></i>
+                    </button>
+                </div>
+            </div>
+                                    <div class="utility-card" data-category="marketer" data-slug="qrcode">
+                <a href="tool/qrcode" class="utility-link">
+                    <div class="utility-header">
+                        <div class="utility-icon cyan"><i class="fas fa-qrcode"></i></div>
+                        <span class="utility-category">Marketing</span>
+                    </div>
+                    <h3 class="utility-title">QR Code Generator</h3>
+                    <p class="utility-description">Tạo mã QR cho URL, text, email, số điện thoại và WiFi</p>
+                </a>
+                <div class="utility-footer">
+                    <a href="tool/qrcode" class="utility-arrow">Sử dụng ngay <i class="fas fa-arrow-right"></i></a>
+                    <button class="btn-fav " onclick="toggleFav(this, 'qrcode')" title="Thêm yêu thích">
+                        <i class="far fa-heart"></i>
+                    </button>
+                </div>
+            </div>
+                                    <div class="utility-card" data-category="marketer" data-slug="qr-custom">
+                <a href="tool/qr-custom" class="utility-link">
+                    <div class="utility-header">
+                        <div class="utility-icon purple"><i class="fas fa-palette"></i></div>
+                        <span class="utility-category">Marketing</span>
+                    </div>
+                    <h3 class="utility-title">QR Cá Nhân Hóa</h3>
+                    <p class="utility-description">Tạo QR Code với logo và màu thương hiệu</p>
+                </a>
+                <div class="utility-footer">
+                    <a href="tool/qr-custom" class="utility-arrow">Sử dụng ngay <i class="fas fa-arrow-right"></i></a>
+                    <button class="btn-fav " onclick="toggleFav(this, 'qr-custom')" title="Thêm yêu thích">
+                        <i class="far fa-heart"></i>
+                    </button>
+                </div>
+            </div>
+                                    <div class="utility-card" data-category="office" data-slug="pdf">
+                <a href="tool/pdf" class="utility-link">
+                    <div class="utility-header">
+                        <div class="utility-icon red"><i class="fas fa-file-pdf"></i></div>
+                        <span class="utility-category">Văn phòng</span>
+                    </div>
+                    <h3 class="utility-title">PDF Tools</h3>
+                    <p class="utility-description">Gộp, chia nhỏ, nén và chuyển đổi file PDF</p>
+                </a>
+                <div class="utility-footer">
+                    <a href="tool/pdf" class="utility-arrow">Sử dụng ngay <i class="fas fa-arrow-right"></i></a>
+                    <button class="btn-fav " onclick="toggleFav(this, 'pdf')" title="Thêm yêu thích">
+                        <i class="far fa-heart"></i>
+                    </button>
+                </div>
+            </div>
+                                    <div class="utility-card" data-category="marketer" data-slug="shortlink">
+                <a href="tool/shortlink" class="utility-link">
+                    <div class="utility-header">
+                        <div class="utility-icon pink"><i class="fas fa-link"></i></div>
+                        <span class="utility-category">Marketing</span>
+                    </div>
+                    <h3 class="utility-title">Rút Gọn Link</h3>
+                    <p class="utility-description">Rút gọn URL dài thành link ngắn gọn</p>
+                </a>
+                <div class="utility-footer">
+                    <a href="tool/shortlink" class="utility-arrow">Sử dụng ngay <i class="fas fa-arrow-right"></i></a>
+                    <button class="btn-fav " onclick="toggleFav(this, 'shortlink')" title="Thêm yêu thích">
+                        <i class="far fa-heart"></i>
+                    </button>
+                </div>
+            </div>
+                                    <div class="utility-card" data-category="creator" data-slug="hashtag">
+                <a href="tool/hashtag" class="utility-link">
+                    <div class="utility-header">
+                        <div class="utility-icon pink"><i class="fas fa-hashtag"></i></div>
+                        <span class="utility-category">Content Creator</span>
+                    </div>
+                    <h3 class="utility-title">Hashtag Generator</h3>
+                    <p class="utility-description">Tạo hashtag phổ biến cho Instagram, TikTok, Facebook</p>
+                </a>
+                <div class="utility-footer">
+                    <a href="tool/hashtag" class="utility-arrow">Sử dụng ngay <i class="fas fa-arrow-right"></i></a>
+                    <button class="btn-fav " onclick="toggleFav(this, 'hashtag')" title="Thêm yêu thích">
+                        <i class="far fa-heart"></i>
+                    </button>
+                </div>
+            </div>
+                                    <div class="utility-card" data-category="creator" data-slug="rewriter">
+                <a href="tool/rewriter" class="utility-link">
+                    <div class="utility-header">
+                        <div class="utility-icon purple"><i class="fas fa-robot"></i></div>
+                        <span class="utility-category">Content Creator</span>
+                    </div>
+                    <h3 class="utility-title">AI Content Rewriter</h3>
+                    <p class="utility-description">Viết lại nội dung với nhiều phong cách khác nhau</p>
+                </a>
+                <div class="utility-footer">
+                    <a href="tool/rewriter" class="utility-arrow">Sử dụng ngay <i class="fas fa-arrow-right"></i></a>
+                    <button class="btn-fav " onclick="toggleFav(this, 'rewriter')" title="Thêm yêu thích">
+                        <i class="far fa-heart"></i>
+                    </button>
+                </div>
+            </div>
+                                    <div class="utility-card" data-category="office" data-slug="notepad">
+                <a href="tool/notepad" class="utility-link">
+                    <div class="utility-header">
+                        <div class="utility-icon green"><i class="fas fa-sticky-note"></i></div>
+                        <span class="utility-category">Văn phòng</span>
+                    </div>
+                    <h3 class="utility-title">Notepad Online</h3>
+                    <p class="utility-description">Ghi chú trực tuyến, lưu trữ đám mây</p>
+                </a>
+                <div class="utility-footer">
+                    <a href="tool/notepad" class="utility-arrow">Sử dụng ngay <i class="fas fa-arrow-right"></i></a>
+                    <button class="btn-fav " onclick="toggleFav(this, 'notepad')" title="Thêm yêu thích">
+                        <i class="far fa-heart"></i>
+                    </button>
+                </div>
+            </div>
+                                    <div class="utility-card" data-category="developer" data-slug="temp-mail">
+                <a href="tool/temp-mail" class="utility-link">
+                    <div class="utility-header">
+                        <div class="utility-icon green"><i class="fas fa-envelope-open-text"></i></div>
+                        <span class="utility-category">Lập trình viên</span>
+                    </div>
+                    <h3 class="utility-title">Temp Mail</h3>
+                    <p class="utility-description">Email tạm thời miễn phí, bảo vệ quyền riêng tư</p>
+                </a>
+                <div class="utility-footer">
+                    <a href="tool/temp-mail" class="utility-arrow">Sử dụng ngay <i class="fas fa-arrow-right"></i></a>
+                    <button class="btn-fav " onclick="toggleFav(this, 'temp-mail')" title="Thêm yêu thích">
+                        <i class="far fa-heart"></i>
+                    </button>
+                </div>
+            </div>
+                                    <div class="utility-card" data-category="developer" data-slug="get-code-mail">
+                <a href="tool/get-code-mail" class="utility-link">
+                    <div class="utility-header">
+                        <div class="utility-icon blue"><i class="fas fa-envelope-open-text"></i></div>
+                        <span class="utility-category">Lập trình viên</span>
+                    </div>
+                    <h3 class="utility-title">Get Code Mail</h3>
+                    <p class="utility-description">Lấy mã xác thực từ email Microsoft/Outlook bằng Graph API</p>
+                </a>
+                <div class="utility-footer">
+                    <a href="tool/get-code-mail" class="utility-arrow">Sử dụng ngay <i class="fas fa-arrow-right"></i></a>
+                    <button class="btn-fav " onclick="toggleFav(this, 'get-code-mail')" title="Thêm yêu thích">
+                        <i class="far fa-heart"></i>
+                    </button>
+                </div>
+            </div>
+                                    <div class="utility-card" data-category="creator marketer" data-slug="youtube-thumbnail">
+                <a href="tool/youtube-thumbnail" class="utility-link">
+                    <div class="utility-header">
+                        <div class="utility-icon red"><i class="fab fa-youtube"></i></div>
+                        <span class="utility-category">Content Creator</span>
+                    </div>
+                    <h3 class="utility-title">YouTube Thumbnail Downloader</h3>
+                    <p class="utility-description">Tải thumbnail YouTube chất lượng cao - Tất cả các kích thước từ 120px đến 1280px</p>
+                </a>
+                <div class="utility-footer">
+                    <a href="tool/youtube-thumbnail" class="utility-arrow">Sử dụng ngay <i class="fas fa-arrow-right"></i></a>
+                    <button class="btn-fav " onclick="toggleFav(this, 'youtube-thumbnail')" title="Thêm yêu thích">
+                        <i class="far fa-heart"></i>
+                    </button>
+                </div>
+            </div>
+                        </div>
+
+    <div class="no-results" id="noResults">
+        <i class="fas fa-search"></i>
+        <p>Không tìm thấy công cụ nào trong danh mục này</p>
+    </div>
+    
+    <!-- Ad Content Bottom -->
+    </section>
+
+<!-- Ad Footer -->
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="footer-container">
+        <!-- Footer Main -->
+        <div class="footer-main">
+            <!-- Brand Column -->
+            <div class="footer-brand">
+                <h3 class="footer-logo">NanLux</h3>
+                <p class="footer-description">Liên hệ với chúng tôi để được hỗ trợ nhanh chóng và tư vấn dịch vụ tốt nhất 🌟</p>
+                <div class="social-links">
+                                        <a href="https://www.facebook.com/LeNguyenHoangNam.Official" class="social-link" title="Facebook" target="_blank">
+                        <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook" style="width:24px; height:24px;">
+                    </a>
+                    <a href="https://zalo.me/0704623004" class="social-link" title="Zalo" target="_blank">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Icon_of_Zalo.svg/1200px-Icon_of_Zalo.svg.png" alt="Zalo" style="width:24px; height:24px;">
+                    </a>
+                </div>
+            </div>
+            <!-- Links Columns based on image -->
+            <div class="footer-col">
+                <h4>Hỗ trợ khách hàng</h4>
+                <ul class="footer-links">
+                    <li><a href="#"><i class="fas fa-phone-alt"></i> Hotline: 070.462.3004</a></li>
+                    <li><a href="#"><i class="fas fa-comment-dots"></i> Chat Facebook</a></li>
+                    <li><a href="#"><i class="fas fa-comment"></i> Chat Zalo</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Thanh toán an toàn</h4>
+                <div class="payment-methods">
+                    <img src="https://upload.wikimedia.org/wikipedia/vi/f/fe/MoMo_Logo.png" alt="MoMo" style="height: 30px; margin-right:10px;">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/Credit_card_icon.png/1200px-Credit_card_icon.png" alt="Bank" style="height: 30px;">
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Cam kết của chúng tôi</h4>
+                <ul class="footer-links">
+                    <li><i class="fas fa-check-circle"></i> Bảo mật thông tin tuyệt đối</li>
+                    <li><i class="fas fa-check-circle"></i> Chất lượng hàng đầu</li>
+                    <li><i class="fas fa-check-circle"></i> Hỗ trợ 24/7</li>
+                </ul>
+            </div>
+        </div>
+        <!-- Footer Bottom -->
+        <div class="footer-bottom">
+            <p>&copy; 2025 NanLux. All rights reserved.</p>
+            <p>Email: hotro@nanlux.click</p>
+        </div>
+    </div>
+</footer>
+
+<script>
+    // Thêm script JS cho tìm kiếm và filter
+    document.addEventListener('DOMContentLoaded', function() {
+        const searchInput = document.getElementById('searchInput');
+        const searchClear = document.getElementById('searchClear');
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const tools = document.querySelectorAll('.utility-card');
+        const noResults = document.getElementById('noResults');
+
+        // Hàm filter
+        function filterTools(searchTerm = '', category = 'all') {
+            let hasVisible = false;
+            searchTerm = searchTerm.toLowerCase();
+
+            tools.forEach(tool => {
+                const title = tool.querySelector('.utility-title').textContent.toLowerCase();
+                const desc = tool.querySelector('.utility-description').textContent.toLowerCase();
+                const toolCategory = tool.dataset.category || '';
+                
+                const matchesSearch = title.includes(searchTerm) || desc.includes(searchTerm);
+                const matchesCategory = category === 'all' || toolCategory.includes(category);
+
+                if (matchesSearch && matchesCategory) {
+                    tool.classList.remove('hidden');
+                    hasVisible = true;
+                } else {
+                    tool.classList.add('hidden');
+                }
+            });
+
+            if (hasVisible) {
+                noResults.classList.remove('show');
+            } else {
+                noResults.classList.add('show');
+            }
+        }
+
+        // Event listener cho input tìm kiếm
+        if (searchInput) {
+            searchInput.addEventListener('input', (e) => {
+                const searchTerm = e.target.value;
+                const activeCategory = document.querySelector('.filter-btn.active').dataset.category;
+                
+                if (searchTerm.length > 0) {
+                    searchClear.style.display = 'flex';
+                } else {
+                    searchClear.style.display = 'none';
+                }
+                
+                filterTools(searchTerm, activeCategory);
+            });
+        }
+
+        // Event listener cho nút clear
+        if (searchClear) {
+            searchClear.addEventListener('click', () => {
+                searchInput.value = '';
+                searchClear.style.display = 'none';
+                const activeCategory = document.querySelector('.filter-btn.active').dataset.category;
+                filterTools('', activeCategory);
+                searchInput.focus();
+            });
+        }
+
+        // Event listener cho filter categories
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active class from all
+                filterBtns.forEach(b => b.classList.remove('active'));
+                // Add active to clicked
+                btn.classList.add('active');
+                
+                const category = btn.dataset.category;
+                const searchTerm = searchInput ? searchInput.value : '';
+                
+                filterTools(searchTerm, category);
+            });
+        });
+        
+        window.toggleFav = function(btn, slug) {
+            btn.classList.toggle('active');
+            btn.classList.add('pop');
+            setTimeout(() => {
+                btn.classList.remove('pop');
+            }, 300);
+            
+            // Xử lý thêm/xóa yêu thích ở đây (localStorage)
+            let favs = JSON.parse(localStorage.getItem('nanlux_favs') || '[]');
+            if (btn.classList.contains('active')) {
+                if (!favs.includes(slug)) favs.push(slug);
+                btn.innerHTML = '<i class="fas fa-heart"></i>';
+            } else {
+                favs = favs.filter(s => s !== slug);
+                btn.innerHTML = '<i class="far fa-heart"></i>';
+            }
+            localStorage.setItem('nanlux_favs', JSON.stringify(favs));
+        };
+        
+        // Khôi phục trạng thái yêu thích
+        const favs = JSON.parse(localStorage.getItem('nanlux_favs') || '[]');
+        tools.forEach(tool => {
+            const slug = tool.dataset.slug;
+            if (favs.includes(slug)) {
+                const btn = tool.querySelector('.btn-fav');
+                if (btn) {
+                    btn.classList.add('active');
+                    btn.innerHTML = '<i class="fas fa-heart"></i>';
+                }
+            }
+        });
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,1458 @@
+<!doctype html>
+<html lang="vi">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#FFFBF1">
+  <title>Hướng dẫn cài DNS · Locket Gold (18 bước chi tiết)</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💛</text></svg>">
+  <meta name="description"
+    content="Hướng dẫn cài DNS kích hoạt Locket Gold từng bước một cho iPhone/iPad. 18 bước đơn giản, có hình ảnh minh họa chi tiết, ai cũng làm được.">
+  <meta property="og:title" content="Hướng dẫn cài DNS · Locket Gold">
+  <meta property="og:description" content="Kích hoạt Locket Gold cực nhanh bằng DNS. Hướng dẫn 18 bước trực quan cho iOS.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@500;600;700;800;900&display=swap&subset=vietnamese"
+    rel="stylesheet">
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --bg: #FFFDF9;
+      --gold: #F5A623;
+      --gold-dark: #C8861B;
+      --gold-light: #FEF3C7;
+      --text: #1A1A1A;
+      --text-muted: #6B7280;
+      --card-bg: #FFFFFF;
+      --radius: 20px;
+      --shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+      --shadow-lg: 0 12px 40px rgba(0, 0, 0, 0.14);
+      --font: 'Nunito', sans-serif;
+      --green: #10B981;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font);
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      user-select: none;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* HEADER */
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 24px;
+      background: rgba(255, 253, 249, 0.95);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      gap: 12px;
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 900;
+      font-size: 1.15rem;
+    }
+
+    .nav-back {
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      padding: 6px 12px;
+      border-radius: 100px;
+      background: rgba(0, 0, 0, 0.03);
+      transition: all 0.2s;
+    }
+
+    .nav-back:hover {
+      color: var(--text);
+      background: rgba(0, 0, 0, 0.07);
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn-step-list {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: #FFFFFF;
+      border: 1px solid #E5E7EB;
+      border-radius: 100px;
+      padding: 7px 14px;
+      font-family: var(--font);
+      font-size: 0.82rem;
+      font-weight: 800;
+      color: var(--text);
+      cursor: pointer;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+      transition: all 0.2s;
+    }
+
+    .btn-step-list:hover {
+      border-color: var(--gold);
+      color: var(--gold-dark);
+      box-shadow: 0 2px 8px rgba(245, 166, 35, 0.2);
+    }
+
+    .btn-support-zalo {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: linear-gradient(135deg, #0068FF, #0084FF);
+      color: white;
+      font-size: 0.82rem;
+      font-weight: 800;
+      padding: 7px 14px;
+      border-radius: 100px;
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+
+    .btn-support-zalo:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(0, 104, 255, 0.3);
+    }
+
+    .zalo-mini-icon {
+      width: 16px;
+      height: 16px;
+      border-radius: 4px;
+    }
+
+    /* STEP STRIP (Scrollable pills) */
+    .step-strip-wrap {
+      max-width: 680px;
+      margin: 16px auto 0;
+      padding: 0 20px;
+      width: 100%;
+    }
+
+    .step-strip {
+      display: flex;
+      gap: 6px;
+      overflow-x: auto;
+      padding: 6px 4px 10px;
+      scrollbar-width: thin;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .step-strip::-webkit-scrollbar {
+      height: 4px;
+    }
+
+    .step-strip::-webkit-scrollbar-thumb {
+      background: #E5E7EB;
+      border-radius: 4px;
+    }
+
+    .step-pill {
+      flex: 0 0 auto;
+      width: 32px;
+      height: 32px;
+      border-radius: 10px;
+      background: #FFFFFF;
+      border: 1.5px solid #E5E7EB;
+      font-size: 0.82rem;
+      font-weight: 800;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .step-pill:hover {
+      border-color: var(--gold);
+      color: var(--gold-dark);
+      transform: translateY(-1px);
+    }
+
+    .step-pill.active {
+      background: var(--gold);
+      border-color: var(--gold);
+      color: white;
+      box-shadow: 0 3px 10px rgba(245, 166, 35, 0.4);
+      transform: scale(1.08);
+    }
+
+    .step-pill.completed {
+      background: #ECFDF5;
+      border-color: #A7F3D0;
+      color: #059669;
+    }
+
+    /* MAIN CONTAINER */
+    main {
+      flex: 1;
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 12px 20px 80px;
+      width: 100%;
+    }
+
+    /* STEP CARD */
+    .step-card {
+      background: var(--card-bg);
+      border-radius: 24px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      margin-bottom: 20px;
+      border: 1px solid rgba(0, 0, 0, 0.04);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .step-header {
+      padding: 24px 28px 20px;
+      border-bottom: 1px solid #F3F4F6;
+    }
+
+    .step-top-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .step-number {
+      font-size: 0.78rem;
+      font-weight: 800;
+      color: var(--text-muted);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .step-keyboard-tip {
+      font-size: 0.72rem;
+      color: #9CA3AF;
+      font-weight: 700;
+      background: #F3F4F6;
+      padding: 2px 8px;
+      border-radius: 6px;
+    }
+
+    .step-progress-bar {
+      width: 100%;
+      height: 6px;
+      background: #E5E7EB;
+      border-radius: 100px;
+      margin-bottom: 16px;
+      overflow: hidden;
+    }
+
+    .step-progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, #FFD166, var(--gold));
+      border-radius: 100px;
+      transition: width 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .step-title {
+      font-size: 1.45rem;
+      font-weight: 900;
+      line-height: 1.3;
+      margin-bottom: 8px;
+    }
+
+    .step-title em {
+      font-style: normal;
+      background: #FEF3C7;
+      padding: 2px 8px;
+      border-radius: 8px;
+      color: #92400E;
+    }
+
+    .step-desc {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      font-weight: 600;
+    }
+
+    /* ACTION BUTTONS (Download + Copy) */
+    .step-action-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    .btn-download-profile {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--gold);
+      color: white;
+      font-family: var(--font);
+      font-weight: 800;
+      font-size: 0.92rem;
+      padding: 12px 22px;
+      border-radius: 100px;
+      border: none;
+      cursor: pointer;
+      transition: transform 0.15s, box-shadow 0.15s;
+      text-decoration: none;
+    }
+
+    .btn-download-profile:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(245, 166, 35, 0.4);
+    }
+
+    .btn-copy-dns {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #F3F4F6;
+      color: var(--text);
+      font-family: var(--font);
+      font-weight: 800;
+      font-size: 0.92rem;
+      padding: 12px 18px;
+      border-radius: 100px;
+      border: 1px solid #E5E7EB;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+
+    .btn-copy-dns:hover {
+      background: #E5E7EB;
+      transform: translateY(-1px);
+    }
+
+    /* PHONE SCREENSHOT WRAPPER */
+    .step-screenshot-wrap {
+      padding: 22px 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background: radial-gradient(circle at center, #FFFDF6 0%, #F9FAFB 100%);
+    }
+
+    .step-screenshot {
+      width: 270px;
+      max-width: 100%;
+      border-radius: 22px;
+      overflow: hidden;
+      box-shadow: 0 10px 36px rgba(0, 0, 0, 0.12);
+      cursor: pointer;
+      transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.25s;
+      position: relative;
+    }
+
+    .step-screenshot:hover {
+      transform: scale(1.02);
+      box-shadow: 0 14px 44px rgba(0, 0, 0, 0.18);
+    }
+
+    .step-screenshot::after {
+      content: '🔍 Chạm để phóng to';
+      position: absolute;
+      bottom: 8px;
+      right: 8px;
+      background: rgba(0, 0, 0, 0.65);
+      color: white;
+      font-size: 0.68rem;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 100px;
+      backdrop-filter: blur(4px);
+      opacity: 0;
+      transition: opacity 0.2s;
+      pointer-events: none;
+    }
+
+    .step-screenshot:hover::after {
+      opacity: 1;
+    }
+
+    .step-hint {
+      margin-top: 14px;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+      background: #FFFFFF;
+      padding: 6px 14px;
+      border-radius: 100px;
+      border: 1px solid #E5E7EB;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+      transition: all 0.2s;
+    }
+
+    .step-hint:hover {
+      border-color: var(--gold);
+      color: var(--gold-dark);
+    }
+
+    /* NAVIGATION BUTTONS */
+    .step-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      margin-top: 12px;
+    }
+
+    .btn-nav-back {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: white;
+      border: 2px solid #E5E7EB;
+      font-family: var(--font);
+      font-weight: 800;
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      padding: 13px 24px;
+      border-radius: 100px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .btn-nav-back:hover:not(:disabled) {
+      border-color: #D1D5DB;
+      color: var(--text);
+      transform: translateX(-2px);
+    }
+
+    .btn-nav-back:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+    }
+
+    .btn-nav-next {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--gold);
+      color: white;
+      font-family: var(--font);
+      font-weight: 800;
+      font-size: 0.95rem;
+      padding: 14px 28px;
+      border-radius: 100px;
+      border: none;
+      cursor: pointer;
+      transition: transform 0.15s, box-shadow 0.15s, background 0.2s;
+      flex: 1;
+      justify-content: center;
+    }
+
+    .btn-nav-next:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(245, 166, 35, 0.4);
+    }
+
+    .btn-nav-next.done {
+      background: var(--green);
+    }
+
+    .btn-nav-next.done:hover {
+      box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4);
+    }
+
+    /* COMPLETE SECTION */
+    .complete-section {
+      text-align: center;
+      padding: 40px 24px;
+      background: white;
+      border-radius: 24px;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(0,0,0,0.04);
+    }
+
+    .complete-icon {
+      font-size: 4rem;
+      margin-bottom: 16px;
+      animation: bounce 1.5s infinite;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    .complete-title {
+      font-size: 2rem;
+      font-weight: 900;
+      margin-bottom: 12px;
+      color: #065F46;
+    }
+
+    .complete-desc {
+      font-size: 1rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin-bottom: 28px;
+      font-weight: 600;
+      max-width: 440px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .complete-actions {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .btn-complete-home {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: linear-gradient(135deg, #FF9FD0, #FF5CA8);
+      color: white;
+      font-weight: 800;
+      font-size: 1rem;
+      padding: 13px 28px;
+      border-radius: 100px;
+      transition: transform 0.15s;
+    }
+
+    .btn-complete-home:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-complete-restart {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #F3F4F6;
+      color: var(--text);
+      font-weight: 800;
+      font-size: 1rem;
+      padding: 13px 24px;
+      border-radius: 100px;
+      cursor: pointer;
+      border: 1px solid #E5E7EB;
+    }
+
+    /* LIGHTBOX MODAL */
+    .lightbox-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.85);
+      backdrop-filter: blur(8px);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      opacity: 0;
+      transition: opacity 0.25s ease;
+    }
+
+    .lightbox-overlay.open {
+      display: flex;
+      opacity: 1;
+    }
+
+    .lightbox-content {
+      position: relative;
+      width: 330px;
+      max-width: 90vw;
+      border-radius: 28px;
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+      animation: zoomIn 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    @keyframes zoomIn {
+      from { transform: scale(0.9); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: -46px;
+      right: 0;
+      background: rgba(255, 255, 255, 0.25);
+      color: white;
+      border: none;
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      font-size: 1.2rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s;
+    }
+
+    .lightbox-close:hover {
+      background: rgba(255, 255, 255, 0.4);
+    }
+
+    /* STEP DRAWER MODAL */
+    .step-modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(4px);
+      z-index: 200;
+      align-items: flex-end;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+
+    .step-modal-overlay.open {
+      display: flex;
+      opacity: 1;
+    }
+
+    .step-modal-sheet {
+      background: white;
+      width: 100%;
+      max-width: 680px;
+      max-height: 80vh;
+      border-radius: 28px 28px 0 0;
+      padding: 24px 20px 32px;
+      overflow-y: auto;
+      box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.15);
+      animation: slideUp 0.25s ease-out;
+    }
+
+    @keyframes slideUp {
+      from { transform: translateY(100%); }
+      to { transform: translateY(0); }
+    }
+
+    .step-modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid #F3F4F6;
+    }
+
+    .step-modal-title {
+      font-size: 1.15rem;
+      font-weight: 900;
+    }
+
+    .step-modal-close {
+      background: #F3F4F6;
+      border: none;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      font-size: 1rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+    }
+
+    .step-list-grid {
+      display: grid;
+      gap: 8px;
+    }
+
+    .step-list-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 14px;
+      border-radius: 12px;
+      background: #F9FAFB;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+
+    .step-list-item:hover {
+      background: #FEF3C7;
+      transform: translateX(4px);
+    }
+
+    .step-list-item.active {
+      background: #FEF3C7;
+      border: 1.5px solid var(--gold);
+    }
+
+    .step-list-item-num {
+      width: 26px;
+      height: 26px;
+      border-radius: 8px;
+      background: #E5E7EB;
+      font-size: 0.75rem;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .step-list-item.active .step-list-item-num {
+      background: var(--gold);
+      color: white;
+    }
+
+    .step-list-item-text {
+      font-size: 0.88rem;
+      font-weight: 700;
+      flex: 1;
+    }
+
+    /* TOAST */
+    .toast {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%) translateY(100px);
+      background: #1F2937;
+      color: white;
+      padding: 12px 24px;
+      border-radius: 100px;
+      font-size: 0.88rem;
+      font-weight: 700;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+      z-index: 2000;
+      transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      pointer-events: none;
+    }
+
+    .toast.show {
+      transform: translateX(-50%) translateY(0);
+    }
+
+    @media (max-width: 600px) {
+      header {
+        padding: 10px 16px;
+      }
+      .nav-back span {
+        display: none;
+      }
+      .btn-support-zalo span {
+        display: none;
+      }
+      .btn-support-zalo {
+        padding: 7px;
+      }
+      .step-header {
+        padding: 20px 20px 16px;
+      }
+      .step-title {
+        font-size: 1.25rem;
+      }
+      .step-screenshot {
+        width: 240px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- HEADER -->
+  <header>
+    <div class="nav-left">
+      <a class="nav-logo" href="index.html">
+        <span style="font-size:1.35rem">💛</span>
+        <span>Locket</span>
+      </a>
+      <a class="nav-back" href="index.html" title="Quay lại trang chủ">
+        ← <span>Trang chủ</span>
+      </a>
+    </div>
+
+    <div class="nav-actions">
+      <button class="btn-step-list" id="btn-open-list" title="Danh sách các bước">
+        📋 <span>Chọn bước (18)</span>
+      </button>
+      <a class="btn-support-zalo" href="https://zalo.me/0325945496" target="_blank" title="Nhắn Zalo hỗ trợ cài đặt">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Icon_of_Zalo.svg/1200px-Icon_of_Zalo.svg.png"
+          alt="Zalo" class="zalo-mini-icon">
+        <span>Hỗ trợ kỹ thuật</span>
+      </a>
+    </div>
+  </header>
+
+  <!-- STEP STRIP PILLS -->
+  <div class="step-strip-wrap">
+    <div class="step-strip" id="step-strip" title="Bấm vào số để nhảy bước"></div>
+  </div>
+
+  <main>
+    <!-- STEP CARD -->
+    <div class="step-card" id="step-card">
+      <div class="step-header">
+        <div class="step-top-row">
+          <div class="step-number" id="step-num-label">Bước 1 / 18</div>
+          <div class="step-keyboard-tip">Phím ← / → để chuyển bước</div>
+        </div>
+
+        <div class="step-progress-bar">
+          <div class="step-progress-fill" id="progress-fill" style="width: 5.56%"></div>
+        </div>
+
+        <h1 class="step-title" id="step-title">Nhấn <em>"Cho phép"</em>.</h1>
+        <p class="step-desc" id="step-desc">Trang web đang cố gắng tải về một hồ sơ cấu hình. Bạn có muốn cho phép việc này không?</p>
+
+        <!-- DOWNLOAD & COPY ROW -->
+        <div class="step-action-row" id="step-action-row">
+          <a class="btn-download-profile" href="https://ctv.nodns.vn/cai-dns" target="_blank" id="download-btn">
+            Tải hồ sơ bằng Safari ↗
+          </a>
+          <button class="btn-copy-dns" id="btn-copy-dns" title="Sao chép đường link tải hồ sơ">
+            📋 Sao chép link DNS
+          </button>
+        </div>
+      </div>
+
+      <div class="step-screenshot-wrap">
+        <div class="step-screenshot" id="step-screenshot" title="Chạm để phóng to ảnh">
+          <!-- Phone mockup rendered by JS -->
+        </div>
+
+        <div class="step-hint" id="step-hint">
+          <span class="step-hint-icon">👆</span>
+          <span>Chạm ảnh để phóng to</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- COMPLETE STATE (hidden) -->
+    <div class="complete-section" id="complete-section" style="display:none">
+      <div class="complete-icon">🎉</div>
+      <h2 class="complete-title">Cài DNS Thành Công!</h2>
+      <p class="complete-desc">Hồ sơ cấu hình LocketProxy CA đã được cài đặt & tin cậy đầy đủ. Bây giờ hãy mở ứng dụng Locket và tận hưởng mọi tính năng Gold nhé!</p>
+      <div class="complete-actions">
+        <a class="btn-complete-home" href="index.html">← Về trang chủ Locket</a>
+        <button class="btn-complete-restart" id="btn-restart">↺ Xem lại hướng dẫn</button>
+      </div>
+    </div>
+
+    <!-- NAVIGATION -->
+    <div class="step-nav" id="step-nav">
+      <button class="btn-nav-back" id="btn-back" disabled>← Quay lại</button>
+      <button class="btn-nav-next" id="btn-next">Đã làm xong →</button>
+    </div>
+  </main>
+
+  <!-- LIGHTBOX MODAL -->
+  <div class="lightbox-overlay" id="lightbox-overlay">
+    <div class="lightbox-content" id="lightbox-content">
+      <button class="lightbox-close" id="lightbox-close" aria-label="Đóng">✕</button>
+      <div id="lightbox-inner"></div>
+    </div>
+  </div>
+
+  <!-- STEP DRAWER MODAL -->
+  <div class="step-modal-overlay" id="step-modal-overlay">
+    <div class="step-modal-sheet">
+      <div class="step-modal-header">
+        <div class="step-modal-title">Danh sách 18 bước cài DNS</div>
+        <button class="step-modal-close" id="step-modal-close">✕</button>
+      </div>
+      <div class="step-list-grid" id="step-list-grid"></div>
+    </div>
+  </div>
+
+  <!-- TOAST NOTIFICATION -->
+  <div class="toast" id="toast">
+    <span id="toast-text">Đã sao chép</span>
+  </div>
+
+  <script>
+    const STEPS = [
+      {
+        title: 'Nhấn <em>"Cho phép"</em>.',
+        desc: 'Trang web đang cố gắng tải về một hồ sơ cấu hình. Bạn có muốn cho phép việc này không?',
+        showDownload: true,
+        visual: 'popup-allow',
+        hint: '👆 Chạm ảnh để phóng to',
+      },
+      {
+        title: 'Mở <em>Cài đặt</em> trên iPhone.',
+        desc: 'Sau khi tải xong, vào ứng dụng Cài đặt (Settings) trên màn hình chính của iPhone.',
+        showDownload: false,
+        visual: 'settings-icon',
+        hint: '⚙️ Biểu tượng Cài đặt bánh răng xám',
+      },
+      {
+        title: 'Nhấn vào <em>"Hồ sơ đã tải"</em>.',
+        desc: 'Ngay đầu trang Cài đặt sẽ xuất hiện thông báo "Hồ sơ đã tải". Nhấn vào đó.',
+        showDownload: false,
+        visual: 'settings-profile',
+        hint: '🔔 Thông báo xuất hiện ngay sau khi tải',
+      },
+      {
+        title: 'Nhấn <em>"Cài đặt"</em> ở góc phải.',
+        desc: 'Trong trang xem trước hồ sơ, nhấn nút "Cài đặt" ở góc trên bên phải.',
+        showDownload: false,
+        visual: 'install-button',
+        hint: '📱 Nút màu xanh ở góc phải trên',
+      },
+      {
+        title: 'Nhập <em>mã PIN</em> của bạn.',
+        desc: 'iPhone sẽ yêu cầu bạn nhập mật mã mở khóa máy để xác nhận cài đặt hồ sơ.',
+        showDownload: false,
+        visual: 'pin-screen',
+        hint: '🔐 Nhập mã PIN điện thoại (không phải Apple ID)',
+      },
+      {
+        title: 'Nhấn <em>"Cài đặt"</em> lần nữa.',
+        desc: 'Xuất hiện cảnh báo "Hồ sơ chưa được ký". Nhấn "Cài đặt" để tiếp tục.',
+        showDownload: false,
+        visual: 'unsigned-warning',
+        hint: '⚠️ Đây là bước hoàn toàn bình thường, không lo ngại',
+      },
+      {
+        title: 'Nhấn <em>"Xong"</em>.',
+        desc: 'Hồ sơ đã được cài đặt thành công. Nhấn "Xong" để đóng cửa sổ cấu hình này.',
+        showDownload: false,
+        visual: 'done-button',
+        hint: '✅ Hồ sơ đã được cài xong',
+      },
+      {
+        title: 'Vào <em>Cài đặt → Cài đặt chung</em>.',
+        desc: 'Quay lại Cài đặt, cuộn xuống và nhấn vào "Cài đặt chung" (General).',
+        showDownload: false,
+        visual: 'general-settings',
+        hint: '⚙️ Cài đặt chung nằm trong danh sách cài đặt',
+      },
+      {
+        title: 'Nhấn vào <em>"VPN và Quản lý thiết bị"</em>.',
+        desc: 'Trong Cài đặt chung, cuộn xuống và tìm mục "VPN và Quản lý thiết bị" (VPN & Device Management).',
+        showDownload: false,
+        visual: 'vpn-menu',
+        hint: '📱 Thường nằm gần cuối danh sách Cài đặt chung',
+      },
+      {
+        title: 'Nhấn vào hồ sơ <em>"LocketProxy CA"</em>.',
+        desc: 'Trong mục Cấu hình hồ sơ, nhấn vào "LocketProxy CA".',
+        showDownload: false,
+        visual: 'locket-profile',
+        hint: '🔑 Hồ sơ bạn vừa tải và cài đặt',
+      },
+      {
+        title: 'Nhấn <em>"Tin cậy"</em>.',
+        desc: 'Nhấn "Tin cậy" để tin tưởng chứng chỉ bảo mật LocketProxy CA.',
+        showDownload: false,
+        visual: 'trust-button',
+        hint: '🔒 Đây là bước quan trọng để kích hoạt Gold',
+      },
+      {
+        title: 'Nhấn <em>"Tiếp tục"</em>.',
+        desc: 'Xác nhận bạn muốn tin tưởng chứng chỉ này trên tất cả các mạng.',
+        showDownload: false,
+        visual: 'continue-button',
+        hint: '✅ Xác nhận tin tưởng chứng chỉ',
+      },
+      {
+        title: 'Vào <em>Cài đặt → Cài đặt chung → Giới thiệu</em>.',
+        desc: 'Quay lại Cài đặt → Cài đặt chung, nhấn vào mục "Giới thiệu" (About) ở đầu danh sách.',
+        showDownload: false,
+        visual: 'about-menu',
+        hint: '📋 Mục "Giới thiệu" ở đầu Cài đặt chung',
+      },
+      {
+        title: 'Nhấn <em>"Tin cậy Chứng chỉ gốc"</em>.',
+        desc: 'Cuộn xuống cuối trang Giới thiệu và nhấn vào "Cài đặt tin cậy Chứng chỉ gốc".',
+        showDownload: false,
+        visual: 'root-cert',
+        hint: '🔐 Nằm ở dòng cuối cùng của trang Giới thiệu',
+      },
+      {
+        title: 'Bật công tắc <em>"LocketProxy CA"</em>.',
+        desc: 'Tìm "LocketProxy CA" trong danh sách và gạt công tắc sang màu xanh lá.',
+        showDownload: false,
+        visual: 'toggle-switch',
+        hint: '🟢 Công tắc phải chuyển sang màu xanh lá',
+      },
+      {
+        title: 'Nhấn <em>"Tiếp tục"</em> để xác nhận.',
+        desc: 'Xuất hiện cảnh báo xác nhận bạn tin tưởng chứng chỉ này. Nhấn "Tiếp tục".',
+        showDownload: false,
+        visual: 'confirm-trust',
+        hint: '⚠️ Xác nhận tin cậy để hoàn tất chứng chỉ',
+      },
+      {
+        title: 'Mở ứng dụng <em>Locket</em>.',
+        desc: 'Vuốt tắt hoàn toàn ứng dụng Locket và mở lại. Nếu thấy giao diện Gold, bạn đã thành công!',
+        showDownload: false,
+        visual: 'open-locket',
+        hint: '🎉 Mở Locket để kiểm tra thành quả',
+      },
+      {
+        title: 'Công tắc <em>"LocketProxy CA"</em> màu xanh là hoàn tất! 🎉',
+        desc: 'Xác nhận rằng công tắc "LocketProxy CA" đã ở trạng thái bật (màu xanh lá). Locket Gold đã được kích hoạt vĩnh viễn!',
+        showDownload: false,
+        visual: 'success-green',
+        hint: '✅ Chúc mừng! Bạn đã hoàn thành 18/18 bước!',
+        isLast: true,
+      },
+    ];
+
+    let currentStep = 0;
+
+    function getVisualHTML(visual, stepIdx) {
+      const visuals = {
+        'popup-allow': `
+      <div style="background:#F3F4F6;padding:50px 16px 20px">
+        <div style="background:white;border-radius:14px;padding:18px 16px 14px;box-shadow:0 4px 16px rgba(0,0,0,0.15)">
+          <div style="font-size:0.85rem;font-weight:700;margin-bottom:8px;line-height:1.4">Trang web này đang cố gắng tải về một hồ sơ cấu hình. Bạn có muốn cho phép việc này không?</div>
+          <div style="display:flex;justify-content:flex-end;gap:12px;border-top:1px solid #E5E7EB;padding-top:12px">
+            <span style="font-size:0.82rem;font-weight:700;color:#3B82F6;padding:4px 8px">Bỏ qua</span>
+            <span style="font-size:0.82rem;font-weight:800;color:#F5A623;border:2px solid #F5A623;padding:4px 14px;border-radius:8px">Cho phép</span>
+          </div>
+        </div>
+      </div>`,
+        'settings-icon': `
+      <div style="background:#F0F0F0;padding:20px;display:grid;grid-template-columns:repeat(4,1fr);gap:12px">
+        ${['⚙️', '📱', '🔒', '📷', '🌐', '📞', '💬', '🎵', '🗓️', '🗺️', '📸', '🎮'].map(e => `<div style="background:white;border-radius:14px;aspect-ratio:1;display:flex;align-items:center;justify-content:center;font-size:1.6rem;box-shadow:0 2px 8px rgba(0,0,0,0.1)">${e}</div>`).join('')}
+      </div>`,
+        'settings-profile': `
+      <div style="background:#F3F4F6;padding:12px">
+        <div style="background:white;border-radius:14px;padding:14px 16px;margin-bottom:12px;border-left:4px solid #F5A623">
+          <div style="font-size:0.72rem;font-weight:800;color:#F5A623;margin-bottom:4px;text-transform:uppercase">Hồ sơ đã tải</div>
+          <div style="font-size:0.85rem;font-weight:700">LocketProxy CA</div>
+          <div style="font-size:0.72rem;color:#6B7280;margin-top:2px">Nhấn để xem và cài đặt</div>
+        </div>
+        ${['Chế độ máy bay', 'Wi-Fi', 'Bluetooth', 'Di động', 'Thông báo'].map(t => `<div style="background:white;border-radius:10px;padding:12px 16px;margin-bottom:6px;font-size:0.85rem;font-weight:700;display:flex;justify-content:space-between;align-items:center">${t}<span style="color:#9CA3AF">›</span></div>`).join('')}
+      </div>`,
+        'install-button': `
+      <div style="background:#F3F4F6;padding:12px">
+        <div style="display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid #E5E7EB;margin-bottom:12px">
+          <span style="font-size:0.88rem;font-weight:700;color:#3B82F6">Hủy</span>
+          <span style="font-size:1rem;font-weight:900">Cài đặt hồ sơ</span>
+          <span style="font-size:0.88rem;font-weight:700;color:#F5A623">Cài đặt</span>
+        </div>
+        <div style="background:white;border-radius:14px;padding:20px 16px;text-align:center">
+          <div style="font-size:2rem;margin-bottom:8px">🔑</div>
+          <div style="font-size:1rem;font-weight:900;margin-bottom:4px">LocketProxy CA</div>
+          <div style="font-size:0.78rem;color:#6B7280">Hồ sơ cấu hình đã ký</div>
+        </div>
+      </div>`,
+        'pin-screen': `
+      <div style="background:#1A1A1A;padding:32px 20px 20px;text-align:center;color:white">
+        <div style="font-size:0.95rem;font-weight:800;margin-bottom:6px">Nhập mã PIN để cài đặt</div>
+        <div style="font-size:0.78rem;color:rgba(255,255,255,0.6);margin-bottom:20px">Nhập mật mã của iPhone</div>
+        <div style="display:flex;justify-content:center;gap:12px;margin-bottom:20px">
+          ${[1, 2, 3, 4, 5, 6].map(i => `<div style="width:12px;height:12px;border-radius:50%;background:${i <= 3 ? 'white' : 'rgba(255,255,255,0.3)'}"></div>`).join('')}
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;max-width:200px;margin:0 auto">
+          ${[1, 2, 3, 4, 5, 6, 7, 8, 9, '', '0', '⌫'].map(d => `<div style="background:rgba(255,255,255,0.15);border-radius:10px;padding:12px;font-size:1rem;font-weight:800">${d}</div>`).join('')}
+        </div>
+      </div>`,
+        'unsigned-warning': `
+      <div style="background:#F3F4F6;padding:12px">
+        <div style="background:#FEF3C7;border:1px solid #F5A623;border-radius:14px;padding:16px;margin-bottom:12px">
+          <div style="font-size:0.82rem;font-weight:700;color:#92400E">⚠️ Hồ sơ chưa được ký<br>Việc cài đặt hồ sơ này giúp chuyển hướng cấu hình Locket. Nhấn Cài đặt để tiếp tục.</div>
+        </div>
+        <div style="background:white;border-radius:14px;padding:14px;text-align:right">
+          <span style="font-size:0.88rem;font-weight:700;color:#3B82F6;margin-right:16px">Hủy</span>
+          <span style="font-size:0.88rem;font-weight:700;color:#F5A623">Cài đặt</span>
+        </div>
+      </div>`,
+        'done-button': `
+      <div style="background:#F3F4F6;padding:12px;text-align:center">
+        <div style="background:white;border-radius:14px;padding:26px 20px;margin-bottom:12px">
+          <div style="font-size:2.5rem;margin-bottom:8px">✅</div>
+          <div style="font-size:1rem;font-weight:900;margin-bottom:4px">Hồ sơ đã được cài đặt</div>
+          <div style="font-size:0.82rem;color:#6B7280">LocketProxy CA</div>
+        </div>
+        <div style="background:#F5A623;color:white;border-radius:100px;padding:12px;font-size:0.92rem;font-weight:800">Xong</div>
+      </div>`,
+        'general-settings': `
+      <div style="background:#F3F4F6;padding:12px">
+        ${['Giới thiệu', 'Cập nhật phần mềm', 'AirDrop', 'AirPlay & Handoff', 'Màn hình & Độ sáng', 'Màn hình chính', 'Trợ năng', 'Nhận diện khuôn mặt & Mã'].map((t, i) => `<div style="background:white;border-radius:10px;padding:11px 16px;margin-bottom:6px;font-size:0.85rem;font-weight:700;display:flex;justify-content:space-between;align-items:center${i === 0 ? ';color:#F5A623' : ''}">${t}<span style="color:#9CA3AF">›</span></div>`).join('')}
+      </div>`,
+        'vpn-menu': `
+      <div style="background:#F3F4F6;padding:12px">
+        ${['Bàn phím', 'Ngôn ngữ & Vùng', 'Từ điển', 'VPN', 'VPN và Quản lý thiết bị', 'Chia sẻ iPhone', 'Mật khẩu & Bảo mật'].map((t, i) => `<div style="background:white;border-radius:10px;padding:11px 16px;margin-bottom:6px;font-size:0.85rem;font-weight:700;display:flex;justify-content:space-between;align-items:center${i === 4 ? ';background:#FEF9EC;border:2px solid #F5A623' : ''}">${t}<span style="color:#9CA3AF">›</span></div>`).join('')}
+      </div>`,
+        'locket-profile': `
+      <div style="background:#F3F4F6;padding:12px">
+        <div style="font-size:0.75rem;font-weight:800;color:#6B7280;margin-bottom:8px;letter-spacing:1px">CẤU HÌNH HỒ SƠ</div>
+        <div style="background:white;border-radius:12px;overflow:hidden">
+          <div style="padding:14px 16px;display:flex;align-items:center;gap:12px;border-left:4px solid #F5A623">
+            <div style="font-size:1.5rem">🔑</div>
+            <div>
+              <div style="font-size:0.92rem;font-weight:800">LocketProxy CA</div>
+              <div style="font-size:0.75rem;color:#6B7280">Hồ sơ cấu hình</div>
+            </div>
+            <span style="margin-left:auto;color:#9CA3AF">›</span>
+          </div>
+        </div>
+      </div>`,
+        'trust-button': `
+      <div style="background:#F3F4F6;padding:12px">
+        <div style="background:white;border-radius:14px;padding:20px 16px;text-align:center;margin-bottom:12px">
+          <div style="font-size:2rem;margin-bottom:8px">🔑</div>
+          <div style="font-size:0.92rem;font-weight:900;margin-bottom:4px">LocketProxy CA</div>
+          <div style="font-size:0.78rem;color:#6B7280;margin-bottom:12px">Chứng chỉ gốc</div>
+          <div style="background:#FEF3C7;border-radius:10px;padding:10px;font-size:0.78rem;color:#92400E;margin-bottom:12px">⚠️ Chứng chỉ này chưa được tin cậy. Bật tin cậy để cho phép HTTPS.</div>
+          <div style="background:#10B981;color:white;border-radius:100px;padding:12px;font-size:0.9rem;font-weight:800">Tin cậy</div>
+        </div>
+      </div>`,
+        'continue-button': `
+      <div style="background:rgba(0,0,0,0.5);padding:70px 18px 18px;display:flex;align-items:flex-end">
+        <div style="background:white;border-radius:16px;padding:18px;width:100%">
+          <div style="font-size:0.9rem;font-weight:700;text-align:center;margin-bottom:8px">Tin cậy Chứng chỉ gốc</div>
+          <div style="font-size:0.78rem;color:#6B7280;text-align:center;margin-bottom:16px;line-height:1.5">Tin cậy "LocketProxy CA" cho các kết nối mạng của Locket.</div>
+          <div style="display:flex;gap:10px">
+            <div style="flex:1;background:#F3F4F6;border-radius:12px;padding:11px;text-align:center;font-size:0.88rem;font-weight:700">Hủy</div>
+            <div style="flex:1;background:#F5A623;color:white;border-radius:12px;padding:11px;text-align:center;font-size:0.88rem;font-weight:800">Tiếp tục</div>
+          </div>
+        </div>
+      </div>`,
+        'about-menu': `
+      <div style="background:#F3F4F6;padding:12px">
+        ${['Giới thiệu', 'Cập nhật phần mềm', 'Tên', 'Tên mạng', 'Bài hát', 'Dung lượng', 'Phiên bản iOS', 'Số model'].map((t, i) => `<div style="background:white;border-radius:10px;padding:11px 16px;margin-bottom:6px;font-size:0.85rem;font-weight:700;display:flex;justify-content:space-between;align-items:center${i === 0 ? ';border:2px solid #F5A623' : ''}">${t}<span style="color:#9CA3AF">›</span></div>`).join('')}
+      </div>`,
+        'root-cert': `
+      <div style="background:#F3F4F6;padding:12px">
+        <div style="background:white;border-radius:14px;padding:16px;margin-bottom:8px">
+          <div style="font-size:0.82rem;font-weight:900;margin-bottom:12px">CÀI ĐẶT TIN CẬY CHỨNG CHỈ GỐC</div>
+          <div style="display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid #F3F4F6">
+            <div>
+              <div style="font-size:0.88rem;font-weight:800">LocketProxy CA</div>
+              <div style="font-size:0.72rem;color:#6B7280">Chứng chỉ gốc</div>
+            </div>
+            <div style="width:48px;height:28px;background:#E5E7EB;border-radius:100px;cursor:pointer"></div>
+          </div>
+        </div>
+      </div>`,
+        'toggle-switch': `
+      <div style="background:#F3F4F6;padding:12px">
+        <div style="background:white;border-radius:14px;padding:16px">
+          <div style="font-size:0.82rem;font-weight:900;margin-bottom:12px;color:#6B7280">CÀI ĐẶT TIN CẬY CHỨNG CHỈ GỐC</div>
+          <div style="display:flex;align-items:center;justify-content:space-between;padding:10px 0">
+            <div>
+              <div style="font-size:0.88rem;font-weight:800">LocketProxy CA</div>
+              <div style="font-size:0.72rem;color:#6B7280">Bật để tin cậy HTTPS</div>
+            </div>
+            <div style="width:52px;height:30px;background:#10B981;border-radius:100px;cursor:pointer;display:flex;align-items:center;justify-content:flex-end;padding-right:2px">
+              <div style="width:26px;height:26px;background:white;border-radius:50%;box-shadow:0 2px 4px rgba(0,0,0,0.2)"></div>
+            </div>
+          </div>
+        </div>
+      </div>`,
+        'confirm-trust': `
+      <div style="background:rgba(0,0,0,0.5);padding:70px 18px 18px;display:flex;align-items:flex-end">
+        <div style="background:white;border-radius:16px;padding:18px;width:100%">
+          <div style="font-size:0.9rem;font-weight:700;text-align:center;margin-bottom:8px">Bật tin cậy cho LocketProxy CA?</div>
+          <div style="font-size:0.78rem;color:#6B7280;text-align:center;margin-bottom:16px;line-height:1.5">Bật tin cậy cho phép chứng chỉ này xác thực máy chủ cấu hình.</div>
+          <div style="display:flex;gap:10px">
+            <div style="flex:1;background:#F3F4F6;border-radius:12px;padding:11px;text-align:center;font-size:0.88rem;font-weight:700">Hủy</div>
+            <div style="flex:1;background:#F5A623;color:white;border-radius:12px;padding:11px;text-align:center;font-size:0.88rem;font-weight:800">Tiếp tục</div>
+          </div>
+        </div>
+      </div>`,
+        'open-locket': `
+      <div style="background:#1A1A1A;padding:24px 20px;text-align:center">
+        <div style="background:linear-gradient(135deg,#FFE5A0,#F5A623);border-radius:22px;width:80px;height:80px;margin:0 auto 12px;display:flex;align-items:center;justify-content:center;font-size:2.2rem;box-shadow:0 8px 24px rgba(245,166,35,0.4)">💛</div>
+        <div style="color:white;font-size:0.92rem;font-weight:800;margin-bottom:4px">Locket</div>
+        <div style="color:rgba(255,255,255,0.6);font-size:0.75rem">Đang mở ứng dụng...</div>
+        <div style="margin-top:20px;height:4px;background:rgba(255,255,255,0.15);border-radius:100px;overflow:hidden">
+          <div style="width:85%;height:100%;background:#F5A623;border-radius:100px"></div>
+        </div>
+      </div>`,
+        'success-green': `
+      <div style="background:#ECFDF5;padding:28px 20px;text-align:center">
+        <div style="font-size:3rem;margin-bottom:12px">🎉</div>
+        <div style="font-size:1.15rem;font-weight:900;color:#065F46;margin-bottom:8px">Đã kích hoạt Gold!</div>
+        <div style="background:white;border-radius:14px;padding:16px;margin-top:12px">
+          <div style="display:flex;align-items:center;justify-content:space-between;padding:8px 0">
+            <div>
+              <div style="font-size:0.88rem;font-weight:800">LocketProxy CA</div>
+              <div style="font-size:0.72rem;color:#10B981;font-weight:700">● Đang hoạt động</div>
+            </div>
+            <div style="width:52px;height:30px;background:#10B981;border-radius:100px;display:flex;align-items:center;justify-content:flex-end;padding-right:2px">
+              <div style="width:26px;height:26px;background:white;border-radius:50%;box-shadow:0 2px 4px rgba(0,0,0,0.2)"></div>
+            </div>
+          </div>
+        </div>
+      </div>`,
+      };
+
+      return visuals[visual] || `<div style="background:#F3F4F6;padding:40px;text-align:center;font-size:2rem">📱</div>`;
+    }
+
+    // BUILD STEP STRIP
+    const stepStripEl = document.getElementById('step-strip');
+    const stepListGridEl = document.getElementById('step-list-grid');
+
+    STEPS.forEach((step, i) => {
+      // Strip pill
+      const pill = document.createElement('div');
+      pill.className = `step-pill ${i === 0 ? 'active' : ''}`;
+      pill.textContent = i + 1;
+      pill.title = `Bước ${i + 1}: ${step.title.replace(/<[^>]+>/g, '')}`;
+      pill.addEventListener('click', () => jumpToStep(i));
+      stepStripEl.appendChild(pill);
+
+      // Drawer item
+      const item = document.createElement('div');
+      item.className = `step-list-item ${i === 0 ? 'active' : ''}`;
+      item.innerHTML = `
+        <div class="step-list-item-num">${i + 1}</div>
+        <div class="step-list-item-text">${step.title.replace(/<[^>]+>/g, '')}</div>
+      `;
+      item.addEventListener('click', () => {
+        jumpToStep(i);
+        closeStepModal();
+      });
+      stepListGridEl.appendChild(item);
+    });
+
+    function jumpToStep(idx) {
+      if (idx < 0 || idx >= STEPS.length) return;
+      currentStep = idx;
+      renderStep(currentStep);
+
+      // Show card if was completed
+      document.getElementById('step-card').style.display = 'block';
+      document.getElementById('complete-section').style.display = 'none';
+      document.getElementById('step-nav').style.display = 'flex';
+
+      // Scroll active pill into view
+      const pills = document.querySelectorAll('.step-pill');
+      pills[idx]?.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+    }
+
+    function renderStep(idx) {
+      const step = STEPS[idx];
+      const total = STEPS.length;
+      const pct = (((idx + 1) / total) * 100).toFixed(2);
+
+      document.getElementById('step-num-label').textContent = `Bước ${idx + 1} / ${total}`;
+      document.getElementById('progress-fill').style.width = pct + '%';
+      document.getElementById('step-title').innerHTML = step.title;
+      document.getElementById('step-desc').textContent = step.desc;
+      document.getElementById('step-hint').innerHTML = `<span class="step-hint-icon">${step.hint.split(' ')[0]}</span><span>${step.hint.split(' ').slice(1).join(' ')}</span>`;
+      
+      const visualHTML = getVisualHTML(step.visual, idx);
+      document.getElementById('step-screenshot').innerHTML = visualHTML;
+
+      // Download profile btn display (step 1 or if flag is true)
+      const downloadBtn = document.getElementById('download-btn');
+      downloadBtn.style.display = step.showDownload ? 'inline-flex' : 'none';
+
+      // Update pills
+      document.querySelectorAll('.step-pill').forEach((pill, i) => {
+        pill.classList.remove('active');
+        if (i < idx) pill.classList.add('completed');
+        else pill.classList.remove('completed');
+        if (i === idx) pill.classList.add('active');
+      });
+
+      // Update drawer items
+      document.querySelectorAll('.step-list-item').forEach((item, i) => {
+        item.classList.toggle('active', i === idx);
+      });
+
+      const backBtn = document.getElementById('btn-back');
+      const nextBtn = document.getElementById('btn-next');
+
+      backBtn.disabled = idx === 0;
+
+      if (step.isLast) {
+        nextBtn.textContent = 'Hoàn tất ✓';
+        nextBtn.className = 'btn-nav-next done';
+      } else {
+        nextBtn.textContent = 'Đã làm xong →';
+        nextBtn.className = 'btn-nav-next';
+      }
+    }
+
+    // NEXT & BACK EVENTS
+    document.getElementById('btn-next').addEventListener('click', () => {
+      if (currentStep >= STEPS.length - 1) {
+        // Complete
+        document.getElementById('step-card').style.display = 'none';
+        document.getElementById('complete-section').style.display = 'block';
+        document.getElementById('step-nav').style.display = 'none';
+        showToast('🎉 Chúc mừng bạn đã hoàn thành cài đặt Locket Gold!');
+      } else {
+        jumpToStep(currentStep + 1);
+      }
+    });
+
+    document.getElementById('btn-back').addEventListener('click', () => {
+      if (currentStep > 0) {
+        jumpToStep(currentStep - 1);
+      }
+    });
+
+    document.getElementById('btn-restart').addEventListener('click', () => {
+      jumpToStep(0);
+    });
+
+    // COPY DNS LINK
+    document.getElementById('btn-copy-dns').addEventListener('click', () => {
+      const dnsUrl = 'https://ctv.nodns.vn/cai-dns';
+      if (navigator.clipboard) {
+        navigator.clipboard.writeText(dnsUrl).then(() => {
+          showToast('📋 Đã sao chép link DNS! Dán vào Safari để tải');
+        }).catch(() => {
+          fallbackCopy(dnsUrl);
+        });
+      } else {
+        fallbackCopy(dnsUrl);
+      }
+    });
+
+    function fallbackCopy(text) {
+      const temp = document.createElement('input');
+      temp.value = text;
+      document.body.appendChild(temp);
+      temp.select();
+      document.execCommand('copy');
+      document.body.removeChild(temp);
+      showToast('📋 Đã sao chép link DNS! Dán vào Safari để tải');
+    }
+
+    // TOAST
+    function showToast(msg) {
+      const toast = document.getElementById('toast');
+      const text = document.getElementById('toast-text');
+      text.textContent = msg;
+      toast.classList.add('show');
+      setTimeout(() => {
+        toast.classList.remove('show');
+      }, 3000);
+    }
+
+    // LIGHTBOX
+    const lightboxOverlay = document.getElementById('lightbox-overlay');
+    const lightboxInner = document.getElementById('lightbox-inner');
+    const lightboxClose = document.getElementById('lightbox-close');
+
+    function openLightbox() {
+      const visualHTML = getVisualHTML(STEPS[currentStep].visual, currentStep);
+      lightboxInner.innerHTML = visualHTML;
+      lightboxOverlay.classList.add('open');
+    }
+
+    function closeLightbox() {
+      lightboxOverlay.classList.remove('open');
+    }
+
+    document.getElementById('step-screenshot').addEventListener('click', openLightbox);
+    document.getElementById('step-hint').addEventListener('click', openLightbox);
+    lightboxClose.addEventListener('click', closeLightbox);
+    lightboxOverlay.addEventListener('click', (e) => {
+      if (e.target === lightboxOverlay) closeLightbox();
+    });
+
+    // STEP DRAWER MODAL
+    const stepModalOverlay = document.getElementById('step-modal-overlay');
+    const btnOpenList = document.getElementById('btn-open-list');
+    const stepModalClose = document.getElementById('step-modal-close');
+
+    function openStepModal() {
+      stepModalOverlay.classList.add('open');
+    }
+
+    function closeStepModal() {
+      stepModalOverlay.classList.remove('open');
+    }
+
+    btnOpenList.addEventListener('click', openStepModal);
+    stepModalClose.addEventListener('click', closeStepModal);
+    stepModalOverlay.addEventListener('click', (e) => {
+      if (e.target === stepModalOverlay) closeStepModal();
+    });
+
+    // KEYBOARD NAVIGATION
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeLightbox();
+        closeStepModal();
+      } else if (e.key === 'ArrowRight' || e.key === ' ') {
+        if (!lightboxOverlay.classList.contains('open') && !stepModalOverlay.classList.contains('open')) {
+          if (e.key === ' ') e.preventDefault();
+          document.getElementById('btn-next').click();
+        }
+      } else if (e.key === 'ArrowLeft') {
+        if (!lightboxOverlay.classList.contains('open') && !stepModalOverlay.classList.contains('open')) {
+          document.getElementById('btn-back').click();
+        }
+      }
+    });
+
+    // TOUCH SWIPE NAVIGATION
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    document.getElementById('step-card').addEventListener('touchstart', (e) => {
+      touchStartX = e.changedTouches[0].screenX;
+    }, { passive: true });
+
+    document.getElementById('step-card').addEventListener('touchend', (e) => {
+      touchEndX = e.changedTouches[0].screenX;
+      handleSwipe();
+    }, { passive: true });
+
+    function handleSwipe() {
+      const diff = touchEndX - touchStartX;
+      if (Math.abs(diff) > 50) {
+        if (diff < 0) {
+          // Swipe left -> Next
+          document.getElementById('btn-next').click();
+        } else {
+          // Swipe right -> Prev
+          document.getElementById('btn-back').click();
+        }
+      }
+    }
+
+    // INIT
+    renderStep(0);
+  </script>
+</body>
+
+</html>

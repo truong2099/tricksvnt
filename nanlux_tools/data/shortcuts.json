@@ -1,0 +1,2465 @@
+[
+  {
+    "id": 4965,
+    "title": "Lịch sử sao chép",
+    "slug": "lich-su-sao-chep",
+    "icon": "https://phimtat.vn/wp-content/uploads/2026/10/Lich-su-sao-chep.png",
+    "category": "Tiện ích nhanh",
+    "categories": [
+      "Tiện ích nhanh"
+    ],
+    "tags": [
+      "Không cần mạng",
+      "Xem thông tin"
+    ],
+    "icloud_url": "https://www.icloud.com/shortcuts/a00e4dfc07ed4fb3b7cab5bb7fe786a1",
+    "excerpt": "✨ Chức năng chính: • Lưu và xem lại 100 đoạn chữ đã copy gần nhất • Chọn một mục để chép lại, chia sẻ hoặc xoá • Không lưu trùng, chỉ lưu trong iCloud của bạn ⚡...",
+    "description": "✨ Chức năng chính:\n\n• Lưu và xem lại 100 đoạn chữ đã copy gần nhất\n\n• Chọn một mục để chép lại, chia sẻ hoặc xoá\n\n• Không lưu trùng, chỉ lưu trong iCloud của bạn\n\n⚡ Cách mở nhanh\n\n• Trung tâm điều khiển (iOS 18+): mở Trung tâm điều khiển → + → Thêm điều khiển → Phím tắt → chọn Lịch sử sao chép\n\n• Chạm vào mặt lưng: Cài đặt → Trợ năng → Cảm ứng → Chạm vào mặt lưng → Chạm hai lần → chọn Lịch sử sao chép\n\n• Màn hình chính: app Phím tắt → giữ vào phím tắt → Chia sẻ → Thêm vào MH chính\n\n📲 Cách dùng\n\nCopy xong thì chạy phím tắt để lưu. Muốn lấy lại đoạn cũ: chạy phím tắt → chọn mục → Chép lại.\n\n⚠️ Lần đầu chạy, iPhone hỏi quyền dán và quyền lưu tệp: chọn Luôn cho phép. Chỉ lưu chữ, không lưu ảnh.",
+    "views": 225,
+    "likes": 55,
+    "downloads": 190,
+    "date": "2026-10-12",
+    "author": "Phím Tắt VN & NanLux",
+    "compatible": "iOS 15 - iOS 18+"
+  },
+  {
+    "id": 4946,
+    "title": "Loa ting ting",
+    "slug": "loa-ting-ting",
+    "icon": "https://phimtat.vn/wp-content/uploads/2026/10/Loa-ting-ting.png",
+    "category": "Âm thanh",
+    "categories": [
+      "Âm thanh",
+      "Cuộc sống"
+    ],
+    "tags": [
+      "Nổi bật",
+      "Tự động hóa"
+    ],
+    "icloud_url": "https://www.icloud.com/shortcuts/52469a31a5e14749a250f8f59e08266e",
+    "excerpt": "Chức năng chính: Có tiền chuyển vào là iPhone kêu “ting ting” rồi đọc to số tiền và tên ngân hàng, ví dụ “Đã nhận 500000 đồng từ MB Bank”. Bạn không cần mở app ...",
+    "description": "Chức năng chính:\n\nCó tiền chuyển vào là iPhone kêu “ting ting” rồi đọc to số tiền và tên ngân hàng, ví dụ “Đã nhận 500000 đồng từ MB Bank”. Bạn không cần mở app ngân hàng hay nhìn màn hình vẫn biết khách đã chuyển khoản.\n\nĐiểm mạnh:\n\n✅ Chỉ báo khi tiền vào. Tiền ra, mã OTP, quảng cáo thì im lặng\n\n✅ Có sẵn: Vietcombank, MB Bank, Techcombank, ACB, VPBank, Sacombank Pay, Cake, Liobank, NCB, HSBC, VietinBank, BIDV, Agribank, TPBank, MoMo, Zalopay\n\n✅ Miễn phí, không cài app lạ, không cần đăng nhập, không gửi dữ liệu đi đâu\n\nNếu cần thêm ngân hàng khác bạn có thể yêu cầu ở group mình sẽ cập nhật phiên bản sau.\n\nHạn chế:\n\n• Phụ thuộc thông báo của app ngân hàng, phải bật thông báo biến động số dư\n\n• Cần iOS 27 trở lên\n\n• Chế độ im lặng có thể làm mất tiếng đọc\n\n• Ngân hàng chưa có sẵn phải tự thêm, và chỉ thêm được app đang cài\n\n• Ngân hàng đổi mẫu thông báo thì có thể không đọc được\n\nHướng dẫn:\n\n– Nhận phím tắt (Hướng dẫn)\n\n– Sau đó bạn vào App Phím tắt và bấm nút Back góc trái\n\n– Bạn bấm vào mục Tự động hóa và bật mục tự động hóa phím tắt Loa ting ting\n\nNếu không muốn dùng nữa hoặc tạm ngừng dùng thì bạn quay lại mục này và tắt Tự động hóa phím tắt này là đc\n\n– Để đảm bảo phím tắt dùng được bạn phải bật thông báo app ngân hàng bạn muốn thông báo (Ví dụ VCB Digibank)\n\n– Bạn vào mục Cài đặt > Thông báo\n\n– Chọn ứng dụng ngân hàng của bạn > Bật thông báo",
+    "views": 372,
+    "likes": 93,
+    "downloads": 259,
+    "date": "2026-10-12",
+    "author": "Phím Tắt VN & NanLux",
+    "compatible": "iOS 15 - iOS 18+"
+  },
+  {
+    "id": 4926,
+    "title": "Gõ mõ tụng kinh",
+    "slug": "go-mo-tung-kinh",
+    "icon": "https://phimtat.vn/wp-content/uploads/2026/09/Go-mo-tung-kinh.png",
+    "category": "Cuộc sống",
+    "categories": [
+      "Cuộc sống",
+      "Tiện ích nhanh"
+    ],
+    "tags": [
+      "Không cần mạng"
+    ],
+    "icloud_url": "https://www.icloud.com/shortcuts/4881ead7ef974fb99482a9627c96b23f",
+    "excerpt": "Phím tắt biến iPhone thành chiếc mõ để bạn gõ mõ, niệm Phật hay tụng kinh mọi lúc mọi nơi. Mỗi tiếng mõ ứng với một chữ và chữ sáng lên theo nhịp, nên dễ tụng t...",
+    "description": "Phím tắt biến iPhone thành chiếc mõ để bạn gõ mõ, niệm Phật hay tụng kinh mọi lúc mọi nơi. Mỗi tiếng mõ ứng với một chữ và chữ sáng lên theo nhịp, nên dễ tụng theo.\n\n✨ Tính năng\n\n• Tự do: chạm vào mõ để gõ, mỗi tiếng được “+1 công đức”.\n\n• Niệm Phật: chọn A Di Đà Phật, Thích Ca, Quán Thế Âm hoặc Dược Sư. Phím tắt đếm số biến và vòng chuỗi 108, đủ 108 biến có tiếng chuông.\n\n• Tâm Kinh: Bát Nhã Tâm Kinh bản Hán Việt, có câu chú và bài Hồi hướng. Chữ tự cuộn theo nhịp mõ.\n\n• Tự gõ: mõ tự gõ đều tay, chỉnh nhịp từ 40 đến 160 tiếng/phút. Có thỉnh chuông trước và sau khi tụng.\n\n• Có nút thỉnh chuông riêng. Tiếng mõ và tiếng chuông được tạo ngay trên máy, không cần mạng.\n\n📲 Cách dùng\n\n• Mở phím tắt, chọn chế độ Tự do, Niệm Phật hoặc Tâm Kinh.\n\n• Chạm vào mõ để gõ, hoặc bấm Tự gõ để mõ gõ theo nhịp.\n\n⚠️ Lưu ý\n\n• Nếu không nghe tiếng, hãy tắt chế độ im lặng và tăng âm lượng.\n\n• Số công đức được tính lại từ đầu mỗi lần mở phím tắt.",
+    "views": 482,
+    "likes": 23,
+    "downloads": 299,
+    "date": "2026-09-25",
+    "author": "Phím Tắt VN & NanLux",
+    "compatible": "iOS 15 - iOS 18+"
+  },
+  {
+    "id": 4937,
+    "title": "Tạo Sticker",
+    "slug": "tao-sticker",
+    "icon": "https://phimtat.vn/wp-content/uploads/2026/09/Tao-Sticker.png",
+    "category": "Hình ảnh",
+    "categories": [
+      "Hình ảnh",
+      "Tiện ích nhanh"
+    ],
+    "tags": [
+      "Chỉnh sửa ảnh",
+      "Không cần mạng"
+    ],
+    "icloud_url": "https://www.icloud.com/shortcuts/54916229b85b430494cd676fa20b66cc",
+    "excerpt": "Tạo Sticker – Xóa nền, thêm viền cho ảnh ngay trên iPhone Biến ảnh bất kỳ thành sticker có viền và đổ bóng như sticker dán. Tất cả chạy trên máy: không cần mạng...",
+    "description": "Tạo Sticker – Xóa nền, thêm viền cho ảnh ngay trên iPhone\n\nBiến ảnh bất kỳ thành sticker có viền và đổ bóng như sticker dán. Tất cả chạy trên máy: không cần mạng, không tải ảnh lên đâu cả.\n\nTính năng\n\n• ✂️ Xóa nền tự động bằng tính năng có sẵn của iPhone, tự cắt sát chủ thể\n\n• 🎨 8 màu viền: trắng, đen, vàng, hồng, xanh dương, xanh lá, đỏ, tím\n\n• 📏 Chỉnh độ dày viền theo %, ảnh to hay nhỏ viền đều cân\n\n• 🌫️ Có thể thêm đổ bóng nhẹ cho sticker nổi khối\n\n• 💾 Làm xong thì Lưu vào Ảnh, Sao chép để dán vào tin nhắn, Lưu vào Tệp hoặc Chia sẻ\n\n• 🖼️ Ảnh xuất ra là PNG nền trong suốt\n\nCách dùng\n\n• Chạy phím tắt rồi chọn ảnh. Hoặc đang xem ảnh thì bấm Chia sẻ → Tạo Sticker.\n\n• Chọn Xóa nền hoặc Giữ nguyên nền.\n\n• Nhập độ dày viền, ví dụ 3 (nhập 0 nếu không cần viền).\n\n• Chọn màu viền và chọn có đổ bóng hay không.\n\n• Xem sticker rồi chọn lưu hoặc chia sẻ.\n\nMẹo\n\n• Ảnh có chủ thể rõ (người, thú cưng, đồ vật) thì xóa nền đẹp nhất.\n\n• Viền trắng dày 3–5% trông giống sticker thật nhất.\n\n• Chọn “Sao chép” rồi dán thẳng vào Messenger, Zalo, iMessage.",
+    "views": 889,
+    "likes": 71,
+    "downloads": 618,
+    "date": "2026-09-24",
+    "author": "Phím Tắt VN & NanLux",
+    "compatible": "iOS 15 - iOS 18+"
+  },
+  {
+    "id": 4929,
+    "title": "Theo dõi bão",
+    "slug": "theo-doi-bao",
+    "icon": "https://phimtat.vn/wp-content/uploads/2026/09/Theo-doi-bao.png",
+    "category": "Cuộc sống",
+    "categories": [
+      "Cuộc sống",
+      "Tiện ích nhanh"
+    ],
+    "tags": [
+      "Xem thông tin"
+    ],
+    "icloud_url": "https://www.icloud.com/shortcuts/92397bb0fb834675bdad99774dc01193",
+    "excerpt": "Phím tắt giúp bạn theo dõi bão và áp thấp nhiệt đới trên Biển Đông ngay trên iPhone: vị trí, cường độ, hướng đi, đường dự báo và khoảng cách tới nơi bạn đang ở....",
+    "description": "Phím tắt giúp bạn theo dõi bão và áp thấp nhiệt đới trên Biển Đông ngay trên iPhone: vị trí, cường độ, hướng đi, đường dự báo và khoảng cách tới nơi bạn đang ở. Dữ liệu cập nhật trực tiếp từ Cơ quan Khí tượng Nhật Bản (JMA), trung tâm khí tượng khu vực phụ trách Tây Bắc Thái Bình Dương và Biển Đông.\n\n✨ Tính năng\n\n• Bản đồ bão trực tiếp: đường đã đi, đường dự báo đến 5 ngày và vùng tâm bão có thể đi vào.\n\n• Cường độ theo cách gọi của Việt Nam: áp thấp nhiệt đới, bão, bão mạnh, bão rất mạnh, siêu bão. Kèm cấp gió, gió giật, áp suất, hướng và tốc độ di chuyển.\n\n• Khoảng cách từ bão tới bạn và thời điểm bão tiến gần bạn nhất.\n\n• Cảnh báo khi bão đang ở trên Biển Đông hoặc được dự báo sẽ đi vào Biển Đông.\n\n• Ảnh mây vệ tinh Himawari (nút ☁︎): vùng mây dông mạnh hiện màu vàng, đỏ.\n\n• Cảnh báo tự động: iPhone gửi thông báo khi có bão trên hoặc gần Biển Đông.\n\n• Giao diện kính mờ kiểu iOS 27, hỗ trợ chế độ tối.\n\n📲 Cách dùng\n\n• Nhận phím tắt (Hướng dẫn).\n\n• Mở phím tắt và cho phép truy cập vị trí để xem khoảng cách từ bão tới bạn.\n\n• Kéo để di chuyển bản đồ. Chụm hai ngón hoặc bấm + / − để phóng to, thu nhỏ. Chạm hai lần để phóng to nhanh. Bấm ⌖ để quay về khu vực Việt Nam.\n\n• Ở mỗi cơn bão, bấm Bản đồ để xem riêng cơn đó, bấm Vệ tinh hoặc Gió để mở ảnh vệ tinh và bản đồ gió quanh bão.\n\n🔔 Bật cảnh báo tự động\n\n• Vào app Phím tắt → Tự động hóa → + → Thời gian trong ngày (ví dụ 7:00; có thể tạo thêm một lần lúc 19:00) → chọn Chạy ngay.\n\n• Thêm tác vụ Văn bản và gõ: canh-bao\n\n• Thêm tác vụ Chạy phím tắt, chọn Theo dõi bão, đặt đầu vào là Văn bản vừa tạo.\n\n• Khi có bão trên hoặc gần Biển Đông, iPhone sẽ gửi thông báo. Không có bão thì phím tắt chạy im lặng.\n\n⚠️ Lưu ý\n\n• Cần kết nối mạng.\n\n• Nguồn dữ liệu: thông tin bão từ JMA; cảnh báo tự động từ GDACS; ảnh mây từ vệ tinh Himawari-9 qua NASA GIBS (cập nhật 10 phút/lần, trễ khoảng 40 phút); bản đồ nền Natural Earth.\n\n• Cấp gió được quy đổi từ số liệu của JMA nên có thể lệch nhẹ so với bản tin trong nước. Áp thấp nhiệt đới yếu có thể chưa có trong dữ liệu.\n\n• Thông tin chỉ để tham khảo. Hãy luôn theo dõi bản tin chính thức của Trung tâm Dự báo Khí tượng Thủy văn quốc gia.",
+    "views": 593,
+    "likes": 62,
+    "downloads": 386,
+    "date": "2026-09-22",
+    "author": "Phím Tắt VN & NanLux",
+    "compatible": "iOS 15 - iOS 18+"
+  },
+  {
+    "id": 4920,
+    "title": "Địa chỉ sau sáp nhập",
+    "slug": "dia-chi-sau-sap-nhap",
+    "icon": "https://phimtat.vn/wp-content/uploads/2026/09/Dia-chi-sau-sap-nhap.png",
+    "category": "Tiện ích nhanh",
+    "categories": [
+      "Tiện ích nhanh"
+    ],
+    "tags": [
+      "Không cần mạng",
+      "Xem thông tin"
+    ],
+    "icloud_url": "https://www.icloud.com/shortcuts/62675d12bb8b473eaa0a85beb3296c8a",
+    "excerpt": "Phím tắt giúp bạn biết ngay phường/xã và tỉnh/thành mới sau sáp nhập của một địa chỉ cũ. Số nhà và tên đường được giữ nguyên, quận/huyện được tự bỏ. ✨ Tính năng...",
+    "description": "Phím tắt giúp bạn biết ngay phường/xã và tỉnh/thành mới sau sáp nhập của một địa chỉ cũ. Số nhà và tên đường được giữ nguyên, quận/huyện được tự bỏ.\n\n✨ Tính năng\n\n• Gõ kiểu gì cũng hiểu: viết tắt (P., Q., TP.), không dấu, thiếu quận/huyện hoặc thiếu tỉnh.\n\n• Kết quả tự sao chép, chỉ việc dán.\n\n• Không cần mạng, địa chỉ không bị gửi đi đâu.\n\n• Có dữ liệu của hơn 10.000 phường/xã cũ trên toàn quốc.\n\n📲 Cách dùng\n\n• Mở phím tắt rồi nhập địa chỉ cũ.\n\n• Hoặc bôi đen địa chỉ trong ứng dụng bất kỳ, bấm Chia sẻ, chọn Địa chỉ sau sáp nhập.\n\n📍 Ví dụ\n\n• 123 Lê Lợi, P. Bến Nghé, Q.1, TP.HCM → 123 Lê Lợi, Phường Sài Gòn, TP. Hồ Chí Minh\n\n• Phường 1, TP Vũng Tàu, Bà Rịa – Vũng Tàu → Phường Vũng Tàu, TP. Hồ Chí Minh\n\n⚠️ Lưu ý\n\n• Nếu xã cũ bị chia cho nhiều xã mới, bạn chọn đúng nơi mình ở.\n\n• Kết quả để tham khảo. Với giấy tờ pháp lý, hãy đối chiếu thêm với thông báo của địa phương.",
+    "views": 260,
+    "likes": 40,
+    "downloads": 125,
+    "date": "2026-09-21",
+    "author": "Phím Tắt VN & NanLux",
+    "compatible": "iOS 15 - iOS 18+"
+  },
+  {
+    "id": 4916,
+    "title": "Đọc số tiền thành chữ",
+    "slug": "doc-so-tien-thanh-chu",
+    "icon": "https://phimtat.vn/wp-content/uploads/2026/09/Doc-so-tien-thanh-chu.png",
+    "category": "Tiện ích nhanh",
+    "categories": [
+      "Tiện ích nhanh",
+      "Tính toán"
+    ],
+    "tags": [
+      "Không cần mạng"
+    ],
+    "icloud_url": "https://www.icloud.com/shortcuts/9954405fbb584f5fb76bcb9c745746c3",
+    "excerpt": "Chức năng chính: Đọc số tiền thành chữ tiếng Việt theo đúng cách viết trên hóa đơn, phiếu thu, ủy nhiệm chi. Giúp kiểm tra nhanh số tiền trước khi chuyển khoản....",
+    "description": "Chức năng chính: Đọc số tiền thành chữ tiếng Việt theo đúng cách viết trên hóa đơn, phiếu thu, ủy nhiệm chi. Giúp kiểm tra nhanh số tiền trước khi chuyển khoản. Không cần mạng.\n\nHướng dẫn:\n\n– Nhận phím tắt (Hướng dẫn)\n\n– Cách 1: Mở phím tắt → nhập số tiền → Sao chép hoặc Đọc to\n\n– Cách 2: Bôi đen đoạn văn bản có số tiền → Chia sẻ → chọn phím tắt này\n\nLưu ý: Tối đa 15 chữ số.",
+    "views": 962,
+    "likes": 83,
+    "downloads": 629,
+    "date": "2026-09-21",
+    "author": "Phím Tắt VN & NanLux",
+    "compatible": "iOS 15 - iOS 18+"
+  },
+  {
+    "id": 4912,
+    "title": "QR chuyển khoản",
+    "slug": "qr-chuyen-khoan",
+    "icon": "https://phimtat.vn/wp-content/uploads/2026/09/QR-chuyen-khoan.png",
+    "category": "Cuộc sống",
+    "categories": [
+      "Cuộc sống",
+      "Mã QR",
+      "Tiện ích nhanh"
+    ],
+    "tags": [],
+    "icloud_url": "https://www.icloud.com/shortcuts/00637eef77da4676bc02b26e61b02307",
+    "excerpt": "Chức năng chính: Tạo mã QR chuyển khoản VietQR cho mọi ngân hàng và ví MoMo, kèm sẵn số tiền và nội dung. Người chuyển chỉ cần quét bằng app ngân hàng bất kỳ. H...",
+    "description": "Chức năng chính: Tạo mã QR chuyển khoản VietQR cho mọi ngân hàng và ví MoMo, kèm sẵn số tiền và nội dung. Người chuyển chỉ cần quét bằng app ngân hàng bất kỳ.\n\nHướng dẫn:\n\n– Nhận phím tắt (Hướng dẫn)\n\n– Lần đầu: chọn ngân hàng, nhập số tài khoản và tên chủ tài khoản. Thông tin chỉ lưu trên máy.\n\n– Lần sau: chọn tài khoản → nhập số tiền → nhập nội dung → đưa mã QR cho khách quét, hoặc chia sẻ / lưu ảnh.\n\n– Mẹo: gắn vào nút Tác vụ hoặc nói “Hey Siri, QR chuyển khoản” để mở nhanh khi bán hàng.\n\nLưu ý: Cần kết nối mạng. Nội dung tối đa khoảng 40 ký tự, tự bỏ dấu.",
+    "views": 814,
+    "likes": 31,
+    "downloads": 513,
+    "date": "2026-09-21",
+    "author": "Phím Tắt VN & NanLux",
+    "compatible": "iOS 15 - iOS 18+"
+  },
+  {
+    "id": 4899,
+    "title": "Mở Google Maps từ ảnh",
+    "slug": "mo-google-maps-tu-anh",
+    "icon": "https://phimtat.vn/wp-content/uploads/2026/08/Mo-Google-Maps-tu-anh.png",
+    "category": "Cuộc sống",
+    "categories": [
+      "Cuộc sống"
+    ],
+    "tags": [
+      "Xem thông tin"
+    ],
+    "icloud_url": "https://www.icloud.com/shortcuts/69e14de60aed4e4596e8970e1eee8a8b",
+    "excerpt": "Chức năng chính: Mở nhanh Google Maps từ ảnh chụp của bạn dựa theo EXIF ảnh thay vì ứng dụng Bản đồ mặc định của iPhone Hướng dẫn: – Nhận phím tắt (Hướng dẫn) –...",
+    "description": "Chức năng chính:\n\nMở nhanh Google Maps từ ảnh chụp của bạn dựa theo EXIF ảnh thay vì ứng dụng Bản đồ mặc định của iPhone\n\nHướng dẫn:\n\n– Nhận phím tắt (Hướng dẫn)\n\n– Cách 1: Nhấn vào phím tắt chọn ảnh cần mở google maps.\n\n–  Cách 2: Vào Ảnh > chọn ảnh muốn mở google maps > Chia sẻ > Chọn phím tắt này",
+    "views": 333,
+    "likes": 52,
+    "downloads": 136,
+    "date": "2026-08-30",
+    "author": "Phím Tắt VN & NanLux",
+    "compatible": "iOS 15 - iOS 18+"
+  },
+  {
+    "id": 4207,
+    "title": "Làm đẹp AI",
+    "slug": "lam-dep",
+    "icon": "https://phimtat.vn/wp-content/uploads/2024/12/Lam-dep-AI.png",
+    "category": "Hình ảnh",
+    "categories": [
+      "Hình ảnh"
+    ],
+    "tags": [
+      "Chỉnh sửa ảnh"
+    ],
+    "icloud_url": "https://www.icloud.com/shortcuts/69a88b5810ab4fc789e0738a329bc43f",
+    "excerpt": "Hình ảnh minh hoạ: Chức năng chính: Làm đẹp ảnh màu da, làm mịn khuôn mặt tự nhiên nhanh chóng không cần vào app chỉnh. Ngoài ra bạn có thể dùng bản web Tại đây...",
+    "description": "Hình ảnh minh hoạ:\n\nChức năng chính:\n\nLàm đẹp ảnh màu da, làm mịn khuôn mặt tự nhiên nhanh chóng không cần vào app chỉnh.\n\nNgoài ra bạn có thể dùng bản web Tại đây\n\nTác giả: Tiến Sato\n\nChungchi365.com\n\nMua chứng chỉ iOS chỉ từ 59K\n\nHLC Store – Chuyên iPhone chất\n\nHướng dẫn:\n\n– Nhận phím tắt (Hướng dẫn)\n\n– Thêm phím tắt vào Màn hình chính (Hướng dẫn)\n\n– Nhấn vào phím tắt này để sử dụng nhé!!",
+    "views": 229,
+    "likes": 81,
+    "downloads": 528,
+    "date": "2026-08-19",
+    "author": "Phím Tắt VN & NanLux",
+    "compatible": "iOS 15 - iOS 18+"
+  },
+  {
+    "id": 4389,
+    "title": "Làm nét ảnh Anime",
+    "slug": "lam-net-anh-anime",
+    "icon": "https://phimtat.vn/wp-content/uploads/2024/11/Lam-net-anh-Anime.png",
+    "category": "Công nghệ AI",
+    "categories": [
+      "Công nghệ AI",
+      "Hình ảnh"
+    ],
+    "tags": [
+      "Chỉnh sửa ảnh",
+      "Nổi bật"
+    ],
+    "icloud_url": "https://www.icloud.com/shortcuts/37b9126253a045fda2edc8a660b6ab85",
+    "excerpt": "Hình ảnh minh họa: Chức năng chính: Công cụ chuyên dụng để làm nét và phóng to ảnh anime, ảnh hoạt hình bị mờ, giúp phục hồi chi tiết và loại bỏ nhiễu nhanh chó...",
+    "description": "Hình ảnh minh họa:\n\nChức năng chính:\n\nCông cụ chuyên dụng để làm nét và phóng to ảnh anime, ảnh hoạt hình bị mờ, giúp phục hồi chi tiết và loại bỏ nhiễu nhanh chóng, mang lại chất lượng hình ảnh sắc nét và rõ ràng.\n\nNgoài ra bạn có thể dùng phiên bản web Tại đây\n\nHướng dẫn:\n\n– Nhận phím tắt (Hướng dẫn)\n\n– Nhấn vào phím tắt chọn ảnh cần làm nét\n\n– Đợi AI xử lý và xem kết quả bấm Xong để lưu vào Album ảnh",
+    "views": 163,
+    "likes": 72,
+    "downloads": 226,
+    "date": "2026-07-26",
+    "author": "Phím Tắt VN & NanLux",
+    "compatible": "iOS 15 - iOS 18+"
+  },
+  {
+    "id": 4868,
+    "title": "Xem & xóa EXIF ảnh",
+    "slug": "xem-xoa-exif-anh",
+    "icon": "https://phimtat.vn/wp-content/uploads/2026/07/Xem-xoa-EXIF-anh.png",
+    "category": "Bảo mật",
+    "categories": [
+      "Bảo mật",
+      "Hình ảnh"
+    ],
+    "tags": [
+      "Không cần mạng",
+      "Xem thông tin"
+    ],
+    "icloud_url": "https://www.icloud.com/shortcuts/5f696af3df204917aa2b730873eda742",
+    "excerpt": "Chức năng chính: Đọc toàn bộ metadata trong ảnh (loại máy, ống kính, khẩu độ, ISO, tốc độ màn trập, ngày giờ chụp) và hiển thị toạ độ GPS nơi bấm máy. Xóa sạch ...",
+    "description": "Chức năng chính:\n\nĐọc toàn bộ metadata trong ảnh (loại máy, ống kính, khẩu độ, ISO, tốc độ màn trập, ngày giờ chụp) và hiển thị toạ độ GPS nơi bấm máy. Xóa sạch EXIF rồi xuất ảnh mới giữ nguyên chất lượng hình, lưu về thư viện hoặc chia sẻ thẳng qua tin nhắn, email. Mọi thao tác chạy hoàn toàn trên máy, không tải ảnh lên bất kỳ máy chủ nào.\n\nPhím tắt xem và xóa EXIF — không dùng mạng, đảm bảo riêng tư. Thực hiện bởi Phím tắt VN.\n\nHướng dẫn:\n\nBấm trực tiếp vào phím tắt rồi chọn ảnh cần kiểm tra, hoặc mở album ảnh (hay ứng dụng Tệp), chọn ảnh, nhấn nút Chia sẻ và chọn phím tắt này trong danh sách. Sau khi chạy, phím tắt hiển thị toàn bộ thông tin EXIF của ảnh; nếu muốn gỡ, chọn xóa để nhận lại ảnh sạch metadata và lưu về thư viện hoặc chia sẻ đi tiếp.\n\nThông tin:\n\nEXIF là khối dữ liệu máy ảnh/điện thoại tự chèn vào mỗi file ảnh: loại máy, ống kính, khẩu độ, ISO, tốc độ màn trập, ngày giờ đến từng giây. Nếu ứng dụng máy ảnh có quyền vị trí, ảnh còn mang kinh độ — vĩ độ chính xác tới vài mét. Mở ảnh bạn chỉ thấy hình vì EXIF nằm ở đầu file, nhưng ai cũng đọc được bằng một trang web hoặc phần mềm miễn phí.\n\nVì sao nên xóa trước khi gửi:\n\n• Lộ nơi ở — một tấm ảnh chụp trong nhà đủ để lộ địa chỉ trên bản đồ.\n\n• Lộ thói quen — ngày giờ nhiều ảnh ghép lại cho thấy bạn thường ở đâu, lúc nào.\n\n• Nối nhiều ảnh về cùng một người — số máy và thông số ống kính giống nhau.\n\n• Rủi ro bán hàng online — ảnh sản phẩm chụp tại nhà lộ địa chỉ kho.\n\n• Mạng xã hội không xóa hộ — nhiều nền tảng gỡ EXIF khi hiển thị công khai, nhưng ảnh gửi dạng file qua tin nhắn, email hay sàn TMĐT thì thường giữ nguyên.",
+    "views": 886,
+    "likes": 29,
+    "downloads": 477,
+    "date": "2026-07-21",
+    "author": "Phím Tắt VN & NanLux",
+    "compatible": "iOS 15 - iOS 18+"
+  },
+  {
+    "id": 2816,
+    "title": "Chuyển video thành âm thanh",
+    "slug": "chuyen-video-thanh-am-thanh",
+    "icon": "https://phimtat.vn/wp-content/uploads/2023/07/Chuyen-video-thanh-am-thanh.png",
+    "category": "Âm thanh",
+    "categories": [
+      "Âm thanh"
+    ],
+    "tags": [
+      "Không cần mạng"
+    ],
+    "icloud_url": "https://www.icloud.com/shortcuts/5eb7afb9574c46aa82f9e86b7415e776",
+    "excerpt": "Chức năng chính: Chuyển đổi định dạng file video (convert) từ mp4 sang dạng âm thanh m4a một cách nhanh chóng Hướng dẫn: – Nhận phím tắt (Hướng dẫn) – Chọn vide...",
+    "description": "Chức năng chính:\n\nChuyển đổi định dạng file video (convert) từ mp4 sang dạng âm thanh m4a một cách nhanh chóng\n\nHướng dẫn:\n\n– Nhận phím tắt (Hướng dẫn)\n\n– Chọn video từ Album ảnh hoặc Tệp => Chia sẻ => chọn phím tắt này\n\n– Bạn cũng có thể nhấn trực tiếp vào phím tắt và chọn video muốn chuyển đổi nhé!\n\n– Đợi cho Phím tắt xử lý là xong",
+    "views": 612,
+    "likes": 48,
+    "downloads": 489,
+    "date": "2026-07-14",
+    "author": "Phím Tắt VN & NanLux",
+    "compatible": "iOS 15 - iOS 18+"
+  },
+  {
+    "id": 4839,
+    "title": "Vòng quay may mắn",
+    "slug": "vong-quay-may-man",
+    "icon": "https://phimtat.vn/wp-content/uploads/2026/07/Vong-quay-may-man.png",
+    "category": "Cuộc sống",
+    "categories": [
+      "Cuộc sống",
+      "Tiện ích nhanh",
+      "Trò chơi"
+    ],
+    "tags": [
+      "Không cần mạng"
+    ],
+    "icloud_url": "https://www.icloud.com/shortcuts/fadf4ead799147738e397a397312708f",
+    "excerpt": "Hình ảnh minh họa: Chức năng chính: Tạo vòng quay may mắn quay ngẫu nhiên giúp bạn đưa ra những quyết định khó khăn hoặc tạo trò chơi may mắn vui vẻ với bạn bè....",
+    "description": "Hình ảnh minh họa:\n\nChức năng chính:\n\nTạo vòng quay may mắn quay ngẫu nhiên giúp bạn đưa ra những quyết định khó khăn hoặc tạo trò chơi may mắn vui vẻ với bạn bè. Bạn có thể chọn mẫu vòng quay hoặc nhập danh sách mục tùy ý. Đặc biệt phím tắt có thể sử dụng không cần mạng giúp bạn có thể dùng mọi lúc mọi nơi.\n\nHướng dẫn:\n\n– Nhận phím tắt (Hướng dẫn)\n\n– Nhấn vào phím tắt để sử dụng bạn có thể nhập danh sách để tạo vòng quay hoặc chọn mẫu có sẵn\n\nLưu ý: Tắt chế độ im lặng để nghe âm thanh vòng xoay\n\nBạn có thể thêm vào màn hình chính để tiện sử dụng vào lần sau: (Hướng dẫn)",
+    "views": 663,
+    "likes": 32,
+    "downloads": 256,
+    "date": "2026-07-10",
+    "author": "Phím Tắt VN & NanLux",
+    "compatible": "iOS 15 - iOS 18+"
+  },
+  {
+    "id": 4828,
+    "title": "Đếm ngược chụp ảnh",
+    "slug": "dem-nguoc-chup-anh",
+    "icon": "https://phimtat.vn/wp-content/uploads/2026/07/Dem-nguoc-chup-anh.png",
+    "category": "Cuộc sống",
+    "categories": [
+      "Cuộc sống",
+      "Hình ảnh",
+      "Tiện ích nhanh"
+    ],
+    "tags": [
+      "Không cần mạng"
+    ],
+    "icloud_url": "https://www.icloud.com/shortcuts/37a369673e4b43c1b74d8b2f7c5ed296",
+    "excerpt": "Chức năng chính: Giúp đếm ngược chụp ảnh trong trường hợp không có người chụp giúp Có thể tuỳ chỉnh số giây đếm ngược và số ảnh tuỳ ý một cách đơn giản và nhanh...",
+    "description": "Chức năng chính:\n\nGiúp đếm ngược chụp ảnh trong trường hợp không có người chụp giúp\n\nCó thể tuỳ chỉnh số giây đếm ngược và số ảnh tuỳ ý một cách đơn giản và nhanh chóng\n\nHướng dẫn:\n\n– Nhận phím tắt (Hướng dẫn)\n\n– Thiết lập Đọc âm thanh hướng dẫn bạn nhập 1 để Bật, hoặc nhập 0 để Tắt\n\n– Bấm vào phím tắt chọn Camera, thời gian đếm ngược và số ảnh chụp theo nhu cầu sử dụng của bạn",
+    "views": 256,
+    "likes": 79,
+    "downloads": 557,
+    "date": "2026-07-09",
+    "author": "Phím Tắt VN & NanLux",
+    "compatible": "iOS 15 - iOS 18+"
+  },
+  {
+    "id": 4813,
+    "title": "Tuỳ biến icon MH chính",
+    "slug": "tuy-bien-icon-mh-chinh",
+    "icon": "https://phimtat.vn/wp-content/uploads/2026/07/Tuy-bien-icon-MH-chinh.png",
+    "category": "Hệ thống",
+    "categories": [
+      "Hệ thống",
+      "Tiện ích nhanh"
+    ],
+    "tags": [
+      "Không cần mạng"
+    ],
+    "icloud_url": "https://www.icloud.com/shortcuts/0cbc28c82f494b72a95dc67550d4c605",
+    "excerpt": "Chức năng chính: Tạo nhanh biểu tượng màn hình chính bằng ảnh của bạn một cách đơn giản và nhanh chóng Hướng dẫn: – Nhận phím tắt (Hướng dẫn) – Tải ảnh icon bạn...",
+    "description": "Chức năng chính:\n\nTạo nhanh biểu tượng màn hình chính bằng ảnh của bạn một cách đơn giản và nhanh chóng\n\nHướng dẫn:\n\n– Nhận phím tắt (Hướng dẫn)\n\n– Tải ảnh icon bạn muốn Có thể tham khảo: Tại đây\n\n– Nhấn vào phím tắt này và nhập tên ứng dụng bạn muốn tạo icon\n\n– Chọn ảnh bạn muốn tạo icon\n\n– Sau đó phím tắt sẽ tạo 1 phím tắt trống bạn bấm vào tác vụ Mở ứng dụng\n\nBạn bấm vào chữ Ứng dụng và chọn ứng dụng tương ứng\n\nVậy là xong thoát ra màn hình chính bạn sẽ thấy kết quả icon tùy chỉnh theo ảnh của bạn",
+    "views": 551,
+    "likes": 74,
+    "downloads": 122,
+    "date": "2026-07-08",
+    "author": "Phím Tắt VN & NanLux",
+    "compatible": "iOS 15 - iOS 18+"
+  },
+  {
+    "id": 4777,
+    "title": "Sổ chi tiêu",
+    "slug": "so-chi-tieu",
+    "icon": "https://phimtat.vn/wp-content/uploads/2026/07/So-chi-tieu.png",
+    "category": "Cuộc sống",
+    "categories": [
+      "Cuộc sống",
+      "Tiện ích nhanh"
+    ],
+    "tags": [
+      "Không cần mạng"
+    ],
+    "icloud_url": "https://www.icloud.com/shortcuts/77825eb53d4a4130bc248398cf2e1c00",
+    "excerpt": "Chức năng chính: Lưu nhanh các khoản chi tiêu hằng ngày và xem thống kê trực quan. Dữ liệu được lưu offline nên bạn có thể dễ dàng xem lại mọi lúc, không cần kế...",
+    "description": "Chức năng chính:\n\nLưu nhanh các khoản chi tiêu hằng ngày và xem thống kê trực quan. Dữ liệu được lưu offline nên bạn có thể dễ dàng xem lại mọi lúc, không cần kết nối mạng, an toàn và bảo mật.\n\nHình ảnh minh họa:\n\nHướng dẫn:\n\n– Nhận phím tắt (Hướng dẫn)\n\n– Nhấn vào phím tắt bấm Thêm chi tiêu và chọn danh mục để ghi chi tiêu\n\n– Để xem thống kê chi tiêu bạn bấm vào phím tắt -> Xem thống kê chi tiêu\n\n \n\nTùy vào hoàn cảnh hoặc sở thích mà bạn muốn chạy phím tắt này bạn có thể thêm vào màn hình chính (Hướng dẫn) hoặc có thể chạy phím tắt bằng các cách sau:\n\nAssistiveTouch: (Hướng dẫn)\n\nChạm vào mặt lưng: (Hướng dẫn)\n\nAction Button Hướng: (Hướng dẫn)",
+    "views": 919,
+    "likes": 81,
+    "downloads": 318,
+    "date": "2026-07-05",
+    "author": "Phím Tắt VN & NanLux",
+    "compatible": "iOS 15 - iOS 18+"
+  },
+  {
+    "id": 4793,
+    "title": "Chuyển video thành Live Photo",
+    "slug": "chuyen-video-thanh-live-photo",
+    "icon": "https://phimtat.vn/wp-content/uploads/2026/07/Chuyen-video-thanh-Live-Photo.png",
+    "category": "Hình ảnh",
+    "categories": [
+      "Hình ảnh",
+      "Tiện ích nhanh",
+      "Video"
+    ],
+    "tags": [
+      "Không cần mạng"
+    ],
+    "icloud_url": "https://www.icloud.com/shortcuts/7e32ad0ddfb24da4bef840cdae46ad9d",
+    "excerpt": "Chức năng chính: Chuyển video thành Live Photo nhanh chóng chạy local tại thiết bị đảm bảo riêng tư bảo mật ảnh. Hướng dẫn: – Nhận phím tắt (Hướng dẫn) – Nhấn v...",
+    "description": "Chức năng chính:\n\nChuyển video thành Live Photo nhanh chóng chạy local tại thiết bị đảm bảo riêng tư bảo mật ảnh.\n\nHướng dẫn:\n\n– Nhận phím tắt (Hướng dẫn)\n\n– Nhấn vào phím tắt chọn video muốn tạo live photo\n\n– Đợi phím tắt xử lý và mở Album ảnh xem kết quả",
+    "views": 661,
+    "likes": 99,
+    "downloads": 162,
+    "date": "2026-07-05",
+    "author": "Phím Tắt VN & NanLux",
+    "compatible": "iOS 15 - iOS 18+"
+  },
+  {
+    "id": 3634,
+    "title": "Bong bóng chat",
+    "slug": "bong-bong-chat",
+    "icon": "https://phimtat.vn/wp-content/uploads/2023/10/Bong-bong-chat.png",
+    "category": "Tiện ích nhanh",
+    "categories": [
+      "Tiện ích nhanh"
+    ],
+    "tags": [
+      "Mạng xã hội"
+    ],
+    "icloud_url": "https://www.icloud.com/shortcuts/dcc7f3b6f4dc4648b576bbbb7673495d",
+    "excerpt": "Lưu ý: Trên một số dòng IOS nếu bàn phímkhông hiển thị hãy khởi động lại máy nhé! Chức năng chính: Dùng bong bóng chat messenger giúp gửi tin nhắn khi đang dùng...",
+    "description": "Lưu ý: Trên một số dòng IOS nếu bàn phímkhông hiển thị hãy khởi động lại máy nhé!\n\nChức năng chính:\n\nDùng bong bóng chat messenger giúp gửi tin nhắn khi đang dùng app khác hoặc đang chơi game không muốn chuyển đa nhiệm\n\nHướng dẫn:\n\n– Nhận phím tắt (Hướng dẫn)\n\n– Để chắc chắn bạn vào https://www.facebook.com/messages bằng safari bật chế độ máy tính và đăng nhập tài khoản facebook trước nhé!!\n\nTải phím tắt tại phimtat.vn để chắc chắn vào đúng web nhé!\n\nMình sẽ không chịu trách nhiệm về tài khoản nếu bạn nhận phím tắt nguồn khác có thể sẽ để trang web giả mạo vào nhé!\n\n– Vào Cài đặt bấm vào ô tìm kiếm\n\nTìm và bật AssistiveTouch\n\n– Bật AssistiveTouch sau đó kéo xuống chọn Bong bóng chat\n\n \n\n– Nhấn vào biểu tượng AssistiveTouch => chọn biểu tượng AA góc phải trên cùng\n\n– Nhấn vào cài đặt trang web => Bật yêu cầu web cho máy tính => Xong\n\n– Ở bước này nếu bạn chưa đăng nhập https://www.facebook.com/messages ở safari thì đăng nhập ở đây cũng được.\n\nVậy là xong khi nào đang dùng app khác mà muốn nhắn tin ai bạn có thể nhấn vào biểu tượng AssistiveTouch để dùng bong bóng chat nhé!!",
+    "views": 278,
+    "likes": 42,
+    "downloads": 651,
+    "date": "2026-05-30",
+    "author": "Phím Tắt VN & NanLux",
+    "compatible": "iOS 15 - iOS 18+"
+  },
+  {
+    "id": 4699,
+    "title": "Kết quả xổ số",
+    "slug": "ket-qua-xo-so",
+    "icon": "https://phimtat.vn/wp-content/uploads/2026/05/Ket-qua-xo-so.png",
+    "category": "Cuộc sống",
+    "categories": [
+      "Cuộc sống",
+      "Tiện ích nhanh"
+    ],
+    "tags": [
+      "Xem thông tin"
+    ],
+    "icloud_url": "https://www.icloud.com/shortcuts/be57c23158dc4f70bb359e8bdc070505",
+    "excerpt": "Chức năng chính: Xem nhanh Kết quả sổ xố nhanh chóng chỉ với 1 nút bấm, giao diện đơn giản dễ sử dụng Hướng dẫn: – Nhận phím tắt (Hướng dẫn) Tùy vào hoàn cảnh h...",
+    "description": "Chức năng chính:\n\nXem nhanh Kết quả sổ xố nhanh chóng chỉ với 1 nút bấm, giao diện đơn giản dễ sử dụng\n\nHướng dẫn:\n\n– Nhận phím tắt (Hướng dẫn)\n\nTùy vào hoàn cảnh hoặc sở thích mà bạn muốn chạy phím tắt này bạn có thể thêm vào màn hình chính (Hướng dẫn) hoặc có thể chạy phím tắt bằng các cách sau:\n\nAssistiveTouch: (Hướng dẫn)\n\nChạm vào mặt lưng: (Hướng dẫn)\n\nAction Button Hướng: (Hướng dẫn)",
+    "views": 583,
+    "likes": 17,
+    "downloads": 536,
+    "date": "2026-05-04",
+    "author": "Phím Tắt VN & NanLux",
+    "compatible": "iOS 15 - iOS 18+"
+  },
+  {
+    "id": 4694,
+    "title": "Giá xăng",
+    "slug": "gia-xang",
+    "icon": "https://phimtat.vn/wp-content/uploads/2026/05/Gia-xang.png",
+    "category": "Tiện ích nhanh",
+    "categories": [
+      "Tiện ích nhanh"
+    ],
+    "tags": [
+      "Xem thông tin"
+    ],
+    "icloud_url": "https://www.icloud.com/shortcuts/0e2af478b45640a6a9c35c58e2d1de4e",
+    "excerpt": "Chức năng chính: Xem nhanh giá xăng Petrolimex Việt Nam chỉ với 1 nút bấm Hướng dẫn: – Nhận phím tắt (Hướng dẫn) Tùy vào hoàn cảnh hoặc sở thích mà bạn muốn chạ...",
+    "description": "Chức năng chính:\n\nXem nhanh giá xăng Petrolimex Việt Nam chỉ với 1 nút bấm\n\nHướng dẫn:\n\n– Nhận phím tắt (Hướng dẫn)\n\nTùy vào hoàn cảnh hoặc sở thích mà bạn muốn chạy phím tắt này bạn có thể thêm vào màn hình chính (Hướng dẫn) hoặc có thể chạy phím tắt bằng các cách sau:\n\nAssistiveTouch: (Hướng dẫn)\n\nChạm vào mặt lưng: (Hướng dẫn)\n\nAction Button Hướng: (Hướng dẫn)",
+    "views": 398,
+    "likes": 47,
+    "downloads": 391,
+    "date": "2026-05-04",
+    "author": "Phím Tắt VN & NanLux",
+    "compatible": "iOS 15 - iOS 18+"
+  },
+  {
+    "id": 3085,
+    "title": "Công cụ làm ảnh thẻ",
+    "slug": "cong-cu-lam-anh-the",
+    "icon": "https://phimtat.vn/wp-content/uploads/2023/08/Cong-cu-lam-anh-the.png",
+    "category": "Hình ảnh",
+    "categories": [
+      "Hình ảnh",
+      "Tiện ích nhanh"
+    ],
+    "tags": [
+      "Chỉnh sửa ảnh",
+      "Không cần mạng"
+    ],
+    "icloud_url": "https://www.icloud.com/shortcuts/26a40b59a87140cbaa94373dd3041a1c",
+    "excerpt": "Hình ảnh minh họa: Chức năng chính: Phím tắt giúp tạo ảnh thẻ đơn giản và nhanh chóng nếu bạn gặp trường hợp khẩn cấp cần ảnh thẻ ngay để chèn vào CV hoặc Profi...",
+    "description": "Hình ảnh minh họa:\n\nChức năng chính:\n\nPhím tắt giúp tạo ảnh thẻ đơn giản và nhanh chóng nếu bạn gặp trường hợp khẩn cấp cần ảnh thẻ ngay để chèn vào CV hoặc Profile nhưng không thể ra tiệm photocopy để chụp ảnh thẻ.\n\nNgoài ra bạn cũng có thể dùng phiên bản web Tại đây\n\nHướng dẫn:\n\nBạn cần một ảnh chụp chân dung giống ảnh thẻ (có thể chụp tại nhà), phím tắt sẽ tách nền và chèn vào nền xanh có sẵn.\n\nBấm trực tiếp vào phím tắt -> Chọn ảnh chân dung của bạn => Chọn tỷ lệ khung ảnh thẻ,… => Căn chỉnh cho phù hợp chân dung với nền => Ảnh sẽ được lưu về máy của bạn.",
+    "views": 365,
+    "likes": 30,
+    "downloads": 230,
+    "date": "2026-03-20",
+    "author": "Phím Tắt VN & NanLux",
+    "compatible": "iOS 15 - iOS 18+"
+  },
+  {
+    "id": 3104,
+    "title": "Dịch màn hình",
+    "slug": "dich-man-hinh",
+    "icon": "https://phimtat.vn/wp-content/uploads/2026/02/Dich-man-hinh.png",
+    "category": "Hình ảnh",
+    "categories": [
+      "Hình ảnh",
+      "Học tập",
+      "Tiện ích nhanh",
+      "Văn bản"
+    ],
+    "tags": [
+      "Nổi bật",
+      "Xem thông tin"
+    ],
+    "icloud_url": "https://www.icloud.com/shortcuts/ccb4eaf3fc624d9fa2746f865d3bfc7b",
+    "excerpt": "Chức năng chính: Dịch trên màn hình (Dịch màn hình) dịch văn bản ngay trên màn hình, Dịch mọi lúc, mọi nơi, ngay cả khi bạn đang lướt web, chơi game Hướng dẫn: ...",
+    "description": "Chức năng chính:\n\nDịch trên màn hình (Dịch màn hình) dịch văn bản ngay trên màn hình, Dịch mọi lúc, mọi nơi, ngay cả khi bạn đang lướt web, chơi game\n\nHướng dẫn:\n\n– Nhận phím tắt (Hướng dẫn)\n\nCó 3 tùy chọn để chạy phím tắt bạn có thể thử 1 trong 3 cách sau nhé!\n\nAssistive Touch\n\nChạm vào mặt lưng\n\nAction Button\n\nVào Cài đặt => Tìm AssistiveTouch\n\nChọn cài đặt AssistiveTouch\n\nBật lên nhé và chọn cài đặt chạm một lần hoặc 2 hoặc 3 lần tùy ý bạn nhé!\n\nSau đó kéo xuống chọn phím tắt Dịch màn hình\n\nVào Cài đặt => Tìm Mặt sau\n\nKéo xuống dưới và chọn Chạm vào mặt sau\n\nChọn chạm hai lần hoặc ba lần tùy ý bạn muốn\n\nSau đó kéo xuống chọn phím tắt Dịch màn hình\n\nVào Cài đặt => Chọn cài đặt Nút Tác vụ\n\nChọn tác vụ phím tắt và chọn phím tắt Dịch màn hình",
+    "views": 218,
+    "likes": 87,
+    "downloads": 161,
+    "date": "2026-02-25",
+    "author": "Phím Tắt VN & NanLux",
+    "compatible": "iOS 15 - iOS 18+"
+  },
+  {
+    "id": 4668,
+    "title": "Giá vàng",
+    "slug": "gia-vang",
+    "icon": "https://phimtat.vn/wp-content/uploads/2026/01/Gia-vang.png",
+    "category": "Tiện ích nhanh",
+    "categories": [
+      "Tiện ích nhanh"
+    ],
+    "tags": [
+      "Xem thông tin"
+    ],
+    "icloud_url": "https://www.icloud.com/shortcuts/a8c9d3e40c8c4971bad79b923cc45a02",
+    "excerpt": "Chức năng chính: Xem nhanh giá vàng thế giới và Việt Nam chỉ với 1 nút bấm Hướng dẫn: – Nhận phím tắt (Hướng dẫn) Tùy vào hoàn cảnh hoặc sở thích mà bạn muốn ch...",
+    "description": "Chức năng chính:\n\nXem nhanh giá vàng thế giới và Việt Nam chỉ với 1 nút bấm\n\nHướng dẫn:\n\n– Nhận phím tắt (Hướng dẫn)\n\nTùy vào hoàn cảnh hoặc sở thích mà bạn muốn chạy phím tắt này bạn có thể thêm vào màn hình chính (Hướng dẫn) hoặc có thể chạy phím tắt bằng các cách sau:\n\nAssistiveTouch: (Hướng dẫn)\n\nChạm vào mặt lưng: (Hướng dẫn)\n\nAction Button Hướng: (Hướng dẫn)",
+    "views": 286,
+    "likes": 89,
+    "downloads": 257,
+    "date": "2026-01-31",
+    "author": "Phím Tắt VN & NanLux",
+    "compatible": "iOS 15 - iOS 18+"
+  },
+  {
+    "id": 104,
+    "title": "Chế độ sạc nhanh",
+    "slug": "che-do-sac-nhanh",
+    "icon": "https://phimtat.vn/wp-content/uploads/2023/06/phim-tat-fast.png",
+    "category": "Hệ thống",
+    "categories": [
+      "Hệ thống"
+    ],
+    "tags": [
+      "Không cần mạng",
+      "Nổi bật",
+      "Pin"
+    ],
+    "icloud_url": "https://www.icloud.com/shortcuts/3331bfc6177149499081a40ebbf452a3",
+    "excerpt": "Chức năng chính: Giúp bật/tắt chế độ sạc nhanh cho iphone hỗ trợ sạc nhanh iphone hơn bằng cách tắt nhanh wifi, dữ liệu 4g, bluetooth, giảm độ sáng màn hình. Hư...",
+    "description": "Chức năng chính:\n\nGiúp bật/tắt chế độ sạc nhanh cho iphone hỗ trợ sạc nhanh iphone hơn bằng cách tắt nhanh wifi, dữ liệu 4g, bluetooth, giảm độ sáng màn hình.\n\nHướng dẫn:\n\nBước 1: Nhấn vào phím tắt Chế độ sạc nhanh và chọn chế độ Tối ưu sạc để sạc điện thoại nhanh hơn\n\nBước 2: Khi sạc xong các bạn bấm lại vào phím tắt Chế độ sạc nhanh chọn lại chế độ bình thường để sử dụng lại iphone bình thường nhé!\n\nChúc các bạn thành công!",
+    "views": 568,
+    "likes": 37,
+    "downloads": 581,
+    "date": "2026-01-08",
+    "author": "Phím Tắt VN & NanLux",
+    "compatible": "iOS 15 - iOS 18+"
+  },
+  {
+    "id": 4643,
+    "title": "Tạo nhạc chuông",
+    "slug": "tao-nhac-chuong",
+    "icon": "https://phimtat.vn/wp-content/uploads/2025/12/Tao-nhac-chuong.png",
+    "category": "Âm thanh",
+    "categories": [
+      "Âm thanh"
+    ],
+    "tags": [],
+    "icloud_url": "https://www.icloud.com/shortcuts/d491d03bda93497daf0f923f0b0d81c0",
+    "excerpt": "Chức năng chính: Cắt nhạc hoặc video thành đoạn nhạc chuông 30 giây để cài đặt trên iOS 26 trở lên, với giao diện trực quan cho phép nghe thử và chọn chính xác ...",
+    "description": "Chức năng chính:\n\nCắt nhạc hoặc video thành đoạn nhạc chuông 30 giây để cài đặt trên iOS 26 trở lên, với giao diện trực quan cho phép nghe thử và chọn chính xác đoạn âm thanh bạn muốn sử dụng.\n\nHướng dẫn:\n\n– Nhận phím tắt (Hướng dẫn)\n\n– Bấm vào phím tắt này và chọn file âm thanh muốn cắt làm nhạc chuông\n\n– Chọn vùng 30 giây muốn cắt làm nhạc và bấm Xuất Audio đã cắt\n\n– Bấm chia sẻ làm nhạc chuông  > Sử dụng làm nhạc chuông (chỉ có trên IOS 26 trở lên)",
+    "views": 211,
+    "likes": 49,
+    "downloads": 152,
+    "date": "2025-12-14",
+    "author": "Phím Tắt VN & NanLux",
+    "compatible": "iOS 15 - iOS 18+"
+  },
+  {
+    "id": 4612,
+    "title": "Google Dịch Camera",
+    "slug": "google-dich-camera",
+    "icon": "https://phimtat.vn/wp-content/uploads/2025/10/Google-Dich-Camera.png",
+    "category": "Tiện ích nhanh",
+    "categories": [
+      "Tiện ích nhanh",
+      "Văn bản"
+    ],
+    "tags": [],
+    "icloud_url": "https://www.icloud.com/shortcuts/a6bed647f5ad479ea061a044ac61ff1c",
+    "excerpt": "Chức năng chính: Mở nhanh tính năng Google Dịch Camera của Google dịch với 1 nút nhấn Hướng dẫn: – Nhận phím tắt (Hướng dẫn) Tùy vào hoàn cảnh hoặc sở thích mà ...",
+    "description": "Chức năng chính:\n\nMở nhanh tính năng Google Dịch Camera của Google dịch với 1 nút nhấn\n\nHướng dẫn:\n\n– Nhận phím tắt (Hướng dẫn)\n\nTùy vào hoàn cảnh hoặc sở thích mà bạn muốn chạy phím tắt này bạn có thể thêm vào màn hình chính (Hướng dẫn) hoặc có thể chạy phím tắt bằng các cách sau:\n\nAssistiveTouch: (Hướng dẫn)\n\nChạm vào mặt lưng: (Hướng dẫn)\n\nAction Button Hướng: (Hướng dẫn)",
+    "views": 764,
+    "likes": 26,
+    "downloads": 493,
+    "date": "2025-10-08",
+    "author": "Phím Tắt VN & NanLux",
+    "compatible": "iOS 15 - iOS 18+"
+  },
+  {
+    "id": 3705,
+    "title": "Action Button++",
+    "slug": "action-button-2",
+    "icon": "https://phimtat.vn/wp-content/uploads/2023/11/Action-Button.png",
+    "category": "Cuộc sống",
+    "categories": [
+      "Cuộc sống",
+      "Hệ thống",
+      "Tiện ích nhanh"
+    ],
+    "tags": [
+      "Không cần mạng",
+      "Nổi bật"
+    ],
+    "icloud_url": "https://www.icloud.com/shortcuts/9e88e5a280b4427ea945f3090932d1d6",
+    "excerpt": "Hình ảnh minh họa: Chức năng chính: Giúp vào truy cập nhiều chức năng hơn cho phím Action Button trên iPhone 15 trở lên. Hoặc có thể dùng “Action Button” cho cá...",
+    "description": "Hình ảnh minh họa:\n\nChức năng chính:\n\nGiúp vào truy cập nhiều chức năng hơn cho phím Action Button trên iPhone 15 trở lên. Hoặc có thể dùng “Action Button” cho các dòng iPhone thấp hơn bằng cách gán vào AssistiveTouch hoặc Chạm vào mặt lưng.\n\nHướng dẫn:\n\n– Nhận phím tắt (Hướng dẫn)\n\nTùy vào hoàn cảnh hoặc sở thích mà bạn muốn chạy phím tắt này bạn có thể thêm vào màn hình chính (Hướng dẫn) hoặc có thể chạy phím tắt bằng các cách sau:\n\nAssistiveTouch: (Hướng dẫn)\n\nChạm vào mặt lưng: (Hướng dẫn)\n\nAction Button Hướng: (Hướng dẫn)\n\nHướng dẫn tùy chỉnh:\n\nVào phím tắt => Nhấn vào dấu ba chấm ở phím tắt này\n\nBạn kéo xuống phần Từ điển và xóa hoặc di chuyển các dữ năng theo ý muốn nhé!",
+    "views": 355,
+    "likes": 15,
+    "downloads": 230,
+    "date": "2025-06-22",
+    "author": "Phím Tắt VN & NanLux",
+    "compatible": "iOS 15 - iOS 18+"
+  },
+  {
+    "id": 4498,
+    "title": "Làm nét ảnh AI (v2)",
+    "slug": "lam-net-anh-ai-v2",
+    "icon": "https://phimtat.vn/wp-content/uploads/2025/02/Lam-net-anh-AI-v2.png",
+    "category": "Công nghệ AI",
+    "categories": [
+      "Công nghệ AI",
+      "Hình ảnh"
+    ],
+    "tags": [
+      "Chỉnh sửa ảnh"
+    ],
+    "icloud_url": "https://www.icloud.com/shortcuts/95c8a48d52d043a8a5b0297e9e02524c",
+    "excerpt": "Chức năng chính: Làm nét ảnh bằng AI nhanh chóng với công nghệ AI, làm nét và cải thiện hình ảnh nhòe vỡ nhanh chóng và đặc biệt miễn phí, không có quảng cáo mỗ...",
+    "description": "Chức năng chính:\n\nLàm nét ảnh bằng AI nhanh chóng với công nghệ AI, làm nét và cải thiện hình ảnh nhòe vỡ nhanh chóng và đặc biệt miễn phí, không có quảng cáo mỗi lần sử dụng.\n\nHướng dẫn:\n\n– Nhận phím tắt (Hướng dẫn)\n\nCách 1: Vào Album ảnh chọn ảnh cần làm nét > Chia sẻ > Chọn phím tắt này\n\nCách 2: Bấm vào phím tắt này > Chọn ảnh cần làm nét",
+    "views": 796,
+    "likes": 64,
+    "downloads": 287,
+    "date": "2025-04-25",
+    "author": "Phím Tắt VN & NanLux",
+    "compatible": "iOS 15 - iOS 18+"
+  },
+  {
+    "id": 4535,
+    "title": "Thời tiết trong lịch",
+    "slug": "thoi-tiet-trong-lich",
+    "icon": "https://phimtat.vn/wp-content/uploads/2025/04/Thoi-tiet-trong-lich.png",
+    "category": "Cuộc sống",
+    "categories": [
+      "Cuộc sống"
+    ],
+    "tags": [],
+    "icloud_url": "https://www.icloud.com/shortcuts/767e6877982042b88724f4532dc0e9d6",
+    "excerpt": "Chức năng chính: Thêm dự báo thời tiết các tỉnh thành Việt Nam vào ứng dụng Lịch mặc định của iPhone hoặc Ipad, Macbook Hướng dẫn: – Nhận phím tắt (Hướng dẫn) –...",
+    "description": "Chức năng chính:\n\nThêm dự báo thời tiết các tỉnh thành Việt Nam vào ứng dụng Lịch mặc định của iPhone hoặc Ipad, Macbook\n\nHướng dẫn:\n\n– Nhận phím tắt (Hướng dẫn)\n\n– Nhấn vào phím tắt chọn Tỉnh hoặc thành phố và hiển thị độ C hay độ F bạn muốn thêm\n\n– Tiếp theo bạn nhấn nút Đăng ký và nhấn Thêm\n\nVậy là xong bạn cũng có thể thêm widget và màn hình chính hoặc vào trực tiếp app Lịch để xem thời tiết nhé",
+    "views": 465,
+    "likes": 70,
+    "downloads": 120,
+    "date": "2025-04-04",
+    "author": "Phím Tắt VN & NanLux",
+    "compatible": "iOS 15 - iOS 18+"
+  },
+  {
+    "id": 3813,
+    "title": "Meme ngẫu nhiên",
+    "slug": "meme-ngau-nhien",
+    "icon": "https://phimtat.vn/wp-content/uploads/2023/12/Meme-ngau-nhien.png",
+    "category": "Hình ảnh",
+    "categories": [
+      "Hình ảnh"
+    ],
+    "tags": [],
+    "icloud_url": "https://www.icloud.com/shortcuts/75186993b5d64723b05b32d5b97a701f",
+    "excerpt": "Hình ảnh minh họa: Chức năng chính: Tải meme ngẫu nhiên chỉ với một lần nhấn, có thể sao chép ảnh hoặc lưu để thuận tiện để gửi meme cho bạn bè. Hướng dẫn: – Nh...",
+    "description": "Hình ảnh minh họa:\n\nChức năng chính:\n\nTải meme ngẫu nhiên chỉ với một lần nhấn, có thể sao chép ảnh hoặc lưu để thuận tiện để gửi meme cho bạn bè.\n\nHướng dẫn:\n\n– Nhận phím tắt (Hướng dẫn)\n\n– Thêm phím tắt vào màn hình chính (Hướng dẫn)\n\n– Nhấn vào phím tắt để sử dụng",
+    "views": 951,
+    "likes": 89,
+    "downloads": 262,
+    "date": "2025-03-12",
+    "author": "Phím Tắt VN & NanLux",
+    "compatible": "iOS 15 - iOS 18+"
+  },
+  {
+    "id": 3911,
+    "title": "Face Swap AI",
+    "slug": "face-swap-ai",
+    "icon": "https://phimtat.vn/wp-content/uploads/2024/02/SwapFace-AI.png",
+    "category": "Công nghệ AI",
+    "categories": [
+      "Công nghệ AI",
+      "Hình ảnh"
+    ],
+    "tags": [],
+    "icloud_url": "https://www.icloud.com/shortcuts/4815841c2d604fe0950fa723bd7a8f4d",
+    "excerpt": "Hình ảnh minh họa: Chức năng chính: Với công cụ AI này bạn có thể ghép mặt của bạn vào các diễn viên nổi tiếng, idol Hàn Quốc để sống ảo, hoặc ghép mặt và ảnh p...",
+    "description": "Hình ảnh minh họa:\n\nChức năng chính:\n\nVới công cụ AI này bạn có thể ghép mặt của bạn vào các diễn viên nổi tiếng, idol Hàn Quốc để sống ảo, hoặc ghép mặt và ảnh profile, ảnh thẻ để làm CV mà không cần tốn tiền thuê trang phục chụp ảnh. Bạn có thể ghép mặt nhanh chóng mà không cần phải biết sử dụng phần mềm nào!\n\nHướng dẫn:\n\n– Nhận phím tắt (Hướng dẫn)\n\n– Nhấn vào phím tắt và chọn ảnh gốc muốn ghép và ảnh có khuôn mặt của bạn cần ghép (Nếu ảnh có 2 hoặc nhiều người thì hãy cắt ra khuôn mặt mà bạn muốn ghép nhé!!)\n\n– Sau đó chọn kiểu mà bạn muốn tạo\n\n– Đợi khoảng 1 phút cho AI xử lý và xem kết quả nhé!!\n\nThay đổi khuôn mặt bằng AI (Face Swap)",
+    "views": 327,
+    "likes": 33,
+    "downloads": 624,
+    "date": "2025-01-21",
+    "author": "Phím Tắt VN & NanLux",
+    "compatible": "iOS 15 - iOS 18+"
+  },
+  {
+    "id": 4509,
+    "title": "Mã hóa SĐT",
+    "slug": "ma-hoa-sdt",
+    "icon": "https://phimtat.vn/wp-content/uploads/2025/03/Ma-hoa-SDT-1.png",
+    "category": "Bảo mật",
+    "categories": [
+      "Bảo mật",
+      "Cuộc sống",
+      "Tiện ích nhanh"
+    ],
+    "tags": [
+      "Không cần mạng"
+    ],
+    "icloud_url": "https://www.icloud.com/shortcuts/c6382c55dbba4d2daf4bb6188dd00f55",
+    "excerpt": "Hình ảnh minh họa: Chức năng chính: Mã hóa số điện thoại ví dụ “0123456789” thành “0️⃣ một’s 2️⃣ Ba Four Năm 7️⃣ tám’s Chín” giúp mọi người có thể chia sẻ sđt q...",
+    "description": "Hình ảnh minh họa:\n\nChức năng chính:\n\nMã hóa số điện thoại ví dụ “0123456789” thành “0️⃣ một’s 2️⃣ Ba Four Năm 7️⃣ tám’s Chín” giúp mọi người có thể chia sẻ sđt qua các nền tảng không cho gửi.\n\nPhím tắt hoặc động offline đảm bảo giữ riêng tư số điện thoại của người dùng\n\nHướng dẫn:\n\n– Nhận phím tắt (Hướng dẫn)\n\n– Nhấn vào phím tắt và nhập số điện thoại cần mã hóa\n\n– Sao chép mục kết quả nào bạn muốn",
+    "views": 353,
+    "likes": 17,
+    "downloads": 606,
+    "date": "2025-01-10",
+    "author": "Phím Tắt VN & NanLux",
+    "compatible": "iOS 15 - iOS 18+"
+  },
+  {
+    "id": 75,
+    "title": "Tải toàn bộ ảnh của một trang web",
+    "slug": "tai-toan-bo-anh-cua-mot-trang-web",
+    "icon": "https://phimtat.vn/wp-content/uploads/2023/06/6.png",
+    "category": "Hình ảnh",
+    "categories": [
+      "Hình ảnh"
+    ],
+    "tags": [],
+    "icloud_url": "https://www.icloud.com/shortcuts/68cadb1895e24f8db75079ca2587b1ed",
+    "excerpt": "Chức năng chính: Lưu toàn bộ hình ảnh của một trang web một cách nhanh chóng thanh vì tải từng ảnh. Sử dụng local không xử lý qua máy chủ trung gian nên mọi ngư...",
+    "description": "Chức năng chính:\n\nLưu toàn bộ hình ảnh của một trang web một cách nhanh chóng thanh vì tải từng ảnh. Sử dụng local không xử lý qua máy chủ trung gian nên mọi người yên tâm về bảo mật nhé!\n\nHướng dẫn:\n\n– Vào trình duyệt safari nhấn chia sẻ và chọn phím tắt trên\n\n– Bấm chọn những ảnh bạn muốn tải về\n\nChúc các bạn thành công!",
+    "views": 345,
+    "likes": 40,
+    "downloads": 360,
+    "date": "2025-01-05",
+    "author": "Phím Tắt VN & NanLux",
+    "compatible": "iOS 15 - iOS 18+"
+  },
+  {
+    "id": 2730,
+    "title": "Mockup thiết bị Apple",
+    "slug": "mockup-thiet-bi-apple",
+    "icon": "https://phimtat.vn/wp-content/uploads/2023/07/Mockup-thiet-bi-Apple.png",
+    "category": "Hình ảnh",
+    "categories": [
+      "Hình ảnh",
+      "Tiện ích nhanh"
+    ],
+    "tags": [
+      "Chỉnh sửa ảnh",
+      "Nổi bật"
+    ],
+    "icloud_url": "https://www.icloud.com/shortcuts/af26f16c104a429dbd75d727169e9019",
+    "excerpt": "Hình ảnh minh hoạ:   Chức năng chính: Ghép ảnh chụp màn hình vào khung iPhone, iPad, iMac, Apple Watch, Apple Display, Apple TV để dùng vào nhiều mục đích khác ...",
+    "description": "Hình ảnh minh hoạ:\n\n \n\nChức năng chính:\n\nGhép ảnh chụp màn hình vào khung iPhone, iPad, iMac, Apple Watch, Apple Display, Apple TV để dùng vào nhiều mục đích khác nhau ví dụ làm ảnh demo hình nền, làm hướng dẫn,… Tương tự Phím tắt Mockup iPhone 14 Pro Max nhưng siêu cấp vip pro hơn là có nhiều lựa chọn thiết bị hơn và bạn có thể chọn nhiều ảnh để ghép mockup cùng lúc và có thể gộp các ảnh xuất ra thành một ảnh,…\n\nHướng dẫn:\n\n– Nhận phím tắt (Hướng dẫn)\n\n– Nhấn vào phím tắt chọn ảnh chụp màn hình từ Tệp hoặc Album Ảnh có thể chọn nhiều ảnh để mockup\n\n(Ngoài ra bạn có thể vào trực tiếp ảnh chụp màn hình trong Album ảnh hoặc tệp chọn chia sẻ => chọn phím tắt này)\n\n– Chọn thiết bị bạn muốn mockup phím tắt sẽ gợi ý thiết bị của bạn đầu tiên\n\n– Đợi cho phím tắt xử lý và chọn lưu vào ảnh hoặc tệp\n\nNgoài ra bạn cũng có thể dùng bản web để mockup online Tại đây\n\nThông tin:\n\nTác giả: iTech Everything\n\nViệt hóa: Phím tắt VN",
+    "views": 830,
+    "likes": 70,
+    "downloads": 475,
+    "date": "2024-11-04",
+    "author": "Phím Tắt VN & NanLux",
+    "compatible": "iOS 15 - iOS 18+"
+  },
+  {
+    "id": 3741,
+    "title": "Momo QR Code",
+    "slug": "momo-qr-code",
+    "icon": "https://phimtat.vn/wp-content/uploads/2023/11/Momo-QR-Code.png",
+    "category": "Cuộc sống",
+    "categories": [
+      "Cuộc sống",
+      "Mã QR",
+      "Tiện ích nhanh"
+    ],
+    "tags": [],
+    "icloud_url": "https://www.icloud.com/shortcuts/c8434c5c8aec43ca8859e6b8f297c5d2",
+    "excerpt": "Chức năng chính: Giúp vào truy cập nhanh Momo QR code để thuận tiện trong việc giao dịch bằng QR Momo Hướng dẫn: – Nhận phím tắt (Hướng dẫn) – Thêm vào màn hình...",
+    "description": "Chức năng chính:\n\nGiúp vào truy cập nhanh Momo QR code để thuận tiện trong việc giao dịch bằng QR Momo\n\nHướng dẫn:\n\n– Nhận phím tắt (Hướng dẫn)\n\n– Thêm vào màn hình chính (Hướng dẫn)\n\n– Nhấn vào phím tắt và chọn chức năng mà bạn muốn dùng",
+    "views": 837,
+    "likes": 103,
+    "downloads": 654,
+    "date": "2024-11-03",
+    "author": "Phím Tắt VN & NanLux",
+    "compatible": "iOS 15 - iOS 18+"
+  },
+  {
+    "id": 3066,
+    "title": "Lịch vạn niên",
+    "slug": "lich-van-nien",
+    "icon": "https://phimtat.vn/wp-content/uploads/2023/08/Am-lich-Viet-Nam.png",
+    "category": "Tiện ích nhanh",
+    "categories": [
+      "Tiện ích nhanh"
+    ],
+    "tags": [
+      "Không cần mạng",
+      "Nổi bật",
+      "Xem thông tin"
+    ],
+    "icloud_url": "https://www.icloud.com/shortcuts/7dd6ace39b86448d9527ceccc273e04b",
+    "excerpt": "Chức năng chính: Ứng dụng Lịch mặc định của Apple (IOS, MacOS) không có sẵn âm lịch khiến người dùng Việt Nam khá khó khăn để xem âm lịch. Phím tắt này giúp ngư...",
+    "description": "Chức năng chính:\n\nỨng dụng Lịch mặc định của Apple (IOS, MacOS) không có sẵn âm lịch khiến người dùng Việt Nam khá khó khăn để xem âm lịch. Phím tắt này giúp người dùng Việt dễ dàng xem âm lịch một cách đơn giản ngoài ra còn có thể xem các thông tin khác như Tiết, Giờ hoàng đạo,…\n\nĐặc biệt phím tắt này có thể dùng offline khi không có mạng giúp bạn có thể xem lịch bất cứ đâu luôn nhé!!\n\nHướng dẫn:\n\n– Nhận phím tắt (Hướng dẫn)\n\n– Giữ vào phím tắt này chọn chia sẻ\n\nNhấn vào Thêm vào Màn hình chính để tiện sử dụng\n\nVậy là giờ khi nào cần xem âm lịch bạn chỉ cần nhấn vào biểu tượng ngoài màn hình chính",
+    "views": 512,
+    "likes": 68,
+    "downloads": 299,
+    "date": "2024-08-10",
+    "author": "Phím Tắt VN & NanLux",
+    "compatible": "iOS 15 - iOS 18+"
+  },
+  {
+    "id": 4410,
+    "title": "Cài đặt VPN",
+    "slug": "cai-dat-vpn",
+    "icon": "https://phimtat.vn/wp-content/uploads/2024/11/Cai-dat-VPN.png",
+    "category": "Tiện ích nhanh",
+    "categories": [
+      "Tiện ích nhanh"
+    ],
+    "tags": [
+      "Không cần mạng"
+    ],
+    "icloud_url": "https://www.icloud.com/shortcuts/e2e465e03ac841e89095a4f16c626977",
+    "excerpt": "Chức năng chính: Phím tắt vào nhanh cài đặt bật tắt nhanh VPN thay vì tìm kiếm tính năng này quá nhiều bước Hướng dẫn: – Nhận phím tắt (Hướng dẫn) – Thêm phím t...",
+    "description": "Chức năng chính:\n\nPhím tắt vào nhanh cài đặt bật tắt nhanh VPN thay vì tìm kiếm tính năng này quá nhiều bước\n\nHướng dẫn:\n\n– Nhận phím tắt (Hướng dẫn)\n\n– Thêm phím tắt vào Màn hình chính (Hướng dẫn)\n\n– Nhấn vào phím tắt và bạn sẽ vào nhanh cài đặt VPN nhé",
+    "views": 940,
+    "likes": 60,
+    "downloads": 215,
+    "date": "2024-07-21",
+    "author": "Phím Tắt VN & NanLux",
+    "compatible": "iOS 15 - iOS 18+"
+  },
+  {
+    "id": 4257,
+    "title": "Công cụ Base64",
+    "slug": "cong-cu-base64",
+    "icon": "https://phimtat.vn/wp-content/uploads/2024/08/Cong-cu-Base64.png",
+    "category": "Hình ảnh",
+    "categories": [
+      "Hình ảnh",
+      "Tiện ích nhanh",
+      "Văn bản"
+    ],
+    "tags": [
+      "Không cần mạng"
+    ],
+    "icloud_url": "https://www.icloud.com/shortcuts/aa7e8a9f14224b6ab3ea243bc8a363ad",
+    "excerpt": "Chức năng chính: Phím tắt Công cụ Base64 giúp bạn mã hóa và giải mã hình ảnh, file, văn bản nhanh chóng không cần dùng mạng. Hướng dẫn: – Nhận phím tắt (Hướng d...",
+    "description": "Chức năng chính:\n\nPhím tắt Công cụ Base64 giúp bạn mã hóa và giải mã hình ảnh, file, văn bản nhanh chóng không cần dùng mạng.\n\nHướng dẫn:\n\n– Nhận phím tắt (Hướng dẫn)\n\n– Nhấn vào tắt và chọn chức năng để sử dụng\n\nĐể tiện sử dụng bạn có thể thêm vào màn hình chính (Hướng dẫn)",
+    "views": 379,
+    "likes": 66,
+    "downloads": 118,
+    "date": "2024-07-03",
+    "author": "Phím Tắt VN & NanLux",
+    "compatible": "iOS 15 - iOS 18+"
+  },
+  {
+    "id": 4170,
+    "title": "Kiểm tra iPhone",
+    "slug": "kiem-tra-iphone",
+    "icon": "https://phimtat.vn/wp-content/uploads/2024/06/Kiem-tra-iPhone-1.png",
+    "category": "Hệ thống",
+    "categories": [
+      "Hệ thống",
+      "Tiện ích nhanh"
+    ],
+    "tags": [
+      "Không cần mạng",
+      "Xem thông tin"
+    ],
+    "icloud_url": "https://www.icloud.com/shortcuts/370186bc55c74f14baf7603a342d2205",
+    "excerpt": "Hình ảnh minh họa: Chức năng chính: Dùng trong trường hợp khi mua iPhone cũ để truy cập các tác vụ kiểm tra nhanh các phần cứng như Màn hình, cảm ứng, loa, Kiểm...",
+    "description": "Hình ảnh minh họa:\n\nChức năng chính:\n\nDùng trong trường hợp khi mua iPhone cũ để truy cập các tác vụ kiểm tra nhanh các phần cứng như Màn hình, cảm ứng, loa, Kiểm tra bảo hành, máy lock,…\n\nHướng dẫn:\n\n– Nhận phím tắt (Hướng dẫn)\n\n– Nhấn vào phím tắt để sử dụng các chức năng",
+    "views": 560,
+    "likes": 75,
+    "downloads": 75,
+    "date": "2024-06-14",
+    "author": "Phím Tắt VN & NanLux",
+    "compatible": "iOS 15 - iOS 18+"
+  },
+  {
+    "id": 347,
+    "title": "YouTube PiP",
+    "slug": "youtube-pip",
+    "icon": "https://phimtat.vn/wp-content/uploads/2023/06/YouTube-PiP.png",
+    "category": "Video",
+    "categories": [
+      "Video"
+    ],
+    "tags": [
+      "Mạng xã hội",
+      "Nổi bật"
+    ],
+    "icloud_url": "https://www.icloud.com/shortcuts/9f12a10a007a44c49a17b8013b02d3e6",
+    "excerpt": "Chức năng chính: Picture-in-Picture (được viết tắt PiP) là tính năng để xem video trong một cửa sổ nhỏ trên điện thoại trong khi vẫn có thể làm những việc khác....",
+    "description": "Chức năng chính:\n\nPicture-in-Picture (được viết tắt PiP) là tính năng để xem video trong một cửa sổ nhỏ trên điện thoại trong khi vẫn có thể làm những việc khác. Với phím tắt này bạn có thể xem video “Ảnh trong ảnh” Youtube vừa có thể xem youtube vừa có thể lướt facebook, hoặc làm việc khác trên điện thoại.\n\nHướng dẫn:\n\n– Nhận phím tắt (Hướng dẫn)\n\n– Vào video cần bật chế độ PiP và nhấn Chia sẻ\n\n– Ở mục Chia sẻ Lướt sang phải\n\n–  Chọn Xem thêm\n\n– Kéo xuống dưới chọn YouTube PiP\n\n– Phím tắt sẽ mở ra URL và bạn chỉ cần nhấn vào biểu tượng PIP\n\n– Vậy là xong, bây giờ bạn có thể thoát ra màn hình chính làm việc khác mà vừa có thể xem video rồi nhé!",
+    "views": 209,
+    "likes": 61,
+    "downloads": 188,
+    "date": "2024-06-01",
+    "author": "Phím Tắt VN & NanLux",
+    "compatible": "iOS 15 - iOS 18+"
+  },
+  {
+    "id": 4141,
+    "title": "Hình nền chế độ pin",
+    "slug": "hinh-nen-che-do-pin",
+    "icon": "https://phimtat.vn/wp-content/uploads/2024/05/Hinh-nen-che-do-pin.png",
+    "category": "Hình ảnh",
+    "categories": [
+      "Hình ảnh"
+    ],
+    "tags": [
+      "Không cần mạng",
+      "Pin"
+    ],
+    "icloud_url": "https://www.icloud.com/shortcuts/1588b2c7b9c84b2783963c508d21a598",
+    "excerpt": "Hình ảnh minh họa: Chức năng chính: Đổi hình nền theo 3 chế độ khi sạc, pin yếu, bình thường Hướng dẫn: – Nhận phím tắt (Hướng dẫn) (Với hình nền mặc định là Ba...",
+    "description": "Hình ảnh minh họa:\n\nChức năng chính:\n\nĐổi hình nền theo 3 chế độ khi sạc, pin yếu, bình thường\n\nHướng dẫn:\n\n– Nhận phím tắt (Hướng dẫn)\n\n(Với hình nền mặc định là Batman by Geek Updates | Arshit Vaghasiya bạn có thể tùy chỉnh hình nền riêng của mình bằng cách mã hóa hình ảnh base64 bằng phím tắt Công cụ base64 và dán vào phần thiết lập nhé)\n\n– Nhấn vào Bộ sạc\n\n– Tích vào Được và ngắt kết nối -> Chọn Chạy ngay lập tức -> Tiếp\n\n– Chọn phím tắt này\n\nChọn thêm tự động hóa mới chọn mức pin\n\n– Giảm 50% Chọn Tiếp -> Chọn phím tắt này",
+    "views": 337,
+    "likes": 78,
+    "downloads": 474,
+    "date": "2024-05-14",
+    "author": "Phím Tắt VN & NanLux",
+    "compatible": "iOS 15 - iOS 18+"
+  },
+  {
+    "id": 4096,
+    "title": "Tóm tắt Youtube bằng AI",
+    "slug": "tom-tat-youtube",
+    "icon": "https://phimtat.vn/wp-content/uploads/2024/05/Tom-tat-Youtube.png",
+    "category": "Công nghệ AI",
+    "categories": [
+      "Công nghệ AI",
+      "Cuộc sống",
+      "Học tập"
+    ],
+    "tags": [
+      "Xem thông tin"
+    ],
+    "icloud_url": "https://www.icloud.com/shortcuts/9d6ad14ac7f34425b377d2a5c831f29d",
+    "excerpt": "Chức năng chính: Tóm tắt nhanh video Youtube bằng AI Chat GPT 3.5 Turbo. Dành cho bạn nào muốn nắm rõ thông tin chính của một video nhưng lại không có thời gian...",
+    "description": "Chức năng chính:\n\nTóm tắt nhanh video Youtube bằng AI Chat GPT 3.5 Turbo. Dành cho bạn nào muốn nắm rõ thông tin chính của một video nhưng lại không có thời gian để xem.\n\nHướng dẫn:\n\n– Nhận phím tắt (Hướng dẫn)\n\n– Đầu tiên bạn cần tải phím tắt ChatGPT trên Appstore, và đăng nhập tài khoản nhé!\n\n(Bạn không cần phải nâng cấp lên ChatGPT Plus nhé!)\n\n– Vào video Youtube muốn tóm tắt để ý phải có phụ đề (icon cc) mới có thể tóm tắt video được nhé~\n\n– Nhấn chia sẻ và kéo sang phải chọn Xem thêm\n\n– Nhấn vào chọn phím tắt này và đợi AI xử lý bạn có thể xem tóm tắt nhanh\n\n– Phím tắt chỉ trích và tóm tắt từng đoạn của video vì giới hạn của ChatGPT nên bạn có thể bấm tiếp tục tóm tắt để phím tắt tóm tắt đoạn tiếp theo nhé!",
+    "views": 372,
+    "likes": 63,
+    "downloads": 409,
+    "date": "2024-05-11",
+    "author": "Phím Tắt VN & NanLux",
+    "compatible": "iOS 15 - iOS 18+"
+  },
+  {
+    "id": 4084,
+    "title": "Tách nền & ghép nền",
+    "slug": "tach-nen-ghep-nen",
+    "icon": "https://phimtat.vn/wp-content/uploads/2024/05/Tach-nen-ghep-nen.png",
+    "category": "Hình ảnh",
+    "categories": [
+      "Hình ảnh",
+      "Tiện ích nhanh"
+    ],
+    "tags": [
+      "Chỉnh sửa ảnh",
+      "Không cần mạng"
+    ],
+    "icloud_url": "https://www.icloud.com/shortcuts/8e1618f45e074647a019f6c569fe778a",
+    "excerpt": "Chức năng chính: Tách nền và lưu vào album ảnh hoặc tiếp tục ghép vào nền ảnh khác nhanh chóng không cần dùng mạng Hướng dẫn: – Nhận phím tắt (Hướng dẫn) – Nhấn...",
+    "description": "Chức năng chính:\n\nTách nền và lưu vào album ảnh hoặc tiếp tục ghép vào nền ảnh khác nhanh chóng không cần dùng mạng\n\nHướng dẫn:\n\n– Nhận phím tắt (Hướng dẫn)\n\n– Nhấn vào phím tắt và chọn ảnh cần tách nền để sử dụng",
+    "views": 778,
+    "likes": 97,
+    "downloads": 61,
+    "date": "2024-05-07",
+    "author": "Phím Tắt VN & NanLux",
+    "compatible": "iOS 15 - iOS 18+"
+  },
+  {
+    "id": 3231,
+    "title": "Nút nguồn",
+    "slug": "nut-nguon",
+    "icon": "https://phimtat.vn/wp-content/uploads/2023/09/Nut-nguon.png",
+    "category": "Cuộc sống",
+    "categories": [
+      "Cuộc sống",
+      "Tiện ích nhanh"
+    ],
+    "tags": [
+      "Không cần mạng"
+    ],
+    "icloud_url": "https://www.icloud.com/shortcuts/25c8a9516ec746da9d7fadf5684fadfa",
+    "excerpt": "Chức năng chính: Phím tắt giúp khoá màn hình, tắt máy, khởi động giúp cho các trường hợp phím vật lý hỏng hoặc tránh dùng nhiều phím vật lý để đề phòng liệt. Hư...",
+    "description": "Chức năng chính:\n\nPhím tắt giúp khoá màn hình, tắt máy, khởi động giúp cho các trường hợp phím vật lý hỏng hoặc tránh dùng nhiều phím vật lý để đề phòng liệt.\n\nHướng dẫn:\n\n– Nhận phím tắt (Hướng dẫn)\n\n– Giữ vào phím tắt này chọn chia sẻ\n\nChọn thêm vào màn hình chính\n\nVậy là khi nào cần dùng bạn chỉ cần bấm vào phím tắt đã thêm ở màn hình chính nhé!!",
+    "views": 667,
+    "likes": 28,
+    "downloads": 124,
+    "date": "2024-05-06",
+    "author": "Phím Tắt VN & NanLux",
+    "compatible": "iOS 15 - iOS 18+"
+  },
+  {
+    "id": 145,
+    "title": "Tuổi thọ pin",
+    "slug": "tuoi-tho-pin",
+    "icon": "https://phimtat.vn/wp-content/uploads/2023/06/pin.png",
+    "category": "Hệ thống",
+    "categories": [
+      "Hệ thống"
+    ],
+    "tags": [
+      "Nổi bật",
+      "Pin",
+      "Xem thông tin"
+    ],
+    "icloud_url": "https://www.icloud.com/shortcuts/732fe853529847eca20f08d66a829209",
+    "excerpt": "Chức năng chính: Xem tuổi thọ pin, xem dung lượng pin hiện tại (Mah), chu kỳ sạc, Battery Heath. Hướng dẫn: Bước 1: Vào cài đặt và kéo xuống phần Quyền riêng tư...",
+    "description": "Chức năng chính: Xem tuổi thọ pin, xem dung lượng pin hiện tại (Mah), chu kỳ sạc, Battery Heath.\n\nHướng dẫn:\n\nBước 1: Vào cài đặt và kéo xuống phần Quyền riêng tư & bảo mật\n\n \n\nBước 2: Kéo xuống chọn Phân tích và cải tiến (Nếu Chia sẻPhân tích iPhone đang tắt thì hãy bật lên và dùng trước vài ngày để iPhone lưu dữ liệu gần nhất nhé!)\n\nBước 3: Nếu đã bật Chia sẻ Phân tích iPhone từ trước thì tiếp tục mở Dữ liệu Phân tích. Sau đó nhấn vào dữ liệu Analytics – Ngày mới nhất \n\nBước 4: Bấm nút chia sẻ góc phải và chọn phím tắt Tuổi thọ pin\n\nBước 5: Chọn iPhone bạn đang dùng để xem chi tiết tuổi thọ pin nhé!\n\nChúc các bạn thành công!",
+    "views": 385,
+    "likes": 95,
+    "downloads": 530,
+    "date": "2024-04-25",
+    "author": "Phím Tắt VN & NanLux",
+    "compatible": "iOS 15 - iOS 18+"
+  },
+  {
+    "id": 4080,
+    "title": "Cài đặt thời gian tắt",
+    "slug": "cai-dat-thoi-gian-tat",
+    "icon": "https://phimtat.vn/wp-content/uploads/2024/04/Cai-dat-thoi-gian-tat.png",
+    "category": "Hệ thống",
+    "categories": [
+      "Hệ thống",
+      "Tiện ích nhanh"
+    ],
+    "tags": [
+      "Không cần mạng"
+    ],
+    "icloud_url": "https://www.icloud.com/shortcuts/10fa93c83aa041bcaf40999407f1bce5",
+    "excerpt": "Chức năng chính: Vào cài đặt nhanh Tự động khóa màn hình sau: 30 giây, 1 phút, 5 phút,… Để thuận tiện hơn trong công việc và nhu cầu sử dụng iPhone Hướng dẫn: –...",
+    "description": "Chức năng chính:\n\nVào cài đặt nhanh Tự động khóa màn hình sau: 30 giây, 1 phút, 5 phút,…\n\nĐể thuận tiện hơn trong công việc và nhu cầu sử dụng iPhone\n\nHướng dẫn:\n\n– Nhận phím tắt (Hướng dẫn)\n\n– Thêm phím tắt vào Màn hình chính (Hướng dẫn)\n\n– Nhấn vào phím tắt máy tính để vào cài đặt nhanh thời gian Tự động khóa nhé",
+    "views": 630,
+    "likes": 45,
+    "downloads": 565,
+    "date": "2024-04-23",
+    "author": "Phím Tắt VN & NanLux",
+    "compatible": "iOS 15 - iOS 18+"
+  },
+  {
+    "id": 4075,
+    "title": "Clear Clipboard",
+    "slug": "clear-clipboard",
+    "icon": "https://phimtat.vn/wp-content/uploads/2024/04/Clear-Clipboard.png",
+    "category": "Bảo mật",
+    "categories": [
+      "Bảo mật",
+      "Tiện ích nhanh"
+    ],
+    "tags": [
+      "Không cần mạng"
+    ],
+    "icloud_url": "https://www.icloud.com/shortcuts/78b2da8b6a404f40872f529328e9f8cf",
+    "excerpt": "Chức năng chính: Xóa nhanh bộ nhớ tạm, khi bạn sao chép bất cứ thông tin gì về cá nhân hay bảo mật và không dùng nữa muốn xóa nhanh để chắc chắn các app không l...",
+    "description": "Chức năng chính:\n\nXóa nhanh bộ nhớ tạm, khi bạn sao chép bất cứ thông tin gì về cá nhân hay bảo mật và không dùng nữa muốn xóa nhanh để chắc chắn các app không lấy thông tin thì có thể dùng phím tắt này nhé!\n\nHướng dẫn:\n\n– Nhận phím tắt (Hướng dẫn)\n\n– Nhấn vào phím tắt để sử dụng nhé~",
+    "views": 445,
+    "likes": 75,
+    "downloads": 420,
+    "date": "2024-04-23",
+    "author": "Phím Tắt VN & NanLux",
+    "compatible": "iOS 15 - iOS 18+"
+  },
+  {
+    "id": 89,
+    "title": "Snap Video",
+    "slug": "snap-video",
+    "icon": "https://phimtat.vn/wp-content/uploads/2023/06/1.png",
+    "category": "Âm thanh",
+    "categories": [
+      "Âm thanh",
+      "Video"
+    ],
+    "tags": [
+      "Nổi bật"
+    ],
+    "icloud_url": "https://www.icloud.com/shortcuts/b9511ed7061f4c0396990a6c79e8cd1a",
+    "excerpt": "Chức năng chính: Chia sẻ phím tắt iOS hỗ trợ truy xuất với nội dung video trên thiết bị cá nhân. Công cụ được thiết kế nhằm phục vụ nhu cầu sao lưu và sử dụng h...",
+    "description": "Chức năng chính:\n\nChia sẻ phím tắt iOS hỗ trợ truy xuất với nội dung video trên thiết bị cá nhân.\n\nCông cụ được thiết kế nhằm phục vụ nhu cầu sao lưu và sử dụng hợp pháp như học tập nghiên cứu của người dùng.\n\nHướng dẫn:\n\n– Nhận và cài đặt phím tắt (xem hướng dẫn).\n\n– Mở video bạn muốn sử dụng trên nền tảng.\n\n– Nhấn biểu tượng Chia sẻ, kéo sang phải và chọn Thêm.\n\n– Chọn phím tắt Snap Video và lựa chọn định dạng phù hợp (Video hoặc Audio).\n\nLưu ý:\n\nSnap Video là phím tắt công cụ hỗ trợ kỹ thuật, cho phép người dùng truy xuất các video công khai trên Internet nhằm phục vụ mục đích cá nhân và hợp pháp. Hệ thống chỉ xử lý theo liên kết do người dùng cung cấp, không lưu trữ, đăng tải hoặc kiểm soát nội dung.\n\nMọi nội dung thuộc quyền sở hữu của bên thứ ba; người dùng tự chịu trách nhiệm về việc sử dụng và tuân thủ quy định pháp luật. Snap Video không yêu cầu đăng nhập, không thu thập thông tin cá nhân nhạy cảm và không triển khai mã độc.",
+    "views": 863,
+    "likes": 32,
+    "downloads": 146,
+    "date": "2024-03-12",
+    "author": "Phím Tắt VN & NanLux",
+    "compatible": "iOS 15 - iOS 18+"
+  },
+  {
+    "id": 3963,
+    "title": "Tạo mật khẩu",
+    "slug": "tao-mat-khau",
+    "icon": "https://phimtat.vn/wp-content/uploads/2024/03/Tao-mat-khau.png",
+    "category": "Bảo mật",
+    "categories": [
+      "Bảo mật",
+      "Tiện ích nhanh"
+    ],
+    "tags": [
+      "Không cần mạng"
+    ],
+    "icloud_url": "https://www.icloud.com/shortcuts/5ba3ec39cd09403d8c15795ca91d6807",
+    "excerpt": "Chức năng chính: Tạo mật khẩu nhanh chóng sao chép hoặc lưu nếu muốn, phím tắt này dùng offline không lấy dữ liệu nên các bạn yên tâm về bảo mật nhé! Hướng dẫn:...",
+    "description": "Chức năng chính:\n\nTạo mật khẩu nhanh chóng sao chép hoặc lưu nếu muốn, phím tắt này dùng offline không lấy dữ liệu nên các bạn yên tâm về bảo mật nhé!\n\nHướng dẫn:\n\n– Nhận phím tắt (Hướng dẫn)\n\n– Sau đó nhấn vào phím tắt để sử dụng\n\n– Nhập độ dài mật khẩu mà bạn muốn (Mặc định là 10)\n\n– Sao chép hoặc lưu vào ghi chú",
+    "views": 551,
+    "likes": 44,
+    "downloads": 272,
+    "date": "2024-03-08",
+    "author": "Phím Tắt VN & NanLux",
+    "compatible": "iOS 15 - iOS 18+"
+  },
+  {
+    "id": 3933,
+    "title": "Tìm địa điểm gần đây",
+    "slug": "tim-dia-diem-gan-day",
+    "icon": "https://phimtat.vn/wp-content/uploads/2024/02/Tim-dia-diem-gan-day.png",
+    "category": "Cuộc sống",
+    "categories": [
+      "Cuộc sống",
+      "Tiện ích nhanh"
+    ],
+    "tags": [],
+    "icloud_url": "https://www.icloud.com/shortcuts/a997a3fc60f84350abb9ba6ee3cb97aa",
+    "excerpt": "Chức năng chính: Tìm nhanh địa điểm gần đây ví dụ: Cafe, Điểm dừng xe buýt, Trạm xăng,… bằng ứng dụng Bản đồ Apple Maps hoặc Google Maps Hướng dẫn: – Nhận phím ...",
+    "description": "Chức năng chính:\n\nTìm nhanh địa điểm gần đây ví dụ: Cafe, Điểm dừng xe buýt, Trạm xăng,… bằng ứng dụng Bản đồ Apple Maps hoặc Google Maps\n\nHướng dẫn:\n\n– Nhận phím tắt (Hướng dẫn)\n\n– Thiết lập phím tắt bạn nhập số 1 hoặc 2 tương ứng với ứng dụng bản đồ bạn hay dùng nhé\n\n– Sau đó nhấn vào phím tắt để sử dụng\n\n– Khuyến khích bạn thêm phím tắt vào màn hình chính để dễ sử dụng hơn (Hướng dẫn)\n\n– Sau đó bạn nhấn vào địa điểm muốn tìm nhé và phím tắt sẽ mở ngay trên bản đồ",
+    "views": 291,
+    "likes": 34,
+    "downloads": 642,
+    "date": "2024-02-25",
+    "author": "Phím Tắt VN & NanLux",
+    "compatible": "iOS 15 - iOS 18+"
+  },
+  {
+    "id": 3499,
+    "title": "Làm nét ảnh AI",
+    "slug": "lam-net-anh-ai",
+    "icon": "https://phimtat.vn/wp-content/uploads/2023/10/Remini.png",
+    "category": "Công nghệ AI",
+    "categories": [
+      "Công nghệ AI",
+      "Hình ảnh",
+      "Tiện ích nhanh"
+    ],
+    "tags": [],
+    "icloud_url": "https://www.icloud.com/shortcuts/db7bfa5e3cbd415286adf354895722e4",
+    "excerpt": "Chức năng chính: Nếu bạn có những tấm ảnh rất ưng ý nhưng chất lượng ảnh không được cao cho lắm thì đừng lo lắng về độ phân giải hình ảnh nữa vì đã có phím tắt ...",
+    "description": "Chức năng chính:\n\nNếu bạn có những tấm ảnh rất ưng ý nhưng chất lượng ảnh không được cao cho lắm thì đừng lo lắng về độ phân giải hình ảnh nữa vì đã có phím tắt công cụ cải thiện và nâng cấp ảnh có độ phân giải thấp (Enhancer) sử dụng công nghệ AI làm nét ảnh mà không có quảng cáo.\n\nNgoài ra bạn có thể dùng bản web tại đây\n\nHướng dẫn:\n\n– Nhận phím tắt (Hướng dẫn)\n\n– Vào app Ảnh và chọn ảnh cần làm nét => Chia sẻ\n\n– Chọn phím tắt này và đợi cho phím tắt xử lý\n\nBấm xong và xem ảnh mới và so sánh kết quả nhé!!",
+    "views": 383,
+    "likes": 92,
+    "downloads": 456,
+    "date": "2024-02-23",
+    "author": "Phím Tắt VN & NanLux",
+    "compatible": "iOS 15 - iOS 18+"
+  },
+  {
+    "id": 3462,
+    "title": "Máy tính cầm tay",
+    "slug": "may-tinh-cam-tay",
+    "icon": "https://phimtat.vn/wp-content/uploads/2023/10/May-tinh.png",
+    "category": "Học tập",
+    "categories": [
+      "Học tập",
+      "Tiện ích nhanh"
+    ],
+    "tags": [
+      "Không cần mạng"
+    ],
+    "icloud_url": "https://www.icloud.com/shortcuts/d070fe30ff944db0aedc1edf699ea492",
+    "excerpt": "Hình ảnh minh họa:   Chức năng chính: Máy tính cầm tay thay thế ứng dụng Máy tính mặc định của iPhone giao diện khá khó sử dụng. Với phím tắt này bạn sẽ dùng má...",
+    "description": "Hình ảnh minh họa:\n\n \n\nChức năng chính:\n\nMáy tính cầm tay thay thế ứng dụng Máy tính mặc định của iPhone giao diện khá khó sử dụng. Với phím tắt này bạn sẽ dùng máy tính cầm tay với giao diện trực quan hơn và đặc biệt là hoàn toàn miễn phí không có quảng cáo nhé!\n\nHướng dẫn:\n\n– Nhận phím tắt (Hướng dẫn)\n\n– Thêm phím tắt vào Màn hình chính (Hướng dẫn)\n\n– Nhấn vào phím tắt máy tính để sử dụng và bấm xong để tắt nhé!",
+    "views": 714,
+    "likes": 86,
+    "downloads": 623,
+    "date": "2024-02-20",
+    "author": "Phím Tắt VN & NanLux",
+    "compatible": "iOS 15 - iOS 18+"
+  },
+  {
+    "id": 3900,
+    "title": "Ứng dụng giả",
+    "slug": "ung-dung-gia",
+    "icon": "https://phimtat.vn/wp-content/uploads/2024/02/Ung-dung-gia.png",
+    "category": "Bảo mật",
+    "categories": [
+      "Bảo mật",
+      "Cuộc sống"
+    ],
+    "tags": [
+      "Không cần mạng"
+    ],
+    "icloud_url": "https://www.icloud.com/shortcuts/a7efc4af6b18429e96181090ee48ba3e",
+    "excerpt": "Chức năng chính: Dùng để giả ứng dụng bất kì để người khác khi mượn điện thoại bạn bấm vào sẽ chụp camera trước, đặt làm hình nền và khóa màn hình để bạn biết a...",
+    "description": "Chức năng chính:\n\nDùng để giả ứng dụng bất kì để người khác khi mượn điện thoại bạn bấm vào sẽ chụp camera trước, đặt làm hình nền và khóa màn hình để bạn biết ai tò mò máy của mình nhé!\n\nHướng dẫn:\n\n– Nhận phím tắt (Hướng dẫn)\n\n– Vào app Phím tắt và giữ vào phím tắt này và chọn chia sẻ => Thêm vào MH chính\n\n \n\n– Chọn ảnh icon app bạn muốn (Dùng phím tắt Tải icon App Store) để tải ảnh icon trước nhé!\n\n– Đổi tên ứng dụng đó và nhấn nút Thêm\n\n– Vậy là đã có một ứng dụng giả ngoài màn hình chính rồi nhé! Bạn nhớ ẩn ứng dụng gốc vào nơi chỉ bạn biết để người khác không truy cập vào được nhé!!",
+    "views": 770,
+    "likes": 80,
+    "downloads": 305,
+    "date": "2024-02-01",
+    "author": "Phím Tắt VN & NanLux",
+    "compatible": "iOS 15 - iOS 18+"
+  },
+  {
+    "id": 113,
+    "title": "Thổi nước khỏi loa",
+    "slug": "thoi-nuoc-khoi-loa",
+    "icon": "https://phimtat.vn/wp-content/uploads/2023/06/loa.png",
+    "category": "Hệ thống",
+    "categories": [
+      "Hệ thống"
+    ],
+    "tags": [
+      "Không cần mạng",
+      "Loa"
+    ],
+    "icloud_url": "https://www.icloud.com/shortcuts/256d8edc62f64e31adfad6d59caba432",
+    "excerpt": "Chức năng chính: Phát ra âm thanh giúp thổi nước khỏi loa trường hợp loa điện thoại dính nước. Hướng dẫn: Bấm vào phím tắt Thổi nước khỏi loa chọn thổi nước nga...",
+    "description": "Chức năng chính:\n\nPhát ra âm thanh giúp thổi nước khỏi loa trường hợp loa điện thoại dính nước.\n\nHướng dẫn:\n\nBấm vào phím tắt Thổi nước khỏi loa chọn thổi nước ngay để phát âm thanh đặc biệt giúp thổi nước.\n\nChúc các bạn thành công!",
+    "views": 901,
+    "likes": 59,
+    "downloads": 222,
+    "date": "2024-01-06",
+    "author": "Phím Tắt VN & NanLux",
+    "compatible": "iOS 15 - iOS 18+"
+  },
+  {
+    "id": 2857,
+    "title": "Xem thiết bị Apple bằng AR",
+    "slug": "xem-thiet-bi-apple-bang-ar",
+    "icon": "https://phimtat.vn/wp-content/uploads/2023/07/Xem-Macbook-bang-AR.png",
+    "category": "Thực tế ảo",
+    "categories": [
+      "Thực tế ảo"
+    ],
+    "tags": [
+      "Xem thông tin"
+    ],
+    "icloud_url": "https://www.icloud.com/shortcuts/6cfacda49d4b4f8c83adfe4f2ef3cc5d",
+    "excerpt": "Chức năng chính: Phím tắt xem thiết bị Apple bao gồm: MacBook Air 13″ (M1), MacBook Air 13″, MacBook Air 15″, MacBook Pro 13″, MacBook Pro 14″, MacBook Pro 16″,...",
+    "description": "Chức năng chính:\n\nPhím tắt xem thiết bị Apple bao gồm: MacBook Air 13″ (M1), MacBook Air 13″, MacBook Air 15″, MacBook Pro 13″, MacBook Pro 14″, MacBook Pro 16″, iMac 24″, Mac mini, Mac Studio, Studio Display, Mac Pro, Pro Display XDR, iPhone 15 Pro, iPhone 15, iPhone 14 Pro & iPhone 14 Pro Max, iPhone 14 & iPhone 14 Plus, iPhone SE, iPad Pro 11″, iPad Air, iPad mini, Apple Watch Ultra, Apple Watch Series 8, Apple Watch SE, AirPods Pro 2, AirPods 3, AirPods Max, Apple TV 4K, Apple Vision Pro\n\nBằng công nghệ AR với kích thước chính xác ở ngoài để mọi người xem thiết bị và đưa ra quyết định có mua máy không.\n\nHướng dẫn:\n\n– Nhận phím tắt (Hướng dẫn)\n\n– Nhấn nào phím tắt này và chọn macbook bạn muốn xem ở ngoài đời bằng công nghệ AR nhé.\n\n \n\nHình ảnh minh họa:",
+    "views": 429,
+    "likes": 106,
+    "downloads": 438,
+    "date": "2024-01-01",
+    "author": "Phím Tắt VN & NanLux",
+    "compatible": "iOS 15 - iOS 18+"
+  },
+  {
+    "id": 2353,
+    "title": "Tối ưu chơi game",
+    "slug": "toi-uu-choi-game",
+    "icon": "https://phimtat.vn/wp-content/uploads/2023/06/Toi-uu-choi-game.png",
+    "category": "Tiện ích nhanh",
+    "categories": [
+      "Tiện ích nhanh",
+      "Trò chơi"
+    ],
+    "tags": [
+      "Không cần mạng"
+    ],
+    "icloud_url": "https://www.icloud.com/shortcuts/0bd14a1cd6254807bf05f6116aa8fba9",
+    "excerpt": "Chức năng chính: Giống như chế độ chơi game (Gaming Mode) trên android tại phím tắt này sẽ giúp bạn vào nhanh kho game yêu thích với chế độ tối ưu chơi game của...",
+    "description": "Chức năng chính:\n\nGiống như chế độ chơi game (Gaming Mode) trên android tại phím tắt này sẽ giúp bạn vào nhanh kho game yêu thích với chế độ tối ưu chơi game của IOS giảm thông báo, cuộc gọi và bật truy cập hướng dẫn của IOS giúp tránh chạm nhầm lướt khỏi ra ngoài với các tựa game lướt nhiều như Liên Quân, LMHT, Free Fire.\n\nHướng dẫn:\n\nBước 1: Bật truy cập hướng dẫn và cài mật khẩu\n\n– Vào cài đặt chọn trợ năng\n\n– Chọn Truy cập được hướng dẫn và bất nút Bật\n\n– Chọn Cài đặt mật mã\n\nĐặt mật mã Truy cập được HD sau đó nhập mật mã bạn muốn (Lưu ý hãy nhớ mật mã này để thoát chế độ HD nhé)\n\nBước 2: Cài đặt phím tắt Chế độ chơi game\n\n– Nhận phím tắt Tối ưu chơi game (Hướng dẫn)\n\n– Giữ vào phím tắt chọn chia sẻ => Thêm vào MH chính\n\nVậy là bạn đã thêm phím tắt thành công ở trang chủ khi nào muốn chơi game hãy nhấn vào nút và chọn game bạn muốn chơi với chế độ tối ưu.\n\nVậy là xong khi nào vậy là bây giờ bạn có thể tập trung cày rank rồi nhé!!\n\nKhi nào muốn thoát ra thì hãy nhất 3 lần vào nút nguồn và nhập mật khẩu tạo ở bước 1 vào và chọn kết thúc nhé!",
+    "views": 481,
+    "likes": 109,
+    "downloads": 82,
+    "date": "2023-12-27",
+    "author": "Phím Tắt VN & NanLux",
+    "compatible": "iOS 15 - iOS 18+"
+  },
+  {
+    "id": 3851,
+    "title": "Chuyển đổi 2 sim",
+    "slug": "chuyen-doi-2-sim",
+    "icon": "https://phimtat.vn/wp-content/uploads/2023/12/Chuyen-doi-2-sim.png",
+    "category": "Hệ thống",
+    "categories": [
+      "Hệ thống",
+      "Tiện ích nhanh"
+    ],
+    "tags": [
+      "Không cần mạng"
+    ],
+    "icloud_url": "https://www.icloud.com/shortcuts/b213393dc67f4acaa35ffb22b00ea748",
+    "excerpt": "Chức năng chính: Chuyển đổi sim di động và dữ liệu nhanh chóng Hướng dẫn: – Nhận phím tắt (Hướng dẫn) – Thêm phím tắt vào màn hình chính (Hướng dẫn) – Nhấn vào ...",
+    "description": "Chức năng chính:\n\nChuyển đổi sim di động và dữ liệu nhanh chóng\n\nHướng dẫn:\n\n– Nhận phím tắt (Hướng dẫn)\n\n– Thêm phím tắt vào màn hình chính (Hướng dẫn)\n\n– Nhấn vào phím tắt để sử dụng",
+    "views": 657,
+    "likes": 108,
+    "downloads": 124,
+    "date": "2023-12-25",
+    "author": "Phím Tắt VN & NanLux",
+    "compatible": "iOS 15 - iOS 18+"
+  },
+  {
+    "id": 3829,
+    "title": "Quay phim tắt màn hình",
+    "slug": "quay-phim-tat-man-hinh",
+    "icon": "https://phimtat.vn/wp-content/uploads/2023/12/Quay-phim-tat-man-hinh.png",
+    "category": "Tiện ích nhanh",
+    "categories": [
+      "Tiện ích nhanh",
+      "Video"
+    ],
+    "tags": [
+      "Không cần mạng"
+    ],
+    "icloud_url": "https://www.icloud.com/shortcuts/e0c511c5426d429b82283825c6164ba4",
+    "excerpt": "Chức năng chính: Giảm độ sáng tối đa giống như tắt màn hình để quay video lén không bị phát hiện. Hướng dẫn: – Nhận phím tắt (Hướng dẫn) Hướng dẫn thiết lập: – ...",
+    "description": "Chức năng chính:\n\nGiảm độ sáng tối đa giống như tắt màn hình để quay video lén không bị phát hiện.\n\nHướng dẫn:\n\n– Nhận phím tắt (Hướng dẫn)\n\nHướng dẫn thiết lập:\n\n– Vào Cài đặt => Nhấn vào ô tìm kiếm\n\n \n\n– Nhập Giảm điểm trắng => Bật lên và kéo 100% để thiết lập\n\n– Sau đó tắt đi nhé\n\n \n\n– Vậy là xong bước thiết lập tiếp theo là hướng dẫn sử dụng\n\n– Vào App phím tắt và nhấn vào phím tắt vừa thêm nhé\n\n– Sau đó chọn quay ngay\n\n– Phím tắt sẽ giảm độ sáng tối đa chứ không tắt màn hình hẳn nhé\n\n– Quay xong bạn nhớ nhìn kỹ vào phần nút dừng và bấm vào Sử dụng video để lưu vào album ảnh nhé!",
+    "views": 693,
+    "likes": 107,
+    "downloads": 106,
+    "date": "2023-12-21",
+    "author": "Phím Tắt VN & NanLux",
+    "compatible": "iOS 15 - iOS 18+"
+  },
+  {
+    "id": 3801,
+    "title": "Chế độ đọc sách",
+    "slug": "che-do-doc-sach",
+    "icon": "https://phimtat.vn/wp-content/uploads/2023/12/Che-do-doc-sach.png",
+    "category": "Học tập",
+    "categories": [
+      "Học tập",
+      "Tiện ích nhanh"
+    ],
+    "tags": [
+      "Không cần mạng"
+    ],
+    "icloud_url": "https://www.icloud.com/shortcuts/b609339f7f304af38c100fcf2695b830",
+    "excerpt": "Chức năng chính: Phím tắt này giúp bật chế độ lọc màu trên iPhone giúp điện thoại của bạn trở thành màn hình trắng đen để thuận tiện cho việc đọc sách giảm mỏi ...",
+    "description": "Chức năng chính:\n\nPhím tắt này giúp bật chế độ lọc màu trên iPhone giúp điện thoại của bạn trở thành màn hình trắng đen để thuận tiện cho việc đọc sách giảm mỏi mắt và tốn pin.\n\nHướng dẫn:\n\n– Nhận phím tắt (Hướng dẫn)\n\n– Vào Cài đặt, Nhấn vào ô tìm kiếm\n\n \n\n– Nhập Bộ lọc màu => Bấm vào mục đầu tiên => Bấm vào Bộ lọc màu trong trợ năng\n\nBật bộ lọc màu và chọn Màu xám\n\nVậy là xong! Bây giờ bạn có thể nhấn vào phím tắt để chuyển đổi chế độ Bộ lọc màu để đọc sách rồi nhé!!",
+    "views": 507,
+    "likes": 28,
+    "downloads": 534,
+    "date": "2023-12-11",
+    "author": "Phím Tắt VN & NanLux",
+    "compatible": "iOS 15 - iOS 18+"
+  },
+  {
+    "id": 3550,
+    "title": "Tạo App Web",
+    "slug": "tao-app-web",
+    "icon": "https://phimtat.vn/wp-content/uploads/2023/10/Tao-App-Web.png",
+    "category": "Tiện ích nhanh",
+    "categories": [
+      "Tiện ích nhanh"
+    ],
+    "tags": [
+      "Không cần mạng",
+      "Mạng xã hội"
+    ],
+    "icloud_url": "https://www.icloud.com/shortcuts/6a815e8ac7dc4829ae19889019249605",
+    "excerpt": "Chức năng chính: Tạo web thành icon app ở màn hình chính để tiện sử dụng Hướng dẫn: – Nhận phím tắt (Hướng dẫn) – Nhấm vầo phím tắt này => Chọn Tùy chỉnh Chọn ả...",
+    "description": "Chức năng chính:\n\nTạo web thành icon app ở màn hình chính để tiện sử dụng\n\nHướng dẫn:\n\n– Nhận phím tắt (Hướng dẫn)\n\n– Nhấm vầo phím tắt này => Chọn Tùy chỉnh\n\nChọn ảnh màn muốn tạo thành app và nhập tên, URL cho app\n\nSau đó phím tắt sẽ mở ra safari và Bạn chọn cho phép và đợi trong 5 giây\n\nPhím tắt sẽ mở ra trang cài đặt bạn chọn ứng dụng vừa tạo và chọn cài đặt\n\nNhập mật khẩu của máy và chọn Cài đặt sau đó app tạo từ web đã được thêm vào màn hình chính",
+    "views": 570,
+    "likes": 90,
+    "downloads": 75,
+    "date": "2023-12-09",
+    "author": "Phím Tắt VN & NanLux",
+    "compatible": "iOS 15 - iOS 18+"
+  },
+  {
+    "id": 3795,
+    "title": "Xóa nền ảnh hàng loạt",
+    "slug": "xoa-nen-anh-hang-loat",
+    "icon": "https://phimtat.vn/wp-content/uploads/2023/12/Xoa-nen-anh-hang-loat.png",
+    "category": "Hình ảnh",
+    "categories": [
+      "Hình ảnh"
+    ],
+    "tags": [],
+    "icloud_url": "https://www.icloud.com/shortcuts/5ed9d1dee7214bd7ae4327f9a6da21db",
+    "excerpt": "Chức năng chính: Xóa nền ảnh hàng loạt bằng AI của IOS, có thể dùng offline không cần mạng Hướng dẫn: – Nhận phím tắt (Hướng dẫn) – Nhấn vào phím tắt để sử dụng...",
+    "description": "Chức năng chính:\n\nXóa nền ảnh hàng loạt bằng AI của IOS, có thể dùng offline không cần mạng\n\nHướng dẫn:\n\n– Nhận phím tắt (Hướng dẫn)\n\n– Nhấn vào phím tắt để sử dụng\n\n– Chọn ảnh cần xóa nền (có thể chọn nhiều ảnh một lúc)\n\n– Đợi cho phím tắt xử lý (Ảnh nào không có chủ thể để xóa sẽ được bỏ qua)\n\n– Vào Album và xem kết quả nhé!!",
+    "views": 285,
+    "likes": 45,
+    "downloads": 360,
+    "date": "2023-12-08",
+    "author": "Phím Tắt VN & NanLux",
+    "compatible": "iOS 15 - iOS 18+"
+  },
+  {
+    "id": 3789,
+    "title": "Tính khoảng thời gian",
+    "slug": "tinh-khoang-thoi-gian",
+    "icon": "https://phimtat.vn/wp-content/uploads/2023/12/Tinh-khoang-thoi-gian.png",
+    "category": "Tiện ích nhanh",
+    "categories": [
+      "Tiện ích nhanh"
+    ],
+    "tags": [
+      "Công cụ tính toán",
+      "Không cần mạng",
+      "Xem thông tin"
+    ],
+    "icloud_url": "https://www.icloud.com/shortcuts/55cfc09199ca4f2f86e7ed559844e05d",
+    "excerpt": "Chức năng chính: Một tiện ích đơn giản cung cấp hai ngày và giờ để tính toán chênh lệch thời gian một cách nhanh chóng và chính xác. Kết quả bao gồm tổng chênh ...",
+    "description": "Chức năng chính:\n\nMột tiện ích đơn giản cung cấp hai ngày và giờ để tính toán chênh lệch thời gian một cách nhanh chóng và chính xác.\n\nKết quả bao gồm tổng chênh lệch thời gian, tính theo ngày, tính theo giờ, tính theo phút và tính theo giây.\n\nHướng dẫn:\n\n– Nhận phím tắt (Hướng dẫn)\n\n– Nhấn vào phím tắt và chọn Thời gian bắt đầu và thời gian kết thúc và xem kết quả nhé!!\n\nTác giả: TechBeast\n\nHình ảnh minh họa:",
+    "views": 913,
+    "likes": 62,
+    "downloads": 186,
+    "date": "2023-12-08",
+    "author": "Phím Tắt VN & NanLux",
+    "compatible": "iOS 15 - iOS 18+"
+  },
+  {
+    "id": 3768,
+    "title": "Bói ngày sinh",
+    "slug": "boi-ngay-sinh",
+    "icon": "https://phimtat.vn/wp-content/uploads/2023/12/Boi-ngay-sinh.png",
+    "category": "Cuộc sống",
+    "categories": [
+      "Cuộc sống",
+      "Tiện ích nhanh"
+    ],
+    "tags": [],
+    "icloud_url": "https://www.icloud.com/shortcuts/43e33c2cdc324d7da7f52429ff37106d",
+    "excerpt": "Chức năng chính: Công cụ xem bói ngày tháng năm sinh cho kết quả chính xác. Xem bói ngày sinh là cách tốt nhất đoán biết tử vi, vận số tương lai về tình yêu, tí...",
+    "description": "Chức năng chính:\n\nCông cụ xem bói ngày tháng năm sinh cho kết quả chính xác. Xem bói ngày sinh là cách tốt nhất đoán biết tử vi, vận số tương lai về tình yêu, tính cách, …\n\nHướng dẫn:\n\n– Nhận phím tắt (Hướng dẫn)\n\n– Nhấn vào phím tắt và nhập Họ tên và ngày tháng năm sinh của bạn\n\n– Đợi và xem kết quả, bạn có thể xem hoặc nghe phím tắt đọc nhé!!",
+    "views": 136,
+    "likes": 74,
+    "downloads": 197,
+    "date": "2023-12-04",
+    "author": "Phím Tắt VN & NanLux",
+    "compatible": "iOS 15 - iOS 18+"
+  },
+  {
+    "id": 2301,
+    "title": "Rút gọn link",
+    "slug": "rut-gon-link",
+    "icon": "https://phimtat.vn/wp-content/uploads/2023/06/Rut-gon-link.png",
+    "category": "Tiện ích nhanh",
+    "categories": [
+      "Tiện ích nhanh"
+    ],
+    "tags": [],
+    "icloud_url": "https://www.icloud.com/shortcuts/ffd87ac55ec142b29b4bed3fe3cc0e3c",
+    "excerpt": "Chức năng chính: Rút gọn các link dài thành link ngắn gọn hơn để dễ dàng chia sẻ vd lên mạng xã hội, in ấn với link ngắn gọn để người khác có thể dễ dàng nhập k...",
+    "description": "Chức năng chính:\n\nRút gọn các link dài thành link ngắn gọn hơn để dễ dàng chia sẻ vd lên mạng xã hội, in ấn với link ngắn gọn để người khác có thể dễ dàng nhập khi không thể sao chép,… Bạn cũng có thể custom link theo ý muốn của mình nhé ví dụ: lnk.pw/rgl\n\nHướng dẫn:\n\nNhận phím tắt Rút gọn link (Hướng dẫn)\n\nNhấn vào phím tắt Rút gọn link nhập link bạn muốn rút gọn nếu bạn sao chép link trước đó thì có thể chọn bộ nhớ sao chép.\n\nBạn có thể tuỳ chỉnh đường link lnk.pw/tên link tuỳ chỉnh hoặc để ngẫu nhiên link sẽ ra những ký tự ngẫu nhiên nhé!\n\nVậy là xong link rút gọn sẽ được sao chép tự động.",
+    "views": 257,
+    "likes": 98,
+    "downloads": 434,
+    "date": "2023-11-25",
+    "author": "Phím Tắt VN & NanLux",
+    "compatible": "iOS 15 - iOS 18+"
+  },
+  {
+    "id": 3689,
+    "title": "Hình nền ngẫu nhiên (Auto)",
+    "slug": "hinh-nen-ngau-nhien-auto",
+    "icon": "https://phimtat.vn/wp-content/uploads/2023/11/Hinh-nen-ngau-nhien-Auto.png",
+    "category": "Hệ thống",
+    "categories": [
+      "Hệ thống",
+      "Hình ảnh"
+    ],
+    "tags": [],
+    "icloud_url": "https://www.icloud.com/shortcuts/153872c8e1384063b8aedec818dc894a",
+    "excerpt": "Chức năng chính: Thay đổi hình nền ngẫu nhiên nhanh chóng chỉ trong 2 giây, có thể set để thay đổi tự động theo ngày Hướng dẫn: – Nhận phím tắt (Hướng dẫn) – Th...",
+    "description": "Chức năng chính:\n\nThay đổi hình nền ngẫu nhiên nhanh chóng chỉ trong 2 giây, có thể set để thay đổi tự động theo ngày\n\nHướng dẫn:\n\n– Nhận phím tắt (Hướng dẫn)\n\n– Thêm phím tắt vào Màn hình chính (Hướng dẫn)\n\n– Nhấn vào phím tắt này để sử dụng nhé!!\n\nHướng dẫn set tự động đổi hình nền mỗi ngày:\n\nNhấn vào app phím tắt => Vào mục tự động hóa và chọn Tự động hóa mới\n\nChọn Thời gian trong ngày => Thiết lập thời gian bạn muốn\n\nKéo xuống chọn Chạy ngay lập tức\n\nNhấn Tiếp\n\nChọn phím tắt này nhé!",
+    "views": 613,
+    "likes": 92,
+    "downloads": 386,
+    "date": "2023-11-16",
+    "author": "Phím Tắt VN & NanLux",
+    "compatible": "iOS 15 - iOS 18+"
+  },
+  {
+    "id": 3251,
+    "title": "Chuyển đổi tiền tệ",
+    "slug": "chuyen-doi-tien-te",
+    "icon": "https://phimtat.vn/wp-content/uploads/2023/09/Chuyen-doi-tien-te.png",
+    "category": "Tiện ích nhanh",
+    "categories": [
+      "Tiện ích nhanh"
+    ],
+    "tags": [
+      "Công cụ tính toán",
+      "Xem thông tin"
+    ],
+    "icloud_url": "https://www.icloud.com/shortcuts/8cd499237b8d4b428a743ae2db3d3dd1",
+    "excerpt": "Chức năng chính: Chuyển đổi các đơn vị tiền tệ nhanh chóng, lấy dữ liệu theo thời gian thực, hỗ trợ 143 đơn vị tiền tệ Đô la Mỹ (USD), Đồng Việt Nam (VND), Nhân...",
+    "description": "Chức năng chính:\n\nChuyển đổi các đơn vị tiền tệ nhanh chóng, lấy dữ liệu theo thời gian thực, hỗ trợ 143 đơn vị tiền tệ Đô la Mỹ (USD), Đồng Việt Nam (VND), Nhân dân Tệ (CNY),… và 2 đồng tiền điện tử BTC, ETH\n\nNgoài ra bạn cũng có thể dùng phiên bản web Tại đây\n\nHướng dẫn:\n\n– Nhận phím tắt (Hướng dẫn)\n\n– Nhấn trực tiếp vào phím tắt chọn đơn vị tiền tệ muốn quy đổi\n\nNhập số tiền tệ muốn quy đổi và xem kết quả nhé!",
+    "views": 557,
+    "likes": 98,
+    "downloads": 84,
+    "date": "2023-11-12",
+    "author": "Phím Tắt VN & NanLux",
+    "compatible": "iOS 15 - iOS 18+"
+  },
+  {
+    "id": 2740,
+    "title": "Đóng dấu logo camera vào ảnh",
+    "slug": "dong-dau-logo-camera-vao-anh",
+    "icon": "https://phimtat.vn/wp-content/uploads/2023/07/Dong-dau-logo-camera-vao-anh.png",
+    "category": "Hình ảnh",
+    "categories": [
+      "Hình ảnh"
+    ],
+    "tags": [
+      "Chỉnh sửa ảnh",
+      "Nổi bật",
+      "Xem thông tin"
+    ],
+    "icloud_url": "https://www.icloud.com/shortcuts/8eda468381de4b6b91d81c8817eae586",
+    "excerpt": "Hình ảnh minh hoạ:   Chức năng chính: Đóng dấu logo tên máy ảnh vào ảnh chụp của bạn với thông số của ảnh chụp như Khẩu độ, ISO, Vị trí,… Bạn có thể chọn nhiều ...",
+    "description": "Hình ảnh minh hoạ:\n\n \n\nChức năng chính:\n\nĐóng dấu logo tên máy ảnh vào ảnh chụp của bạn với thông số của ảnh chụp như Khẩu độ, ISO, Vị trí,… Bạn có thể chọn nhiều logo camera nổi tiếng khác như Leica, Cannon, Nikon.\n\nHướng dẫn:\n\n– Nhận phím tắt (Hướng dẫn)\n\n– Nhấn vào phím tắt chọn ảnh chụp mà bạn muốn chèn logo\n\n(Ngoài ra bạn có thể vào trực tiếp ảnh chụp màn hình trong Album ảnh hoặc tệp chọn chia sẻ => chọn phím tắt này)\n\n– Chọn logo mà bạn muốn\n\n– Đợi cho phím tắt xử lý và sẽ lưu vào ảnh\n\nThông tin:\n\nTác giả: Xiaomi\n\nViệt hóa & Fix lỗi: Phím tắt VN",
+    "views": 350,
+    "likes": 105,
+    "downloads": 145,
+    "date": "2023-11-05",
+    "author": "Phím Tắt VN & NanLux",
+    "compatible": "iOS 15 - iOS 18+"
+  },
+  {
+    "id": 3668,
+    "title": "Tạo hình nền tràn viền",
+    "slug": "tao-hinh-nen-tran-vien",
+    "icon": "https://phimtat.vn/wp-content/uploads/2023/11/Tao-hinh-nen-tran-vien.png",
+    "category": "Hình ảnh",
+    "categories": [
+      "Hình ảnh"
+    ],
+    "tags": [
+      "Chỉnh sửa ảnh",
+      "Không cần mạng"
+    ],
+    "icloud_url": "https://www.icloud.com/shortcuts/a6e4e9e08f8e46bca7da3b815962a458",
+    "excerpt": "Hình ảnh minh họa: Chức năng chính: Tạo hình nền hiệu ứng tràn viền nhanh chóng không cần dùng mạng Hướng dẫn: – Nhận phím tắt (Hướng dẫn) – Vào ứng dụng ảnh ch...",
+    "description": "Hình ảnh minh họa:\n\nChức năng chính:\n\nTạo hình nền hiệu ứng tràn viền nhanh chóng không cần dùng mạng\n\nHướng dẫn:\n\n– Nhận phím tắt (Hướng dẫn)\n\n– Vào ứng dụng ảnh chọn ảnh cần xem chi tiết bấm chia sẻ và chọn phím tắt này\n\n– Hoặc bấm vào phím tắt và chọn ảnh cần tạo hình nền tràn viền",
+    "views": 686,
+    "likes": 104,
+    "downloads": 397,
+    "date": "2023-11-04",
+    "author": "Phím Tắt VN & NanLux",
+    "compatible": "iOS 15 - iOS 18+"
+  },
+  {
+    "id": 2405,
+    "title": "Bật tắt nhanh 1.1.1.1",
+    "slug": "bat-tat-nhanh-1-1-1-1",
+    "icon": "https://phimtat.vn/wp-content/uploads/2023/06/bat-tat-1111.png",
+    "category": "Bảo mật",
+    "categories": [
+      "Bảo mật",
+      "Tiện ích nhanh"
+    ],
+    "tags": [],
+    "icloud_url": "https://www.icloud.com/shortcuts/42c6cc02d0a54cc4bc1cb43768322487",
+    "excerpt": "Chức năng chính: Phím tắt bật tắt nhanh kết nối VPN 1.1.1.1 để xem… hoặc vào những trang web chặn Việt Nam một cách nhanh chóng, ngoài ra còn có thể tăng tốc mạ...",
+    "description": "Chức năng chính:\n\nPhím tắt bật tắt nhanh kết nối VPN 1.1.1.1 để xem… hoặc vào những trang web chặn Việt Nam một cách nhanh chóng, ngoài ra còn có thể tăng tốc mạng chơi game.\n\nHướng dẫn:\n\n– Nhận phím tắt (Hướng dẫn)\n\n– Tải App 1.1.1.1 và mở app lên nhé\n\n– Cấu hình cài đặt theo yêu cầu của app và bật chạy VPN lần đầu nhé\n\n– Vào cài đặt => VPN\n\n– Chọn Vào icon ⓘ ở 1.1.1.1 và tắt Kết nối theo yêu cầu\n\n(Lưu ý: Nếu sau này bạn kết nối VPN bằng cách mở app 1.1.1.1 mục này sẽ được bật tự động và phím tắt sẽ không dùng được nên bạn cần phải vào và tắt mục này mới có thể dùng phím tắt bật tắt nhanh 1.1.1.1 nhé!!)\n\n– Nhấn vào phím tắt => Kết nối VPN vuốt thanh trạng thái xuống nếu thấy chữ VPN cạnh VNP Wifi là đã thành công\n\n– Vậy là giờ bạn có thể truy cập những trang web … thoải mái rồi nhé\n\nBạn cũng có thể thêm vào màn hình chính để tiện kết nối hơn nhé!!",
+    "views": 705,
+    "likes": 25,
+    "downloads": 350,
+    "date": "2023-10-30",
+    "author": "Phím Tắt VN & NanLux",
+    "compatible": "iOS 15 - iOS 18+"
+  },
+  {
+    "id": 3626,
+    "title": "Hình nền 8K",
+    "slug": "hinh-nen-8k",
+    "icon": "https://phimtat.vn/wp-content/uploads/2023/10/Hinh-nen-8K.png",
+    "category": "Hình ảnh",
+    "categories": [
+      "Hình ảnh"
+    ],
+    "tags": [],
+    "icloud_url": "https://www.icloud.com/shortcuts/81949bb17e9840769a956fbd789c3190",
+    "excerpt": "Chức năng chính: Mở nhanh trang web tổng hợp hình nền 8K để mọi người tải làm hình nền điện thoại Hướng dẫn: – Nhận phím tắt (Hướng dẫn) – Thêm phím tắt vào Màn...",
+    "description": "Chức năng chính:\n\nMở nhanh trang web tổng hợp hình nền 8K để mọi người tải làm hình nền điện thoại\n\nHướng dẫn:\n\n– Nhận phím tắt (Hướng dẫn)\n\n– Thêm phím tắt vào Màn hình chính (Hướng dẫn)\n\n– Nhấn vào phím tắt này để sử dụng nhé!!",
+    "views": 832,
+    "likes": 33,
+    "downloads": 419,
+    "date": "2023-10-30",
+    "author": "Phím Tắt VN & NanLux",
+    "compatible": "iOS 15 - iOS 18+"
+  },
+  {
+    "id": 2400,
+    "title": "Xem tướng Liên Quân ngoài đời",
+    "slug": "xem-tuong-lien-quan-ngoai-doi",
+    "icon": "https://phimtat.vn/wp-content/uploads/2023/06/Xem-tuong-Lien-Quan-ngoai-doi.png",
+    "category": "Thực tế ảo",
+    "categories": [
+      "Thực tế ảo",
+      "Trò chơi"
+    ],
+    "tags": [
+      "Liên Quân Mobile"
+    ],
+    "icloud_url": "https://www.icloud.com/shortcuts/2102d5923cf3489799ee7795f5433439",
+    "excerpt": "Chức năng chính: Xem thực tế các vị tướng ở ngoài đời bằng công nghệ AR của iPhone, Ngoài ra bạn có thể phóng to thu nhỏ tướng để trên mặt bàn hay phòng để sống...",
+    "description": "Chức năng chính:\n\nXem thực tế các vị tướng ở ngoài đời bằng công nghệ AR của iPhone, Ngoài ra bạn có thể phóng to thu nhỏ tướng để trên mặt bàn hay phòng để sống ảo trên mạng xã hội.\n\nHướng dẫn:\n\n– Nhận phím tắt (Hướng dẫn)\n\n– Nhấn vào phím tắt và chọn tướng bạn muốn xem AR\n\n– Di chuyển camera để nhận diện mặt phẳng và tướng sẽ xuất hiện trên điện thoại.\n\nBạn có thể nhấn nút chụp hình hoặc giữ vào nút chụp hình để quay video các vị tướng LQ ngoài đời để share lên mạng xã hội nhé!!\n\nGợi ý:\n\nGhép ảnh tướng với khung rank Liên Quân Mobile\n\nhttps://taoanhdep.com/bai-viet/top-hinh-nen-lien-quan-mobile-dep-nhat-cho-dien-thoai/",
+    "views": 520,
+    "likes": 55,
+    "downloads": 205,
+    "date": "2023-10-28",
+    "author": "Phím Tắt VN & NanLux",
+    "compatible": "iOS 15 - iOS 18+"
+  },
+  {
+    "id": 2319,
+    "title": "Trò chơi: THẬT hay THÁCH",
+    "slug": "phim-tat-tro-choi-that-hay-thach",
+    "icon": "https://phimtat.vn/wp-content/uploads/2023/06/f-1.png",
+    "category": "Trò chơi",
+    "categories": [
+      "Trò chơi"
+    ],
+    "tags": [
+      "Không cần mạng"
+    ],
+    "icloud_url": "https://www.icloud.com/shortcuts/449aeec33bc34761b45fb1816f1b5331",
+    "excerpt": "Đây là một trong những trò chơi được mọi người yêu thích nhất khi tụ tập với bạn bè. Do Phím tắt VN phát triển và phát hành miễn phí dưới dạng phím tắt. Bước 1:...",
+    "description": "Đây là một trong những trò chơi được mọi người yêu thích nhất khi tụ tập với bạn bè. Do Phím tắt VN phát triển và phát hành miễn phí dưới dạng phím tắt. \n\nBước 1: Các bạn lưu ra màn hình chính để chơi cho dễ nha!\n\n \n\nBước 2: Chỉ ấn vào phím tắt để bắt đầu, ấn xong để chơi tiếp\n\nChúc các bạn chơi vui vẻ với bạn bè nha!",
+    "views": 923,
+    "likes": 47,
+    "downloads": 336,
+    "date": "2023-10-25",
+    "author": "Phím Tắt VN & NanLux",
+    "compatible": "iOS 15 - iOS 18+"
+  },
+  {
+    "id": 2365,
+    "title": "Chỉnh sửa ảnh tổng hợp",
+    "slug": "chinh-sua-anh-tong-hop",
+    "icon": "https://phimtat.vn/wp-content/uploads/2023/06/Chinh-sua-anh-tong-hop.png",
+    "category": "Hình ảnh",
+    "categories": [
+      "Hình ảnh"
+    ],
+    "tags": [
+      "Chỉnh sửa ảnh",
+      "Không cần mạng"
+    ],
+    "icloud_url": "https://www.icloud.com/shortcuts/1717460ac86448c9ba1c4609f8862ebe",
+    "excerpt": "Chức năng chính: Phím tắt Chỉnh sửa ảnh tổng hợp với nhiều công cụ chỉnh sửa ảnh nhanh chóng tất cả chỉ trong 1 phím tắt duy nhất ví dụ: Cắt ảnh, chèn ảnh, chèn...",
+    "description": "Chức năng chính:\n\nPhím tắt Chỉnh sửa ảnh tổng hợp với nhiều công cụ chỉnh sửa ảnh nhanh chóng tất cả chỉ trong 1 phím tắt duy nhất ví dụ: Cắt ảnh, chèn ảnh, chèn chữ, watermark, xoay ảnh, ghép nhiều ảnh với nhau, tách nền…\n\nHướng dẫn:\n\n– Nhận phím tắt Tối ưu chơi game (Hướng dẫn)\n\n– Nhấn vào phím tắt và chọn công cụ bạn muốn dùng",
+    "views": 925,
+    "likes": 75,
+    "downloads": 430,
+    "date": "2023-10-18",
+    "author": "Phím Tắt VN & NanLux",
+    "compatible": "iOS 15 - iOS 18+"
+  },
+  {
+    "id": 3512,
+    "title": "Máy tính Plus",
+    "slug": "may-tinh-plus",
+    "icon": "https://phimtat.vn/wp-content/uploads/2023/10/May-tinh-Plus.png",
+    "category": "Học tập",
+    "categories": [
+      "Học tập",
+      "Tiện ích nhanh"
+    ],
+    "tags": [],
+    "icloud_url": "https://www.icloud.com/shortcuts/e72185dffd72481f9b2a578b0ecf8151",
+    "excerpt": "Hình ảnh minh họa: Chức năng chính: Nâng cấp phiên bản Máy tính cầm tay lần trước với phiên bản plus này bạn có thể sử dụng máy tính khoa học với các tính năng ...",
+    "description": "Hình ảnh minh họa:\n\nChức năng chính:\n\nNâng cấp phiên bản Máy tính cầm tay lần trước với phiên bản plus này bạn có thể sử dụng máy tính khoa học với các tính năng nâng cao (plus) sin, cos, tan, pi, căn,…\n\nHướng dẫn:\n\n– Nhận phím tắt (Hướng dẫn)\n\n– Thêm phím tắt vào Màn hình chính (Hướng dẫn)\n\n– Nhấn vào phím tắt máy tính để sử dụng và bấm xong để tắt nhé!",
+    "views": 864,
+    "likes": 71,
+    "downloads": 213,
+    "date": "2023-10-18",
+    "author": "Phím Tắt VN & NanLux",
+    "compatible": "iOS 15 - iOS 18+"
+  },
+  {
+    "id": 3450,
+    "title": "Nén và giải nén tệp",
+    "slug": "nen-va-giai-nen-tep",
+    "icon": "https://phimtat.vn/wp-content/uploads/2023/10/Nen-va-giai-nen.png",
+    "category": "Tiện ích nhanh",
+    "categories": [
+      "Tiện ích nhanh"
+    ],
+    "tags": [
+      "Không cần mạng"
+    ],
+    "icloud_url": "https://www.icloud.com/shortcuts/c6f044fa8f6f4637a615aea0a8de1e5d",
+    "excerpt": "Hình ảnh minh họa: Chức năng chính: Nén nhiều file thành file nén .zip, .tar, .gz, .iso và giải nén file nhanh chóng không cần cài app thứ 3 Hướng dẫn: – Nhận p...",
+    "description": "Hình ảnh minh họa:\n\nChức năng chính:\n\nNén nhiều file thành file nén .zip, .tar, .gz, .iso và giải nén file nhanh chóng không cần cài app thứ 3\n\nHướng dẫn:\n\n– Nhận phím tắt (Hướng dẫn)\n\n– Thêm phím tắt vào Màn hình chính (Hướng dẫn)\n\n– Cách 1: Nhấn vào phím tắt và chọn chức năng nén hoặc giải nén và làm theo hướng dẫn của phím tắt\n\n– Cách 2: Vào Tệp => Chọn file cần nén (Có thể chọn nhiều file) hoặc giải nén => Chia sẻ => Chọn phím tắt này => Chọn chức năng nén hoặc giải nén",
+    "views": 270,
+    "likes": 25,
+    "downloads": 275,
+    "date": "2023-10-10",
+    "author": "Phím Tắt VN & NanLux",
+    "compatible": "iOS 15 - iOS 18+"
+  },
+  {
+    "id": 3873,
+    "title": "Tiết kiệm pin",
+    "slug": "tiet-kiem-pin",
+    "icon": "https://phimtat.vn/wp-content/uploads/2024/01/Tiet-kiem-pin.png",
+    "category": "Hệ thống",
+    "categories": [
+      "Hệ thống"
+    ],
+    "tags": [
+      "Không cần mạng",
+      "Pin"
+    ],
+    "icloud_url": "https://www.icloud.com/shortcuts/21e20ab95c6047e1a60f4239d4dff599",
+    "excerpt": "Chức năng chính: Phím tắt này sẽ giúp bạn bật chế độ tiết kiện pin và siêu tiết kiệm pin nhanh chóng. Dùng trong trường hợp khẩn cấp ví dụ không đem sạc dự phòn...",
+    "description": "Chức năng chính:\n\nPhím tắt này sẽ giúp bạn bật chế độ tiết kiện pin và siêu tiết kiệm pin nhanh chóng. Dùng trong trường hợp khẩn cấp ví dụ không đem sạc dự phòng khi ra ngoài.\n\nHướng dẫn:\n\n– Nhận phím tắt (Hướng dẫn)\n\n– Nhấn vào phím tắt và chọn chế độ để sử dụng\n\n– Có 2 chế độ Tiết kiệm pin (Giảm độ sáng và bật tiết kiệm pin)\n\n– Siêu tiết kiệm pin (Tắt Wifi, Bluetooth, Data và Bật chế độ máy bay, Giảm độ sáng,….)",
+    "views": 621,
+    "likes": 109,
+    "downloads": 142,
+    "date": "2023-10-09",
+    "author": "Phím Tắt VN & NanLux",
+    "compatible": "iOS 15 - iOS 18+"
+  },
+  {
+    "id": 3437,
+    "title": "Đọc văn bản",
+    "slug": "doc-van-ban",
+    "icon": "https://phimtat.vn/wp-content/uploads/2023/10/Doc-van-ban.png",
+    "category": "Âm thanh",
+    "categories": [
+      "Âm thanh",
+      "Cuộc sống",
+      "Văn bản"
+    ],
+    "tags": [
+      "Không cần mạng"
+    ],
+    "icloud_url": "https://www.icloud.com/shortcuts/be560421b90b426cb65e9558d604af16",
+    "excerpt": "Chức năng chính: Tạo và đọc nội dung từ văn bản dùng trong các trường hợp như ghép tiếng vào clip nếu không muốn dùng giọng thật,… Hướng dẫn: – Nhận phím tắt (H...",
+    "description": "Chức năng chính:\n\nTạo và đọc nội dung từ văn bản dùng trong các trường hợp như ghép tiếng vào clip nếu không muốn dùng giọng thật,…\n\nHướng dẫn:\n\n– Nhận phím tắt (Hướng dẫn)\n\n– Thêm phím tắt vào Màn hình chính (Hướng dẫn)\n\n– Nhấn vào phím tắt và nhập nội dung bạn muốn sau đó bạn có thể nghe hoặc lưu âm thanh nếu muốn nhé!",
+    "views": 639,
+    "likes": 46,
+    "downloads": 518,
+    "date": "2023-10-07",
+    "author": "Phím Tắt VN & NanLux",
+    "compatible": "iOS 15 - iOS 18+"
+  },
+  {
+    "id": 3428,
+    "title": "Chuyển giọng nói thành văn bản",
+    "slug": "chuyen-giong-noi-thanh-van-ban",
+    "icon": "https://phimtat.vn/wp-content/uploads/2023/10/Chuyen-giong-noi-thanh-van-ban.png",
+    "category": "Âm thanh",
+    "categories": [
+      "Âm thanh",
+      "Cuộc sống",
+      "Văn bản"
+    ],
+    "tags": [
+      "Không cần mạng"
+    ],
+    "icloud_url": "https://www.icloud.com/shortcuts/7ffd534ebfb14c3986d367e1d0badd76",
+    "excerpt": "Chức năng chính: Phím tắt này giúp mọi người dễ dàng chuyển giọng nói thành văn bản và tự động lưu vào Ghi chú. Dùng vào lúc khi cần ví dụ trong các trường hợp ...",
+    "description": "Chức năng chính:\n\nPhím tắt này giúp mọi người dễ dàng chuyển giọng nói thành văn bản và tự động lưu vào Ghi chú. Dùng vào lúc khi cần ví dụ trong các trường hợp ghi lại bài giảng của thầy cô giáo để về nhà học bài,…\n\nHướng dẫn:\n\n– Nhận phím tắt (Hướng dẫn)\n\n– Vào cài đặt => tìm “Đọc chính tả” => Nhấn vào Bật đọc chính tả\n\n– Bật Đọc chính tả nếu bạn chưa bật nhé!\n\n– Sau đó vào app phím tắt\n\n– Nhấn giữ vào phím tắt chuyển giọng nói thành văn bản => chọn chia sẻ = > Thêm vào MH chính\n\n– Vậy là bạn đã có thêm phím tắt chuyển văn bản thành giọng nói ở ngay màn hình chính khi nào cần dùng chỉ cần bấm vào thôi nhé\n\n– Khi nào muốn ngừng chuyển để lưu vào ghi chí thì nhấn vào biểu tượng dừng nhé!\n\n– Để xem lại các ghi chú giọng nói bạn vào ứng dụng Ghi chú nhé!!",
+    "views": 306,
+    "likes": 24,
+    "downloads": 257,
+    "date": "2023-10-07",
+    "author": "Phím Tắt VN & NanLux",
+    "compatible": "iOS 15 - iOS 18+"
+  },
+  {
+    "id": 2343,
+    "title": "Kho mini game",
+    "slug": "kho-mini-game",
+    "icon": "https://phimtat.vn/wp-content/uploads/2023/06/Kho-mini-game.png",
+    "category": "Trò chơi",
+    "categories": [
+      "Trò chơi"
+    ],
+    "tags": [],
+    "icloud_url": "https://www.icloud.com/shortcuts/4622a8abb96240efab25a0edeecdd775",
+    "excerpt": "Chức năng chính: Phím tắt chơi game online với nhiều game hot, bạn có thể truy cập trụwc tiếp vào poki.com để chơi nhé! Hướng dẫn: Bước 1: Nhận phím tắt Kho min...",
+    "description": "Chức năng chính:\n\nPhím tắt chơi game online với nhiều game hot, bạn có thể truy cập trụwc tiếp vào poki.com để chơi nhé!\n\nHướng dẫn:\n\nBước 1: Nhận phím tắt Kho mini game (Hướng dẫn)\n\nBước 2: Vào app Phím tắt nhấn giữ vào phím tắt vừa thêm chọn chia sẻ => Thêm vào màn hình chính\n\nBước 3: Vậy là từ giờ bạn có ngay phím tắt ngay màn hình chính để vào kho game mini của Poki rồi nhé!!\n\nBước 4: Nhấn vào game bạn muốn chơi và nhấn Play Now để chơi game\n\nHướng dẫn:",
+    "views": 961,
+    "likes": 74,
+    "downloads": 412,
+    "date": "2023-09-26",
+    "author": "Phím Tắt VN & NanLux",
+    "compatible": "iOS 15 - iOS 18+"
+  },
+  {
+    "id": 3376,
+    "title": "Âm thanh sạc",
+    "slug": "am-thanh-sac",
+    "icon": "https://phimtat.vn/wp-content/uploads/2023/09/Am-thanh-Tu-dong-hoa.png",
+    "category": "Âm thanh",
+    "categories": [
+      "Âm thanh",
+      "Hệ thống"
+    ],
+    "tags": [
+      "Không cần mạng"
+    ],
+    "icloud_url": "https://www.icloud.com/shortcuts/eb965e6e16144d1a842ede0df26e6e98",
+    "excerpt": "Chức năng chính: Tự động phát âm thanh vui nhộn cho mục tự động hóa, bạn có thể dùng phím tắt này để cài phát âm thanh khi cắm sạc, hay kết nối wifi, mở app, th...",
+    "description": "Chức năng chính:\n\nTự động phát âm thanh vui nhộn cho mục tự động hóa, bạn có thể dùng phím tắt này để cài phát âm thanh khi cắm sạc, hay kết nối wifi, mở app, thời gian trong ngày,…\n\nHướng dẫn: \n\n– Nhận phím tắt (Hướng dẫn)\n\n– Vào web myinstants.com Chọn và sao chép link âm thanh bạn muốn\n\n– Sau đó vào app Phím tắt\n\n– Chọn mục tự động hóa => Thêm tự động hóa mới\n\n– Chọn mục tự động hóa mà bạn muốn (Ở đây mình ví dụ Cắm sạc nhé, bạn có thể chọn mục khác)\n\n– Chọn chạy ngay lập tức => Tiếp\n\n– Chọn mục tự động hóa trống mới (IOS bỏ qua bước này)\n\n– Chọn Thêm tác vụ\n\nTìm và thêm tác vụ văn bản sau đó dán link hồi nãy sao chép vào\n\n– Chọn tìm tác vụ và thêm tác vụ Chạy phím tắt\n\n \n\nNhấn vào chữ Phím tắt tìm và chọn “Âm thanh sạc” đã thêm trước đó\n\n \n\n– Bấm nút Xong\n\n– Sau đó bạn test thử bằng cách sạc điện thoại và nhấn Cho phép cho lần đầu nhé!\n\nVậy là Xong bạn cũng có thể áp dụng nhiều lần cho nhiều âm thanh và đồng bộ khác nhé!!\n\nLưu ý: Đối với IOS 15 bạn bấm vào sửa Tự động hóa => kéo xuống => Tắt Hỏi trước khi chạy nhé!",
+    "views": 932,
+    "likes": 108,
+    "downloads": 609,
+    "date": "2023-09-26",
+    "author": "Phím Tắt VN & NanLux",
+    "compatible": "iOS 15 - iOS 18+"
+  },
+  {
+    "id": 2337,
+    "title": "Bật tắt nhanh hệ thống",
+    "slug": "bat-tat-nhanh-he-thong",
+    "icon": "https://phimtat.vn/wp-content/uploads/2023/06/Bat-tat-nhanh-he-thong.png",
+    "category": "Hệ thống",
+    "categories": [
+      "Hệ thống"
+    ],
+    "tags": [
+      "Không cần mạng"
+    ],
+    "icloud_url": "https://www.icloud.com/shortcuts/f06eb59cf6984043907840af4a93fad2",
+    "excerpt": "Chức năng chính: Bật tắt nhanh những cài đặt hệ thống và trợ năng ví dụ Wifi, Bluetooth, dữ liệu, AssistiveTouch… Tất cả chỉ trong một phím tắt duy nhất bạn chỉ...",
+    "description": "Chức năng chính:\n\nBật tắt nhanh những cài đặt hệ thống và trợ năng ví dụ Wifi, Bluetooth, dữ liệu, AssistiveTouch… Tất cả chỉ trong một phím tắt duy nhất bạn chỉ việc lưu phím tắt và lưu màn hình chính khi nào cần điều chỉnh thì có thể dễ dàng bật tắt mà không phải cần nhớ và vào chỗ cài đặt.\n\nHướng dẫn:\n\nBước 1: Nhận phím tắt Bật tắt nhanh hệ thống (Hướng dẫn)\n\nBước 2: Vào app Phím tắt nhấn giữ vào phím tắt vừa thêm chọn chia sẻ => Thêm vào màn hình chính\n\n \n\nBước 3: Vậy là từ giờ bạn có ngay phím tắt ngay màn hình chính để bật tắt nhanh các tuỳ chọn hệ thống rồi nhé!!",
+    "views": 739,
+    "likes": 91,
+    "downloads": 238,
+    "date": "2023-09-26",
+    "author": "Phím Tắt VN & NanLux",
+    "compatible": "iOS 15 - iOS 18+"
+  },
+  {
+    "id": 3277,
+    "title": "Action Button",
+    "slug": "action-button",
+    "icon": "https://phimtat.vn/wp-content/uploads/2023/09/Action-Button.png",
+    "category": "Tiện ích nhanh",
+    "categories": [
+      "Tiện ích nhanh"
+    ],
+    "tags": [],
+    "icloud_url": "https://www.icloud.com/shortcuts/2c55e27cba2c40f6ac5f19896b5c4325",
+    "excerpt": "Chức năng chính: Giúp vào truy cập nhiều chức năng hơn cho action button trên iPhone 15 Ví dụ: Dịch màn hình, Xem lịch vạn niên Chụp ảnh, ️ Ghi âm, Tạo báo thức...",
+    "description": "Chức năng chính:\n\nGiúp vào truy cập nhiều chức năng hơn cho action button trên iPhone 15\n\nVí dụ:\n\nDịch màn hình, Xem lịch vạn niên\n\nChụp ảnh, ️ Ghi âm, Tạo báo thức\n\nBật tắt đèn Flash, Bật tắt không làm phiền, Bật tắt GPS, Bật tắt 1.1.1.1,…\n\nHướng dẫn:\n\n– Nhận phím tắt (Hướng dẫn)\n\nĐối với iPhone 15\n\n(Đang cập nhật hướng dẫn…)\n\nĐối với iPhone thấp hơn có thể dùng chạm vào mặt lưng để dùng\n\n– Vào cài đặt => Trợ năng\n\n– Cảm ứng => Chạm vào mặt sau\n\n \n\n– Chạm 2 lần => kéo xuống, Chọn phím tắt Action Button\n\n \n\n \n\nVậy là khi nào cần dùng Action Button bạn có thể nhấn 2 lần vào mặt lưng để hiện menu dùng nhé!!",
+    "views": 669,
+    "likes": 56,
+    "downloads": 218,
+    "date": "2023-09-14",
+    "author": "Phím Tắt VN & NanLux",
+    "compatible": "iOS 15 - iOS 18+"
+  },
+  {
+    "id": 83,
+    "title": "Mockup iPhone 14 Pro Max",
+    "slug": "mockup-iphone-14-pro-max",
+    "icon": "https://phimtat.vn/wp-content/uploads/2023/06/3.png",
+    "category": "Hình ảnh",
+    "categories": [
+      "Hình ảnh"
+    ],
+    "tags": [
+      "Chỉnh sửa ảnh",
+      "Nổi bật"
+    ],
+    "icloud_url": "https://www.icloud.com/shortcuts/4d7c3c5145e44c23b92efaefb38cb830",
+    "excerpt": "Hình ảnh minh hoạ: Chức năng chính: Ghép ảnh chụp màn hình vào khung iphone 14 pro max để dùng vào nhiều mục đích khác nhau ví dụ làm ảnh demo hình nền, hướng d...",
+    "description": "Hình ảnh minh hoạ:\n\nChức năng chính:\n\nGhép ảnh chụp màn hình vào khung iphone 14 pro max để dùng vào nhiều mục đích khác nhau ví dụ làm ảnh demo hình nền, hướng dẫn,…\n\nHướng dẫn:\n\n– Vào ứng dụng ảnh chọn ảnh cần tách nền bấm chia sẻ và chọn phím tắt này\n\n– Hoặc bấm vào phím tắt và chọn ảnh chụp màn hình cần ghép vào khung\n\nGợi ý:\n\nPhím tắt Mockup thiết bị Apple",
+    "views": 641,
+    "likes": 49,
+    "downloads": 592,
+    "date": "2023-09-14",
+    "author": "Phím Tắt VN & NanLux",
+    "compatible": "iOS 15 - iOS 18+"
+  },
+  {
+    "id": 3268,
+    "title": "Bật tắt nhanh GPS",
+    "slug": "bat-tat-nhanh-gps",
+    "icon": "https://phimtat.vn/wp-content/uploads/2023/09/Bat-tat-GPS.png",
+    "category": "Hệ thống",
+    "categories": [
+      "Hệ thống",
+      "Tiện ích nhanh"
+    ],
+    "tags": [
+      "Không cần mạng"
+    ],
+    "icloud_url": "https://www.icloud.com/shortcuts/2d096572fe47485d95d524f8f3bba94d",
+    "excerpt": "Chức năng chính: Phím tắt vào nhanh cài đặt bật tắt nhanh GPS (Dịch vụ định vị) thay vì tìm kiếm tính năng này quá nhiều bước Từ phím tắt Phím tắt Bật tắt nhanh...",
+    "description": "Chức năng chính:\n\nPhím tắt vào nhanh cài đặt bật tắt nhanh GPS (Dịch vụ định vị) thay vì tìm kiếm tính năng này quá nhiều bước\n\nTừ phím tắt Phím tắt Bật tắt nhanh hệ thống, Nhưng khá nhiều chứng năng thì với phím tắt này giúp cho bạn nào hay sử dụng Bật tắt nhanh GPS\n\nHướng dẫn:\n\n– Nhận phím tắt (Hướng dẫn)\n\n– Giữ vào phím tắt này chọn chia sẻ\n\n– Nhấn vào Thêm vào Màn hình chính để tiện sử dụng\n\n– Vậy là giờ khi nào cần bật tắt nhanh GPS bạn chỉ cần nhấn vào biểu tượng ngoài màn hình chính phím tắt sẽ giúp bạn vào nhanh cài đặt Dịch vụ định vị",
+    "views": 336,
+    "likes": 34,
+    "downloads": 577,
+    "date": "2023-09-13",
+    "author": "Phím Tắt VN & NanLux",
+    "compatible": "iOS 15 - iOS 18+"
+  },
+  {
+    "id": 2786,
+    "title": "SOS mã Morse",
+    "slug": "sos-ma-morse",
+    "icon": "https://phimtat.vn/wp-content/uploads/2023/07/SOS-ma-Morse.png",
+    "category": "Cuộc sống",
+    "categories": [
+      "Cuộc sống",
+      "Tiện ích nhanh"
+    ],
+    "tags": [],
+    "icloud_url": "https://www.icloud.com/shortcuts/1d2a47a3ff0f44c59095fbf0e581cfbd",
+    "excerpt": "Chức năng chính: Áp dụng vào trường hợp khẩn cấp bạn cần ra tín hiệu SOS bằng đèn flash. Phím tắt này sẽ giúp bạn chuyển văn bản, chữ bạn muốn ra tín hiệu thành...",
+    "description": "Chức năng chính:\n\nÁp dụng vào trường hợp khẩn cấp bạn cần ra tín hiệu SOS bằng đèn flash. Phím tắt này sẽ giúp bạn chuyển văn bản, chữ bạn muốn ra tín hiệu thành mã morse và sẽ nháy đèn flash tương ứng để ra tín hiệu SOS cho người khác biết.\n\nHướng dẫn:\n\n– Nhận phím tắt (Hướng dẫn)\n\n– Nhấn vào phím tắt này và nhập chữ bạn muốn SOS mã Morse\n\n(Lưu ý: Tin nhắn càng dài thì càng mất nhiều thời gian để hoàn thành.)",
+    "views": 352,
+    "likes": 38,
+    "downloads": 239,
+    "date": "2023-09-11",
+    "author": "Phím Tắt VN & NanLux",
+    "compatible": "iOS 15 - iOS 18+"
+  },
+  {
+    "id": 3661,
+    "title": "Ghép khung sản phẩm",
+    "slug": "ghep-khung-san-pham",
+    "icon": "https://phimtat.vn/wp-content/uploads/2023/11/Ghep-khung-san-pham.png",
+    "category": "Cuộc sống",
+    "categories": [
+      "Cuộc sống",
+      "Hình ảnh"
+    ],
+    "tags": [
+      "Shopee"
+    ],
+    "icloud_url": "https://www.icloud.com/shortcuts/ecc8430f95014e4cb8c817365c61edd7",
+    "excerpt": "Hình ảnh minh họa: Chức năng chính: Đây là phím tắt công cụ dành cho bạn nào đang bán hàng online trên các trang thương mại điện tử như Shopee, Tiktok Shop, Laz...",
+    "description": "Hình ảnh minh họa:\n\nChức năng chính:\n\nĐây là phím tắt công cụ dành cho bạn nào đang bán hàng online trên các trang thương mại điện tử như Shopee, Tiktok Shop, Lazada, Tiki,… Với phím tắt này, bạn có thể ghép ảnh sản phẩm hàng loạt vào bộ khung ảnh đẹp một cách đơn giản để đăng sản phẩm lên shopee hoặc lazada, tiki và các trang TMĐT khác một cách đơn giản mà ai cũng có thể làm được.\n\nNgoài ra bạn cũng có thể dùng bản web Tại đây\n\nHướng dẫn:\n\n– Nhận phím tắt (Hướng dẫn)\n\n– Thêm phím tắt vào Màn hình chính (Hướng dẫn)\n\n– Nhấn vào phím tắt chọn ảnh muốn ghép khung (Có thể chọn nhiều ảnh một lúc)\n\n– Nhấn chọn khung bạn muốn ghép\n\n– Đợi cho phím tắt xử lý và vào Album Gần đây để xem kết quả nhé!",
+    "views": 427,
+    "likes": 108,
+    "downloads": 194,
+    "date": "2023-09-03",
+    "author": "Phím Tắt VN & NanLux",
+    "compatible": "iOS 15 - iOS 18+"
+  },
+  {
+    "id": 3286,
+    "title": "Dịch màn hình (Google dịch)",
+    "slug": "dich-man-hinh-v2",
+    "icon": "https://phimtat.vn/wp-content/uploads/2023/09/Dich-man-hinh-Google-dich.png",
+    "category": "Cuộc sống",
+    "categories": [
+      "Cuộc sống",
+      "Tiện ích nhanh"
+    ],
+    "tags": [],
+    "icloud_url": "https://www.icloud.com/shortcuts/a62099f4f85d43139c68e96782ebe2b6",
+    "excerpt": "Chức năng chính: Thử nghiệm phím tắt Dịch màn hình v2 với nâng cấp. Tự động nhận diện ngôn ngữ, chữ dễ nhìn hơn nhưng phải thực hiện dịch thủ công. Dịch trên mà...",
+    "description": "Chức năng chính:\n\nThử nghiệm phím tắt Dịch màn hình v2 với nâng cấp. Tự động nhận diện ngôn ngữ, chữ dễ nhìn hơn nhưng phải thực hiện dịch thủ công.\n\nDịch trên màn hình (Dịch màn hình) dịch văn bản ngay trên màn hình, Dịch mọi lúc, mọi nơi, ngay cả khi bạn đang lướt web, chơi game\n\nHướng dẫn:\n\n– Nhận phím tắt (Hướng dẫn)\n\n– Vào cài đặt => Trợ năng\n\n \n\nNhấn vào Cảm ứng => AssistiveTouch\n\n \n\nBật AssistiveTouch và thiết lập để bật phím tắt khi dùng\n\nỞ đây mình chọn chạm một lần (bạn có thể tùy chọn riêng theo sở thích nhé)\n\nSau đó kéo xuống cuối cùng chọn phím tắt Dịch màn hình (Google dịch) đã thêm trước đó\n\n \n\nVậy là xong khi nào cần dịch trên màn hình bạn chỉ cần nhấn vào nút AssistiveTouch và chọn ngôn ngữ là có thể xem bản dịch ngay và luôn rồi nhé!!\n\nNếu bạn muốn xem to hơn hình có thể nhấn trực tiếp vào ảnh kết quả nhé!!",
+    "views": 152,
+    "likes": 78,
+    "downloads": 479,
+    "date": "2023-09-01",
+    "author": "Phím Tắt VN & NanLux",
+    "compatible": "iOS 15 - iOS 18+"
+  },
+  {
+    "id": 2371,
+    "title": "Chỉ đường về nhà",
+    "slug": "chi-duong-ve-nha",
+    "icon": "https://phimtat.vn/wp-content/uploads/2023/06/Chi-duong-ve-nha.png",
+    "category": "Cuộc sống",
+    "categories": [
+      "Cuộc sống",
+      "Tiện ích nhanh"
+    ],
+    "tags": [],
+    "icloud_url": "https://www.icloud.com/shortcuts/5711d4b019bf4a108d80ff4108b6127d",
+    "excerpt": "Chức năng chính: Phím tắt chỉ đường về nhà giúp chỉ đường về nhà nhanh chóng khi bạn đang ở ngoài đường không tiện việc tìm kiếm địa chỉ về nhà. Phím tắt này đư...",
+    "description": "Chức năng chính:\n\nPhím tắt chỉ đường về nhà giúp chỉ đường về nhà nhanh chóng khi bạn đang ở ngoài đường không tiện việc tìm kiếm địa chỉ về nhà. Phím tắt này được phimtat.vn tuỳ biến phù hợp với người dùng Việt Nam.\n\nHướng dẫn:\n\n– Nhận phím tắt (Hướng dẫn)\n\n– Nhấn nút thiết lập phím tắt điền địa chỉ của bạn vào tương tự thiết lập Quận/ Huyện và Tỉnh/ Thành phố.\n\n– Vào App Phím tắt giữ vào phím tắt Chỉ đường về nhà chọn chia sẻ => Thêm vào màn hình chính\n\nPhím tắt sẽ hiện ở trang màn hình chính để bạn sử dụng.\n\nVậy là khi nào đang đi ngoài đường mà muốn chỉ đường về nhà bạn không còn phải lúc túng mở app Google maps rồi tra đường nữa mà chỉ cần một nút bấm thôi nhé!!!",
+    "views": 297,
+    "likes": 58,
+    "downloads": 604,
+    "date": "2023-08-27",
+    "author": "Phím Tắt VN & NanLux",
+    "compatible": "iOS 15 - iOS 18+"
+  },
+  {
+    "id": 80,
+    "title": "Làm mờ hình ảnh",
+    "slug": "lam-mo-hinh-anh",
+    "icon": "https://phimtat.vn/wp-content/uploads/2023/06/4.png",
+    "category": "Hình ảnh",
+    "categories": [
+      "Hình ảnh"
+    ],
+    "tags": [
+      "Chỉnh sửa ảnh"
+    ],
+    "icloud_url": "https://www.icloud.com/shortcuts/54e9f1111ec948439a38b1cb5a44842c",
+    "excerpt": "Chức năng chính: Chức năng: Làm mờ hình ảnh, thích hợp làm hình nền màn hình chính cho từ iOS 15, 16 Hướng dẫn: Bước 1: Vào ứng dụng ảnh và chọn ảnh cần làm mờ ...",
+    "description": "Chức năng chính:\n\nChức năng: Làm mờ hình ảnh, thích hợp làm hình nền màn hình chính cho từ iOS 15, 16\n\nHướng dẫn:\n\nBước 1: Vào ứng dụng ảnh và chọn ảnh cần làm mờ\n\nBước 2: Bấm chia sẻ và chọn Làm mờ hình ảnh\n\nBước 3: Chọn ảnh muốn tạo hiệu ứng mờ và nhập cường độ mờ",
+    "views": 530,
+    "likes": 105,
+    "downloads": 505,
+    "date": "2023-08-15",
+    "author": "Phím Tắt VN & NanLux",
+    "compatible": "iOS 15 - iOS 18+"
+  },
+  {
+    "id": 3036,
+    "title": "Tổng hợp hình nền AI",
+    "slug": "tong-hop-hinh-nen-ai",
+    "icon": "https://phimtat.vn/wp-content/uploads/2023/08/Tong-hop-hinh-nen-AI.png",
+    "category": "Hình ảnh",
+    "categories": [
+      "Hình ảnh"
+    ],
+    "tags": [],
+    "icloud_url": "https://www.icloud.com/shortcuts/c5ac6da566774faabde05f6006f083cd",
+    "excerpt": "Hình ảnh minh họa: Chức năng chính: Tải nhanh hình nền ngẫu nhiên theo danh mục với hơn 15000 hình ảnh tuyển chọn với nhiều chủ đề khác nhau như phong cảnh, gir...",
+    "description": "Hình ảnh minh họa:\n\nChức năng chính:\n\nTải nhanh hình nền ngẫu nhiên theo danh mục với hơn 15000 hình ảnh tuyển chọn với nhiều chủ đề khác nhau như phong cảnh, girl xinh, cute, hoạt hình,…\n\nCó thể xem phiên bản web Tại đây\n\nHướng dẫn:\n\n– Nhận phím tắt (Hướng dẫn)\n\n– Vào app phím tắt nhấn trực tiếp vào phím tắt này\n\n– Chọn danh mục muốn tải hình nền\n\n– Xem hình nền và lưu hoặc đặc hình nền khác hoặc chọn hình nền khác",
+    "views": 252,
+    "likes": 58,
+    "downloads": 49,
+    "date": "2023-08-13",
+    "author": "Phím Tắt VN & NanLux",
+    "compatible": "iOS 15 - iOS 18+"
+  },
+  {
+    "id": 3023,
+    "title": "Xem tướng Liên Minh ngoài đời",
+    "slug": "phim-tat-xem-tuong-lien-minh-ngoai-doi",
+    "icon": "https://phimtat.vn/wp-content/uploads/2023/08/Xem-tuong-Lien-Minh-ngoai-doi.png",
+    "category": "Thực tế ảo",
+    "categories": [
+      "Thực tế ảo",
+      "Trò chơi"
+    ],
+    "tags": [],
+    "icloud_url": "https://www.icloud.com/shortcuts/a22e3132566c4949bd430861a53b1a50",
+    "excerpt": "Chức năng chính: Lần trước mình làm Phím tắt Xem tướng Liên Quân ngoài đời cũng đã nhiều bạn sử dụng và ủng hộ nhiệt tình. Hôm nay Phím tắt VN cho ra thêm Liên ...",
+    "description": "Chức năng chính:\n\nLần trước mình làm Phím tắt Xem tướng Liên Quân ngoài đời cũng đã nhiều bạn sử dụng và ủng hộ nhiệt tình. Hôm nay Phím tắt VN cho ra thêm Liên Minh Huyền Thoại để dành cho các bạn fan hâm mộ tựa game này nhé\n\nHướng dẫn:\n\n– Nhận phím tắt (Hướng dẫn)\n\n– Nhấn vào phím tắt và chọn tướng bạn muốn xem AR\n\n– Di chuyển camera để nhận diện mặt phẳng và tướng sẽ xuất hiện trên điện thoại.\n\nBạn có thể nhấn nút chụp hình hoặc giữ vào nút chụp hình để quay video các vị tướng Liên Minh ngoài đời để share lên mạng xã hội nhé!!\n\nHình ảnh minh họa:",
+    "views": 621,
+    "likes": 79,
+    "downloads": 292,
+    "date": "2023-08-12",
+    "author": "Phím Tắt VN & NanLux",
+    "compatible": "iOS 15 - iOS 18+"
+  },
+  {
+    "id": 2903,
+    "title": "Tải file Google Drive",
+    "slug": "tai-file-google-drive",
+    "icon": "https://phimtat.vn/wp-content/uploads/2023/07/Tai-file-Google-Drive.png",
+    "category": "Tiện ích nhanh",
+    "categories": [
+      "Tiện ích nhanh"
+    ],
+    "tags": [],
+    "icloud_url": "https://www.icloud.com/shortcuts/bd6e14bfc83a4ecea002f8b3fa51b1a3",
+    "excerpt": "Chức năng chính: Nếu bạn mở file trên Google Drive sẽ không có chức năng tải file về mà chỉ có chức năng mở trong… rất bất tiện. Phím tắt này sẽ giúp bạn tải fi...",
+    "description": "Chức năng chính:\n\nNếu bạn mở file trên Google Drive sẽ không có chức năng tải file về mà chỉ có chức năng mở trong… rất bất tiện. Phím tắt này sẽ giúp bạn tải file Google drive về Tệp của iPhone\n\nPhím tắt có thể tải folder nhưng phải làm thủ công 1 xíu nhé các bạn cứ làm theo hướng dẫn của phím tắt là được!!\n\nHướng dẫn:\n\n– Nhận phím tắt (Hướng dẫn)\n\n– Vào file cần tải chọn vào dấu ba chấm => chọn chia sẻ\n\n– Vào Phím tắt nhấn vào phím tắt này\n\n \n\nChọn Dán Link => OK, Chọn nơi lưu tệp và vào tệp chọn gần đây để xem file tải về nhé!!",
+    "views": 431,
+    "likes": 39,
+    "downloads": 532,
+    "date": "2023-07-22",
+    "author": "Phím Tắt VN & NanLux",
+    "compatible": "iOS 15 - iOS 18+"
+  },
+  {
+    "id": 2779,
+    "title": "Chơi game khủng long",
+    "slug": "game-khung-long",
+    "icon": "https://phimtat.vn/wp-content/uploads/2023/07/Game-khung-long.png",
+    "category": "Trò chơi",
+    "categories": [
+      "Trò chơi"
+    ],
+    "tags": [],
+    "icloud_url": "https://www.icloud.com/shortcuts/5bbf100d25d24acfa3245e10b666e31e",
+    "excerpt": "Chức năng chính: Chơi game khủng long huyền thoại khi rớt mạng ngay trên điện thoại Hướng dẫn: – Nhận phím tắt (Hướng dẫn) – Bạn cần tải ứng dụng Google Chrome ...",
+    "description": "Chức năng chính:\n\nChơi game khủng long huyền thoại khi rớt mạng ngay trên điện thoại\n\nHướng dẫn:\n\n– Nhận phím tắt (Hướng dẫn)\n\n– Bạn cần tải ứng dụng Google Chrome trước nhé!\n\n– Sau đó vào Ứng dụng Phím tắt chạy phím tắt này là có thể chơi game rồi nhé!!",
+    "views": 943,
+    "likes": 42,
+    "downloads": 656,
+    "date": "2023-07-11",
+    "author": "Phím Tắt VN & NanLux",
+    "compatible": "iOS 15 - iOS 18+"
+  },
+  {
+    "id": 2755,
+    "title": "Shazam++ Công cụ tìm kiếm nhạc nhanh chóng",
+    "slug": "shazam-cong-cu-tim-kiem-nhac",
+    "icon": "https://phimtat.vn/wp-content/uploads/2023/07/shazam.png",
+    "category": "Âm thanh",
+    "categories": [
+      "Âm thanh",
+      "Tiện ích nhanh"
+    ],
+    "tags": [
+      "Mạng xã hội",
+      "Xem thông tin"
+    ],
+    "icloud_url": "https://www.icloud.com/shortcuts/634b33dec0ff4e399aa772fdcc0e400a",
+    "excerpt": "Chức năng chính: Nếu bạn đang nghe một bài hát từ quán cafe hay một người bạn nào đó mà không biết tên bài đó và ngại xin tên nhạc thì có thể dùng phím tắt này ...",
+    "description": "Chức năng chính:\n\nNếu bạn đang nghe một bài hát từ quán cafe hay một người bạn nào đó mà không biết tên bài đó và ngại xin tên nhạc thì có thể dùng phím tắt này nhé! Chức năng chính là giúp nhận diện bài hát nhanh chóng và nghe nhạc ngay với nhiều nền tảng phổ biến như Spotify, Apple Music, Youtube, SoundCould,…\n\nNgoài chức năng chính là tìm kiếm nhạc và chọn nền tảng yêu thích để nghe nhạc ra bạn còn có thể:\n\nXem thông tin bài hát và lịch sử Shazam\n\nChia sẻ bài hát và tải bài hát về với tích hợp phím tắt Snap Video\n\nHướng dẫn:\n\n– Nhận phím tắt (Hướng dẫn)\n\n– Nhấn vào phím tắt chọn nền tảng nhạc mà bạn yêu thích (chỉ yêu cầu lần đầu có thể thay đổi ở cài đặt)\n\n– Mở nhạc bạn muốn tìm mà không biết tên bài hát và để phím tắt xử lý\n\n– Sau đó bạn có thể xem thông tin bài hát hoặc mở bài hát ở nền tảng yêu thích.",
+    "views": 905,
+    "likes": 15,
+    "downloads": 580,
+    "date": "2023-07-09",
+    "author": "Phím Tắt VN & NanLux",
+    "compatible": "iOS 15 - iOS 18+"
+  },
+  {
+    "id": 283,
+    "title": "Khoá ứng dụng",
+    "slug": "khoa-ung-dung",
+    "icon": "https://phimtat.vn/wp-content/uploads/2023/06/khoa-ung-dung.png",
+    "category": "Bảo mật",
+    "categories": [
+      "Bảo mật"
+    ],
+    "tags": [
+      "Không cần mạng"
+    ],
+    "icloud_url": "https://www.icloud.com/shortcuts/dff7fef6e66f4f4ea2739bcd59ae6a61",
+    "excerpt": "Chức năng chính: Khoá ứng dụng bằng và mở khoá bằng mật khẩu, nhập đúng sẻ mở khoá và dùng ứng dụng còn nhập sai sẽ chụp camera trước và lưu vào thư viện ảnh. H...",
+    "description": "Chức năng chính:\n\nKhoá ứng dụng bằng và mở khoá bằng mật khẩu, nhập đúng sẻ mở khoá và dùng ứng dụng còn nhập sai sẽ chụp camera trước và lưu vào thư viện ảnh.\n\nHướng dẫn:\n\nĐầu tiên bạn cần chuẩn bị cho mình phím tắt Tải icon App Store và phím tắt Khoá ứng dụng\n\n– Xoá ứng dụng cần khoá khỏi màn hình chính\n\nNhấn vào phím tắt Tải icon App Store và nhập tên app cần tải logo\n\n \n\nChọn app cần tải icon và ảnh icon sẽ được lưu vào Album ảnh\n\nChọn dấu 3 chấm góc phải của phím tắt Khoá Ứng dụng và bấm vào Mở Tiktok để đổi ứng dụng\n\nTìm và chọn ứng dụng cần khoá tiếp theo là chỉnh sửa 1234 thành mật khẩu bạn muốn đặt\n\nBấm nút chia sẻ dưới phím tắt Khoá ứng dụng chọn Thêm vào màn hình chính\n\nNhấn vào chọn ảnh và chọn ảnh icon vừa tải ở trên\n\nĐặt lại tên của biểu tượng và bấm nút Thêm, Trên màn hình chính sẽ xuất hiện App (giả) được tạo từ phím tắt này khi bấm vào sẽ yêu cầu mật khẩu để vào ứng dụng.",
+    "views": 391,
+    "likes": 84,
+    "downloads": 192,
+    "date": "2023-06-20",
+    "author": "Phím Tắt VN & NanLux",
+    "compatible": "iOS 15 - iOS 18+"
+  },
+  {
+    "id": 275,
+    "title": "Kích thước thật động vật AR",
+    "slug": "kich-thuoc-that-dong-vat-ar",
+    "icon": "https://phimtat.vn/wp-content/uploads/2023/06/dv.png",
+    "category": "Thực tế ảo",
+    "categories": [
+      "Thực tế ảo",
+      "Video"
+    ],
+    "tags": [
+      "Xem thông tin"
+    ],
+    "icloud_url": "https://www.icloud.com/shortcuts/f1409af1e7e64deabb8618f5d3c08690",
+    "excerpt": "Hình ảnh minh hoạ: Chức năng chính: Xem kích thước thật động vật bằng công nghệ thực tế ảo tăng cường AR với nhiều động vật như Chó, mèo, cá, chim, sư tử, hổ… H...",
+    "description": "Hình ảnh minh hoạ:\n\nChức năng chính:\n\nXem kích thước thật động vật bằng công nghệ thực tế ảo tăng cường AR với nhiều động vật như Chó, mèo, cá, chim, sư tử, hổ…\n\nHướng dẫn:\n\nNhấn vào phím tắt Kích thước thật động vật AR và chọn con vật bạn muốn xem sau đó giao diện AR sẽ xuất hiện để bạn có thể xem con vật bằng thực tế ảo AR\n\nNếu không xuất hiện chế độ xem AR mà chỉ có chế độ xem Đối tượng thì bạn hãy vào app Tệp và tìm đến thư mục Shortcuts > AR > mở file vừa tải lên nhé!\n\nKích thước ban đầu là 100% là kích thước gốc của con vật bạn có thể dùng 2 tay zoom để phóng to thu nhỏ con vật nhé\n\nNgoài ra bạn có thể nhấn nút chụp hình hoặc giữ vào nút chụp hình để quay video con vật để share lên mạng xã hội nhé!!",
+    "views": 945,
+    "likes": 75,
+    "downloads": 580,
+    "date": "2023-06-20",
+    "author": "Phím Tắt VN & NanLux",
+    "compatible": "iOS 15 - iOS 18+"
+  },
+  {
+    "id": 262,
+    "title": "Upload ảnh Imgur",
+    "slug": "upload-anh-imgur",
+    "icon": "https://phimtat.vn/wp-content/uploads/2023/06/up-load-anh-imgur.png",
+    "category": "Hình ảnh",
+    "categories": [
+      "Hình ảnh"
+    ],
+    "tags": [
+      "Mạng xã hội"
+    ],
+    "icloud_url": "https://www.icloud.com/shortcuts/222f5296b5c8428487b867125bfcaf9e",
+    "excerpt": "Chức năng chính: Upload ảnh nhanh trực tiếp lên cloud Imgur thành link ảnh để dễ dàng chia sẻ ảnh lên mạng xã hội như Facebook, Insatagram,… Ví dụ kết quả : htt...",
+    "description": "Chức năng chính:\n\nUpload ảnh nhanh trực tiếp lên cloud Imgur thành link ảnh để dễ dàng chia sẻ ảnh lên mạng xã hội như Facebook, Insatagram,…\n\nVí dụ kết quả : https://i.imgur.com/tTCp4La.jpg\n\nHướng dẫn:\n\n– Vào ứng dụng ảnh chọn ảnh cần upload bấm chia sẻ và chọn phím tắt này\n\n– Hoặc bấm vào phím tắt và chọn ảnh cần upload\n\n– Nhấn sao chép link hoặc chia sẻ link.",
+    "views": 464,
+    "likes": 96,
+    "downloads": 203,
+    "date": "2023-06-19",
+    "author": "Phím Tắt VN & NanLux",
+    "compatible": "iOS 15 - iOS 18+"
+  },
+  {
+    "id": 258,
+    "title": "Google Dịch",
+    "slug": "google-dich",
+    "icon": "https://phimtat.vn/wp-content/uploads/2023/06/gg-dich.png",
+    "category": "Văn bản",
+    "categories": [
+      "Văn bản"
+    ],
+    "tags": [],
+    "icloud_url": "https://www.icloud.com/shortcuts/a4d40459fa52421da672e3eeea7eb9ad",
+    "excerpt": "Chức năng chính: Dịch ngôn ngữ nhanh với API của Google Dịch Hướng dẫn: – Nhấn nút thêm phím tắt và cấu hình những ngôn ngữ dịch thường xuyên ví dụ: English (Ti...",
+    "description": "Chức năng chính:\n\nDịch ngôn ngữ nhanh với API của Google Dịch\n\nHướng dẫn:\n\n– Nhấn nút thêm phím tắt và cấu hình những ngôn ngữ dịch thường xuyên ví dụ: English (Tiếng anh)\n\n– Bấm vào phím tắt Google Dịch để chạy phím tắt, phím tắt sẽ yêu cầu nhập nội dung muốn dịch nhập chữ hoặc lịch sử sao chép.\n\n– Sau khi nhập nội dung muốn dịch bạn chọn ngôn ngữ dịch sang đợi khoảng 1 giây sẽ có kết quả dịch bạn có thể Sao chép để dán vào nơi cần muốn nhé!!",
+    "views": 316,
+    "likes": 44,
+    "downloads": 87,
+    "date": "2023-06-19",
+    "author": "Phím Tắt VN & NanLux",
+    "compatible": "iOS 15 - iOS 18+"
+  },
+  {
+    "id": 73,
+    "title": "Tạo mã QR WiFi",
+    "slug": "tao-ma-qr-wifi",
+    "icon": "https://phimtat.vn/wp-content/uploads/2023/06/7.png",
+    "category": "Mã QR",
+    "categories": [
+      "Mã QR"
+    ],
+    "tags": [
+      "Không cần mạng"
+    ],
+    "icloud_url": "https://www.icloud.com/shortcuts/03d1d54ca0974d37acd2cda212c33774",
+    "excerpt": "Chức năng chính: Tạo ảnh QRCode mã Wifi để người khác có thể quét mã để kết nối vào wifi của bạn. Hướng dẫn: – Bấm vào phím tắt để chạy và nhập tên và mật khẩu ...",
+    "description": "Chức năng chính:\n\nTạo ảnh QRCode mã Wifi để người khác có thể quét mã để kết nối vào wifi của bạn.\n\nHướng dẫn:\n\n– Bấm vào phím tắt để chạy và nhập tên và mật khẩu Wifi\n\n– Mã QR đã lưu vào alubm ảnh và bạn có thể chia sẻ để mọi người kết nối vào mạng wifi của bạn",
+    "views": 271,
+    "likes": 109,
+    "downloads": 302,
+    "date": "2023-06-18",
+    "author": "Phím Tắt VN & NanLux",
+    "compatible": "iOS 15 - iOS 18+"
+  },
+  {
+    "id": 228,
+    "title": "Xem chi tiết hình ảnh",
+    "slug": "chi-tiet-hinh-anh",
+    "icon": "https://phimtat.vn/wp-content/uploads/2023/06/chi-tiet-hinh-anh.png",
+    "category": "Hình ảnh",
+    "categories": [
+      "Hình ảnh"
+    ],
+    "tags": [
+      "Không cần mạng",
+      "Xem thông tin"
+    ],
+    "icloud_url": "https://www.icloud.com/shortcuts/c8cb2b52a1bf4d3b94be842d4ff08778",
+    "excerpt": "Chức năng chính: Xem chi tiết hình ảnh với các thông tin như Ngày chụp, Ngày tạo, Loại phương tiện, Loại ảnh, Phần mở rộng tệp, Kích thước tập tin, Chiều rộng, ...",
+    "description": "Chức năng chính:\n\nXem chi tiết hình ảnh với các thông tin như Ngày chụp, Ngày tạo, Loại phương tiện, Loại ảnh, Phần mở rộng tệp, Kích thước tập tin, Chiều rộng, Chiều dài\n\nCòn đối với ảnh chụp từ camera thì có thể xem thêm Ống kính, Tốc độ ISO, Độ dài tiêu cự (mm), Tiêu cự, Tốc độ màn trập (giây), Khẩu độ,…\n\nHướng dẫn:\n\n– Vào ứng dụng ảnh chọn ảnh cần xem chi tiết bấm chia sẻ và chọn phím tắt này\n\n– Hoặc bấm vào phím tắt và chọn ảnh cần xem chi tiết",
+    "views": 906,
+    "likes": 34,
+    "downloads": 457,
+    "date": "2023-06-18",
+    "author": "Phím Tắt VN & NanLux",
+    "compatible": "iOS 15 - iOS 18+"
+  },
+  {
+    "id": 224,
+    "title": "Hình nền ngẫu nhiên",
+    "slug": "hinh-nen-ngau-nhien",
+    "icon": "https://phimtat.vn/wp-content/uploads/2023/06/hinh-nen-ngau-nhien.png",
+    "category": "Hình ảnh",
+    "categories": [
+      "Hình ảnh"
+    ],
+    "tags": [],
+    "icloud_url": "https://www.icloud.com/shortcuts/b61ab9c7a35848cd9557eb320d72f9b2",
+    "excerpt": "Hình ảnh minh hoạ: Chức năng chính: Phím tắt này giúp tải hình nền ngẫu nhiên từ picsum.photos có cùng độ phân giải với màn hình thiết bị ví dụ Macbook, iPhone,...",
+    "description": "Hình ảnh minh hoạ:\n\nChức năng chính:\n\nPhím tắt này giúp tải hình nền ngẫu nhiên từ picsum.photos có cùng độ phân giải với màn hình thiết bị ví dụ Macbook, iPhone, iPad. Bạn có thể dùng hình nền làm màn hình khoá và màn hình chính hoặc lưu hình nền vào album ảnh.\n\nHướng dẫn:\n\n– Nhấn vào phím tắt Hình nền ngẫu nhiên Đợi khoảng 2 giây sẽ có một hình nền ngẫu nhiên cho bạn xem trước\n\n– Sau đó bạn có thể Đặt làm màn hình chính(khoá), hoặc lưu vào ảnh (tệp)\n\nBạn cũng có thể chọn nhiều mục lưu cùng lúc nhé!!",
+    "views": 758,
+    "likes": 77,
+    "downloads": 341,
+    "date": "2023-06-18",
+    "author": "Phím Tắt VN & NanLux",
+    "compatible": "iOS 15 - iOS 18+"
+  },
+  {
+    "id": 217,
+    "title": "Tạo ảnh vuông làm avatar",
+    "slug": "tao-anh-vuong-lam-avatar",
+    "icon": "https://phimtat.vn/wp-content/uploads/2023/06/tao-anh-vuong.png",
+    "category": "Hình ảnh",
+    "categories": [
+      "Hình ảnh"
+    ],
+    "tags": [
+      "Chỉnh sửa ảnh"
+    ],
+    "icloud_url": "https://www.icloud.com/shortcuts/20bdda72e0964b6faa6d74b004fe3d40",
+    "excerpt": "Hình ảnh minh hoạ: Chức năng chính: Với những ảnh dài hoặc ngang hình chữ nhật sẽ được thêm viền trắng hai bên làm thành ảnh hình vuông thay vì crop sẽ mất một ...",
+    "description": "Hình ảnh minh hoạ:\n\nChức năng chính:\n\nVới những ảnh dài hoặc ngang hình chữ nhật sẽ được thêm viền trắng hai bên làm thành ảnh hình vuông thay vì crop sẽ mất một phần của ảnh. Phím tắt này giúp chỉnh ảnh để làm avatar facebook, đăng lên instagram với định dạng chuẩn.\n\nHướng dẫn:\n\n– Vào ứng dụng ảnh chọn ảnh cần chỉnh sửa bấm chia sẻ và chọn phím tắt này\n\n– Hoặc bấm vào phím tắt và chọn ảnh cần chỉnh sửa",
+    "views": 499,
+    "likes": 81,
+    "downloads": 138,
+    "date": "2023-06-18",
+    "author": "Phím Tắt VN & NanLux",
+    "compatible": "iOS 15 - iOS 18+"
+  },
+  {
+    "id": 207,
+    "title": "Tạo chữ in đậm, in nghiêng",
+    "slug": "tao-chu-in-dam-in-nghieng",
+    "icon": "https://phimtat.vn/wp-content/uploads/2023/06/tao-chu-in-dam-in-nghieng.png",
+    "category": "Văn bản",
+    "categories": [
+      "Văn bản"
+    ],
+    "tags": [
+      "Không cần mạng"
+    ],
+    "icloud_url": "https://www.icloud.com/shortcuts/59931650dc6842dcb498fff5761c211d",
+    "excerpt": "Hình ảnh minh hoạ: Chức năng chính: Tạo những kí tự đặc biệt, kiểu font chữ in đậm, chữ in nghiêng, tạo kiểu phông chữ đẹp để đăng lên mạng xã hội Fanpage Faceb...",
+    "description": "Hình ảnh minh hoạ:\n\nChức năng chính:\n\nTạo những kí tự đặc biệt, kiểu font chữ in đậm, chữ in nghiêng, tạo kiểu phông chữ đẹp để đăng lên mạng xã hội Fanpage Facebook, Instagram, Twitter, Zalo,… Hoặc đặt tên hay độc và lạ trong game Liên Quân, LMHT,…\n\nHướng dẫn:\n\n– Bấm vào phím tắt Tạo chữ in đậm, in nghiêng\n\n– Nhập chữ mà bạn muốn tạo chữ cách điệu\n\n– Chọn phông chữ (font) mà bạn yêu thích\n\n– Phím tắt sẽ yêu cầu bạn có muốn sao chép không, bấm đồng ý\n\n– Vào đăng bài, hoặc đổi tên dán ra kí tự đặc biệt của bạn.\n\nNếu bạn không muốn dùng phím tắt có thể tạo chữ in đậm, in nghiêng online trực tiếp tại đây: Tạo chữ đẹp in đậm, in nghiêng Online",
+    "views": 129,
+    "likes": 46,
+    "downloads": 468,
+    "date": "2023-06-18",
+    "author": "Phím Tắt VN & NanLux",
+    "compatible": "iOS 15 - iOS 18+"
+  },
+  {
+    "id": 2383,
+    "title": "Xem kính Apple Vision Pro",
+    "slug": "xem-kinh-apple-vision-pro",
+    "icon": "https://phimtat.vn/wp-content/uploads/2023/06/Xem-AR-Apple-Vision-Pro.png",
+    "category": "Thực tế ảo",
+    "categories": [
+      "Thực tế ảo"
+    ],
+    "tags": [],
+    "icloud_url": "https://www.icloud.com/shortcuts/1fb268ab1f654665bb03f1d605ef0cd4",
+    "excerpt": "Hình ảnh minh hoạ: Chức năng chính: Xem trước kính thực tế ảo Apple Vision Pro bằng công nghệ AR trên iPhone. Nếu bạn có ý định mua kính thực tế ảo của Apple th...",
+    "description": "Hình ảnh minh hoạ:\n\nChức năng chính:\n\nXem trước kính thực tế ảo Apple Vision Pro bằng công nghệ AR trên iPhone. Nếu bạn có ý định mua kính thực tế ảo của Apple thì có thể trải nghiệm trước bằng cách xem qua thực tế ảo AR nhé!!\n\nHướng dẫn:\n\n– Nhận phím tắt (Hướng dẫn)\n\n– Bấm vào phím tắt Xem AR Apple Vision Pro\n\n– Nhấn chấp nhận nếu phím tắt yêu cầu quyền và đợi để phím tắt tải tài nguyên về chỉ tải lần đầu\n\n– Di chuyển camera để AR nhận dạng và đặt kính đúng vị trí.",
+    "views": 741,
+    "likes": 24,
+    "downloads": 332,
+    "date": "2023-06-17",
+    "author": "Phím Tắt VN & NanLux",
+    "compatible": "iOS 15 - iOS 18+"
+  },
+  {
+    "id": 201,
+    "title": "Làm trắng da",
+    "slug": "lam-trang-da",
+    "icon": "https://phimtat.vn/wp-content/uploads/2023/06/f.png",
+    "category": "Hình ảnh",
+    "categories": [
+      "Hình ảnh"
+    ],
+    "tags": [
+      "Chỉnh sửa ảnh"
+    ],
+    "icloud_url": "https://www.icloud.com/shortcuts/bf13362b40a54f59af3c4f95154e4cd5",
+    "excerpt": "Chức năng chính: Phím tắt làm trắng da người trên ảnh tự động chỉ bằng vài chạm trên iPhone mà không cần nhập công thức chỉnh màu hay ứng dụng bên thứ ba Hướng ...",
+    "description": "Chức năng chính:\n\nPhím tắt làm trắng da người trên ảnh tự động chỉ bằng vài chạm trên iPhone mà không cần nhập công thức chỉnh màu hay ứng dụng bên thứ ba\n\nHướng dẫn:\n\nBước 1: Chọn ảnh có chủ thể là người, động vật,…\n\nBước 2: Nhập mức độ trắng da từ 0 – 100 (Khuyến cao nên để giá trị mặc định: 50)\n\nBước 3: Ấn xong để lưu\n\nBước 4: Nếu không hài lòng với kết quả, chọn làm lại",
+    "views": 757,
+    "likes": 63,
+    "downloads": 294,
+    "date": "2023-06-15",
+    "author": "Phím Tắt VN & NanLux",
+    "compatible": "iOS 15 - iOS 18+"
+  },
+  {
+    "id": 132,
+    "title": "Tải icon Apple Store",
+    "slug": "tai-icon-app-store",
+    "icon": "https://phimtat.vn/wp-content/uploads/2023/06/tai-icon-apple-store-phim-tat.png",
+    "category": "App Store",
+    "categories": [
+      "App Store"
+    ],
+    "tags": [],
+    "icloud_url": "https://www.icloud.com/shortcuts/ee03e47f4a0a4030b5b74ee1face8899",
+    "excerpt": "Chức năng chính: Tải icon ứng dụng trên Apple Store về album ảnh của iPhone, iPad Hướng dẫn: Bước 1: Nhấn vào phím tắt và đợi sẽ hiện lên một ô để nhập. Nhập tê...",
+    "description": "Chức năng chính:\n\nTải icon ứng dụng trên Apple Store về album ảnh của iPhone, iPad\n\nHướng dẫn:\n\nBước 1: Nhấn vào phím tắt và đợi sẽ hiện lên một ô để nhập. Nhập tên app bạn muốn tải ví dụ, Instagram, Tiktok,…\n\nBước 2: Chọn biểu tượng bạn muốn tải và icon ảnh vừa tải sẽ hiện trong album ảnh của bạn.\n\nChúc các bạn thành công! 😄",
+    "views": 754,
+    "likes": 21,
+    "downloads": 153,
+    "date": "2023-06-11",
+    "author": "Phím Tắt VN & NanLux",
+    "compatible": "iOS 15 - iOS 18+"
+  },
+  {
+    "id": 87,
+    "title": "Tách nền và thay đổi nền",
+    "slug": "tach-nen-va-thay-doi-nen",
+    "icon": "https://phimtat.vn/wp-content/uploads/2023/06/1-2.png",
+    "category": "Hình ảnh",
+    "categories": [
+      "Hình ảnh"
+    ],
+    "tags": [
+      "Chỉnh sửa ảnh"
+    ],
+    "icloud_url": "https://www.icloud.com/shortcuts/5082a24efac34cc7adf0352a7bc94c9d",
+    "excerpt": "Chức năng chính: Tách nền ảnh chân dung hoặc chủ thể vật bằng một cú nhấp chuột, hỗ trợ lưu phần tách nền hoặc thay đổi nền. Yêu cầu: iOS 16 trở lên, iPhone XS ...",
+    "description": "Chức năng chính:\n\nTách nền ảnh chân dung hoặc chủ thể vật bằng một cú nhấp chuột, hỗ trợ lưu phần tách nền hoặc thay đổi nền. Yêu cầu: iOS 16 trở lên, iPhone XS trở lên\n\nHướng dẫn:\n\nBước 1: Vào ứng dụng ảnh chọn ảnh cần tách nền bấm chia sẻ và chọn phím tắt này\n\nBước 2: Chọn lưu ảnh tách nền hoặc thay đổi ảnh nền\n\nBước 3 (Nếu chọn thay đổi nền): Canh chỉnh chủ thể hợp lí và ấn xong để lưu ảnh nha\n\nChúc các bạn thành công! 😄",
+    "views": 789,
+    "likes": 101,
+    "downloads": 88,
+    "date": "2023-06-05",
+    "author": "Phím Tắt VN & NanLux",
+    "compatible": "iOS 15 - iOS 18+"
+  },
+  {
+    "id": 85,
+    "title": "Cắt ảnh thành nhiều tấm",
+    "slug": "cat-anh-thanh-nhieu-tam",
+    "icon": "https://phimtat.vn/wp-content/uploads/2023/06/2-1685701133.1147.png",
+    "category": "Hình ảnh",
+    "categories": [
+      "Hình ảnh"
+    ],
+    "tags": [
+      "Chỉnh sửa ảnh"
+    ],
+    "icloud_url": "https://www.icloud.com/shortcuts/dc73516e6250454fb940eb77fc9d9113",
+    "excerpt": "Chức năng chính: Cắt ảnh thành nhiều tấm bằng nhau vd: 2×2, 2×3, 3×3 để đăng lên instagram, fb, … Hướng dẫn: Bước 1: Vào ứng dụng ảnh chọn ảnh cần tách nền bấm ...",
+    "description": "Chức năng chính:\n\nCắt ảnh thành nhiều tấm bằng nhau vd: 2×2, 2×3, 3×3 để đăng lên instagram, fb, …\n\nHướng dẫn:\n\nBước 1: Vào ứng dụng ảnh chọn ảnh cần tách nền bấm chia sẻ và chọn phím tắt này\n\nBước 2: Chọn kiểu cần cắt (2×2, 2×3, 3×3)\n\nChúc các bạn thành công! 😄",
+    "views": 715,
+    "likes": 75,
+    "downloads": 650,
+    "date": "2023-06-05",
+    "author": "Phím Tắt VN & NanLux",
+    "compatible": "iOS 15 - iOS 18+"
+  },
+  {
+    "id": 77,
+    "title": "Tạo GIF từ ảnh Live photo",
+    "slug": "tao-gif-tu-anh-life-photo",
+    "icon": "https://phimtat.vn/wp-content/uploads/2023/06/Tao-GIF-tu-anh-Life-photo.png",
+    "category": "Hình ảnh",
+    "categories": [
+      "Hình ảnh"
+    ],
+    "tags": [
+      "Chỉnh sửa ảnh"
+    ],
+    "icloud_url": "https://www.icloud.com/shortcuts/fcc5d1d0fd7546abbdf9845eda227cb3",
+    "excerpt": "Chức năng chính: Phím tắt chuyển ảnh live photo, ảnh chụp liên tục thành ảnh GIF. Hướng dẫn: Bước 1: Bấm vào phím tắt và chọn ảnh Live Photo hoặc Chụp liên tục ...",
+    "description": "Chức năng chính:\n\nPhím tắt chuyển ảnh live photo, ảnh chụp liên tục thành ảnh GIF.\n\nHướng dẫn:\n\nBước 1: Bấm vào phím tắt và chọn ảnh Live Photo hoặc Chụp liên tục cần tạo ảnh động\n\nBước 2: Chọn kích cỡ để xuất, sau đó chọn nơi để lưu\n\nChúc các bạn thành công! 😄",
+    "views": 419,
+    "likes": 66,
+    "downloads": 418,
+    "date": "2023-06-05",
+    "author": "Phím Tắt VN & NanLux",
+    "compatible": "iOS 15 - iOS 18+"
+  }
+]

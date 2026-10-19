@@ -1,0 +1,32 @@
+========================================================================
+                      DỰ ÁN NOTEPAD ONLINE NEO-BRUTALISM
+========================================================================
+
+1. CÁC CÁCH KHỞI CHẠY DỰ ÁN TRÊN MÁY TÍNH:
+------------------------------------------------------------------------
+- Cách 1 (Khuyên dùng - Đầy đủ tính năng):
+  + Nhấp đúp chuột vào file `start_server.bat` (hoặc mở terminal gõ: python server.py)
+  + Mở trình duyệt và truy cập:
+    * Trình soạn thảo Notepad: http://localhost:8088/notepad.html
+    * Hoặc: http://localhost:8088/tool/notepad/
+    * Trang xem ghi chú chia sẻ: http://localhost:8088/tool/note/
+  
+- Cách 2 (Mở trực tiếp không cần server):
+  + Nhấp đúp trực tiếp vào file `notepad.html` để mở trong trình duyệt (Chrome, Edge, Firefox, Cốc Cốc, ...).
+
+2. THÔNG TIN ĐĂNG NHẬP QUẢN TRỊ VIÊN MẶC ĐỊNH:
+------------------------------------------------------------------------
+- Tên đăng nhập: admin
+- Mật khẩu: Admin123@
+(Người dùng cũng có thể bấm "Đăng ký" tài khoản mới bất kỳ lúc nào)
+
+3. CẤU TRÚC THƯ MỤC DỰ ÁN:
+------------------------------------------------------------------------
+- notepad.html          : Giao diện chính ứng dụng Notepad Online
+- locket-style.css      : Bộ phong cách Neo-Brutalism (màu vàng, viền đen sắc nét, font Itim)
+- server.py             : Máy chủ Python đa luồng (Multi-threaded) điều hướng URL
+- start_server.bat      : Phím tắt kích hoạt nhanh máy chủ trên Windows
+- tool/notepad/         : Bản sao router `/tool/notepad/`
+- tool/note/            : Trang hiển thị chi tiết ghi chú được chia sẻ (`/tool/note/<id>`)
+- index.html            : Trang tổng hợp tiện ích
+========================================================================

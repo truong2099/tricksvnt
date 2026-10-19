@@ -1,0 +1,3034 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#FFFBF1">
+<title>Locket Gold · Chỉ từ 15.000đ/tháng · Kích hoạt siêu tốc</title>
+<meta name="description" content="Nâng cấp Locket Gold: quay video dài, đăng ảnh riêng tư, thay logo, thay nền, thêm bạn bè, viết caption dài.">
+<link rel="icon" type="image/svg+xml" href="assets/img-locket/favicon.svg">
+<link rel="apple-touch-icon" href="assets/img-locket/apple-touch-icon.png">
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js" defer></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@700&display=block&text=LocketGOLD" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@500;600;700;800;900&display=swap&subset=vietnamese" rel="stylesheet">
+<style>
+
+  :root{
+    --cream:#FFFBF1; --cream2:#FFF3D6; --card:#FFF8E9; --card2:#FFFDF6;
+    --line:#F0E3C3;
+    --amber:#FFB000; --amber-d:#E89A00; --amber-dd:#B97E00; --gold:#FFC132;
+    --ink:#241a07; --ink2:#3a3121; --muted:#9a8c72; --faint:#b6ab93;
+    --maxw:1140px;
+    --acc-hi:#ffd45a; --acc-rgb:255,176,0; --acc-dd-rgb:185,126,0; --on-acc:#2a1d00; --acc-tint:#fff5d8; --cream-rgb:255,251,241;
+    --font:ui-rounded,"SF Pro Rounded","Nunito",system-ui,sans-serif;
+  }
+  *{box-sizing:border-box}
+  /* chặn chạm 2 lần để phóng to trên iOS (vẫn cuộn/vuốt bình thường). Áp cho mọi phần tử vì dải vuốt ngang không thừa hưởng từ html */
+  html,body,*{touch-action:manipulation}
+  html{scroll-behavior:smooth;overflow-x:clip}
+  html.lenis,html.lenis body{height:auto}
+  .lenis.lenis-smooth{scroll-behavior:auto!important}
+  .lenis.lenis-stopped{overflow:hidden}
+  body{margin:0;background:var(--cream);color:var(--ink);overflow-x:clip;
+    font-family:var(--font);font-size:17px;line-height:1.55;font-weight:600;-webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
+  img{display:block}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 22px}
+  h1,h2,h3{margin:0;font-family:var(--font);font-weight:800;line-height:1.1;letter-spacing:-.025em;color:var(--ink)}
+
+  /* WebGL background */
+  #glbg{position:fixed;inset:0;width:100%;height:100%;z-index:-2;display:block;pointer-events:none}
+  body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
+    background:radial-gradient(120% 60% at 50% 100%,rgba(var(--cream-rgb),.0),rgba(var(--cream-rgb),.55))}
+
+  /* ---- INTRO / LOADING (giống locket.com: BEST · FRIENDS · FIRST) ---- */
+  #intro{display:none}
+  .js #intro{position:fixed;inset:0;z-index:200;display:grid;place-items:center;
+    background:linear-gradient(180deg,var(--acc-hi) 0%,var(--acc-tint) 40%,var(--cream) 100%);
+    transition:opacity .75s ease}
+  .js #intro.out{opacity:0;pointer-events:none}
+  #intro::before{content:"";position:absolute;left:50%;top:46%;width:min(620px,130vw);aspect-ratio:1;translate:-50% -50%;border-radius:50%;
+    background:radial-gradient(closest-side,rgba(255,255,255,.9),rgba(255,255,255,0));pointer-events:none}
+  #intro .ibrand{position:relative;display:flex;flex-direction:column;align-items:center;margin-top:-4vh;
+    transition:scale .45s cubic-bezier(.5,0,.75,0),opacity .35s}
+  #intro.leave .ibrand{scale:1.12;opacity:0}
+  #intro .ilogo{width:clamp(86px,22vw,118px);height:auto;aspect-ratio:1;object-fit:cover;border-radius:27%;opacity:0;scale:.2;rotate:-30deg;
+    box-shadow:0 0 0 6px rgba(255,255,255,.75),0 20px 36px -12px rgba(var(--acc-dd-rgb),.55);
+    transition:opacity .2s,scale .7s cubic-bezier(.34,1.8,.5,1),rotate .7s cubic-bezier(.34,1.8,.5,1)}
+  #intro .ilogo.on{opacity:1;scale:1;rotate:-6deg;animation:ibob 2.2s ease-in-out .7s infinite}
+  @keyframes ibob{50%{translate:0 -7px;rotate:2deg}}
+  #intro .iword{display:flex;margin-top:20px;font-family:"Fredoka",var(--font);font-weight:700;font-size:clamp(60px,17vw,116px);
+    line-height:.95;letter-spacing:-.015em;color:var(--ink)}
+  #intro .iword span{display:inline-block;opacity:0;translate:0 .55em;scale:.55;
+    transition:opacity .25s,translate .6s cubic-bezier(.34,1.7,.5,1),scale .6s cubic-bezier(.34,1.7,.5,1)}
+  #intro .iword span.on{opacity:1;translate:0 0;scale:1}
+  #intro .igold{position:relative;overflow:hidden;margin-top:14px;padding:.3em 1em .32em;border-radius:999px;
+    font-family:"Fredoka",var(--font);font-weight:700;font-size:clamp(20px,5.4vw,30px);letter-spacing:.34em;text-indent:.34em;line-height:1;color:var(--on-acc);
+    background:linear-gradient(180deg,var(--acc-hi),var(--amber));box-shadow:0 4px 0 var(--amber-dd),0 16px 28px -10px rgba(var(--acc-dd-rgb),.6),inset 0 1px 0 rgba(255,255,255,.75);
+    opacity:0;scale:1.7;rotate:-16deg;transition:opacity .15s,scale .5s cubic-bezier(.34,1.6,.5,1),rotate .5s cubic-bezier(.34,1.6,.5,1)}
+  #intro .igold.on{opacity:1;scale:1;rotate:-3deg}
+  #intro .igold::after{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 35%,rgba(255,255,255,.8) 50%,transparent 65%);translate:-130% 0}
+  #intro .igold.on::after{animation:ishine 1.1s ease .45s}
+  @keyframes ishine{to{translate:130% 0}}
+  #intro .isp{position:absolute;font-style:normal;line-height:1;color:var(--amber);opacity:0;scale:0;transition:opacity .2s,scale .5s cubic-bezier(.34,1.8,.5,1)}
+  #intro .isp.on{opacity:1;scale:1;animation:itw 1.3s ease-in-out infinite}
+  #intro .isp.s1{left:-38px;top:6px;font-size:24px}
+  #intro .isp.s2{right:-30px;top:44px;font-size:16px;color:#ff8a3d;animation-delay:.2s}
+  #intro .isp.s3{left:-22px;bottom:64px;font-size:14px;animation-delay:.45s}
+  #intro .isp.s4{right:-44px;bottom:26px;font-size:28px;animation-delay:.1s}
+  @keyframes itw{50%{opacity:.35;scale:.65}}
+  /* thanh tải trong intro */
+  #intro .iload{position:absolute;left:50%;bottom:11vh;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;transition:opacity .3s}
+  #intro.leave .iload{opacity:0}
+  #intro .ibar{width:160px;height:6px;border-radius:99px;background:rgba(36,26,7,.12);overflow:hidden}
+  #intro .ibar i{display:block;height:100%;width:0;border-radius:inherit;background:linear-gradient(90deg,var(--amber),var(--acc-hi));transition:width .25s ease}
+  #intro .ipct{font-weight:800;font-size:13px;color:rgba(36,26,7,.55);font-variant-numeric:tabular-nums}
+
+  /* mưa logo */
+  #rain{position:fixed;inset:0;z-index:210;pointer-events:none;overflow:hidden}
+  #rain{contain:strict}
+  #rain img{position:absolute;border-radius:22%;will-change:transform;transform:translateY(-130vh);
+    box-shadow:0 0 0 1.5px rgba(255,255,255,.55)}
+  .js.is-loading,.js.is-loading body{overflow:hidden}
+
+  /* hero xuất hiện sau intro */
+  .js .rv{opacity:0;translate:0 28px;transition:opacity .7s ease,translate .9s cubic-bezier(.2,.8,.2,1);transition-delay:var(--d,0s)}
+  .js body.ready .rv{opacity:1;translate:0 0}
+  .js .scene>*{opacity:0;scale:.35;transition:opacity .45s,scale .85s cubic-bezier(.34,1.56,.64,1);transition-delay:var(--d,0s)}
+  .js body.ready .scene>*{opacity:1;scale:1}
+  @media (prefers-reduced-motion: reduce){
+    .js .rv,.js .scene>*{opacity:1!important;translate:none!important;scale:none!important;transition:none!important}
+  }
+
+  /* ---- hiệu ứng khi lướt ---- */
+  .js .sr{opacity:0;translate:0 38px;transition:opacity .75s ease,translate .9s cubic-bezier(.2,.8,.2,1);transition-delay:var(--sd,0s)}
+  .js .sr.sr-pop{translate:0 26px;scale:.93;
+    transition:opacity .7s ease,translate .9s cubic-bezier(.2,.8,.2,1),scale .9s cubic-bezier(.34,1.45,.64,1);transition-delay:var(--sd,0s)}
+  .js .sr.in{opacity:1;translate:0 0;scale:1}
+  .sprog{position:fixed;left:0;top:0;width:100%;height:3px;z-index:70;pointer-events:none;transform-origin:0 50%;
+    transform:scaleX(var(--sp,0));background:linear-gradient(90deg,var(--amber),var(--acc-hi) 60%,#ff8a3d);box-shadow:0 0 10px rgba(var(--acc-rgb),.6)}
+  @media (prefers-reduced-motion: reduce){
+    .js .sr{opacity:1!important;translate:none!important;scale:none!important;transition:none!important}
+    .scene>*{translate:none!important}
+  }
+
+  /* pills / buttons */
+  .btn{font-family:var(--font);display:inline-flex;align-items:center;justify-content:center;gap:9px;
+    font-weight:800;font-size:16px;line-height:1;padding:16px 28px;border:0;border-radius:999px;cursor:pointer;
+    transition:transform .12s cubic-bezier(.3,.7,.4,1),box-shadow .12s,background .2s;-webkit-tap-highlight-color:transparent}
+  .btn .hrt{width:19px;height:19px}
+  .btn-primary{color:var(--on-acc);background:var(--amber);
+    box-shadow:0 4px 0 var(--amber-dd),0 10px 20px -7px rgba(var(--acc-dd-rgb),.6)}
+  .btn-primary:hover{transform:translateY(-2px);background:var(--acc-hi);box-shadow:0 6px 0 var(--amber-dd),0 16px 26px -8px rgba(var(--acc-dd-rgb),.6)}
+  .btn-primary:active{transform:translateY(4px);box-shadow:0 1px 0 var(--amber-dd),0 4px 10px -5px rgba(var(--acc-dd-rgb),.5)}
+  .btn-cream{color:var(--ink);background:#fff;box-shadow:0 3px 0 #ead9b4,0 8px 18px -8px rgba(120,90,20,.25)}
+  .btn-cream:hover{transform:translateY(-2px);background:#fffdf8}
+  .btn-cream:active{transform:translateY(3px);box-shadow:0 1px 0 #ead9b4}
+  .btn-sm{padding:12px 20px;font-size:14px}
+  .btn-block{width:100%}
+
+  .stores{display:flex;flex-wrap:wrap;gap:12px}
+  .store{display:inline-flex;align-items:center;gap:11px;background:#1e1a12;color:#fff;border-radius:16px;padding:11px 20px;
+    box-shadow:0 4px 0 #000,0 10px 20px -8px rgba(0,0,0,.4);transition:transform .12s}
+  .store:hover{transform:translateY(-2px)}
+  .store:active{transform:translateY(3px)}
+  .store svg{width:23px;height:23px;flex:none}
+  .store small{display:block;font-size:10.5px;opacity:.72;line-height:1.2}
+  .store b{display:block;font-size:15px;font-weight:800}
+
+  /* nav */
+  header.nav{position:sticky;top:0;z-index:60;background:rgba(var(--cream-rgb),.95);border-bottom:1px solid rgba(240,227,195,.7)}
+  .nav-in{display:flex;align-items:center;justify-content:space-between;height:68px}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:22px;letter-spacing:-.02em;color:var(--ink)}
+  .brand img{width:34px;height:34px;border-radius:10px;object-fit:cover}
+  .brand img.swap{animation:brandpop .45s cubic-bezier(.34,1.56,.64,1)}
+  @keyframes brandpop{0%{transform:scale(.6) rotate(-12deg)}100%{transform:scale(1) rotate(0)}}
+  .nav-links{display:flex;align-items:center;gap:18px;font-size:14.5px;font-weight:700;color:var(--ink2);white-space:nowrap}
+  .nav-links a{opacity:.72;transition:opacity .15s}
+  .nav-links a:hover{opacity:1}
+  .nav-user-pill{display:flex;align-items:center;gap:7px;background:#fff;border:1px solid var(--line);padding:6px 14px;border-radius:999px;font-size:13.5px;font-weight:800;color:var(--ink);box-shadow:0 2px 8px -4px rgba(0,0,0,0.1);text-decoration:none}
+  .nav-user-pill .nav-user-name{display:inline-block;max-width:120px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .nav-user-pill .nav-user-bal{color:#E89A00;font-weight:900;border-left:1px solid #eee;padding-left:8px;white-space:nowrap}
+  @media(max-width:768px){
+    .nav-user-pill{display:none!important}
+  }
+
+  /* hero */
+  .hero{position:relative;padding:56px 0 24px}
+  .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:center}
+  .hero .eyebrow{display:inline-flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--line);color:var(--ink2);
+    font-size:13px;font-weight:800;padding:7px 15px;border-radius:999px;box-shadow:0 4px 14px -6px rgba(120,90,20,.25);margin-bottom:20px}
+  .hero h1{font-size:clamp(38px,5.6vw,66px);font-weight:900;letter-spacing:-.035em}
+  .mk{position:relative;white-space:nowrap;color:var(--amber-d)}
+  .mk::after{content:"";position:absolute;left:-2%;right:-2%;bottom:.07em;height:.34em;background:rgba(var(--acc-rgb),.26);border-radius:.2em;z-index:-1}
+  .hero .lead{color:var(--ink2);font-size:clamp(16px,1.8vw,19px);margin:20px 0 28px;max-width:38ch}
+  .hero-actions{display:flex;flex-wrap:wrap;gap:12px}
+  .trust{display:flex;align-items:center;gap:12px;margin-top:26px}
+  .avatars{display:flex}
+  .avatars img{width:36px;height:36px;border-radius:50%;object-fit:cover;border:3px solid var(--cream);margin-left:-11px}
+  .avatars img:first-child{margin-left:0}
+  .trust span{font-size:14px;color:var(--muted);font-weight:700}
+
+  /* hero scene */
+  .scene{position:relative;width:100%;max-width:440px;height:740px;margin:0 auto}
+  .phone{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:236px;aspect-ratio:9/19.3;
+    background:#000;border-radius:40px;padding:9px;box-shadow:0 0 0 2px #e7d9b8,0 30px 60px -18px rgba(150,110,30,.45);z-index:3}
+  .phone::after{content:"";position:absolute;top:12px;left:50%;transform:translateX(-50%);width:88px;height:24px;background:#000;border-radius:14px;z-index:4}
+  .phone .app{width:100%;height:100%;border-radius:32px;overflow:hidden;background:#000;
+    display:flex;flex-direction:column;justify-content:center;padding-top:22px}
+  .phone .app img{width:100%;height:auto;flex:none}
+  .scene{--fan:0;--fan-spread:44px;--fan-angle:12deg;--sticker-out-x:8px;--sticker-out-y:48px}
+  .scene::before{content:"";position:absolute;inset:8% -8%;border-radius:50%;background:radial-gradient(ellipse,rgba(255,193,50,.28),transparent 68%);pointer-events:none}
+  .phone{transform-origin:50% 88%;will-change:transform;border:1px solid #6a6256;box-shadow:0 0 0 2px #e7d9b8,0 32px 50px -22px rgba(86,58,10,.5),inset 0 0 0 2px #38332c}
+  .phone-locket{z-index:3;transform:translate(calc(-50% - 4px - var(--fan) * var(--fan-spread)),-50%) rotate(calc(-1deg - var(--fan) * var(--fan-angle)))}
+  .phone-pricing{z-index:4;transform:translate(calc(-50% + 4px + var(--fan) * var(--fan-spread)),calc(-50% + 6px)) rotate(calc(1deg + var(--fan) * var(--fan-angle)))}
+  .scene>.phone,.js .scene>.phone{transition:opacity .45s,scale .85s cubic-bezier(.34,1.56,.64,1),transform .75s cubic-bezier(.22,1,.36,1);transition-delay:var(--d,0s),var(--d,0s),0s}
+  .phone-pricing .app{padding:0;background:#fff0b5}
+  .phone-pricing .app .pricing-screen{width:100%;height:100%;object-fit:cover}
+  @media(prefers-reduced-motion:reduce){.scene{--fan:1}.phone{will-change:auto}}
+  .polaroid{position:absolute;background:#fff;padding:8px 8px 14px;border-radius:14px;box-shadow:0 16px 34px -14px rgba(120,90,20,.4);z-index:6}
+  .polaroid img{width:100%;height:100%;object-fit:cover;border-radius:8px}
+  .p1{width:106px;height:128px;left:0;top:0;transform:rotate(-12deg)}
+  .p2{width:100px;height:120px;right:0;bottom:0;transform:rotate(12deg)}
+  .scene>.polaroid,.scene>.sticker,.scene>.heartpop,
+  .js .scene>.polaroid,.js .scene>.sticker,.js .scene>.heartpop{
+    transition:opacity .45s,scale .85s cubic-bezier(.34,1.56,.64,1),translate .75s cubic-bezier(.22,1,.36,1);
+    transition-delay:var(--d,0s),var(--d,0s),0s}
+  .scene .p1{translate:calc(var(--fan) * var(--sticker-out-x) * -1) calc(var(--fan) * var(--sticker-out-y) * -1)}
+  .scene .sticker{translate:calc(var(--fan) * var(--sticker-out-x)) calc(var(--fan) * var(--sticker-out-y) * -1)}
+  .scene .p2{translate:calc(var(--fan) * var(--sticker-out-x)) calc(var(--fan) * var(--sticker-out-y))}
+  .scene .heartpop{translate:calc(var(--fan) * var(--sticker-out-x) * -1) calc(var(--fan) * var(--sticker-out-y))}
+  .sticker{position:absolute;width:92px;z-index:5;right:6%;top:3%;transform:rotate(12deg);filter:drop-shadow(0 8px 14px rgba(120,90,20,.35))}
+  .heartpop{position:absolute;width:60px;z-index:5;left:8%;bottom:7%;transform:rotate(-10deg);filter:drop-shadow(0 10px 16px rgba(120,90,20,.35))}
+
+  /* sections */
+  section{padding:64px 0;position:relative}
+  .sec-head{text-align:center;max-width:600px;margin:0 auto 36px}
+  .kicker{color:var(--amber-d);font-weight:900;font-size:13px;letter-spacing:.12em;text-transform:uppercase;margin:0 0 10px}
+  .sec-head h2{font-size:clamp(28px,4.4vw,44px);font-weight:900;letter-spacing:-.03em}
+  .sec-head p{color:var(--ink2);margin:12px 0 0}
+  .band{background:rgba(255,236,190,.45);border-top:1px solid rgba(240,227,195,.8);border-bottom:1px solid rgba(240,227,195,.8)}
+  .card-shadow{box-shadow:0 12px 30px -22px rgba(150,110,30,.5)}
+
+  /* tính năng gold */
+  .gfeat{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+  .gf{background:var(--card2);border:1px solid var(--line);border-radius:24px;padding:22px;transition:transform .2s}
+  .gf:hover{transform:translateY(-4px)}
+  .gf .gi{width:48px;height:48px;border-radius:15px;margin-bottom:14px;display:grid;place-items:center;background:linear-gradient(180deg,var(--acc-hi),var(--amber));box-shadow:0 3px 0 var(--amber-dd),inset 0 1px 0 rgba(255,255,255,.6)}
+  .gf .gi svg{width:24px;height:24px;stroke:var(--on-acc);fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+  .gf h3{font-size:17px;margin:0 0 4px}
+  .gf p{margin:0;color:var(--ink2);font-size:14px;line-height:1.5}
+  /* số thẻ lẻ: thẻ cuối chiếm trọn hàng, căn giữa cho cân đối */
+  .gfeat .gf:last-child:nth-child(odd){grid-column:1/-1;text-align:center}
+  .gfeat .gf:last-child:nth-child(odd) .gi{margin-left:auto;margin-right:auto}
+  .gfeat .gf:last-child:nth-child(odd) p{max-width:46ch;margin-left:auto;margin-right:auto}
+
+  /* demo video quay dài */
+  .vdemo{position:relative;overflow:hidden;isolation:isolate;display:grid;grid-template-columns:230px 1fr;gap:48px;align-items:center;
+    margin-top:30px;padding:32px 52px 32px 32px;border-radius:34px;color:#fff;
+    background:radial-gradient(90% 130% at 100% 0%,#5c400a 0%,#2b2008 46%,#15110a 100%);
+    box-shadow:0 30px 60px -30px rgba(60,40,0,.75)}
+  .vdemo::before{content:"";position:absolute;right:-70px;bottom:-90px;width:300px;height:300px;border-radius:50%;z-index:-1;
+    background:radial-gradient(closest-side,rgba(var(--acc-rgb),.32),transparent);pointer-events:none}
+  .vd-phone{position:relative;width:100%;aspect-ratio:440/953;background:#000;border-radius:34px;padding:7px;
+    box-shadow:0 0 0 1.5px rgba(255,255,255,.16),0 26px 50px -18px rgba(0,0,0,.85)}
+  .vd-phone video{width:100%;height:100%;object-fit:cover;border-radius:28px;display:block;background:#111;cursor:pointer}
+  .vd-sound{position:absolute;right:12px;bottom:12px;width:38px;height:38px;border-radius:50%;border:0;cursor:pointer;
+    background:rgba(0,0,0,.55);color:#fff;font-size:16px;display:grid;place-items:center;backdrop-filter:blur(6px);transition:transform .12s}
+  .vd-sound:active{transform:scale(.9)}
+  .vd-sound:focus-visible{outline:2px solid #fff;outline-offset:2px}
+  .vd-rec{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.16);
+    color:#fff;font-size:12.5px;font-weight:800;padding:6px 12px;border-radius:999px;margin-bottom:16px}
+  .vd-rec i{width:8px;height:8px;border-radius:50%;background:#ff3b30;box-shadow:0 0 0 3px rgba(255,59,48,.25);animation:recb 1.2s ease-in-out infinite}
+  @keyframes recb{50%{opacity:.3}}
+  .vd-copy h3{color:#fff;font-size:clamp(26px,3.4vw,40px);font-weight:900;letter-spacing:-.03em;line-height:1.12}
+  .vd-copy h3 em{font-style:normal;color:var(--gold)}
+  .vd-copy p{color:rgba(255,255,255,.72);margin:14px 0 18px;max-width:40ch}
+  .vd-chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px}
+  .vd-chips span{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);padding:7px 13px;border-radius:999px;
+    font-size:13.5px;font-weight:800;color:rgba(255,255,255,.9)}
+  @media (prefers-reduced-motion: reduce){ .vd-rec i{animation:none} }
+
+  /* đăng riêng tư */
+  .pv{display:grid;grid-template-columns:1fr 310px;grid-template-areas:"head phone" "ctrl phone";column-gap:64px;row-gap:24px;align-items:center}
+  .pv-head{grid-area:head;align-self:end}
+  .pv-ctrl{grid-area:ctrl;align-self:start}
+  .pv-head h2{font-size:clamp(30px,4.4vw,46px);font-weight:900;letter-spacing:-.03em}
+  .pv-head p{color:var(--ink2);margin:14px 0 0;max-width:44ch}
+  .pv-opts{display:grid;gap:10px;max-width:460px}
+  .pv-opt{display:flex;align-items:center;gap:14px;width:100%;text-align:left;background:var(--card2);border:2px solid var(--line);
+    border-radius:20px;padding:13px 16px;cursor:pointer;font:inherit;color:var(--ink);transition:border-color .2s,background .2s,box-shadow .2s,transform .15s;
+    -webkit-tap-highlight-color:transparent}
+  .pv-opt:hover{transform:translateY(-2px)}
+  .pv-opt:focus-visible{outline:3px solid var(--ink);outline-offset:2px}
+  .pv-opt .oi{flex:none;width:42px;height:42px;border-radius:13px;display:grid;place-items:center;background:var(--acc-tint);font-size:19px;transition:background .2s}
+  .pv-opt b{display:block;font-size:16px;font-weight:900;line-height:1.2}
+  .pv-opt small{display:block;color:var(--muted);font-weight:700;font-size:13px;line-height:1.3}
+  .pv-opt .tag{margin-left:auto;flex:none;font-size:11px;font-weight:900;background:var(--ink);color:var(--gold);padding:4px 9px;border-radius:999px}
+  .pv-opt[aria-checked="true"]{border-color:var(--amber);background:var(--acc-tint);box-shadow:0 12px 26px -16px rgba(var(--acc-dd-rgb),.7)}
+  .pv-opt[aria-checked="true"] .oi{background:linear-gradient(180deg,var(--acc-hi),var(--amber));box-shadow:0 3px 0 var(--amber-dd)}
+  .pv-friends{display:flex;flex-wrap:wrap;gap:16px;margin-top:22px}
+  .pv-f{display:flex;flex-direction:column;align-items:center;gap:6px;background:none;border:0;padding:0;font:inherit;color:var(--ink2);cursor:default}
+  .pv.pick .pv-f{cursor:pointer}
+  .pv.pick .pv-f:hover .fa{transform:scale(1.08)}
+  .pv-f:focus-visible{outline:3px solid var(--ink);outline-offset:4px;border-radius:12px}
+  .pv-f .fa{position:relative;width:54px;height:54px;transition:transform .2s}
+  .pv-f img{width:54px;height:54px;border-radius:50%;object-fit:cover;box-shadow:0 0 0 3px #fff,0 8px 16px -8px rgba(0,0,0,.4);transition:filter .35s,opacity .35s}
+  .pv-f .fs{position:absolute;right:-4px;bottom:-4px;width:22px;height:22px;border-radius:50%;display:grid;place-items:center;
+    font-size:11px;font-weight:900;color:#fff;box-shadow:0 0 0 2px var(--cream);transition:background .3s,transform .3s}
+  .pv-f.can .fs{background:#22c55e}
+  .pv-f.no img{filter:grayscale(1);opacity:.42}
+  .pv-f.no .fs{background:#3a3121}
+  .pv-f span{font-size:12.5px;font-weight:800}
+  .pv-status{display:flex;align-items:center;gap:9px;margin-top:16px;font-weight:800;font-size:14.5px;color:var(--ink2);min-height:22px}
+  .pv-status i{flex:none;width:9px;height:9px;border-radius:50%;background:var(--amber);box-shadow:0 0 0 4px rgba(var(--acc-rgb),.22)}
+
+  .pv-phone{grid-area:phone;justify-self:center;width:300px;aspect-ratio:9/19.3;background:#000;border-radius:44px;padding:9px;
+    box-shadow:0 0 0 2px #e7d9b8,0 34px 64px -20px rgba(150,110,30,.55)}
+  .pv-scr{position:relative;height:100%;border-radius:36px;overflow:hidden;color:#fff;display:flex;flex-direction:column;align-items:center;
+    padding:36px 14px 14px;background:linear-gradient(180deg,#303034,#1c1c1f)}
+  .pv-top{display:flex;align-items:center;justify-content:space-between;width:100%}
+  .pv-ic{width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,.1);display:grid;place-items:center;flex:none}
+  .pv-ic svg{width:18px;height:18px;fill:none;stroke:#fff;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+  .pv-who{background:rgba(255,255,255,.1);padding:8px 14px;border-radius:999px;font-weight:800;font-size:14px}
+  .pv-av{width:36px;height:36px;border-radius:50%;object-fit:cover}
+  .pv-photo{position:relative;width:100%;aspect-ratio:1;border-radius:32px;overflow:hidden;margin:26px 0 14px;background:#111}
+  .pv-photo img{width:100%;height:100%;object-fit:cover}
+  .pv-photo .lockb{position:absolute;left:12px;top:12px;width:32px;height:32px;border-radius:50%;display:grid;place-items:center;
+    background:rgba(0,0,0,.55);backdrop-filter:blur(6px);font-size:14px;opacity:0;transform:scale(.6);transition:opacity .3s,transform .35s cubic-bezier(.34,1.56,.64,1)}
+  .pv.priv .pv-photo .lockb{opacity:1;transform:scale(1)}
+  .pv-meta{font-weight:800;font-size:15px}
+  .pv-meta span{color:rgba(255,255,255,.45);margin-left:6px}
+  .pv-pill{margin-top:20px;display:inline-flex;align-items:center;gap:7px;padding:10px 18px;border-radius:999px;
+    background:rgba(255,255,255,.12);font-weight:800;font-size:15px;white-space:nowrap;transition:background .3s,color .3s}
+  .pv-pill{position:relative}
+  .pv-pill.priv{background:linear-gradient(180deg,var(--acc-hi),var(--amber));color:var(--on-acc)}
+  .pv-pill.priv::after{content:"";position:absolute;inset:-1px;border-radius:inherit;border:2px solid rgba(var(--acc-rgb),.8);pointer-events:none;
+    animation:pvring 2s ease-out infinite}
+  @keyframes pvring{0%{transform:scale(1);opacity:.9}100%{transform:scale(1.22,1.7);opacity:0}}
+  .pv-bar{margin-top:auto;display:flex;align-items:center;justify-content:space-between;width:100%}
+  .pv-mid{display:flex;align-items:center;gap:12px;background:rgba(255,255,255,.08);padding:6px 12px;border-radius:999px}
+  .pv-shut{width:40px;height:40px;border-radius:50%;border:3px solid #fff;box-shadow:inset 0 0 0 3px #1c1c1f}
+  .pv-badge{position:relative}
+  .pv-badge b{position:absolute;top:-8px;right:-10px;background:#fff;color:#000;font-size:10px;font-weight:900;padding:1px 5px;border-radius:999px}
+  @media (prefers-reduced-motion: reduce){ .pv-pill.priv::after{animation:none;display:none} }
+
+  /* đăng video (kiểm tra 10s / 6MB ngay trên máy) */
+  .uv{display:grid;grid-template-columns:300px 1fr;gap:56px;align-items:center}
+  .uv-phone{position:relative;width:300px;aspect-ratio:9/19.3;background:#000;border-radius:44px;padding:9px;justify-self:center;
+    box-shadow:0 0 0 2px var(--line),0 34px 64px -20px rgba(var(--acc-dd-rgb),.5)}
+  .uv-scr{position:relative;height:100%;border-radius:36px;overflow:hidden;background:linear-gradient(180deg,#1c1c20,#101013);
+    display:flex;flex-direction:column;align-items:center;justify-content:center;padding:22px 16px;color:#fff;text-align:center}
+  .uv-drop{width:100%;flex:1;margin:4px 0;border:2px dashed rgba(255,255,255,.26);border-radius:28px;cursor:pointer;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;gap:11px;padding:16px;transition:border-color .2s,background .2s}
+  .uv-drop:hover{border-color:rgba(var(--acc-rgb),.75);background:rgba(var(--acc-rgb),.08)}
+  .uv.drag .uv-drop{border-color:var(--amber);background:rgba(var(--acc-rgb),.14)}
+  .uv-up{width:62px;height:62px;border-radius:50%;background:linear-gradient(180deg,var(--acc-hi),var(--amber));display:grid;place-items:center;box-shadow:0 5px 0 var(--amber-dd)}
+  .uv-up svg{width:28px;height:28px;stroke:var(--on-acc);fill:none;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+  .uv-drop b{font-size:15px}
+  .uv-drop small{font-size:12px;color:rgba(255,255,255,.55);max-width:22ch;line-height:1.4}
+  .uv-limits{display:flex;gap:7px;flex-wrap:wrap;justify-content:center;margin-top:2px}
+  .uv-limits span{background:rgba(255,255,255,.1);border-radius:999px;padding:5px 11px;font-size:11.5px;font-weight:800;white-space:nowrap}
+  .uv-video{position:absolute;inset:9px;width:calc(100% - 18px);height:calc(100% - 18px);border-radius:36px;object-fit:cover;background:#000;display:none;z-index:1}
+  .uv.has .uv-video{display:block}
+  .uv.has .uv-drop{visibility:hidden}
+  .uv-overlay{position:absolute;left:0;right:0;bottom:0;padding:16px 16px 18px;z-index:2;display:none;background:linear-gradient(0deg,rgba(0,0,0,.82),rgba(0,0,0,.2) 70%,transparent)}
+  .uv.has .uv-overlay{display:block}
+  .uv-bar{height:7px;border-radius:99px;background:rgba(255,255,255,.22);overflow:hidden;margin-bottom:11px}
+  .uv-bar i{display:block;height:100%;width:0;border-radius:inherit;background:linear-gradient(90deg,var(--amber),var(--acc-hi))}
+  .uv-res{display:flex;align-items:center;gap:9px;font-weight:800;font-size:13.5px;color:#fff;min-height:26px;text-align:left}
+  .uv-res .dot{flex:none;width:26px;height:26px;border-radius:50%;display:grid;place-items:center;font-size:14px;font-weight:900}
+  .uv-res.ok .dot{background:#22c55e;color:#fff}
+  .uv-res.bad .dot{background:#ff5a5a;color:#fff}
+  .uv-redo{width:100%;margin-top:12px}
+  .uv-copy h2{font-size:clamp(28px,4.2vw,42px);font-weight:900;letter-spacing:-.03em;line-height:1.12}
+  .uv-copy>p{color:var(--ink2);margin:14px 0 0;max-width:42ch}
+  .uv-feats{list-style:none;padding:0;margin:20px 0 24px;display:grid;gap:11px}
+  .uv-feats li{display:flex;gap:11px;align-items:center;font-weight:700;font-size:15px;color:var(--ink2)}
+  .uv-feats li::before{content:"✓";flex:none;width:22px;height:22px;border-radius:50%;background:var(--amber);color:var(--on-acc);display:grid;place-items:center;font-size:12px;font-weight:900}
+  .uv-safe{display:inline-flex;align-items:center;gap:7px;background:var(--card2);border:1px solid var(--line);border-radius:999px;padding:7px 14px;font-size:12.5px;font-weight:800;color:var(--muted);margin-bottom:4px}
+
+  /* thay logo */
+  .logos{display:grid;grid-template-columns:240px 1fr;gap:28px;align-items:center;background:var(--card2);border:1px solid var(--line);border-radius:32px;padding:28px}
+  .lp{text-align:center}
+  .lp .big{width:136px;height:136px;border-radius:31px;margin:0 auto 14px;box-shadow:0 18px 34px -14px rgba(0,0,0,.35);transition:transform .3s cubic-bezier(.34,1.56,.64,1)}
+  .lp .big.pop{transform:scale(.82)}
+  .lp .lbl{font-weight:800;font-size:16px}
+  .lp .nm{color:var(--muted);font-size:13px;font-weight:700;margin-top:3px;text-transform:capitalize}
+  .lgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(60px,1fr));gap:12px}
+  .lgrid:not(.all) button:nth-child(n+13){display:none}
+  .lgrid button{padding:0;border:0;background:none;cursor:pointer;border-radius:22%;aspect-ratio:1;transition:transform .15s,box-shadow .15s;-webkit-tap-highlight-color:transparent}
+  .lgrid button img{width:100%;height:100%;border-radius:22%;box-shadow:0 6px 14px -8px rgba(0,0,0,.45)}
+  .lgrid button:hover{transform:translateY(-3px) scale(1.05)}
+  .lgrid button.on{box-shadow:0 0 0 3px var(--card2),0 0 0 6px var(--amber)}
+  .lgrid button:focus-visible{outline:none;box-shadow:0 0 0 3px var(--card2),0 0 0 6px var(--ink)}
+  .lmore{margin-top:18px}
+
+  /* chủ đề máy ảnh */
+  .tpanel{position:relative;overflow:hidden;border-radius:36px;padding:40px 0 30px;color:#fff;text-align:center;isolation:isolate;
+    box-shadow:0 30px 60px -30px rgba(40,30,10,.55)}
+  .tp-bg{position:absolute;inset:0;z-index:-1;opacity:0;transition:opacity .55s ease}
+  .tp-bg.on{opacity:1}
+  .tpanel .grab{width:44px;height:5px;border-radius:3px;background:rgba(255,255,255,.35);margin:0 auto 18px}
+  .tpanel h2{color:#fff;font-size:clamp(26px,4vw,38px);font-weight:800;letter-spacing:-.02em}
+  .tpanel .tsub{color:rgba(255,255,255,.62);font-weight:700;margin:8px auto 0;max-width:26ch;line-height:1.4}
+  .tc-track{display:flex;gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;
+    padding:30px calc(50% - 125px) 26px;-webkit-overflow-scrolling:touch}
+  .tc-track::-webkit-scrollbar{display:none}
+  .tcam{flex:none;width:250px;aspect-ratio:.46;scroll-snap-align:center;border-radius:42px;background:var(--card);
+    padding:22px 0 18px;display:flex;flex-direction:column;align-items:center;cursor:pointer;
+    box-shadow:inset 0 0 0 1px rgba(255,255,255,.12),0 24px 44px -20px rgba(0,0,0,.6);
+    transform:scale(.88);opacity:.55;transition:transform .35s cubic-bezier(.2,.8,.2,1),opacity .35s}
+  .tcam.on{transform:scale(1);opacity:1}
+  .tcam i,.tcam b{display:block;background:var(--ph)}
+  .tc-top{display:flex;align-items:center;justify-content:space-between;width:82%}
+  .tc-top i{width:30px;height:30px;border-radius:50%}
+  .tc-top b{width:76px;height:30px;border-radius:15px}
+  .tc-view{position:relative;width:100%;aspect-ratio:1;margin:22px 0;background:#000;border-radius:44px;overflow:hidden;
+    display:grid;place-items:center;background-size:cover;background-position:center}
+  .tc-view video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .tc-view video.mirror{transform:scaleX(-1)}
+  .tc-view .hint{color:rgba(255,255,255,.28);font-size:12.5px;font-weight:700;padding:0 20px;line-height:1.4}
+  .tc-view .flash{position:absolute;inset:0;background:#fff;opacity:0;pointer-events:none}
+  .tc-view .flash.go{animation:tflash .45s ease-out}
+  @keyframes tflash{0%{opacity:.9}100%{opacity:0}}
+  /* giữ để quay: viền vàng chạy quanh khung 10s */
+  .tc-ring{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;overflow:visible;z-index:3;opacity:0;transition:opacity .25s}
+  .tc-ring path{fill:none;stroke:#ffc21a;stroke-width:5px;stroke-linecap:round;stroke-dasharray:100;stroke-dashoffset:100;
+    filter:drop-shadow(0 0 6px rgba(255,194,26,.9))}
+  .tcam.rec .tc-ring{opacity:1}
+  .tcam.rec .tc-ring path{animation:tcrec 10s linear forwards}
+  @keyframes tcrec{to{stroke-dashoffset:0}}
+  .tc-rec{position:absolute;top:12px;left:50%;translate:-50% 0;z-index:4;display:flex;align-items:center;gap:6px;padding:4px 10px;border-radius:999px;
+    background:rgba(0,0,0,.55);color:#fff;font-size:12px;font-weight:800;font-variant-numeric:tabular-nums;opacity:0;transition:opacity .2s;pointer-events:none}
+  .tc-rec i{width:7px;height:7px;border-radius:50%;background:#ff3b30;animation:recb 1s ease-in-out infinite}
+  .tcam.rec .tc-rec{opacity:1}
+  .tc-shut{touch-action:none;-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}
+  .tc-shut span{transition:transform .25s}
+  .tcam.rec .tc-shut span{transform:scale(.78)}
+  .tc-view .tc-play{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:2}
+  .tc-view .tc-play.mirror{transform:scaleX(-1)}
+  /* nút đổi camera trước/sau */
+  .tc-flip{width:30px;height:30px;border-radius:50%;border:0;padding:0;background:var(--ph);display:grid;place-items:center;cursor:pointer;
+    -webkit-tap-highlight-color:transparent;transition:background .2s,transform .12s}
+  .tc-flip:hover{background:rgba(255,255,255,.28)}
+  .tc-flip:active{transform:scale(.88)}
+  .tc-flip:focus-visible{outline:2px solid #fff;outline-offset:2px}
+  .tc-flip svg{width:16px;height:16px;fill:none;stroke:rgba(255,255,255,.9);stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+  .tc-flip.spin svg{animation:tflip .45s ease}
+  @keyframes tflip{to{transform:rotate(180deg)}}
+  .tc-ctl{display:flex;align-items:center;justify-content:space-between;width:74%}
+  .tc-ctl i{width:30px;height:30px;border-radius:50%}
+  .tc-shut{width:66px;height:66px;border-radius:50%;background:var(--ring);padding:5px;border:0;cursor:pointer;
+    transition:transform .12s;-webkit-tap-highlight-color:transparent}
+  .tc-shut:active{transform:scale(.9)}
+  .tc-shut span{display:block;width:100%;height:100%;border-radius:50%;background:#fff;border:3px solid rgba(20,20,20,.55)}
+  .tc-bot{display:flex;align-items:center;gap:10px;margin-top:auto}
+  .tc-bot i{width:26px;height:26px;border-radius:8px}
+  .tc-bot b{width:62px;height:16px;border-radius:8px}
+  .tname{font-weight:800;font-size:18px}
+  .tdots{display:flex;flex-wrap:wrap;justify-content:center;gap:9px;margin:14px auto 20px;max-width:340px;padding:0 16px}
+  .tdots button{width:24px;height:24px;border-radius:50%;border:0;padding:0;cursor:pointer;background:var(--ring);
+    box-shadow:inset 0 0 0 2px rgba(0,0,0,.25);transition:transform .15s}
+  .tdots button.on{transform:scale(1.2);box-shadow:0 0 0 2px rgba(0,0,0,.25),0 0 0 4px #fff}
+  .tdots button:focus-visible{outline:2px solid #fff;outline-offset:3px}
+  .tactions{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;align-items:center;padding:0 16px}
+  .tnav{width:46px;height:46px;border-radius:50%;border:0;cursor:pointer;background:rgba(255,255,255,.16);color:#fff;font-size:22px;font-weight:800;
+    display:grid;place-items:center;transition:background .15s}
+  .tnav:hover{background:rgba(255,255,255,.28)}
+  .btn-glass{color:#fff;background:rgba(255,255,255,.18);box-shadow:inset 0 0 0 1px rgba(255,255,255,.28),0 8px 18px -10px rgba(0,0,0,.5)}
+  .btn-glass:hover{background:rgba(255,255,255,.28);transform:translateY(-2px)}
+  .btn-glass:active{transform:translateY(2px)}
+  .tmsg{min-height:20px;margin:12px 16px 0;color:rgba(255,255,255,.75);font-size:13px;font-weight:700}
+
+  /* cam kết */
+  .ck-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+  .ck{position:relative;background:var(--card2);border:1px solid var(--line);border-radius:24px;padding:22px 20px;transition:transform .2s,box-shadow .2s}
+  .ck:hover{transform:translateY(-4px);box-shadow:0 18px 36px -24px rgba(150,110,30,.55)}
+  .ck .ci{position:relative;width:56px;height:56px;border-radius:17px;background:#fff;border:1px solid var(--line);display:grid;place-items:center;
+    margin-bottom:16px;box-shadow:0 8px 16px -10px rgba(120,90,20,.35)}
+  .ck .ci svg{width:28px;height:28px;fill:none;stroke:var(--ink);stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+  .ck .ci svg .x{stroke:#e5484d;stroke-width:2.6}
+  .ck .ok{position:absolute;right:-7px;bottom:-7px;width:22px;height:22px;border-radius:50%;background:#22c55e;color:#fff;
+    font-size:12px;font-weight:900;display:grid;place-items:center;box-shadow:0 0 0 3px var(--card2)}
+  .ck h3{font-size:17px;margin:0 0 6px;line-height:1.25}
+  .ck p{margin:0;color:var(--ink2);font-size:14px;line-height:1.5}
+  .ck.hl{background:linear-gradient(160deg,var(--acc-tint),var(--acc-hi));border-color:var(--acc-hi);box-shadow:0 18px 36px -22px rgba(var(--acc-dd-rgb),.7)}
+  .ck.hl .ci{background:linear-gradient(180deg,var(--acc-hi),var(--amber));border:0;box-shadow:0 3px 0 var(--amber-dd),inset 0 1px 0 rgba(255,255,255,.6)}
+  .ck.hl .ci b{font-size:32px;font-weight:900;color:var(--on-acc);line-height:1}
+  .ck.hl .ok{box-shadow:0 0 0 3px var(--acc-hi)}
+  .ck-note{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:6px 10px;margin:26px auto 0;font-weight:800;color:var(--ink2);font-size:15px;text-align:center}
+  .ck-note a{color:#0068FF;text-decoration:underline;text-underline-offset:3px}
+
+  /* Chọn khung ảnh */
+  .frame-layout{display:grid;grid-template-columns:minmax(0,420px) minmax(0,1fr);gap:44px;align-items:center;max-width:1000px;margin:auto}
+  .frame-preview{position:relative;aspect-ratio:1;background:var(--card2);border-radius:30px;overflow:hidden;box-shadow:0 20px 45px -26px rgba(150,110,30,.5)}
+  .frame-preview img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .frame-preview #frameOverlay{object-fit:fill;pointer-events:none}
+  .frame-preview #frameOverlay[hidden]{display:none}
+  .widget-phone{width:286px;max-width:100%;margin:auto;padding:44px 20px 25px;border:8px solid #241a20;border-radius:42px;position:relative;background:linear-gradient(155deg,#ffe1ed,#e1d7fb 55%,#b8cee9);box-shadow:0 24px 45px -24px rgba(73,42,70,.5);color:#3d3050;text-align:center}
+  .widget-phone::before{content:"";position:absolute;top:10px;left:50%;translate:-50% 0;width:85px;height:22px;background:#241a20;border-radius:20px}
+  .widget-date{font-size:13px;font-weight:800;margin-bottom:4px}
+  .widget-clock{font-size:46px;line-height:1.1;font-weight:800;letter-spacing:-2px;margin-bottom:24px}
+  .widget-phone .frame-preview{width:82%;margin:auto;border-radius:20px;box-shadow:0 8px 20px rgba(80,43,83,.12)}
+  .widget-caption{font-size:12px;font-weight:800;margin:8px 0 24px}
+  .widget-apps{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+  .widget-apps span{display:grid;place-items:center;aspect-ratio:1;border-radius:13px;background:rgba(255,255,255,.55);font-size:23px}
+  .widget-dock{display:flex;justify-content:space-around;background:rgba(255,255,255,.35);padding:12px;border-radius:23px;margin-top:26px;font-size:24px}
+  .widget-phone::after{content:"";display:block;width:85px;height:4px;background:#3d3050;border-radius:5px;margin:18px auto -10px}
+  .frame-label{margin:0 0 16px;font-weight:900;color:var(--ink)}
+  .frame-label span{display:block;color:var(--muted);font-size:14px;font-weight:700;margin-top:4px}
+  .frame-options{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+  .frame-options button{display:flex;flex-direction:column;align-items:center;gap:8px;min-width:0;padding:10px 8px;background:var(--card2);border:2px solid var(--line);border-radius:18px;color:var(--ink);font:800 12px var(--font);cursor:pointer;transition:border-color .2s,box-shadow .2s,transform .2s}
+  .frame-options button[aria-pressed="true"]{border-color:var(--amber);background:var(--acc-tint);box-shadow:0 0 0 3px rgba(var(--acc-rgb),.14)}
+  .frame-options button:hover{transform:translateY(-2px)}
+  .frame-options button[hidden]{display:none}
+  .frame-options button:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
+  .frame-options img,.frame-none{width:100%;max-width:90px;aspect-ratio:1;object-fit:contain}
+  .frame-none{display:grid;place-items:center;font-size:42px;color:var(--muted)}
+  .frame-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:22px}
+  .frame-actions .btn{font-size:14px;padding:13px 18px}
+  .frame-note{font-size:13px;color:var(--ink2);margin:14px 0 0}
+  .frame-status{font-size:14px;font-weight:800;min-height:22px;margin:10px 0 0;color:var(--ink2)}
+  @media(max-width:700px){.frame-layout{grid-template-columns:1fr;gap:24px}.frame-preview{width:min(100%,360px);margin:auto}.frame-controls{max-width:460px;width:100%;margin:auto}.frame-label{text-align:center}.frame-actions{justify-content:center}}
+
+  /* bảng giá */
+  .plans{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;align-items:center;max-width:1000px;margin:0 auto}
+  .plan{position:relative;background:var(--card2);border:1px solid var(--line);border-radius:30px;padding:26px 24px 24px;
+    display:flex;flex-direction:column;box-shadow:0 14px 34px -24px rgba(150,110,30,.5);transition:transform .25s,box-shadow .25s}
+  .plan:hover{transform:translateY(-4px);box-shadow:0 22px 40px -24px rgba(150,110,30,.55)}
+  .plan .ptop{display:flex;align-items:center;gap:12px;margin-bottom:20px}
+  .plan .pico{width:46px;height:46px;border-radius:12px;flex:none;box-shadow:0 6px 14px -8px rgba(0,0,0,.5)}
+  .plan .pname{font-weight:900;font-size:18px;color:var(--ink);letter-spacing:-.01em;line-height:1.2}
+  .plan .pdesc{font-size:13px;color:var(--muted);font-weight:700;line-height:1.3}
+  .plan .price{display:flex;align-items:flex-start;font-weight:900;font-size:clamp(40px,4.6vw,50px);line-height:1;letter-spacing:-.045em;color:var(--ink)}
+  .plan .price .cur{font-size:.42em;margin:.12em 0 0 2px;letter-spacing:0}
+  .plan .price .per{font-size:15px;color:var(--muted);font-weight:800;align-self:flex-end;margin:0 0 .25em 6px;letter-spacing:0}
+  .plan .was{display:flex;align-items:center;gap:8px;min-height:24px;margin-top:10px;font-size:14px;font-weight:700;color:var(--muted)}
+  .plan .was s{opacity:.8}
+  .plan .save{background:#e3f7e8;color:#15803d;font-size:12px;font-weight:900;padding:3px 9px;border-radius:999px}
+  .plan ul{list-style:none;margin:18px 0 22px;padding:18px 0 0;display:grid;gap:11px;border-top:1px dashed #e6d6b0}
+  .plan li{display:flex;gap:10px;align-items:center;font-size:14.5px;font-weight:700;color:var(--ink2)}
+  .plan li::before{content:"✓";flex:none;width:20px;height:20px;border-radius:50%;display:grid;place-items:center;
+    background:var(--amber);color:var(--on-acc);font-size:11px;font-weight:900}
+  .plan .btn{margin-top:auto}
+  .plan .badge{position:absolute;top:-14px;left:50%;transform:translateX(-50%);white-space:nowrap;background:var(--ink);color:#fff;
+    font-size:12px;font-weight:800;padding:6px 14px;border-radius:999px}
+
+  /* gói nổi bật */
+  .plan.hot{background:radial-gradient(130% 75% at 50% 0%,#47330a 0%,#231a07 62%,#1a1406 100%);border:1px solid #6e5214;color:#fff;
+    padding:36px 26px 28px;transform:scale(1.04);
+    box-shadow:0 0 0 6px rgba(var(--acc-rgb),.14),0 36px 64px -28px rgba(110,72,0,.8)}
+  .plan.hot:hover{transform:scale(1.04) translateY(-4px)}
+  .plan.hot .shine{position:absolute;inset:0;border-radius:inherit;overflow:hidden;pointer-events:none}
+  .plan.hot .shine::before{content:"";position:absolute;top:0;bottom:0;left:-60%;width:60%;will-change:transform;
+    background:linear-gradient(105deg,transparent,rgba(255,214,110,.16),transparent);animation:sheen 5s ease-in-out infinite}
+  @keyframes sheen{0%{transform:translateX(0)}60%,100%{transform:translateX(300%)}}
+  .plan.hot .badge{background:linear-gradient(180deg,var(--acc-hi),var(--amber));color:var(--on-acc);box-shadow:0 3px 0 var(--amber-dd),0 8px 16px -6px rgba(var(--acc-rgb),.6)}
+  .plan.hot .pname{color:#fff}
+  .plan.hot .pdesc{color:rgba(255,255,255,.6)}
+  .plan.hot .price{color:var(--gold)}
+  .plan.hot .price .per,.plan.hot .was{color:rgba(255,255,255,.55)}
+  .plan.hot .save{background:rgba(74,222,128,.16);color:#7ee2a0}
+  .plan.hot ul{border-top-color:rgba(255,255,255,.14)}
+  .plan.hot li{color:rgba(255,255,255,.9)}
+  .plan.hot .btn{position:relative;z-index:1}
+  @media (prefers-reduced-motion: reduce){ .plan.hot .shine::before{animation:none;opacity:0} }
+  .plan .badge .bs{display:none}
+
+  /* khung chi tiết gói (chỉ hiện trên điện thoại) */
+  .plan-detail{display:none;margin-top:16px;background:var(--card2);border:1px solid var(--line);border-radius:24px;padding:20px;
+    box-shadow:0 14px 34px -24px rgba(150,110,30,.5);transition:background .3s,color .3s}
+  .plan-detail.dark{background:radial-gradient(130% 90% at 50% 0%,#47330a,#1d1607 72%);border-color:#6e5214;color:#fff}
+  .pd-head{display:flex;justify-content:space-between;align-items:center;gap:10px}
+  .pd-head b{font-size:18px;font-weight:900}
+  .pd-price{font-weight:900;font-size:26px;letter-spacing:-.03em;line-height:1;color:var(--ink);white-space:nowrap}
+  .pd-price .cur{font-size:.5em;vertical-align:super;margin-left:1px}
+  .pd-price .per{font-size:13px;font-weight:800;color:var(--muted);margin-left:3px;letter-spacing:0}
+  .pd-was{display:flex;gap:8px;align-items:center;justify-content:flex-end;min-height:20px;margin-top:6px;font-size:13px;font-weight:700;color:var(--muted)}
+  .pd-was .save{background:#e3f7e8;color:#15803d;font-size:11.5px;font-weight:900;padding:2px 8px;border-radius:999px}
+  .plan-detail ul{list-style:none;margin:14px 0 18px;padding:14px 0 0;border-top:1px dashed #e6d6b0;display:grid;gap:10px}
+  .plan-detail li{display:flex;gap:10px;align-items:center;font-size:14.5px;font-weight:700;color:var(--ink2)}
+  .plan-detail li::before{content:"✓";flex:none;width:20px;height:20px;border-radius:50%;display:grid;place-items:center;
+    background:var(--amber);color:var(--on-acc);font-size:11px;font-weight:900}
+  .plan-detail .btn{width:100%}
+  .plan-detail.dark .pd-price{color:var(--gold)}
+  .plan-detail.dark .pd-price .per,.plan-detail.dark .pd-was{color:rgba(255,255,255,.55)}
+  .plan-detail.dark .pd-was .save{background:rgba(74,222,128,.16);color:#7ee2a0}
+  .plan-detail.dark ul{border-top-color:rgba(255,255,255,.14)}
+  .plan-detail.dark li{color:rgba(255,255,255,.9)}
+  .plans-note{text-align:center;color:var(--muted);font-weight:700;font-size:14px;margin:26px 0 0}
+  .plans-note a{color:var(--amber-d);text-decoration:underline;text-underline-offset:3px}
+
+  /* đánh giá */
+  .tmarq{position:relative;overflow:hidden;margin:0 -22px;padding:10px 0 16px;
+    -webkit-mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent);
+    mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent)}
+  .ttrack{display:flex;width:max-content;animation:tscroll var(--tdur,40s) linear infinite}
+  .tmarq:hover .ttrack,.tmarq.paused .ttrack{animation-play-state:paused}
+  .ttrack .tcard{flex:none;width:340px;margin-right:16px;transition:transform .25s}
+  .ttrack .tcard:hover{transform:translateY(-4px) rotate(-.6deg)}
+  @keyframes tscroll{to{transform:translateX(-50%)}}
+  @media (prefers-reduced-motion: reduce){
+    .ttrack{animation:none}
+    .tmarq{overflow-x:auto;-webkit-mask-image:none;mask-image:none}
+  }
+  .tcard{background:var(--card2);border:1px solid var(--line);border-radius:24px;padding:22px}
+  .tcard .st{color:var(--amber);font-size:14px;letter-spacing:1px;margin-bottom:8px}
+  .tcard p{margin:0 0 16px;font-size:15px;color:var(--ink2);line-height:1.55}
+  .tcard .who{display:flex;align-items:center;gap:11px}
+  .tcard .who img{width:40px;height:40px;border-radius:50%;object-fit:cover}
+  .tcard .who b{display:block;font-size:15px;font-weight:800}
+  .tcard .who span{font-size:13px;color:var(--muted);font-weight:700}
+
+  /* cta */
+  .cta{padding-top:24px}
+  .cta .box{position:relative;overflow:hidden;text-align:center;background:linear-gradient(135deg,var(--acc-hi),var(--amber));border-radius:34px;padding:56px 24px;box-shadow:0 30px 60px -26px rgba(var(--acc-dd-rgb),.7)}
+  .cta h2{color:var(--on-acc);font-size:clamp(28px,4.6vw,46px);position:relative}
+  .cta p{color:var(--on-acc);font-weight:700;margin:12px auto 26px;max-width:40ch;position:relative}
+  .cta .bg-heart{position:absolute;opacity:.3;width:220px;pointer-events:none}
+  .cta .bg-heart.l{left:-40px;top:-40px;transform:rotate(-16deg)}
+  .cta .bg-heart.r{right:-40px;bottom:-54px;transform:rotate(14deg)}
+  .cta .phone-no{display:block;margin-top:16px;color:var(--on-acc);font-weight:800;font-size:14px;position:relative}
+
+  /* zalo */
+  .btn-zalo{color:#fff;background:#0068FF;box-shadow:0 4px 0 #0047b3,0 10px 20px -7px rgba(0,80,200,.55)}
+  .btn-zalo:hover{transform:translateY(-2px);background:#1a78ff;box-shadow:0 6px 0 #0047b3,0 16px 26px -8px rgba(0,80,200,.55)}
+  .btn-zalo:active{transform:translateY(4px);box-shadow:0 1px 0 #0047b3,0 4px 10px -5px rgba(0,80,200,.5)}
+  .btn-lg{padding:19px 32px;font-size:18px}
+  .zmark{display:inline-grid;place-items:center;width:24px;height:24px;border-radius:7px;background:#fff;color:#0068FF;font-size:9.5px;font-weight:900;letter-spacing:-.02em;flex:none}
+  .zfloat{position:fixed;right:18px;bottom:18px;z-index:90;display:flex;align-items:center;gap:10px;background:#0068FF;color:#fff;font-weight:800;font-size:14px;padding:9px 18px 9px 9px;border-radius:999px;box-shadow:0 4px 0 #0047b3,0 14px 28px -10px rgba(0,80,200,.6);transition:transform .15s}
+  .zfloat:hover{transform:translateY(-2px)}
+  .zfloat:active{transform:translateY(3px)}
+  .zfloat .zmark{width:36px;height:36px;border-radius:50%;font-size:11px;position:relative}
+  .zfloat .zmark::after{content:"";position:absolute;inset:-5px;border-radius:50%;border:2px solid rgba(255,255,255,.75);animation:zping 1.8s ease-out infinite}
+  @keyframes zping{0%{transform:scale(.8);opacity:1}100%{transform:scale(1.45);opacity:0}}
+  @media (prefers-reduced-motion: reduce){ .zfloat .zmark::after{animation:none;opacity:0} }
+
+  footer{padding:40px 0 90px;color:var(--muted);font-size:14px;font-weight:700}
+  .foot-in{display:flex;flex-wrap:wrap;gap:18px;justify-content:space-between;align-items:center}
+  .foot-links{display:flex;gap:22px;flex-wrap:wrap}
+  .foot-links a:hover{color:var(--ink)}
+
+  @media(max-width:880px){
+    .nav-links{display:none}
+    .hero{padding-top:36px;text-align:center}
+    .hero-grid{grid-template-columns:1fr;gap:4px}
+    .hero .lead{margin-left:auto;margin-right:auto}
+    .hero-actions,.trust{justify-content:center}
+    .scene{height:700px;max-width:380px}
+    .phone{width:216px}
+    .gfeat{grid-template-columns:1fr 1fr;gap:12px}
+    .gf{padding:18px}
+    .uv{grid-template-columns:1fr;gap:30px;text-align:center}
+    .uv-copy>p{margin-left:auto;margin-right:auto}
+    .uv-feats{display:inline-grid;text-align:left}
+    .uv-phone{width:258px}
+    .ck-grid{grid-template-columns:1fr 1fr;gap:12px}
+    .vdemo{grid-template-columns:180px 1fr;gap:28px;padding:24px 28px 24px 22px}
+    .pv{grid-template-columns:1fr;grid-template-areas:"head" "phone" "ctrl";text-align:center;row-gap:28px}
+    .pv-head p{margin-left:auto;margin-right:auto}
+    .pv-opts{margin:0 auto}
+    .pv-friends,.pv-status{justify-content:center}
+    .pv-phone{width:260px}
+    .logos{grid-template-columns:1fr;padding:20px;gap:18px}
+    .lp{display:flex;align-items:center;gap:16px;text-align:left}
+    .lp .big{width:80px;height:80px;border-radius:19px;margin:0}
+    .plans{gap:12px}
+    .plan{padding:24px 18px 20px}
+    .plan.hot{padding:30px 18px 22px;transform:scale(1.03)}
+    .plan.hot:hover{transform:scale(1.03) translateY(-4px)}
+    .plan .ptop{gap:10px}
+    .plan .pico{width:40px;height:40px}
+    .plan li{font-size:13.5px}
+    .tpanel{border-radius:30px;margin:0 -8px}
+  }
+  @media(max-width:699px){
+    header.nav{-webkit-backdrop-filter:none;backdrop-filter:none;background:rgba(var(--cream-rgb),.97)}
+    .plans{grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;align-items:stretch}
+    .plan,.plan.hot{padding:24px 6px 14px;border-radius:20px;transform:none;text-align:center;cursor:pointer;
+      box-shadow:0 8px 20px -16px rgba(150,110,30,.6);-webkit-tap-highlight-color:transparent}
+    .plan:hover,.plan.hot:hover{transform:none}
+    .plan .ptop{flex-direction:column;gap:6px;margin-bottom:10px}
+    .plan .pico{width:34px;height:34px;border-radius:9px}
+    .plan .pname{font-size:13.5px;white-space:nowrap}
+    .ttrack .tcard{width:272px;margin-right:12px}
+    .plan .pdesc,.plan ul,.plan .btn,.plan .was{display:none}
+    .plan .price{display:block;font-size:19px;letter-spacing:-.03em;white-space:nowrap}
+    .plan .price .cur{font-size:.55em;vertical-align:super;margin:0 0 0 1px}
+    .plan .price .per{display:block;margin:5px 0 0;font-size:11.5px}
+    .plan .badge{font-size:10px;padding:4px 9px;top:-11px}
+    .plan .badge .bl{display:none}
+    .plan .badge .bs{display:inline}
+    .plan.sel{border-color:transparent;box-shadow:0 0 0 3px var(--amber),0 10px 22px -14px rgba(var(--acc-dd-rgb),.6)}
+    .plan.hot.sel{box-shadow:0 0 0 3px var(--amber),0 0 0 7px rgba(var(--acc-rgb),.22)}
+    .plan:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
+    .plan-detail{display:block}
+
+    /* đăng riêng tư: gọn ngang trên điện thoại */
+    .pv{grid-template-columns:128px 1fr;grid-template-areas:"head head" "opts opts" "phone fr" "phone st";
+      column-gap:18px;row-gap:16px;align-items:start;text-align:left}
+    .pv-ctrl{display:contents}
+    .pv-head{text-align:center}
+    .pv-head h2{font-size:28px}
+    .pv-head p{font-size:14.5px;margin-top:10px}
+    .pv-opts{grid-area:opts;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;max-width:none;margin:0}
+    .pv-opt{position:relative;flex-direction:column;gap:6px;padding:12px 4px 10px;border-radius:16px;text-align:center}
+    .pv-opt:hover{transform:none}
+    .pv-opt .oi{width:34px;height:34px;font-size:16px;border-radius:11px}
+    .pv-opt b{font-size:13px;white-space:nowrap}
+    .pv-opt small{display:none}
+    .pv-opt .tag{position:absolute;top:-9px;right:-3px;margin:0;font-size:9px;padding:2px 7px}
+    .pv-phone{grid-area:phone;width:128px;border-radius:24px;padding:5px;justify-self:start}
+    .pv-scr{border-radius:20px;padding:16px 7px 8px}
+    .pv-ic{width:20px;height:20px}
+    .pv-ic svg{width:10px;height:10px}
+    .pv-who{font-size:9px;padding:4px 8px}
+    .pv-av{width:20px;height:20px}
+    .pv-photo{margin:12px 0 8px;border-radius:16px}
+    .pv-photo .lockb{width:18px;height:18px;font-size:9px;left:6px;top:6px}
+    .pv-meta{font-size:9px}
+    .pv-pill{margin-top:9px;font-size:9.5px;padding:5px 9px;gap:4px}
+    .pv-mid{padding:3px 6px;gap:6px}
+    .pv-mid svg{width:10px;height:10px}
+    .pv-shut{width:22px;height:22px;border-width:2px}
+    .pv-badge b{font-size:7px;top:-6px;right:-7px}
+    .pv-friends{grid-area:fr;display:grid;grid-template-columns:repeat(2,1fr);gap:14px 6px;margin:4px 0 0;justify-items:center}
+    .pv-status{grid-area:st;margin:0;font-size:13px;line-height:1.4;justify-content:flex-start;align-items:flex-start}
+    .pv-status i{margin-top:5px}
+    .cta .btn-lg{white-space:nowrap;font-size:16px;padding:17px 22px}
+  }
+  @media(max-width:560px){
+    section{padding:50px 0}
+    .uv-phone{width:240px}
+    .scene{height:560px;--sticker-out-x:4px;--sticker-out-y:18px}
+    .phone{width:156px;border-radius:30px;padding:7px}
+    .phone .app{border-radius:23px}
+    .phone::after{top:10px;width:62px;height:18px}
+    .scene{--fan-spread:24px;--fan-angle:9deg}
+    .p1{width:78px;height:94px;top:0;left:3%}
+    .p2{width:78px;height:94px;bottom:0;right:3%}
+    .sticker{width:64px;right:3%;top:2%;z-index:7}
+    .heartpop{width:50px;left:5%;bottom:3%;z-index:7}
+    .gf .gi{width:42px;height:42px;border-radius:13px}
+    .gf h3{font-size:15.5px}
+    .gf p{font-size:13px}
+    .lgrid{grid-template-columns:repeat(4,1fr)}
+    .ck{padding:16px 14px;border-radius:20px}
+    .ck .ci{width:44px;height:44px;border-radius:13px;margin-bottom:12px}
+    .ck .ci svg{width:22px;height:22px}
+    .ck.hl .ci b{font-size:26px}
+    .ck .ok{width:18px;height:18px;font-size:10px;right:-5px;bottom:-5px}
+    .ck h3{font-size:15px}
+    .ck p{font-size:12.5px;line-height:1.45}
+    .ck-note{font-size:13.5px}
+    .plan{padding:26px 20px 20px}
+    .tc-track{padding-left:calc(50% - 112px);padding-right:calc(50% - 112px);gap:14px}
+    .tcam{width:224px;border-radius:38px}
+    .tnav{display:none}
+    .vdemo{grid-template-columns:124px 1fr;gap:16px;padding:14px 16px 14px 14px;border-radius:26px;margin-top:22px}
+    .vd-phone{border-radius:22px;padding:5px}
+    .vd-phone video{border-radius:18px}
+    .vd-sound{width:30px;height:30px;font-size:12px;right:8px;bottom:8px}
+    .vd-rec{font-size:11px;padding:4px 9px;margin-bottom:9px}
+    .vd-copy h3{font-size:20px}
+    .vd-copy h3 br{display:none}
+    .vd-copy p{font-size:13px;margin:7px 0 12px;line-height:1.45}
+    .vd-chips{display:none}
+    .vd-copy .btn{padding:10px 15px;font-size:13px}
+    .hero-actions{gap:10px}
+    .hero-actions .btn{padding:15px 18px;font-size:15px}
+    .zfloat .zt{display:none}
+    .zfloat{padding:9px}
+  }
+
+  /* đổi màu theo chủ đề: chuyển màu mượt trong lúc đổi */
+  html.theming body,html.theming body *:not(#glbg){transition:background-color .5s ease,border-color .5s ease,color .5s ease,box-shadow .5s ease,fill .5s ease,stroke .5s ease!important}
+  /* khung tối (gói năm, video demo) pha theo màu chủ đề */
+  @supports (background:color-mix(in srgb,red,blue)){
+    .plan.hot{background:radial-gradient(130% 75% at 50% 0%,color-mix(in srgb,var(--amber) 26%,#140f06) 0%,color-mix(in srgb,var(--amber) 9%,#120e07) 62%,#110d07 100%);
+      border-color:color-mix(in srgb,var(--amber) 40%,#1a1406)}
+    .plan-detail.dark{background:radial-gradient(130% 90% at 50% 0%,color-mix(in srgb,var(--amber) 26%,#140f06),color-mix(in srgb,var(--amber) 8%,#110d07) 72%);
+      border-color:color-mix(in srgb,var(--amber) 40%,#1a1406)}
+    .vdemo{background:radial-gradient(90% 130% at 100% 0%,color-mix(in srgb,var(--amber) 32%,#140f06) 0%,color-mix(in srgb,var(--amber) 11%,#110d07) 46%,#0f0c07 100%)}
+  }
+
+
+  /* ====== CẢI THIỆN TOÀN DIỆN GIAO DIỆN MOBILE ====== */
+  @media(max-width:768px){
+    body{font-size:15.5px}
+    .wrap{padding:0 16px}
+    header.nav{background:rgba(255,251,241,.98);border-bottom:1px solid #eddcc0}
+    .nav-in{height:58px}
+    
+    /* Hero section */
+    .hero{padding:28px 0 16px;text-align:center}
+    .hero h1{font-size:36px;line-height:1.15;letter-spacing:-.03em}
+    .hero .lead{font-size:15px;line-height:1.55;max-width:340px;margin:12px auto 20px}
+    .hero-actions{display:flex;flex-direction:row;justify-content:center;gap:10px;width:100%;max-width:340px;margin:auto}
+    .hero-actions .btn{flex:1;padding:12px 14px;font-size:14px;justify-content:center;border-radius:12px}
+    
+    /* Scene & 3 phone stack */
+    .scene{height:460px;max-width:320px;margin:16px auto 0;--fan-spread:18px;--fan-angle:7deg}
+    .phone{width:160px;border-radius:28px;padding:6px;border-width:6px}
+    
+    /* Section titles */
+    .sec-head h2{font-size:24px;line-height:1.2}
+    .sec-head p{font-size:14px}
+    .sec-head{margin-bottom:24px}
+    section{padding:42px 0}
+    
+    /* Features grid */
+    .gfeat{grid-template-columns:1fr 1fr;gap:10px}
+    .gf{padding:14px 12px;border-radius:18px}
+    .gf .gi{width:38px;height:38px;border-radius:11px;margin-bottom:10px}
+    .gf h3{font-size:14px;margin-bottom:4px}
+    .gf p{font-size:12px;line-height:1.4}
+    
+    /* Bảng giá trên mobile: 3 ô cân đối và đẹp mắt */
+    .plans{grid-template-columns:repeat(3,1fr);gap:8px;align-items:stretch}
+    .plan{padding:20px 6px 12px;border-radius:18px}
+    .plan .pico{width:32px;height:32px;border-radius:9px}
+    .plan .pname{font-size:13px;font-weight:900}
+    .plan .price{font-size:18px}
+    .plan .badge{font-size:9.5px;padding:3px 8px;top:-10px}
+    
+    /* Chi tiết gói khi chọn trên mobile */
+    .plan-detail{margin-top:16px;border-radius:20px;padding:20px 18px}
+    .plan-detail .pd-head b{font-size:18px}
+    .plan-detail .pd-price .num{font-size:28px}
+    .plan-detail ul{margin:14px 0 16px;gap:8px}
+    .plan-detail li{font-size:13.5px}
+    .plan-detail .btn{padding:13px;font-size:14px;border-radius:12px}
+    
+    /* Khu vực Hướng dẫn kích hoạt */
+    #guide{padding:42px 0!important}
+    #guide .wrap > div:first-of-type{grid-template-columns:1fr!important;gap:16px!important}
+    .guide-card{padding:20px 18px!important;border-radius:18px!important}
+    .guide-card h3{font-size:17px!important;margin-bottom:14px!important}
+    .guide-step-item{font-size:13.5px!important;gap:10px!important}
+    .step-badge{width:26px!important;height:26px!important;font-size:12px!important;border-radius:8px!important}
+    
+    /* Box lưu ý / lỗi thường gặp */
+    #guide .wrap > div:last-child{grid-template-columns:1fr!important;padding:16px 18px!important;margin-top:18px!important;border-radius:16px!important}
+    #guide .wrap > div:last-child > div:first-child{display:none!important}
+    
+    /* Modal Popup nâng cấp trên mobile: fix vừa vặn màn hình */
+    .lkt-modal{padding:10px!important;align-items:flex-end}
+    .lkt-modal-dialog{max-height:88vh!important;overflow-y:auto!important;border-radius:20px 20px 12px 12px!important;padding:18px 16px!important;margin:0!important}
+    .lkt-modal-header h3{font-size:16px}
+    .lkt-input-group input{padding:10px 12px;font-size:14px}
+    .lkt-input-group button{padding:0 12px;font-size:13px}
+    .lkt-pkg-box{padding:10px 12px}
+    .lkt-balance-box{padding:10px 12px}
+    
+    /* Footer links */
+    .foot-in{flex-direction:column;gap:16px;text-align:center}
+    .foot-links{flex-wrap:wrap;justify-content:center;gap:10px 14px;font-size:13px}
+    
+    /* Nút Zalo góc màn hình */
+    .zfloat{bottom:16px;right:16px}
+  }
+
+</style>
+<script>document.documentElement.classList.add('js','is-loading')</script>
+<script>
+/* Bảng màu trang theo 14 chủ đề máy ảnh (0 = Tối = vàng gốc) */
+(function(){
+  var A=['','#4f9fd0','#9aa3ad','#3a3a3a','#b86fd6','#ff5fb8','#8b5cf6','#34b36b','#1fa6e0','#6f6cf0','#ef3b5a','#ff6b57','#e0a21a','#f2a51a'];
+  var DEF_GL=[[255,251,242],[255,204,102],[255,230,173],[255,189,148],[255,217,115],[255,209,184]];
+  function h2r(h){ h=h.replace('#',''); return [0,2,4].map(function(i){ return parseInt(h.substr(i,2),16); }); }
+  function toHsl(c){ var r=c[0]/255,g=c[1]/255,b=c[2]/255,mx=Math.max(r,g,b),mn=Math.min(r,g,b),h=0,s=0,l=(mx+mn)/2;
+    if(mx!==mn){ var d=mx-mn; s=l>.5?d/(2-mx-mn):d/(mx+mn); h=mx===r?(g-b)/d+(g<b?6:0):mx===g?(b-r)/d+2:(r-g)/d+4; h*=60; }
+    return [h,s*100,l*100]; }
+  function rgbOf(h,s,l){ h=((h%360)+360)%360; s/=100; l/=100;
+    var a=s*Math.min(l,1-l), f=function(n){ var k=(n+h/30)%12; return l-a*Math.max(-1,Math.min(k-3,9-k,1)); };
+    return [f(0),f(8),f(4)].map(function(x){ return Math.round(x*255); }); }
+  function css(c){ return 'rgb('+c.join(',')+')'; }
+  function pal(hex){
+    var c=h2r(hex), H=toHsl(c), h=H[0], s=H[1], l=H[2], sat=Math.min(s,92), t=s<8?0:1;
+    var lum=(.299*c[0]+.587*c[1]+.114*c[2])/255, dd=rgbOf(h,sat,Math.max(l-22,14)), cream=rgbOf(h,t?100:0,98.2);
+    return {
+      '--amber':hex, '--acc-rgb':c.join(','),
+      '--acc-hi':css(rgbOf(h,sat,Math.min(l+16,80))),
+      '--amber-d':css(rgbOf(h,sat,Math.min(l-6,40))),
+      '--amber-dd':css(dd), '--acc-dd-rgb':dd.join(','),
+      '--gold':css(rgbOf(h,sat,Math.min(l+8,70))),
+      '--on-acc':lum>.62?css(rgbOf(h,30,12)):'#fff',
+      '--acc-tint':css(rgbOf(h,t?90:0,95)),
+      '--cream':css(cream), '--cream-rgb':cream.join(','),
+      '--cream2':css(rgbOf(h,t?85:0,93)), '--card':css(rgbOf(h,t?85:0,96.5)), '--card2':css(rgbOf(h,t?100:0,99)),
+      '--line':css(rgbOf(h,t?55:0,87)),
+      '--ink':css(rgbOf(h,t?35:0,11)), '--ink2':css(rgbOf(h,t?18:0,24)), '--muted':css(rgbOf(h,t?12:0,50)),
+      gl:[cream,rgbOf(h,sat,72),rgbOf(h,sat,86),rgbOf(h+28,sat,80),rgbOf(h,sat,78),rgbOf(h-28,sat,85)]
+    };
+  }
+  var KEYS=Object.keys(pal(A[1])).filter(function(k){ return k.charAt(0)==='-'; }), tm=0;
+  function apply(i,animate){
+    var root=document.documentElement, p=(i>0 && A[i])?pal(A[i]):null;
+    if(animate){ root.classList.add('theming'); clearTimeout(tm); tm=setTimeout(function(){ root.classList.remove('theming'); },650); }
+    KEYS.forEach(function(k){ if(p) root.style.setProperty(k,p[k]); else root.style.removeProperty(k); });
+    var meta=document.querySelector('meta[name="theme-color"]'); if(meta) meta.setAttribute('content',p?p['--cream']:'#FFFBF1');
+    T.current=i; T.gl=p?p.gl:DEF_GL;
+    try{ document.dispatchEvent(new CustomEvent('locket-theme',{detail:{i:i,gl:T.gl}})); }catch(e){}
+  }
+  var T=window.__theme={apply:apply,current:0,gl:DEF_GL,DEF_GL:DEF_GL};
+  var sv=0; try{ sv=parseInt(localStorage.getItem('locket-theme'),10)||0; }catch(e){}
+  if(sv>0 && sv<A.length) apply(sv,false);
+})();
+</script>
+
+
+</head>
+<body>
+
+<div id="intro" aria-hidden="true">
+  <div class="ibrand">
+    <i class="isp s1">✦</i><i class="isp s2">✦</i><i class="isp s3">✦</i><i class="isp s4">✦</i>
+    <img class="ilogo" src="assets/img-locket/apple-touch-icon.png" alt="" width="118" height="118">
+    <div class="iword"><span>L</span><span>o</span><span>c</span><span>k</span><span>e</span><span>t</span></div>
+    <div class="igold">GOLD</div>
+  </div>
+  <div class="iload"><div class="ibar"><i id="ibar"></i></div><span class="ipct" id="ipct">Đang tải 0%</span></div>
+</div>
+<canvas id="glbg" aria-hidden="true"></canvas>
+<div class="sprog" id="sprog" aria-hidden="true"></div>
+
+<header class="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="#top"><img src="assets/img-locket/apple-touch-icon.png" alt="">Locket</a>
+    <nav class="nav-links">
+      <a href="#gold">Tính năng</a>
+      <a href="#pricing">Bảng giá</a>
+      <a href="#guide">Hướng dẫn</a>
+      <a href="/cai-dns.html">Cài DNS</a>
+      
+      
+    </nav>
+          <div style="display:flex; align-items:center; gap:10px;">
+        
+        <a class="btn btn-primary btn-sm" href="#pricing">Mua Gold</a>
+      </div>
+      </div>
+</header>
+
+
+<section class="hero" id="top">
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <a class="eyebrow rv" style="--d:.05s" href="#pricing">💛 Chỉ từ 15.000đ/tháng</a>
+      <h1 class="rv" style="--d:.15s">Nâng cấp lên <span class="mk">Locket Gold</span></h1>
+      <p class="lead rv" style="--d:.28s">Quay video dài, đăng ảnh riêng tư, thay logo, thay nền và viết caption dài. Nhắn Zalo là được kích hoạt.</p>
+      <div class="hero-actions rv" style="--d:.4s">
+        <a class="btn btn-primary" href="#pricing">Xem bảng giá</a>
+        <a class="btn btn-zalo" href="https://zalo.me/0325945496" target="_blank" rel="noopener"><span class="zmark">Zalo</span>Nhắn Zalo</a>
+      </div>
+      <div class="trust rv" style="--d:.5s">
+        <div class="avatars">
+          <img src="assets/img-locket/bff.webp" alt=""><img src="assets/img-locket/kyle.webp" alt="">
+          <img src="assets/img-locket/karima.webp" alt=""><img src="assets/img-locket/laurel.webp" alt="">
+          <img src="assets/img-locket/preslee.webp" alt="">
+        </div>
+        <span>Được hàng triệu bạn trẻ yêu thích</span>
+      </div>
+    </div>
+
+    <div class="scene">
+      <div class="polaroid p1" style="--d:.7s"><img src="assets/img-locket/float-1.webp" alt=""></div>
+      <div class="polaroid p2" style="--d:.82s"><img src="assets/img-locket/float-2.webp" alt=""></div>
+      <div class="phone phone-locket" style="--d:.55s">
+        <div class="app" role="img" aria-label="Màn hình camera của app Locket">
+          <img src="assets/home/header.png" alt="">
+          <img src="assets/home/camera.png" alt="">
+          <img src="assets/home/capture-controls.png" alt="">
+          <img src="assets/home/history.png" alt="">
+          <img src="assets/home/navigation.png" alt="">
+        </div>
+      </div>
+      <div class="phone phone-pricing" style="--d:.7s">
+        <div class="app">
+          <svg class="pricing-screen" xmlns="http://www.w3.org/2000/svg" width="440" height="953" viewBox="0 0 440 953">
+  <defs><linearGradient id="goldGrad" x2="1" y2="1"><stop stop-color="#fff4cf"/><stop offset="1" stop-color="#ffc132"/></linearGradient></defs>
+  <rect width="440" height="953" fill="url(#goldGrad)"/>
+  <circle cx="440" cy="130" r="170" fill="#fff" opacity=".25"/>
+  <circle cx="0" cy="900" r="170" fill="#fff" opacity=".2"/>
+  <g font-family="var(--font),Arial,sans-serif" text-anchor="middle" fill="#241a07">
+    <text x="220" y="130" font-size="28" font-weight="700" letter-spacing="3">LOCKET GOLD</text>
+    <text x="220" y="194" font-size="48" font-weight="900">BẢNG GIÁ</text>
+    <text x="220" y="236" font-size="22">Mở khoá đủ 8 tính năng Gold</text>
+    <rect x="30" y="280" width="380" height="148" rx="26" fill="#fffdf6"/>
+    <text x="220" y="325" font-size="25" font-weight="700">Gói tháng</text>
+    <text x="220" y="382" font-size="44" font-weight="900">16.000đ<tspan font-size="21" font-weight="400"> / tháng</tspan></text>
+    <rect x="30" y="453" width="380" height="178" rx="26" fill="#241a07"/>
+    <rect x="126" y="438" width="188" height="32" rx="16" fill="#fffdf6"/>
+    <text x="220" y="461" font-size="17" font-weight="700">PHỔ BIẾN NHẤT</text>
+    <text x="220" y="505" font-size="25" font-weight="700" fill="#fffdf6">Gói năm</text>
+    <text x="220" y="560" font-size="44" font-weight="900" fill="#ffc132">89.000đ<tspan font-size="21" font-weight="400"> / năm</tspan></text>
+    <text x="220" y="600" font-size="20" fill="#fff0b5">Chỉ khoảng 7.400đ mỗi tháng</text>
+    <rect x="30" y="657" width="380" height="148" rx="26" fill="#fffdf6"/>
+    <text x="220" y="702" font-size="25" font-weight="700">Vĩnh viễn</text>
+    <text x="220" y="756" font-size="44" font-weight="900">179.000đ</text>
+    <text x="220" y="786" font-size="19">Thanh toán một lần duy nhất</text>
+    <text x="220" y="866" font-size="22" font-weight="700">Kích hoạt tự động nhanh chóng</text>
+    <text x="220" y="902" font-size="27" font-weight="700">0325945496</text>
+  </g>
+</svg>
+        </div>
+      </div>
+      <img class="sticker" style="--d:1s" src="assets/img-locket/career-1.webp" alt="">
+      <img class="heartpop" style="--d:1.1s" src="assets/img-locket/heart-3d.webp" alt="">
+    </div>
+  </div>
+</section>
+
+
+<section id="gold" class="band">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="kicker">Có gì trong Locket Gold</p>
+      <h2>8 tính năng bản thường không có</h2>
+    </div>
+    <div class="gfeat">
+      <article class="gf card-shadow"><span class="gi"><svg viewBox="0 0 24 24"><rect x="3" y="6" width="13" height="12" rx="3"/><path d="m16 10 5-3v10l-5-3"/></svg></span><h3>Quay video dài</h3><p>Không bị cắt sau vài giây. <a href="#vdemo" style="color:var(--amber-d);text-decoration:underline;text-underline-offset:3px">Xem demo</a></p></article>
+      <article class="gf card-shadow"><span class="gi"><svg viewBox="0 0 24 24"><path d="M12 15V5M8.5 8.5 12 5l3.5 3.5"/><rect x="4" y="13" width="16" height="7" rx="2"/></svg></span><h3>Đăng video</h3><p>Lên khoảnh khắc, tối đa 10 giây &amp; 6MB. <a href="#upload" style="color:var(--amber-d);text-decoration:underline;text-underline-offset:3px">Thử ngay</a></p></article>
+      <article class="gf card-shadow"><span class="gi"><svg viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="10" rx="3"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></span><h3>Đăng ảnh riêng tư</h3><p>Chọn đúng người được xem. <a href="#private" style="color:var(--amber-d);text-decoration:underline;text-underline-offset:3px">Thử ngay</a></p></article>
+      <article class="gf card-shadow"><span class="gi"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="5"/><path d="M12 16.5c-3.6-2.2-4.6-4.4-3.5-5.9 1-1.3 2.7-1 3.5.3.8-1.3 2.5-1.6 3.5-.3 1.1 1.5.1 3.7-3.5 5.9z"/></svg></span><h3>Thay logo</h3><p>35 mẫu icon cho màn hình chính.</p></article>
+      <article class="gf card-shadow"><span class="gi"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="3"/><circle cx="9" cy="10" r="2"/><path d="m21 16-5-5-9 9"/></svg></span><h3>Thay nền Locket</h3><p>14 chủ đề máy ảnh để chọn.</p></article>
+      <article class="gf card-shadow"><span class="gi"><svg viewBox="0 0 24 24"><circle cx="10" cy="8" r="4"/><path d="M3 21c0-3.9 3.1-7 7-7s7 3.1 7 7"/><path d="M19 8v6M16 11h6"/></svg></span><h3>Thêm bạn bè</h3><p>Kết nối thêm nhiều bạn hơn.</p></article>
+      <article class="gf card-shadow"><span class="gi"><svg viewBox="0 0 24 24"><path d="M4 20h4L19 9l-4-4L4 16z"/><path d="m13.5 6.5 4 4"/></svg></span><h3>Viết caption dài</h3><p>Thoải mái viết chú thích.</p></article>
+      <article class="gf card-shadow"><span class="gi"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><rect x="7" y="7" width="10" height="10" rx="2"/><path d="M3 9h4M17 15h4M9 3v4M15 17v4"/></svg></span><h3>Khung widget</h3><p>Chọn khung có sẵn hoặc tải khung của bạn. <a href="#frames" style="color:var(--amber-d);text-decoration:underline;text-underline-offset:3px">Thử ngay</a></p></article>
+    </div>
+    <div class="vdemo" id="vdemo">
+      <div class="vd-phone">
+        <video id="vdVideo" muted loop playsinline preload="none" poster="assets/video/quay-video-dai.webp"
+          width="440" height="953" aria-label="Video demo quay video dài trên Locket Gold">
+          <source src="assets/video/quay-video-dai.webm" type="video/webm">
+          <source src="assets/video/quay-video-dai.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="vd-copy">
+        <span class="vd-rec"><i></i>Demo thật từ app</span>
+        <h3>Quay <em>video dài</em>, <br>không bị cắt giữa chừng</h3>
+        <p>Giữ nút chụp để quay liên tục rồi gửi ngay cho bạn bè. Chỉ có trên Locket Gold.</p>
+        <div class="vd-chips"><span>🎬 Quay liên tục</span><span>📤 Gửi ngay cho bạn bè</span></div>
+        <a class="btn btn-primary btn-sm" href="#pricing">Mở khoá với Gold</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section id="upload">
+  <div class="wrap uv" id="uv">
+    <div class="uv-phone">
+      <div class="uv-scr">
+        <label class="uv-drop" for="uvInput">
+          <span class="uv-up"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 16V5M7.5 9.5 12 5l4.5 4.5"/><path d="M5 15v3a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-3"/></svg></span>
+          <b>Chọn video từ máy</b>
+          <small>Chạm để chọn, hoặc kéo video thả vào đây</small>
+          <span class="uv-limits"><span>⏱ Tối đa 10 giây</span><span>📦 Tối đa 6MB</span></span>
+        </label>
+        <video class="uv-video" id="uvVideo" muted loop playsinline></video>
+        <div class="uv-overlay">
+          <div class="uv-bar"><i id="uvBar"></i></div>
+          <div class="uv-res" id="uvRes" aria-live="polite"></div>
+          <button class="btn btn-cream btn-sm uv-redo" id="uvRedo" type="button">Chọn video khác</button>
+        </div>
+      </div>
+      <input type="file" id="uvInput" accept="video/*" hidden>
+    </div>
+    <div class="uv-copy">
+      <p class="kicker">📤 Mới · Đăng video</p>
+      <h2>Đăng cả <span class="mk">video lên Locket</span></h2>
+      <p>Không chỉ ảnh — giờ bạn đăng được cả video lên khoảnh khắc, tối đa 10 giây và 6MB. Thử chọn một video để xem có hợp lệ không nhé.</p>
+      <ul class="uv-feats">
+        <li>Quay sẵn hoặc chọn video có sẵn trong máy</li>
+        <li>Tối đa 10 giây, dung lượng tối đa 6MB</li>
+        <li>Gửi thẳng cho bạn bè như một khoảnh khắc</li>
+      </ul>
+      <span class="uv-safe">🔒 Video chỉ kiểm tra trên máy bạn, không tải lên đâu cả</span>
+      <div style="margin-top:16px"><a class="btn btn-primary btn-sm" href="#pricing">Mở khoá với Gold</a></div>
+    </div>
+  </div>
+</section>
+
+
+<section id="private">
+  <div class="wrap pv priv" id="pv">
+    <div class="pv-head">
+      <p class="kicker">🔒 Đăng ảnh riêng tư</p>
+      <h2>Ảnh của bạn, <span class="mk">bạn chọn ai xem</span></h2>
+      <p>Đăng một tấm chỉ cho riêng mình, cho cả hội, hoặc chỉ vài người bạn chọn. Ai không được chọn sẽ không thấy. Bấm thử bên dưới nhé.</p>
+    </div>
+    <div class="pv-ctrl">
+      <div class="pv-opts" role="radiogroup" aria-label="Ai được xem ảnh này">
+        <button class="pv-opt" type="button" role="radio" data-mode="private" aria-checked="true"><span class="oi">🔒</span><span><b>Riêng tư</b><small>Chỉ mình bạn xem</small></span><span class="tag">GOLD</span></button>
+        <button class="pv-opt" type="button" role="radio" data-mode="all" aria-checked="false"><span class="oi">👥</span><span><b>Tất cả bạn bè</b><small>Cả danh sách bạn bè đều thấy</small></span></button>
+        <button class="pv-opt" type="button" role="radio" data-mode="pick" aria-checked="false"><span class="oi">⭐</span><span><b>Chọn bạn</b><small>Chỉ những người bạn chọn</small></span></button>
+      </div>
+      <div class="pv-friends" id="pvFriends">
+          <button class="pv-f" type="button" data-id="kyle" data-name="Kyle"><span class="fa"><img src="assets/img-locket/kyle.webp" alt=""><span class="fs" aria-hidden="true"></span></span><span>Kyle</span></button>
+          <button class="pv-f" type="button" data-id="karima" data-name="Karima"><span class="fa"><img src="assets/img-locket/karima.webp" alt=""><span class="fs" aria-hidden="true"></span></span><span>Karima</span></button>
+          <button class="pv-f" type="button" data-id="laurel" data-name="Laurel"><span class="fa"><img src="assets/img-locket/laurel.webp" alt=""><span class="fs" aria-hidden="true"></span></span><span>Laurel</span></button>
+          <button class="pv-f" type="button" data-id="preslee" data-name="Preslee"><span class="fa"><img src="assets/img-locket/preslee.webp" alt=""><span class="fs" aria-hidden="true"></span></span><span>Preslee</span></button>
+      </div>
+      <p class="pv-status" id="pvStatus" aria-live="polite"><i></i><span></span></p>
+    </div>
+    <div class="pv-phone" aria-hidden="true">
+      <div class="pv-scr">
+        <div class="pv-top">
+          <span class="pv-ic"><svg viewBox="0 0 24 24"><path d="M3 11v2a1 1 0 0 0 1 1h2l5 4V6L6 10H4a1 1 0 0 0-1 1z"/><path d="M15.5 8.5a5 5 0 0 1 0 7M18.5 5.5a9 9 0 0 1 0 13"/></svg></span>
+          <span class="pv-who">Bạn ⌄</span>
+          <img class="pv-av" src="assets/home/avatar.png" alt="">
+        </div>
+        <div class="pv-photo"><img src="assets/home/camera.png" alt=""><span class="lockb">🔒</span></div>
+        <div class="pv-meta">Bạn<span>2 ngày</span></div>
+        <div class="pv-pill priv" id="pvPill">🔒 Riêng tư</div>
+        <div class="pv-bar">
+          <span class="pv-ic"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="6" height="6" rx="1.5"/><rect x="14" y="4" width="6" height="6" rx="1.5"/><rect x="4" y="14" width="6" height="6" rx="1.5"/><rect x="14" y="14" width="6" height="6" rx="1.5"/></svg></span>
+          <span class="pv-mid">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#fff" stroke-width="2"><rect x="4" y="5" width="16" height="15" rx="3"/><path d="M4 10h16M9 3v4M15 3v4"/></svg>
+            <span class="pv-shut"></span>
+            <span class="pv-badge"><svg viewBox="0 0 24 24" width="18" height="18" fill="#fff"><path d="M12 4C7 4 3 7.4 3 11.5c0 2 1 3.9 2.6 5.2L5 20l3.6-1.8c1 .3 2.2.5 3.4.5 5 0 9-3.4 9-7.5S17 4 12 4z"/></svg><b>16</b></span>
+          </span>
+          <span class="pv-ic"><svg viewBox="0 0 24 24"><path d="M12 15V4M7.5 8.5 12 4l4.5 4.5"/><path d="M5 13v5a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-5"/></svg></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section id="logos">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="kicker">Thay logo</p>
+      <h2>Chọn icon Locket bạn thích</h2>
+      <p>Bấm thử một mẫu, logo trên thanh menu cũng đổi theo.</p>
+    </div>
+    <div class="logos card-shadow">
+      <div class="lp">
+        <img class="big" id="lpBig" src="assets/logos/app_icon.webp" alt="Icon Locket đang chọn" width="136" height="136">
+        <div><div class="lbl">Locket</div><div class="nm" id="lpName">Mặc định</div></div>
+      </div>
+      <div>
+        <div class="lgrid" id="lgrid"></div>
+        <button class="btn btn-cream btn-sm lmore" id="lmore" type="button" aria-controls="lgrid" aria-expanded="false">Xem tất cả 35 mẫu</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="frames" class="band">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="kicker">Khung widget Locket</p>
+      <h2>Trang trí widget trên màn hình chính</h2>
+      <p>Chọn khung yêu thích để xem widget Locket trên màn hình chính điện thoại.</p>
+    </div>
+    <div class="frame-layout">
+      <div class="widget-phone" aria-label="Xem trước widget Locket trên màn hình chính">
+        <div class="widget-date">Màn hình chính</div><div class="widget-clock">09:41</div>
+        <div class="frame-preview">
+          <img id="framePhoto" src="assets/img-locket/kyle.webp" alt="Ảnh người trong widget Locket" width="1024" height="1024">
+          <img id="frameOverlay" src="assets/frames/frame-1.png" alt="Khung widget Loopy hồng pastel" width="1024" height="1024">
+        </div>
+        <p class="widget-caption">Locket</p>
+        <div class="widget-apps" aria-hidden="true"><span>📅</span><span>🌤️</span><span>📷</span><span>🎵</span></div>
+        <div class="widget-dock" aria-hidden="true"><span>📞</span><span>💬</span><span>🌐</span></div>
+      </div>
+      <div class="frame-controls">
+        <p class="frame-label">Chọn khung <span id="frameName">Loopy hồng pastel</span></p>
+        <div class="frame-options" role="group" aria-label="Chọn khung widget">
+          <button type="button" data-frame="" data-name="Không khung" aria-pressed="false"><span class="frame-none">∅</span><span>Không khung</span></button>
+          <button type="button" data-frame="assets/frames/frame-1.png" data-name="Loopy hồng pastel" aria-pressed="true"><img src="assets/frames/frame-1.png" alt="" loading="lazy"><span>Loopy</span></button>
+          <button type="button" data-frame="assets/frames/frame-2.png" data-name="Hôm nay trời mưa" aria-pressed="false"><img src="assets/frames/frame-2.png" alt="" loading="lazy"><span>Trời mưa</span></button>
+          <button type="button" data-frame="assets/frames/frame-3.png" data-name="2 ngày 1 đêm" aria-pressed="false"><img src="assets/frames/frame-3.png" alt="" loading="lazy"><span>2 ngày 1 đêm</span></button>
+          <button type="button" data-frame="assets/frames/frame-4.png" data-name="20/10 Việt Nam" aria-pressed="false"><img src="assets/frames/frame-4.png" alt="" loading="lazy"><span>20/10 Việt Nam</span></button>
+          <button type="button" data-frame="assets/frames/frame-5.png" data-name="20/10 viền mảnh" aria-pressed="false"><img src="assets/frames/frame-5.png" alt="" loading="lazy"><span>20/10 viền mảnh</span></button>
+          <button id="frameCustom" type="button" data-frame="" data-name="Khung của bạn" aria-pressed="false" hidden><img alt=""><span>Khung của bạn</span></button>
+        </div>
+        <div class="frame-actions">
+          <button class="btn btn-primary" id="frameUpload" type="button">Tải khung của bạn lên</button>
+          <button class="btn btn-cream" id="frameSave" type="button">Tải khung widget</button>
+          <input id="frameInput" type="file" accept="image/png,.png" hidden>
+        </div>
+        <p class="frame-note">Chọn khung PNG có phần giữa trong suốt. Khung tự co giãn vừa vùng ảnh widget và tải về ở kích thước 1024 × 1024. Đây là bản xem trước widget trên web.</p>
+        <p id="frameStatus" class="frame-status" role="status" aria-live="polite"></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section id="themes">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="kicker">Thay nền Locket</p>
+      <h2>Thử 14 chủ đề máy ảnh</h2>
+      <p>Chọn chủ đề nào, <b>cả trang web đổi màu theo</b>. Chạm nút chụp để chụp, giữ để quay video như app thật.</p>
+    </div>
+    <div class="tpanel" id="tpanel">
+      <div class="grab" aria-hidden="true"></div>
+      <h2>Chủ đề máy ảnh</h2>
+      <p class="tsub">Trang trí máy ảnh bằng cách chọn một chủ đề</p>
+      <div class="tc-track" id="tcTrack" tabindex="0" aria-label="Danh sách chủ đề máy ảnh"></div>
+      <div class="tname" id="tName" aria-live="polite">Tối</div>
+      <div class="tdots" id="tDots" role="group" aria-label="Chọn chủ đề"></div>
+      <div class="tactions">
+        <button class="tnav" id="tPrev" type="button" aria-label="Chủ đề trước">‹</button>
+        <button class="btn btn-glass" id="tCam" type="button">📷 Bật camera thử</button>
+        <button class="tnav" id="tNext" type="button" aria-label="Chủ đề tiếp theo">›</button>
+      </div>
+      <p class="tmsg" id="tMsg"></p>
+    </div>
+  </div>
+</section>
+
+
+<section id="camket">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="kicker">Cam kết</p>
+      <h2>Lên Gold an tâm, không phiền phức</h2>
+      <p>Không cài app lạ, không đụng tới iCloud, không hỏi tài khoản hay mật khẩu.</p>
+    </div>
+    <div class="ck-grid">
+      <article class="ck card-shadow">
+        <span class="ci"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="2.5" width="12" height="19" rx="3"/><path d="M12 7.5v6M9.5 11l2.5 2.5 2.5-2.5"/><path class="x" d="M3 3l18 18"/></svg><span class="ok" aria-hidden="true">✓</span></span>
+        <h3>Không tải app thứ 3</h3>
+        <p>Không cài thêm bất kỳ ứng dụng lạ nào lên máy bạn.</p>
+      </article>
+      <article class="ck card-shadow">
+        <span class="ci"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 18h10a4 4 0 0 0 .6-7.96A6 6 0 0 0 6.1 9.1 4.5 4.5 0 0 0 7 18z"/><path class="x" d="M3 3l18 18"/></svg><span class="ok" aria-hidden="true">✓</span></span>
+        <h3>Không đụng tới iCloud</h3>
+        <p>Không đăng xuất iCloud, không đăng nhập iCloud lạ vào máy.</p>
+      </article>
+      <article class="ck card-shadow">
+        <span class="ci"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="8" cy="15" r="4"/><path d="M11 12l8-8M16 7l2 2M14 9l2 2"/><path class="x" d="M3 3l18 18"/></svg><span class="ok" aria-hidden="true">✓</span></span>
+        <h3>Không cần tài khoản, mật khẩu</h3>
+        <p>Không yêu cầu bất kỳ tài khoản hay mật khẩu nào.</p>
+      </article>
+      <article class="ck hl">
+        <span class="ci"><b>2</b><span class="ok" aria-hidden="true">✓</span></span>
+        <h3>Chỉ đúng 2 bước</h3>
+        <p>Lên Gold chỉ 2 bước đơn giản, ai cũng làm được.</p>
+      </article>
+    </div>
+    <p class="ck-note">💛 Cần hướng dẫn? <a href="https://zalo.me/0325945496" target="_blank" rel="noopener">Nhắn Zalo 0325945496</a> để được chỉ từng bước.</p>
+  </div>
+</section>
+
+
+<section id="pricing" class="band">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="kicker">Bảng giá</p>
+      <h2>Chọn gói, nâng cấp nhanh chóng ngay</h2>
+    </div>
+    <div class="plans">
+      <div class="plan">
+        <div class="ptop">
+          <img class="pico" src="assets/logos/flat_yellow.webp" alt="" width="46" height="46">
+          <div><div class="pname">Gói tháng</div><div class="pdesc">Dùng thử Locket Gold</div></div>
+        </div>
+        <div class="price">16.000<span class="cur">đ</span><span class="per">/tháng</span></div>
+        <div class="was">Giá tốt nhất thị trường</div>
+        <ul>
+          <li>Đủ 8 tính năng Gold</li>
+          <li>Gia hạn theo từng tháng</li>
+          <li>Kích hoạt tự động nhanh chóng</li>
+        </ul>
+        <a class="btn btn-cream btn-block" href="javascript:void(0)" onclick="openLocketModal('1month', 'Gói tháng', 16000)">Chọn gói tháng</a>
+      </div>
+
+      <div class="plan hot">
+        <span class="shine" aria-hidden="true"></span>
+        <span class="badge"><span class="bl">⭐ Phổ biến nhất</span><span class="bs">Phổ biến</span></span>
+        <div class="ptop">
+          <img class="pico" src="assets/logos/pastel_3d_gold.webp" alt="" width="46" height="46">
+          <div><div class="pname">Gói năm</div><div class="pdesc">Lựa chọn tiết kiệm nhất</div></div>
+        </div>
+        <div class="price">89.000<span class="cur">đ</span><span class="per">/năm</span></div>
+        <div class="was"><s>180.000đ</s><span class="save">-50%</span></div>
+        <ul>
+          <li>Đủ 8 tính năng Gold</li>
+          <li>Chỉ khoảng 7.400đ mỗi tháng</li>
+          <li>Kích hoạt tự động nhanh chóng</li>
+        </ul>
+        <a class="btn btn-primary btn-block" href="javascript:void(0)" onclick="openLocketModal('1year', 'Gói năm', 89000)"><span class="zmark">⚡</span>Mua gói năm</a>
+      </div>
+
+      <div class="plan">
+        <span class="badge"><span class="bl">Trả một lần</span><span class="bs">1 lần</span></span>
+        <div class="ptop">
+          <img class="pico" src="assets/logos/gold_on_black.webp" alt="" width="46" height="46">
+          <div><div class="pname">Vĩnh viễn</div><div class="pdesc">Mua một lần, dùng mãi mãi</div></div>
+        </div>
+        <div class="price">179.000<span class="cur">đ</span></div>
+        <div class="was">Thanh toán một lần duy nhất</div>
+        <ul>
+          <li>Đủ 8 tính năng Gold</li>
+          <li>Không bao giờ phải gia hạn</li>
+          <li>Kích hoạt tự động nhanh chóng</li>
+        </ul>
+        <a class="btn btn-cream btn-block" href="javascript:void(0)" onclick="openLocketModal('lifetime', 'Vĩnh viễn', 179000)">Chọn gói vĩnh viễn</a>
+      </div>
+    </div>
+    <div class="plan-detail" id="planDetail" aria-live="polite">
+      <div class="pd-head"><b id="pdName"></b><span class="pd-price" id="pdPrice"></span></div>
+      <div class="pd-was" id="pdWas"></div>
+      <ul id="pdList"></ul>
+      <div id="pdBtn"></div>
+    </div>
+    <p class="plans-note">Gói nào cũng có đủ <a href="#gold">8 tính năng Gold</a> · Zalo: <b>0325945496</b></p>
+  </div>
+</section>
+
+
+<style>
+.guide-step-list{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:14px}
+.guide-step-item{display:flex;gap:14px;align-items:flex-start;color:var(--ink2);font-size:15px;line-height:1.6}
+.step-badge{flex:none;width:30px;height:30px;border-radius:10px;background:#241a07;color:#FFB000;font-weight:900;font-size:14px;display:flex;align-items:center;justify-content:center;box-shadow:0 3px 8px -2px rgba(0,0,0,0.25)}
+.guide-card{position:relative;background:#fff;border:1.5px solid var(--line);border-radius:24px;padding:30px 26px;box-shadow:0 14px 34px -18px rgba(120,90,20,0.18);transition:transform .2s,box-shadow .2s;overflow:hidden}
+.guide-card:hover{transform:translateY(-3px);box-shadow:0 20px 40px -18px rgba(120,90,20,0.25)}
+.guide-card::before{content:"";position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,#FFB000,#E89A00)}
+.guide-tag{display:inline-block;padding:4px 12px;background:#FFF3D6;color:#B97E00;font-size:12px;font-weight:900;letter-spacing:1px;text-transform:uppercase;border-radius:6px;margin-bottom:10px}
+.highlight-pill{background:#FFF3D6;color:#854d0e;padding:1px 7px;border-radius:6px;font-weight:700}
+</style>
+
+<section id="guide" style="padding:65px 0; background:radial-gradient(100% 50% at 50% 0%, #fff6db 0%, var(--cream) 100%); border-top:1px solid var(--line); border-bottom:1px solid var(--line);">
+  <div class="wrap">
+    <div class="sec-head" style="text-align:center; max-width:680px; margin:0 auto 40px;">
+      <p class="kicker">QUY TRÌNH ĐƠN GIẢN</p>
+      <h2>HƯỚNG DẪN KÍCH HOẠT LOCKET GOLD</h2>
+      <p style="color:var(--ink2); font-size:16px; margin-top:8px;">Vui lòng xem kỹ quy trình và hướng dẫn cài đặt bên dưới để kích hoạt thành công 100%.</p>
+    </div>
+
+    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(320px, 1fr)); gap:26px;">
+      
+      <!-- Box 1: Quy trình kích hoạt -->
+      <div class="guide-card">
+        <span class="guide-tag">BẮT BUỘC THỰC HIỆN</span>
+        <h3 style="font-size:20px; color:#241a07; margin:0 0 20px; font-weight:900; letter-spacing:-0.02em;">
+          QUY TRÌNH KÍCH HOẠT GOLD
+        </h3>
+        <ul class="guide-step-list">
+          <li class="guide-step-item">
+            <span class="step-badge">1</span>
+            <div><b style="color:#241a07;">Khách cài DNS trước:</b> Cài DNS theo phần hướng dẫn bên cạnh. <span style="color:#b91c1c; font-weight:700;">(Bước này bắt buộc làm trước; nếu không cài DNS, kích hoạt xong cũng không có tác dụng)</span>.</div>
+          </li>
+          <li class="guide-step-item">
+            <span class="step-badge">2</span>
+            <div><b style="color:#241a07;">Gửi username hoặc link Locket:</b> Không cần mật khẩu hay bất kỳ thông tin nhạy cảm nào.</div>
+          </li>
+          <li class="guide-step-item">
+            <span class="step-badge">3</span>
+            <div><b style="color:#241a07;">Kiểm tra tài khoản:</b> Nhấn "Kiểm tra" trên trang để đối chiếu đúng tên và username Locket trước khi bấm nâng cấp.</div>
+          </li>
+          <li class="guide-step-item">
+            <span class="step-badge">4</span>
+            <div><b style="color:#241a07;">Kiểm tra trạng thái Gold:</b> Hệ thống tự kiểm tra. Nếu tài khoản đã có Gold sẽ không kích hoạt thêm và <span class="highlight-pill">không trừ tiền</span>.</div>
+          </li>
+          <li class="guide-step-item">
+            <span class="step-badge">5</span>
+            <div><b style="color:#241a07;">Kích hoạt Gold:</b> Nếu tài khoản chưa có Gold, bấm "Xác nhận & Nâng cấp". Hệ thống lưu tài khoản và kích hoạt ngay tức thì.</div>
+          </li>
+          <li class="guide-step-item">
+            <span class="step-badge">6</span>
+            <div><b style="color:#241a07;">Mở lại Locket:</b> Khi báo kích hoạt thành công, vuốt tắt hoàn toàn Locket khỏi màn hình đa nhiệm rồi mở lại.</div>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Box 2: Hướng dẫn cài DNS -->
+      <div class="guide-card">
+        <span class="guide-tag">DÀNH CHO IPHONE</span>
+        <h3 style="font-size:20px; color:#241a07; margin:0 0 20px; font-weight:900; letter-spacing:-0.02em;">
+          HƯỚNG DẪN CÀI DNS CHO IPHONE
+        </h3>
+        <ul class="guide-step-list">
+          <li class="guide-step-item">
+            <span class="step-badge">1</span>
+            <div>Mở trình duyệt <b>Safari</b> trên iPhone, truy cập trang <a href="/cai-dns.html" style="color:#B97E00; font-weight:900; text-decoration:underline;">hướng dẫn kèm ảnh</a> và bấm <b>Cho phép</b> khi máy hỏi tải hồ sơ.</div>
+          </li>
+          <li class="guide-step-item">
+            <span class="step-badge">2</span>
+            <div>Mở <b>Cài đặt</b> trên iPhone → chọn <b>Đã tải về hồ sơ</b> → nhấn <b>Cài đặt</b> → nhập mật khẩu máy → nhấn <b>Cài đặt</b> xác nhận.</div>
+          </li>
+          <li class="guide-step-item">
+            <span class="step-badge">3</span>
+            <div>Vào <b>Cài đặt</b> → <b>Cài đặt chung</b> → <b>Giới thiệu</b> → kéo xuống cuối chọn <b>Cài đặt tin cậy chứng nhận</b> → Bật công tắc <b>LocketProxy CA</b> sang màu xanh rồi nhấn <b>Tiếp tục</b>.</div>
+          </li>
+          <li class="guide-step-item">
+            <span class="step-badge">4</span>
+            <div>Tắt hoàn toàn ứng dụng Locket (vuốt đóng app khỏi đa nhiệm) rồi mở lại để kiểm tra và dùng Gold.</div>
+          </li>
+        </ul>
+        <div style="margin-top:24px;">
+          <a href="/cai-dns.html" class="btn btn-primary" style="padding:13px 24px; font-size:14.5px; width:100%; border-radius:14px; font-weight:800; box-shadow:0 4px 12px rgba(255,176,0,0.35);">
+            Xem hướng dẫn cài DNS 18 bước kèm ảnh chi tiết ↗
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Box 3: Lưu ý & Lỗi thường gặp -->
+    <div style="margin-top:26px; background:#fff; border:2px solid #E89A00; border-radius:22px; padding:22px 26px; box-shadow:0 12px 28px -14px rgba(232,154,0,0.3); display:grid; grid-template-columns:auto 1fr; gap:16px; align-items:flex-start;">
+      <div style="width:4px; height:100%; background:#E89A00; border-radius:4px;"></div>
+      <div style="display:flex; flex-direction:column; gap:10px;">
+        <div style="color:#b91c1c; font-size:15px; line-height:1.6;">
+          <b style="text-transform:uppercase; letter-spacing:0.5px; background:#fee2e2; padding:3px 8px; border-radius:6px; margin-right:6px;">Lưu ý quan trọng:</b> 
+          Không tắt hoặc xóa DNS và không tắt tin cậy chứng nhận sau khi cài. Nếu tắt hoặc xóa, tính năng Gold sẽ bị mất hiệu lực ngay lập tức.
+        </div>
+        <div style="color:#78350f; font-size:14.5px; line-height:1.6; border-top:1px dashed #F0E3C3; padding-top:10px;">
+          <b style="text-transform:uppercase; letter-spacing:0.5px; background:#fef3c7; padding:3px 8px; border-radius:6px; margin-right:6px;">Lỗi thường gặp:</b> 
+          Nếu đã kích hoạt thành công mà vào Locket vẫn chưa thấy nhận Gold, hãy kiểm tra lại DNS và công tắc tại mục <i>Cài đặt tin cậy chứng nhận</i> (bắt buộc bật màu xanh), sau đó vuốt tắt Locket mở lại là được.
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<section id="reviews">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="kicker">Đánh giá</p>
+      <h2>Bạn trẻ nói gì</h2>
+    </div>
+    <div class="tmarq" id="tmarq" aria-label="Đánh giá của người dùng">
+      <div class="ttrack" id="ttrack">
+      <article class="tcard card-shadow"><div class="st">★★★★★</div><p>“Mở máy lên là thấy mặt hội bạn thân, vui cực. App dễ thương nhất mình từng dùng!”</p><div class="who"><img src="assets/img-locket/preslee.webp" alt=""><div><b>Preslee</b><span>Học sinh cấp 3</span></div></div></article>
+      <article class="tcard card-shadow"><div class="st">★★★★★</div><p>“Yêu xa nhờ Locket đỡ nhớ hẳn. Ảnh người yêu hiện ngay widget, đáng yêu ghê.”</p><div class="who"><img src="assets/img-locket/karima.webp" alt=""><div><b>Karima</b><span>Sinh viên</span></div></div></article>
+      <article class="tcard card-shadow"><div class="st">★★★★★</div><p>“Cả nhóm lớp dùng chung, mỗi ngày đều có ảnh mới. Không thể thiếu được!”</p><div class="who"><img src="assets/img-locket/kyle.webp" alt=""><div><b>Kyle</b><span>Sinh viên</span></div></div></article>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- FAQ (CÂU HỎI THƯỜNG GẶP) -->
+<section id="faq" class="band" style="padding:65px 0; background:radial-gradient(100% 50% at 50% 0%, #fff6db 0%, var(--cream) 100%); border-top:1px solid var(--line); border-bottom:1px solid var(--line);">
+  <div class="wrap" style="max-width:820px;">
+    <div class="sec-head" style="text-align:center; margin-bottom:36px;">
+      <p class="kicker">Hỏi đáp</p>
+      <h2>Câu hỏi thường gặp</h2>
+      <p style="color:var(--muted); font-size:15px; margin-top:8px;">Giải đáp nhanh mọi thắc mắc trước khi nâng cấp Locket Gold</p>
+    </div>
+
+    <div class="faq-list" style="display:flex; flex-direction:column; gap:14px;">
+      <div class="faq-card" style="background:#fff; border:1px solid var(--line); border-radius:18px; overflow:hidden; box-shadow:0 3px 14px -4px rgba(120,90,20,.12); transition:all .2s;">
+        <button class="faq-btn" onclick="toggleFaq(this)" style="width:100%; display:flex; justify-content:space-between; align-items:center; padding:18px 24px; background:none; border:none; font-family:var(--font); font-size:16.5px; font-weight:800; color:var(--ink); cursor:pointer; text-align:left;">
+          <span>Locket Gold cài qua DNS có an toàn cho iPhone không?</span>
+          <span class="faq-icon" style="width:28px; height:28px; border-radius:50%; background:var(--card); display:flex; align-items:center; justify-content:center; font-size:16px; font-weight:800; color:var(--amber-d); transition:transform .25s;">+</span>
+        </button>
+        <div class="faq-content" style="max-height:0; overflow:hidden; transition:max-height .3s ease;">
+          <div style="padding:0 24px 20px; font-size:14.5px; line-height:1.7; color:var(--ink2);">
+            Hoàn toàn an toàn 100%. Hồ sơ DNS chỉ có nhiệm vụ điều hướng các gói tin xác thực tính năng của Locket. Phương pháp này tuyệt đối không can thiệp vào ảnh cá nhân, không đọc tin nhắn, không đụng tới danh bạ hay tài khoản iCloud của bạn. Bạn có thể gỡ bỏ hồ sơ bất cứ khi nào chỉ bằng 1 thao tác trong Cài đặt iPhone.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-card" style="background:#fff; border:1px solid var(--line); border-radius:18px; overflow:hidden; box-shadow:0 3px 14px -4px rgba(120,90,20,.12); transition:all .2s;">
+        <button class="faq-btn" onclick="toggleFaq(this)" style="width:100%; display:flex; justify-content:space-between; align-items:center; padding:18px 24px; background:none; border:none; font-family:var(--font); font-size:16.5px; font-weight:800; color:var(--ink); cursor:pointer; text-align:left;">
+          <span>Cài đặt có khó không, mất bao lâu?</span>
+          <span class="faq-icon" style="width:28px; height:28px; border-radius:50%; background:var(--card); display:flex; align-items:center; justify-content:center; font-size:16px; font-weight:800; color:var(--amber-d); transition:transform .25s;">+</span>
+        </button>
+        <div class="faq-content" style="max-height:0; overflow:hidden; transition:max-height .3s ease;">
+          <div style="padding:0 24px 20px; font-size:14.5px; line-height:1.7; color:var(--ink2);">
+            Rất đơn giản! Chỉ mất khoảng 1 đến 2 phút. Website đã chuẩn bị sẵn <a href="cai-dns.html" style="color:var(--amber-d); font-weight:800; text-decoration:underline;">Hướng dẫn 18 bước chi tiết kèm ảnh minh họa</a>. Nếu bạn gặp khó khăn ở bất kỳ bước nào, bên mình sẽ hỗ trợ qua Zalo 1:1 cho bạn đến khi hoàn tất.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-card" style="background:#fff; border:1px solid var(--line); border-radius:18px; overflow:hidden; box-shadow:0 3px 14px -4px rgba(120,90,20,.12); transition:all .2s;">
+        <button class="faq-btn" onclick="toggleFaq(this)" style="width:100%; display:flex; justify-content:space-between; align-items:center; padding:18px 24px; background:none; border:none; font-family:var(--font); font-size:16.5px; font-weight:800; color:var(--ink); cursor:pointer; text-align:left;">
+          <span>Có dùng được cho điện thoại Android không?</span>
+          <span class="faq-icon" style="width:28px; height:28px; border-radius:50%; background:var(--card); display:flex; align-items:center; justify-content:center; font-size:16px; font-weight:800; color:var(--amber-d); transition:transform .25s;">+</span>
+        </button>
+        <div class="faq-content" style="max-height:0; overflow:hidden; transition:max-height .3s ease;">
+          <div style="padding:0 24px 20px; font-size:14.5px; line-height:1.7; color:var(--ink2);">
+            Hồ sơ cấu hình DNS này được tối ưu chuyên dụng cho hệ điều hành iOS (iPhone/iPad). Đối với các bạn dùng Android, hãy bấm nút nhắn Zalo bên dưới để được hướng dẫn phương pháp riêng nhé!
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-card" style="background:#fff; border:1px solid var(--line); border-radius:18px; overflow:hidden; box-shadow:0 3px 14px -4px rgba(120,90,20,.12); transition:all .2s;">
+        <button class="faq-btn" onclick="toggleFaq(this)" style="width:100%; display:flex; justify-content:space-between; align-items:center; padding:18px 24px; background:none; border:none; font-family:var(--font); font-size:16.5px; font-weight:800; color:var(--ink); cursor:pointer; text-align:left;">
+          <span>Khi đổi máy mới hoặc cập nhật iOS thì có dùng tiếp được không?</span>
+          <span class="faq-icon" style="width:28px; height:28px; border-radius:50%; background:var(--card); display:flex; align-items:center; justify-content:center; font-size:16px; font-weight:800; color:var(--amber-d); transition:transform .25s;">+</span>
+        </button>
+        <div class="faq-content" style="max-height:0; overflow:hidden; transition:max-height .3s ease;">
+          <div style="padding:0 24px 20px; font-size:14.5px; line-height:1.7; color:var(--ink2);">
+            Hoàn toàn bình thường! Khi bạn lên đời máy mới hoặc nâng cấp phiên bản iOS, bạn chỉ cần mở lại website và tải lại hồ sơ DNS theo hướng dẫn là Locket Gold tự động kích hoạt lại ngay lập tức.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-card" style="background:#fff; border:1px solid var(--line); border-radius:18px; overflow:hidden; box-shadow:0 3px 14px -4px rgba(120,90,20,.12); transition:all .2s;">
+        <button class="faq-btn" onclick="toggleFaq(this)" style="width:100%; display:flex; justify-content:space-between; align-items:center; padding:18px 24px; background:none; border:none; font-family:var(--font); font-size:16.5px; font-weight:800; color:var(--ink); cursor:pointer; text-align:left;">
+          <span>Chính sách bảo hành và hỗ trợ sau mua như thế nào?</span>
+          <span class="faq-icon" style="width:28px; height:28px; border-radius:50%; background:var(--card); display:flex; align-items:center; justify-content:center; font-size:16px; font-weight:800; color:var(--amber-d); transition:transform .25s;">+</span>
+        </button>
+        <div class="faq-content" style="max-height:0; overflow:hidden; transition:max-height .3s ease;">
+          <div style="padding:0 24px 20px; font-size:14.5px; line-height:1.7; color:var(--ink2);">
+            Gói 1 Năm và Gói Vĩnh Viễn được cam kết bảo hành trọn vẹn thời hạn. Nếu máy chủ DNS có cập nhật hoặc Locket thay đổi thuật toán, bên mình sẽ gửi hồ sơ mới và hỗ trợ 1:1 cho bạn qua Zalo hoàn toàn miễn phí.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <div class="box">
+      <img class="bg-heart l" src="assets/img-locket/heart-flat.webp" alt="">
+      <img class="bg-heart r" src="assets/img-locket/hearts-duo.webp" alt="">
+      <h2>Mua Locket Gold ngay hôm nay</h2>
+      <p>Nhắn Zalo để được tư vấn gói phù hợp và kích hoạt nhanh.</p>
+      <a class="btn btn-zalo btn-lg" href="https://zalo.me/0325945496" target="_blank" rel="noopener" style="position:relative"><span class="zmark">Zalo</span>Nhắn Zalo 0325945496</a>
+      <span class="phone-no">16.000đ/tháng · 89.000đ/năm · 179.000đ vĩnh viễn</span>
+    </div>
+  </div>
+</section>
+
+<a class="zfloat" href="https://zalo.me/0325945496" target="_blank" rel="noopener" aria-label="Mua Locket Gold qua Zalo 0325945496"><span class="zmark">Zalo</span><span class="zt">Mua Gold qua Zalo</span></a>
+
+<footer>
+  <div class="wrap foot-in">
+    <a class="brand" href="#top"><img src="assets/img-locket/apple-touch-icon.png" alt="">Locket</a>
+    <nav class="foot-links">
+      <a href="#gold">Tính năng</a>
+      <a href="#logos">Thay logo</a>
+      <a href="#pricing">Bảng giá</a>
+      <a href="#guide">Hướng dẫn</a>
+      
+      <a href="/cai-dns.html">Cài DNS</a>
+      
+      <a href="https://zalo.me/0325945496" target="_blank" rel="noopener">Zalo: 0325945496</a>
+    </nav>
+    <span>© 2026 · Locket Gold</span>
+  </div>
+</footer>
+
+
+
+<script>
+/* WebGL — nền gradient-mesh ấm, sáng, chuyển động mềm (phong cách Locket, không thư viện) */
+(function(){
+  var cv=document.getElementById('glbg');
+  if(!cv) return;
+  var gl=cv.getContext('webgl')||cv.getContext('experimental-webgl');
+  if(!gl){ cv.style.display='none'; return; }
+
+  var VS='attribute vec2 p;void main(){gl_Position=vec4(p,0.0,1.0);}';
+  var FS=[
+    'precision highp float;',
+    'uniform vec2 u_res; uniform float u_time;',
+    'uniform vec3 u_b,u_c1,u_c2,u_c3,u_c4,u_c5;',
+    'float blobm(vec2 uv,vec2 c,float r){ return smoothstep(r,0.0,distance(uv,c)); }',
+    'void main(){',
+    '  vec2 uv=gl_FragCoord.xy/u_res.xy;',
+    '  float a=u_res.x/u_res.y; vec2 p=uv; p.x*=a;',
+    '  float t=u_time*0.22;',
+    '  vec3 col=u_b;',          // nền kem sáng
+    '  float m1=blobm(p, vec2(a*0.80+0.12*sin(t*0.7), 0.88+0.06*cos(t*0.9)), 0.62*a);',
+    '  float m2=blobm(p, vec2(a*0.18+0.10*cos(t*0.6), 0.30+0.10*sin(t*0.8)), 0.58*a);',
+    '  float m3=blobm(p, vec2(a*0.52+0.14*sin(t*0.5+2.0), 0.58+0.12*cos(t*0.45)), 0.5*a);',
+    '  float m4=blobm(p, vec2(a*0.92+0.08*cos(t*0.9), 0.14+0.08*sin(t*1.1)), 0.46*a);',
+    '  float m5=blobm(p, vec2(a*0.08+0.08*sin(t*0.8), 0.78+0.08*cos(t*0.7)), 0.4*a);',
+    '  col=mix(col, u_c1, m1*0.55);',  // vàng ấm
+    '  col=mix(col, u_c2, m2*0.5);',   // kem đậm
+    '  col=mix(col, u_c3, m3*0.42);',  // hồng đào
+    '  col=mix(col, u_c4, m4*0.45);',  // vàng
+    '  col=mix(col, u_c5, m5*0.4);',   // hồng nhạt
+    '  gl_FragColor=vec4(col,1.0);',
+    '}'
+  ].join('\n');
+
+  function sh(t,s){var o=gl.createShader(t);gl.shaderSource(o,s);gl.compileShader(o);return o;}
+  var prog=gl.createProgram();
+  gl.attachShader(prog,sh(gl.VERTEX_SHADER,VS));
+  gl.attachShader(prog,sh(gl.FRAGMENT_SHADER,FS));
+  gl.linkProgram(prog);
+  if(!gl.getProgramParameter(prog,gl.LINK_STATUS)){ cv.style.display='none'; return; }
+  gl.useProgram(prog);
+
+  var buf=gl.createBuffer(); gl.bindBuffer(gl.ARRAY_BUFFER,buf);
+  gl.bufferData(gl.ARRAY_BUFFER,new Float32Array([-1,-1,3,-1,-1,3]),gl.STATIC_DRAW);
+  var loc=gl.getAttribLocation(prog,'p'); gl.enableVertexAttribArray(loc);
+  gl.vertexAttribPointer(loc,2,gl.FLOAT,false,0,0);
+  var uRes=gl.getUniformLocation(prog,'u_res'), uT=gl.getUniformLocation(prog,'u_time');
+  var uC=['u_b','u_c1','u_c2','u_c3','u_c4','u_c5'].map(function(n){ return gl.getUniformLocation(prog,n); });
+  function norm(a){ return a.map(function(c){ return c.map(function(x){ return x/255; }); }); }
+  var TH=window.__theme||{}, DEF=TH.DEF_GL||[[255,251,242],[255,204,102],[255,230,173],[255,189,148],[255,217,115],[255,209,184]];
+  var curC=norm(TH.gl||DEF), fromC=curC, toC=curC, tc0=-1e4;
+  function setColors(now){
+    var k=Math.min(1,(now-tc0)/700); k=k*k*(3-2*k);
+    curC=fromC.map(function(c,i){ return c.map(function(x,j){ return x+(toC[i][j]-x)*k; }); });
+    uC.forEach(function(u,i){ gl.uniform3fv(u,curC[i]); });
+  }
+  document.addEventListener('locket-theme',function(e){
+    fromC=curC.map(function(c){ return c.slice(); }); toC=norm(e.detail.gl); tc0=performance.now();
+    if(!running){ tc0=-1e4; setColors(performance.now()); gl.uniform2f(uRes,cv.width,cv.height); gl.drawArrays(gl.TRIANGLES,0,3); }
+  });
+
+  var dpr=.35;   /* nền là dải màu mờ: vẽ 35% độ phân giải rồi phóng lên, nhìn như nhau mà nhẹ hơn rất nhiều */
+  function size(){ var w=innerWidth,h=innerHeight; cv.width=Math.max(1,(w*dpr)|0); cv.height=Math.max(1,(h*dpr)|0); cv.style.width=w+'px'; cv.style.height=h+'px'; gl.viewport(0,0,cv.width,cv.height); }
+  addEventListener('resize',size); size();
+
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var start=performance.now(), raf=0, running=false;
+  var last=0, lastScroll=-1e4;
+  addEventListener('scroll',function(){ lastScroll=performance.now(); },{passive:true});   /* đang cuộn thì nhường máy cho cuộn */
+  function frame(now){
+    if(now-last<32 || now-lastScroll<160){ if(!reduce && !document.hidden){ raf=requestAnimationFrame(frame);} else { running=false; } return; }   /* ~30fps */
+    last=now; setColors(now); gl.uniform2f(uRes,cv.width,cv.height); gl.uniform1f(uT,(now-start)/1000); gl.drawArrays(gl.TRIANGLES,0,3);
+    if(!reduce && !document.hidden){ raf=requestAnimationFrame(frame);} else { running=false; } }
+  function run(){ if(running) return; running=true; raf=requestAnimationFrame(frame); }
+  document.addEventListener('visibilitychange',function(){ if(document.hidden){cancelAnimationFrame(raf);running=false;} else if(!reduce){run();} });
+  if(reduce){ frame(performance.now()); } else { run(); }
+})();
+</script>
+<script>
+/* Intro: tim vàng → LOCKET → GOLD, rồi mưa logo rơi xuống mở trang chính */
+(function(){
+  var root=document.documentElement, intro=document.getElementById('intro');
+  if('scrollRestoration' in history) history.scrollRestoration='manual';
+  window.scrollTo(0,0);
+  function ready(){ root.classList.remove('is-loading'); document.body.classList.add('ready'); if(window.__lenis) window.__lenis.start(); }
+  if(!intro){ ready(); return; }
+  if(matchMedia('(prefers-reduced-motion: reduce)').matches){ intro.remove(); ready(); return; }
+
+  var ICONS=["app_icon","black_on_gold","flat_blue","flat_pink","flat_purple","flat_yellow","flowers_autumn","flowers_beige","flowers_magenta","flowers_pink","gem_bg_candy","gem_bg_mono","gem_bg_multi","gem_bg_pink","gold_on_black","gold_on_black_outline","light_hearts","neon_blue","neon_green","neon_pink","neon_yellow","notebook","pastel_3d_blue","pastel_3d_gold","pastel_3d_green","pastel_3d_pink","pendant","photos_hearts","photos_hearts_black","tunnel","waves_black","waves_blue","waves_gold","waves_purple","year_of_the_horse"];
+  for(var i=ICONS.length-1;i>0;i--){ var j=Math.floor(Math.random()*(i+1)), t=ICONS[i]; ICONS[i]=ICONS[j]; ICONS[j]=t; }
+  var pool=ICONS.slice(0,24).map(function(n){ var im=new Image(); im.src='assets/logos/'+n+'.webp'; return im.src; });
+
+  var logo=intro.querySelector('.ilogo'), letters=intro.querySelectorAll('.iword span'),
+      gold=intro.querySelector('.igold'), sparks=intro.querySelectorAll('.isp');
+  try{ var sv=localStorage.getItem('locket-logo'); if(sv && ICONS.indexOf(sv)>-1 && logo) logo.src='assets/logos/'+sv+'.webp'; }catch(e){}
+  function at(ms,fn){ setTimeout(fn,ms); }
+  at(120,function(){ if(logo) logo.classList.add('on'); });
+  [].forEach.call(letters,function(l,i){ at(460+i*70,function(){ l.classList.add('on'); }); });
+  var goldAt=460+letters.length*70+140;
+  at(goldAt,function(){ if(gold) gold.classList.add('on'); });
+  [].forEach.call(sparks,function(sp,i){ at(goldAt+160+i*90,function(){ sp.classList.add('on'); }); });
+
+  function rnd(a,b){ return a+Math.random()*(b-a); }
+  /* Logo rơi xuống phủ kín màn hình, rồi cả lớp rơi đi để lộ trang web */
+  function coverThenDrop(onCovered){
+    var box=document.createElement('div'); box.id='rain'; box.setAttribute('aria-hidden','true');
+    var W=innerWidth, H=innerHeight, small=W<600;
+    var step=small?Math.ceil(W/5):(W<1100?104:116), gap=Math.round(step*.06), size=step-gap;
+    var cols=Math.ceil(W/step)+1, rows=Math.ceil(H/step)+1;
+    var offX=(W-cols*step)/2+gap/2, offY=(H-rows*step)/2+gap/2;
+    var tiles=[], coverEnd=0;
+    for(var r=0;r<rows;r++){
+      for(var c=0;c<cols;c++){
+        var im=document.createElement('img');
+        im.src=pool[Math.floor(Math.random()*pool.length)]; im.alt=''; im.width=im.height=size;
+        im.style.left=Math.round(offX+c*step)+'px'; im.style.top=Math.round(offY+r*step)+'px';
+        im.style.width=im.style.height=size+'px';
+        var rot=rnd(-9,9), delay=(rows-1-r)*65+rnd(0,110);   /* hàng dưới tiếp đất trước, như xếp chồng */
+        tiles.push({el:im,rot:rot,delay:delay,c:c,r:r});
+        coverEnd=Math.max(coverEnd,delay+560);
+        box.appendChild(im);
+      }
+    }
+    document.body.appendChild(box);
+    var fall=-(H+step*2);
+    tiles.forEach(function(t){
+      t.el.animate([
+        {transform:'translateY('+fall+'px) rotate('+(t.rot*4)+'deg)', easing:'cubic-bezier(.55,0,1,.45)'},
+        {transform:'translateY(10px) rotate('+t.rot+'deg)', offset:.78, easing:'cubic-bezier(.2,.8,.3,1)'},
+        {transform:'translateY(0) rotate('+t.rot+'deg)'}
+      ],{duration:560,delay:t.delay,fill:'both'});
+    });
+    setTimeout(function(){
+      if(onCovered) onCovered();
+      var end=0;
+      tiles.forEach(function(t){
+        var d=rnd(0,420)+t.r*18, dur=rnd(700,980), spin=t.rot+rnd(-140,140);
+        t.el.animate([
+          {transform:'translateY(0) rotate('+t.rot+'deg)', easing:'cubic-bezier(.3,0,.5,1)'},
+          {transform:'translateY(-16px) rotate('+t.rot+'deg)', offset:.16, easing:'cubic-bezier(.55,0,1,.6)'},
+          {transform:'translateY('+(H+step*2)+'px) rotate('+spin+'deg)'}
+        ],{duration:dur,delay:d,fill:'both'});
+        end=Math.max(end,d+dur);
+      });
+      setTimeout(function(){ box.remove(); },end+80);
+    },coverEnd+140);
+  }
+
+  /* tải trước toàn bộ ảnh, logo, font, video rồi mới vào trang */
+  var bar=document.getElementById('ibar'), pct=document.getElementById('ipct');
+  function preload(){
+    var urls={}, abs=function(u){ return new URL(u,location.href).href; };
+    [].forEach.call(document.querySelectorAll('img[src]'),function(im){ urls[abs(im.getAttribute('src'))]=1; });
+    ICONS.forEach(function(n){ urls[abs('assets/logos/'+n+'.webp')]=1; });
+    var vid=document.getElementById('vdVideo'); if(vid && vid.getAttribute('poster')) urls[abs(vid.getAttribute('poster'))]=1;
+    var list=Object.keys(urls), total=list.length+2, done=0;
+    function tick(){ done++; var k=Math.min(100,Math.round(done/total*100));
+      if(bar) bar.style.width=k+'%'; if(pct) pct.textContent=k<100?'Đang tải '+k+'%':'Sẵn sàng!'; }
+    var jobs=list.map(function(u){ return new Promise(function(r){
+      var im=new Image(); im.decoding='async';
+      im.onload=function(){ (im.decode?im.decode():Promise.resolve()).catch(function(){}).then(function(){ tick(); r(); }); };
+      im.onerror=function(){ tick(); r(); };
+      im.src=u; }); });
+    jobs.push((document.fonts&&document.fonts.ready?document.fonts.ready:Promise.resolve()).catch(function(){}).then(tick));
+    var canWebm=document.createElement('video').canPlayType('video/webm; codecs="vp8"');
+    jobs.push(canWebm && window.fetch
+      ? fetch('assets/video/quay-video-dai.webm').then(function(r){ return r.blob(); }).catch(function(){}).then(tick)
+      : Promise.resolve().then(tick));   /* máy không phát được webm: video mp4 tải khi cuộn tới */
+    return Promise.all(jobs);
+  }
+  var minShow=new Promise(function(r){ setTimeout(r, goldAt+1150); });
+  var loaded=preload();
+  var cap=new Promise(function(r){ setTimeout(r, 12000); });   /* mạng quá chậm thì tối đa 12 giây vẫn vào trang */
+  Promise.race([Promise.all([minShow,loaded]),cap]).then(function(){
+    if(!document.body.animate){   /* trình duyệt quá cũ: vào trang luôn */
+      intro.classList.add('out'); ready(); setTimeout(function(){ intro.remove(); },900); return;
+    }
+    setTimeout(function(){ intro.classList.add('leave'); },250);
+    coverThenDrop(function(){
+      /* màn hình đã kín logo: bỏ nền intro, cho trang chính hiện phía sau rồi logo rơi đi */
+      intro.style.transition='none'; intro.classList.add('out'); ready();
+      setTimeout(function(){ intro.remove(); },300);
+    });
+  });
+})();
+</script>
+<script>
+/* Thay logo: bấm icon để xem trước */
+(function(){
+  var names=["app_icon", "black_on_gold", "flat_blue", "flat_pink", "flat_purple", "flat_yellow", "flowers_autumn", "flowers_beige", "flowers_magenta", "flowers_pink", "gem_bg_candy", "gem_bg_mono", "gem_bg_multi", "gem_bg_pink", "gold_on_black", "gold_on_black_outline", "light_hearts", "neon_blue", "neon_green", "neon_pink", "neon_yellow", "notebook", "pastel_3d_blue", "pastel_3d_gold", "pastel_3d_green", "pastel_3d_pink", "pendant", "photos_hearts", "photos_hearts_black", "tunnel", "waves_black", "waves_blue", "waves_gold", "waves_purple", "year_of_the_horse"];
+  var grid=document.getElementById('lgrid'), big=document.getElementById('lpBig'), nm=document.getElementById('lpName');
+  if(!grid) return;
+  function label(n){ return n==='app_icon' ? 'Mặc định' : n.replace('_bg_','_').replace(/_/g,' '); }
+  function src(n){ return 'assets/logos/'+n+'.webp'; }
+
+  /* đổi logo ở thanh menu, chân trang và icon tab trình duyệt */
+  var brandImgs=document.querySelectorAll('.brand img');
+  var fav=document.querySelector('link[rel="icon"]');
+  function applyBrand(n){
+    brandImgs.forEach(function(img){
+      img.classList.remove('swap'); void img.offsetWidth; img.classList.add('swap');
+      img.src=src(n);
+    });
+    if(fav){ fav.type='image/webp'; fav.href=src(n); }
+  }
+
+  var saved=null;
+  try{ saved=localStorage.getItem('locket-logo'); }catch(e){}
+  if(names.indexOf(saved)<0) saved=null;
+
+  function select(b,n,animate){
+    var cur=grid.querySelector('.on'); if(cur) cur.classList.remove('on');
+    b.classList.add('on');
+    if(animate){
+      big.classList.add('pop');
+      setTimeout(function(){ big.src=src(n); nm.textContent=label(n); big.classList.remove('pop'); },130);
+    } else { big.src=src(n); nm.textContent=label(n); }
+    applyBrand(n);
+  }
+
+  var more=document.getElementById('lmore');
+  function setAll(on){
+    grid.classList.toggle('all',on);
+    if(more){ more.textContent = on ? 'Thu gọn' : 'Xem tất cả '+names.length+' mẫu'; more.setAttribute('aria-expanded',on); }
+  }
+  if(more) more.addEventListener('click',function(){ setAll(!grid.classList.contains('all')); });
+  if(saved && names.indexOf(saved)>=12) setAll(true);
+
+  names.forEach(function(n){
+    var b=document.createElement('button');
+    b.type='button'; b.setAttribute('aria-label','Icon '+label(n));
+    b.innerHTML='<img decoding="async" src="'+src(n)+'" alt="" width="64" height="64">';
+    b.addEventListener('click',function(){
+      select(b,n,true);
+      try{ localStorage.setItem('locket-logo',n); }catch(e){}
+    });
+    grid.appendChild(b);
+    if(n===(saved||'app_icon')){
+      if(saved) select(b,n,false); else b.classList.add('on');
+    }
+  });
+})();
+</script>
+<script>
+/* Chủ đề máy ảnh: chọn chủ đề + bật camera chụp thử */
+(function(){
+  var T=[
+    {n:'Tối',       bg:'radial-gradient(120% 80% at 50% 45%,#3b3b3b,#1d1d1d)', card:'#3a3a3c', ring:'#f6b40e', ph:'rgba(255,255,255,.1)'},
+    {n:'Kính',      bg:'linear-gradient(160deg,#8b9399,#5f7b8f 60%,#4e6777)', card:'linear-gradient(180deg,rgba(255,255,255,.34),rgba(150,190,215,.5))', ring:'#cfeaff', ph:'rgba(255,255,255,.22)'},
+    {n:'Bạc',       bg:'linear-gradient(180deg,#7b7b7b,#646464)', card:'linear-gradient(180deg,#a5a5a5,#8f8f8f)', ring:'#e4e4e4', ph:'rgba(255,255,255,.18)'},
+    {n:'Đen trắng', bg:'radial-gradient(120% 80% at 50% 45%,#373737,#1f1f1f)', card:'#38383a', ring:'#e8e8e8', ph:'rgba(255,255,255,.1)'},
+    {n:'Cực quang', bg:'linear-gradient(170deg,#2f5b63,#5a4a66 50%,#7a4560)', card:'linear-gradient(170deg,#4f99a1,#8b6b9b 50%,#b05e88)', ring:'conic-gradient(from 200deg,#6fd0ff,#c47bd8,#ff7ab0,#6fd0ff)', ph:'rgba(255,255,255,.18)'},
+    {n:'Hồng',      bg:'linear-gradient(180deg,#6c3451,#7e4161)', card:'linear-gradient(180deg,#b1618f,#a8508a)', ring:'#ff6fcf', ph:'rgba(255,255,255,.16)'},
+    {n:'Tím',       bg:'linear-gradient(180deg,#3d2665,#4c3079)', card:'linear-gradient(180deg,#7141b1,#55309a)', ring:'#b996ff', ph:'rgba(255,255,255,.15)'},
+    {n:'Rừng',      bg:'linear-gradient(180deg,#2f5d67,#3f6a4a 70%,#4a6a3a)', card:'linear-gradient(180deg,#5aa3ae,#6aaa72 60%,#5c9a52)', ring:'conic-gradient(from 180deg,#6fe3ff,#7dff9a,#6fe3ff)', ph:'rgba(255,255,255,.18)'},
+    {n:'Đại dương', bg:'linear-gradient(180deg,#1f5b67,#1f3f6b)', card:'linear-gradient(180deg,#2aa9b9,#2a62b8)', ring:'#38c9ff', ph:'rgba(255,255,255,.18)'},
+    {n:'Thiên hà',  bg:'linear-gradient(160deg,#2c2e66,#5a3c86 45%,#1e6a6a)', card:'linear-gradient(160deg,#5a50b8,#8a5ab8 45%,#2ab0a8)', ring:'#a8dcff', ph:'rgba(255,255,255,.18)'},
+    {n:'Đỏ thẫm',   bg:'linear-gradient(170deg,#6b1a3f,#6b2a2a)', card:'linear-gradient(170deg,#c1306f,#c34a3a)', ring:'#ff3d63', ph:'rgba(255,255,255,.16)'},
+    {n:'San hô',    bg:'linear-gradient(170deg,#6b3227,#6b2e35)', card:'linear-gradient(170deg,#c3614b,#c34a57)', ring:'#ff6b57', ph:'rgba(255,255,255,.16)'},
+    {n:'Cát vàng',  bg:'linear-gradient(180deg,#6f675b,#6b5a2a)', card:'linear-gradient(180deg,#bdaf91,#b18a34)', ring:'linear-gradient(180deg,#ffe08a,#ffb800)', ph:'rgba(255,255,255,.2)'},
+    {n:'Vàng đêm',  bg:'radial-gradient(120% 80% at 50% 75%,#4b3f19,#1f1e1b)', card:'linear-gradient(180deg,#38362f,#5b4919)', ring:'linear-gradient(180deg,#ffd36b,#f2a51a)', ph:'rgba(255,255,255,.1)'}
+  ];
+  var panel=document.getElementById('tpanel'), track=document.getElementById('tcTrack'),
+      dots=document.getElementById('tDots'), nameEl=document.getElementById('tName'),
+      msg=document.getElementById('tMsg'), camBtn=document.getElementById('tCam');
+  if(!panel) return;
+
+  var bgs=[], cards=[], dotBtns=[], cur=-1, stream=null, video=null, snapTimer=0;
+
+  T.forEach(function(t,i){
+    var bg=document.createElement('div'); bg.className='tp-bg'; bg.style.background=t.bg;
+    panel.insertBefore(bg,panel.firstChild); bgs.push(bg);
+
+    var c=document.createElement('div'); c.className='tcam';
+    c.style.setProperty('--card',t.card); c.style.setProperty('--ring',t.ring); c.style.setProperty('--ph',t.ph);
+    c.innerHTML='<div class="tc-top"><i></i><b></b><i></i></div>'+
+      '<div class="tc-view"><span class="hint">Bấm “Bật camera thử” để xem camera của bạn</span><span class="flash"></span>'+
+      '<svg class="tc-ring" viewBox="0 0 250 250" aria-hidden="true"><path pathLength="100"/></svg>'+
+      '<span class="tc-rec" aria-hidden="true"><i></i><b>0:00</b></span></div>'+
+      '<div class="tc-ctl"><i></i><button class="tc-shut" type="button" aria-label="Chụp thử"><span></span></button>'+
+      '<button class="tc-flip" type="button" aria-label="Đổi camera trước/sau"><svg viewBox="0 0 24 24" aria-hidden="true">'+
+      '<path d="M4 12a8 8 0 0 1 13.7-5.7L20 8.6"/><path d="M20 3.8v4.8h-4.8"/><path d="M20 12a8 8 0 0 1-13.7 5.7L4 15.4"/><path d="M4 20.2v-4.8h4.8"/></svg></button></div>'+
+      '<div class="tc-bot"><i></i><b></b></div>';
+    c.addEventListener('click',function(e){ if(i!==cur){ e.preventDefault(); go(i,true); } });
+    var sh=c.querySelector('.tc-shut'), holdT=0, pressed=false, didRec=false;
+    sh.setAttribute('aria-label','Chạm để chụp, giữ để quay video');
+    sh.addEventListener('contextmenu',function(e){ e.preventDefault(); });
+    sh.addEventListener('pointerdown',function(e){
+      if(i!==cur) return;
+      e.stopPropagation(); e.preventDefault(); pressed=true; didRec=false;
+      try{ sh.setPointerCapture(e.pointerId); }catch(_){}
+      holdT=setTimeout(function(){ if(pressed){ didRec=true; startRec(c); } },300);
+    });
+    function release(){
+      if(!pressed) return; pressed=false; clearTimeout(holdT);
+      if(rec.card===c) stopRec(); else if(!didRec) shoot(c);   /* đã tự dừng ở 10s thì thả tay không chụp thêm */
+    }
+    sh.addEventListener('pointerup',release);
+    sh.addEventListener('pointercancel',release);
+    sh.addEventListener('click',function(e){ e.stopPropagation(); if(i===cur && e.detail===0) shoot(c); });   /* bàn phím */
+    c.querySelector('.tc-flip').addEventListener('click',function(e){ e.stopPropagation(); if(i!==cur){ go(i,true); return; } flip(this); });
+    track.appendChild(c); cards.push(c);
+
+    var d=document.createElement('button'); d.type='button'; d.style.setProperty('--ring',t.ring);
+    d.setAttribute('aria-label','Chủ đề '+t.n);
+    d.addEventListener('click',function(){ go(i,true); });
+    dots.appendChild(d); dotBtns.push(d);
+  });
+
+  var themeT=0;
+  function setActive(i){
+    if(i===cur) return;
+    if(rec.card) stopRec();
+    clearTimeout(themeT);
+    themeT=setTimeout(function(){   /* vuốt dừng hẳn mới đổi màu cả trang */
+      if(window.__theme && window.__theme.current!==cur){ window.__theme.apply(cur,true); try{ localStorage.setItem('locket-theme',String(cur)); }catch(e){} }
+    },280);
+    if(cur>=0){ bgs[cur].classList.remove('on'); cards[cur].classList.remove('on'); dotBtns[cur].classList.remove('on'); dotBtns[cur].removeAttribute('aria-pressed'); }
+    cur=i;
+    bgs[i].classList.add('on'); cards[i].classList.add('on'); dotBtns[i].classList.add('on'); dotBtns[i].setAttribute('aria-pressed','true');
+    nameEl.textContent=T[i].n;
+    if(video){ cards[i].querySelector('.tc-view').insertBefore(video,cards[i].querySelector('.flash')); video.play().catch(function(){}); }
+  }
+  function go(i,smooth){
+    i=(i+T.length)%T.length;
+    var c=cards[i];
+    track.scrollTo({left:c.offsetLeft-(track.clientWidth-c.offsetWidth)/2,behavior:smooth?'smooth':'auto'});
+    setActive(i);
+  }
+  var raf=0;
+  track.addEventListener('scroll',function(){
+    cancelAnimationFrame(raf);
+    raf=requestAnimationFrame(function(){
+      var mid=track.scrollLeft+track.clientWidth/2, best=0, bd=1e9;
+      cards.forEach(function(c,i){ var d=Math.abs(c.offsetLeft+c.offsetWidth/2-mid); if(d<bd){bd=d;best=i;} });
+      setActive(best);
+    });
+  },{passive:true});
+  track.addEventListener('keydown',function(e){
+    if(e.key==='ArrowRight'){ e.preventDefault(); go(cur+1,true); }
+    if(e.key==='ArrowLeft'){ e.preventDefault(); go(cur-1,true); }
+  });
+  document.getElementById('tPrev').addEventListener('click',function(){ go(cur-1,true); });
+  document.getElementById('tNext').addEventListener('click',function(){ go(cur+1,true); });
+
+  function say(t){ msg.textContent=t; }
+  var HINT='Chạm nút chụp để chụp · Giữ để quay (tối đa 10 giây) · Nút ⟲ để đổi camera trước/sau';
+
+  /* ---- giữ để quay: viền vàng 10 giây ---- */
+  var rec={card:null,t0:0,timer:0,raf:0,mr:null,chunks:[]};
+  function ringPath(view,svg){
+    /* vẽ theo đúng kích thước pixel của khung để viền chạy liền một vòng, bắt đầu từ giữa cạnh trên */
+    var w=view.clientWidth||250, h=view.clientHeight||w, a=3, R=parseFloat(getComputedStyle(view).borderTopLeftRadius)||44,
+        r=Math.max(1,Math.min(Math.min(w,h)/2-a,R-a)), x2=w-a, y2=h-a, f=function(n){ return n.toFixed(1); };
+    svg.setAttribute('viewBox','0 0 '+w+' '+h);
+    return 'M'+f(w/2)+' '+a+' H'+f(x2-r)+' A'+f(r)+' '+f(r)+' 0 0 1 '+f(x2)+' '+f(a+r)+' V'+f(y2-r)+' A'+f(r)+' '+f(r)+' 0 0 1 '+f(x2-r)+' '+f(y2)+
+           ' H'+f(a+r)+' A'+f(r)+' '+f(r)+' 0 0 1 '+a+' '+f(y2-r)+' V'+f(a+r)+' A'+f(r)+' '+f(r)+' 0 0 1 '+f(a+r)+' '+a+' Z';
+  }
+  function fmtT(sec){ sec=Math.floor(sec); return '0:'+(sec<10?'0':'')+sec; }
+  function clearPlay(card){
+    var pv=card.querySelector('.tc-play');
+    if(pv){ clearTimeout(pv._t); pv.pause(); if(pv._url) URL.revokeObjectURL(pv._url); pv.remove(); }
+  }
+  function playBack(card,url){
+    var view=card.querySelector('.tc-view'); clearPlay(card);
+    var pv=document.createElement('video'); pv.className='tc-play'+(video && video.classList.contains('mirror')?' mirror':'');
+    pv.muted=true; pv.loop=true; pv.playsInline=true; pv.setAttribute('playsinline',''); pv.src=url; pv._url=url;
+    view.insertBefore(pv,view.querySelector('.flash')); pv.play().catch(function(){});
+    pv._t=setTimeout(function(){ clearPlay(card); say(HINT); },6000);
+  }
+  function startRec(card){
+    if(rec.card) return;
+    clearPlay(card);
+    var view=card.querySelector('.tc-view'), path=card.querySelector('.tc-ring path'), lbl=card.querySelector('.tc-rec b');
+    path.setAttribute('d',ringPath(view,card.querySelector('.tc-ring')));
+    card.classList.remove('rec'); void card.offsetWidth; card.classList.add('rec');
+    rec.card=card; rec.t0=performance.now(); lbl.textContent='0:00';
+    (function tick(){
+      var sec=(performance.now()-rec.t0)/1000; lbl.textContent=fmtT(Math.min(10,sec));
+      if(rec.card===card) rec.raf=requestAnimationFrame(tick);
+    })();
+    rec.timer=setTimeout(stopRec,10000);
+    say('Đang quay… thả tay để dừng (tối đa 10 giây)');
+    rec.mr=null; rec.chunks=[];
+    if(stream && window.MediaRecorder){
+      try{
+        var type=['video/mp4','video/webm;codecs=vp8','video/webm'].filter(function(t){ return MediaRecorder.isTypeSupported(t); })[0];
+        rec.mr=new MediaRecorder(stream, type?{mimeType:type}:undefined);
+        rec.mr.ondataavailable=function(e){ if(e.data && e.data.size) rec.chunks.push(e.data); };
+        rec.mr.start();
+      }catch(err){ rec.mr=null; }
+    }
+  }
+  function stopRec(){
+    var card=rec.card; if(!card) return;
+    var sec=Math.min(10,(performance.now()-rec.t0)/1000), txt=sec.toFixed(1).replace('.',',');
+    clearTimeout(rec.timer); cancelAnimationFrame(rec.raf); rec.card=null;
+    setTimeout(function(){ card.classList.remove('rec'); }, sec>=9.9?600:250);
+    var mr=rec.mr, chunks=rec.chunks; rec.mr=null;
+    if(mr && mr.state!=='inactive'){
+      mr.onstop=function(){
+        var blob=new Blob(chunks,{type:mr.mimeType||'video/webm'});
+        if(!blob.size){ say('Đã quay '+txt+' giây.'); return; }
+        playBack(card,URL.createObjectURL(blob));
+        say('Đã quay '+txt+' giây, đang phát lại. Video chỉ ở trên máy bạn.');
+      };
+      mr.stop();
+    } else {
+      say('Đã quay thử '+txt+' giây'+(stream?'.':'. Bật camera để quay thật nhé!'));
+    }
+  }
+
+  function shoot(card){
+    var view=card.querySelector('.tc-view'), fl=view.querySelector('.flash');
+    fl.classList.remove('go'); void fl.offsetWidth; fl.classList.add('go');
+    if(!video || !video.videoWidth){ say('Bật camera để chụp thử nhé!'); return; }
+    var cv=document.createElement('canvas'), sz=Math.min(video.videoWidth,video.videoHeight);
+    cv.width=cv.height=sz;
+    var ctx=cv.getContext('2d');
+    if(video.classList.contains('mirror')){ ctx.translate(sz,0); ctx.scale(-1,1); }
+    ctx.drawImage(video,(video.videoWidth-sz)/2,(video.videoHeight-sz)/2,sz,sz,0,0,sz,sz);
+    view.style.backgroundImage='url('+cv.toDataURL('image/jpeg',.85)+')';
+    video.style.visibility='hidden';
+    say('Đã chụp! Ảnh chỉ hiện trên máy bạn, không gửi đi đâu.');
+    clearTimeout(snapTimer);
+    snapTimer=setTimeout(function(){ view.style.backgroundImage=''; if(video) video.style.visibility=''; },1800);
+  }
+
+  function stopCam(){
+    if(rec.card) stopRec();
+    cards.forEach(clearPlay);
+    if(stream){ stream.getTracks().forEach(function(t){ t.stop(); }); stream=null; }
+    if(video){ video.remove(); video=null; }
+    cards.forEach(function(c){ c.querySelector('.tc-view').style.backgroundImage=''; });
+    camBtn.textContent='📷 Bật camera thử'; say(HINT);
+  }
+  var facing='user';
+  function startCam(face){
+    if(!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia){
+      say('Trình duyệt này không hỗ trợ camera. Hãy mở trang bằng Safari/Chrome qua https.'); return;
+    }
+    if(rec.card) stopRec();
+    var old=stream, oldId='';
+    if(old){
+      var ot=old.getVideoTracks()[0]; oldId=(ot && ot.getSettings && ot.getSettings().deviceId)||'';
+      old.getTracks().forEach(function(t){ t.stop(); }); stream=null;   /* iPhone cần tắt camera cũ trước khi mở camera mới */
+    }
+    say(old?'Đang đổi camera…':'Đang xin quyền camera…');
+    navigator.mediaDevices.getUserMedia({video:{facingMode:{ideal:face},width:{ideal:720},height:{ideal:720}},audio:false})
+      .then(function(st){
+        stream=st; facing=face;
+        var tr=st.getVideoTracks()[0], set=(tr && tr.getSettings)?tr.getSettings():{};
+        var real=set.facingMode||face;
+        if(!video){
+          video=document.createElement('video');
+          video.muted=true; video.playsInline=true; video.setAttribute('playsinline',''); video.autoplay=true;
+          cards[cur].querySelector('.tc-view').insertBefore(video,cards[cur].querySelector('.flash'));
+        }
+        video.classList.toggle('mirror',real!=='environment');
+        video.srcObject=st; video.play().catch(function(){});
+        camBtn.textContent='✕ Tắt camera';
+        if(old && oldId && set.deviceId===oldId) say('Máy này chỉ có một camera.');
+        else say((real==='environment'?'📷 Camera sau':'🤳 Camera trước')+' · Chạm để chụp, giữ để quay (tối đa 10 giây).');
+      })
+      .catch(function(){
+        if(video){ video.remove(); video=null; }
+        camBtn.textContent='📷 Bật camera thử';
+        say('Chưa bật được camera. Hãy cho phép quyền camera rồi thử lại.');
+      });
+  }
+  function flip(btn){
+    btn.classList.remove('spin'); void btn.offsetWidth; btn.classList.add('spin');
+    startCam(facing==='user'?'environment':'user');
+  }
+  camBtn.addEventListener('click',function(){ if(stream){ stopCam(); return; } startCam(facing); });
+  document.addEventListener('visibilitychange',function(){ if(document.hidden && stream) stopCam(); });
+
+  go((window.__theme && window.__theme.current)||0,false);
+  say(HINT);
+  addEventListener('resize',function(){ go(cur,false); });
+})();
+</script>
+<script>
+/* Demo video: tự phát khi cuộn tới, dừng khi cuộn qua; nút bật/tắt tiếng */
+(function(){
+  var v=document.getElementById('vdVideo'), snd=document.getElementById('vdSound');
+  if(!v) return;
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(reduce){ v.controls=true; }
+  function play(){ if(v.preload!=='auto'){ v.preload='auto'; } var p=v.play(); if(p&&p.catch) p.catch(function(){}); }
+  if('IntersectionObserver' in window && !reduce){
+    new IntersectionObserver(function(es){
+      es.forEach(function(e){ if(e.isIntersecting) play(); else v.pause(); });
+    },{threshold:.4}).observe(v);
+  }
+  v.addEventListener('click',function(){ if(reduce) return; v.paused ? play() : v.pause(); });
+  if(snd) snd.addEventListener('click',function(){
+    v.muted=!v.muted;
+    snd.textContent=v.muted?'🔇':'🔊';
+    snd.setAttribute('aria-label',v.muted?'Bật tiếng':'Tắt tiếng');
+    snd.setAttribute('aria-pressed',String(!v.muted));
+    if(!v.muted && v.paused) play();
+  });
+})();
+</script>
+<script>
+/* Bảng giá trên điện thoại: bấm ô gói để xem chi tiết, có hiệu ứng đổi gói */
+(function(){
+  var plans=[].slice.call(document.querySelectorAll('.plans .plan')), det=document.getElementById('planDetail');
+  if(!det || !plans.length) return;
+  var mq=matchMedia('(max-width:699px)');
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var canAnim=!reduce && !!det.animate;
+  function $(id){ return document.getElementById(id); }
+  function fmt(n){ return Math.round(n).toLocaleString('vi-VN'); }
+  function priceOf(p){ return parseInt(p.querySelector('.price').firstChild.textContent.replace(/\D/g,''),10)||0; }
+  var shown=0, countRaf=0;
+
+  function countTo(el,from,to,ms){
+    cancelAnimationFrame(countRaf);
+    var t0=performance.now();
+    (function step(now){
+      var k=Math.min(1,(now-t0)/ms), e=1-Math.pow(1-k,3);
+      el.textContent=fmt(from+(to-from)*e);
+      if(k<1) countRaf=requestAnimationFrame(step);
+    })(t0);
+  }
+
+  function pick(p,animate){
+    var already=p.classList.contains('sel');
+    plans.forEach(function(x){ x.classList.toggle('sel',x===p); if(mq.matches) x.setAttribute('aria-pressed',String(x===p)); });
+    if(already && animate) return;
+
+    var per=p.querySelector('.price .per'), target=priceOf(p);
+    $('pdName').textContent=p.querySelector('.pname').textContent;
+    $('pdPrice').innerHTML='<span class="num"></span><span class="cur">đ</span>'+(per?'<span class="per">'+per.textContent+'</span>':'');
+    var num=$('pdPrice').querySelector('.num');
+    $('pdWas').innerHTML=p.querySelector('.was').innerHTML;
+    $('pdList').innerHTML=p.querySelector('ul').innerHTML;
+    var origBtn = p.querySelector('.btn');
+    if(origBtn) {
+      $('pdBtn').innerHTML = origBtn.outerHTML;
+      var b = document.getElementById('pdBtn').querySelector('a');
+      if(b) {
+        var onclickAttr = origBtn.getAttribute('onclick');
+        if(onclickAttr) b.setAttribute('onclick', onclickAttr);
+        b.onclick = function(ev) {
+          if(origBtn.onclick) origBtn.onclick(ev);
+        };
+      }
+    }
+    det.classList.toggle('dark',p.classList.contains('hot'));
+
+    if(animate && canAnim){
+      countTo(num,shown,target,520);
+      p.animate([{transform:'scale(.9)'},{transform:'scale(1.06)'},{transform:'scale(1)'}],{duration:420,easing:'ease-out'});
+      det.animate([{transform:'scale(.965)',opacity:.55},{transform:'scale(1)',opacity:1}],{duration:380,easing:'cubic-bezier(.34,1.56,.64,1)'});
+      var parts=[$('pdName'),$('pdWas')].concat([].slice.call($('pdList').children),[$('pdBtn')]);
+      parts.forEach(function(el,i){
+        el.animate([{opacity:0,transform:'translateY(12px)'},{opacity:1,transform:'none'}],
+          {duration:360,delay:60+i*55,easing:'cubic-bezier(.2,.8,.2,1)',fill:'backwards'});
+      });
+    } else {
+      num.textContent=fmt(target);
+    }
+    shown=target;
+  }
+
+  function mode(){
+    plans.forEach(function(p){
+      if(mq.matches){ p.setAttribute('role','button'); p.tabIndex=0; p.setAttribute('aria-pressed',String(p.classList.contains('sel'))); }
+      else { p.removeAttribute('role'); p.removeAttribute('tabindex'); p.removeAttribute('aria-pressed'); }
+    });
+  }
+  plans.forEach(function(p){
+    p.addEventListener('click',function(e){ if(mq.matches && !e.target.closest('a')) pick(p,true); });
+    p.addEventListener('keydown',function(e){ if(mq.matches && (e.key==='Enter'||e.key===' ')){ e.preventDefault(); pick(p,true); } });
+  });
+  (mq.addEventListener ? mq.addEventListener('change',mode) : mq.addListener(mode));
+  pick(document.querySelector('.plans .plan.hot') || plans[0], false);
+  mode();
+})();
+</script>
+<script>
+/* Hiệu ứng khi lướt: hiện dần từng mục, thanh tiến độ, hero trôi nhẹ */
+(function(){
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var root=document.documentElement, bar=document.getElementById('sprog'), scene=document.querySelector('.scene'), hero=document.querySelector('.hero');
+
+  /* 1. hiện dần khi cuộn tới */
+  if(!reduce && 'IntersectionObserver' in window){
+    var groups=[
+      ['main section:not(.hero) .sec-head, section:not(.hero) > .wrap > .sec-head',false,0],
+      ['.gfeat .gf',true,.07],
+      ['.vdemo, .logos, .tpanel',false,0],
+      ['.uv-copy, .uv-phone',false,.1],
+      ['.pv-head, .pv-ctrl',false,.1],
+      ['.pv-phone',true,0],
+      ['.ck-grid .ck',true,.08],
+      ['.ck-note',false,0],
+      ['.plans .plan',true,.11],
+      ['.plans-note, .plan-detail',false,.1],
+      ['.tmarq',false,0],
+      ['.cta .box',true,0],
+      ['footer .foot-in',false,0]
+    ];
+    var targets=[];
+    groups.forEach(function(g){
+      [].forEach.call(document.querySelectorAll(g[0]),function(el){
+        if(el.classList.contains('sr')) return;
+        var sib=[].indexOf.call(el.parentNode.children,el);
+        el.classList.add('sr'); if(g[1]) el.classList.add('sr-pop');
+        if(g[2]) el.style.setProperty('--sd',(sib*g[2]).toFixed(2)+'s');
+        targets.push(el);
+      });
+    });
+    var io=new IntersectionObserver(function(es){
+      es.forEach(function(e){
+        if(!e.isIntersecting) return;
+        var el=e.target; io.unobserve(el); el.classList.add('in');
+        var d=parseFloat(getComputedStyle(el).getPropertyValue('--sd'))||0;
+        /* xong hiệu ứng thì trả lại style gốc (để hover/scale của thẻ chạy bình thường) */
+        setTimeout(function(){ el.classList.remove('sr','sr-pop','in'); el.style.removeProperty('--sd'); }, 1000+d*1000);
+      });
+    },{threshold:.12,rootMargin:'0px 0px -6% 0px'});
+    targets.forEach(function(el){ io.observe(el); });
+  }
+
+  /* 2. thanh tiến độ + 3. hero trôi nhẹ */
+  var ticking=false, max=1, heroH=1, lastPy='', lastFanScroll=scrollY, fanTravel=0;
+  function measure(){ max=Math.max(1,root.scrollHeight-innerHeight); heroH=(hero&&hero.offsetHeight)||1; }   /* chỉ đo khi đổi kích thước */
+  function update(){
+    ticking=false;
+    if(bar) bar.style.transform='scaleX('+Math.min(1,scrollY/max).toFixed(4)+')';
+    if(!reduce && scene){
+      var sceneRect=scene.getBoundingClientRect(), delta=scrollY-lastFanScroll;
+      var sceneCenter=sceneRect.top+sceneRect.height/2;
+      var atPhones=sceneCenter>=innerHeight*.25 && sceneCenter<=innerHeight*.72;
+      lastFanScroll=scrollY;
+      if(delta){
+        fanTravel=(fanTravel*delta<0 ? 0 : fanTravel)+delta;
+        if(fanTravel<=-12){
+          scene.style.setProperty('--fan','0');
+          fanTravel=0;
+        }else if(delta>0 && atPhones){
+          scene.style.setProperty('--fan','1');
+          fanTravel=0;
+        }else if(delta>0 && sceneCenter>innerHeight*.72){
+          scene.style.setProperty('--fan','0');
+        }
+      }
+      if(scrollY<=2){scene.style.setProperty('--fan',atPhones ? '1' : '0');fanTravel=0;}
+    }
+    if(!reduce && scene && scrollY<heroH*1.2){
+      var py=Math.max(0,Math.min(1,scrollY/heroH)).toFixed(3);
+      if(py!==lastPy){ lastPy=py; scene.style.setProperty('--py',py); }
+    }
+  }
+  addEventListener('scroll',function(){ if(!ticking){ ticking=true; requestAnimationFrame(update); } },{passive:true});
+  addEventListener('resize',function(){ measure(); update(); });
+  addEventListener('load',function(){ measure(); update(); });
+  if(window.ResizeObserver) new ResizeObserver(function(){ measure(); }).observe(document.body);
+  measure(); update();
+})();
+</script>
+<script>
+/* Dải đánh giá tự trôi ngang (marquee vô tận) */
+(function(){
+  var marq=document.getElementById('tmarq'), track=document.getElementById('ttrack');
+  if(!marq || !track) return;
+  if(matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var base=[].slice.call(track.children);
+  function build(){
+    [].slice.call(track.querySelectorAll('[data-clone]')).forEach(function(n){ n.remove(); });
+    var setW=track.scrollWidth, need=marq.clientWidth, reps=Math.max(1,Math.ceil(need/setW));
+    var set=base.slice();
+    for(var r=1;r<reps;r++) base.forEach(function(c){ var k=c.cloneNode(true); k.setAttribute('data-clone',''); k.setAttribute('aria-hidden','true'); track.appendChild(k); set.push(k); });
+    set.forEach(function(c){ var k=c.cloneNode(true); k.setAttribute('data-clone',''); k.setAttribute('aria-hidden','true'); track.appendChild(k); });
+    track.style.setProperty('--tdur',(track.scrollWidth/2/45).toFixed(1)+'s');   /* ~45px mỗi giây */
+  }
+  build();
+  var rt=0; addEventListener('resize',function(){ clearTimeout(rt); rt=setTimeout(build,200); });
+  /* chạm giữ để dừng */
+  marq.addEventListener('pointerdown',function(){ marq.classList.add('paused'); });
+  ['pointerup','pointercancel','pointerleave'].forEach(function(ev){ marq.addEventListener(ev,function(){ marq.classList.remove('paused'); }); });
+  /* cuộn qua thì dừng cho đỡ tốn pin */
+  if('IntersectionObserver' in window){
+    new IntersectionObserver(function(es){ es.forEach(function(e){ track.style.animationPlayState=e.isIntersecting?'':'paused'; }); }).observe(marq);
+  }
+})();
+</script>
+<script>
+/* Đăng riêng tư: chọn ai được xem ảnh */
+(function(){
+  var pv=document.getElementById('pv'); if(!pv) return;
+  var opts=[].slice.call(pv.querySelectorAll('.pv-opt')), friends=[].slice.call(pv.querySelectorAll('.pv-f')),
+      pill=document.getElementById('pvPill'), status=document.querySelector('#pvStatus span');
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var mode='private', picked={karima:true,kyle:true};
+
+  function names(list){ return list.length<=2 ? list.join(' và ') : list.slice(0,-1).join(', ')+' và '+list[list.length-1]; }
+  function render(animate){
+    var prevPill=pill.textContent;
+    opts.forEach(function(o){ o.setAttribute('aria-checked',String(o.dataset.mode===mode)); });
+    pv.classList.toggle('priv',mode==='private');
+    pv.classList.toggle('pick',mode==='pick');
+    var seeing=[];
+    friends.forEach(function(f){
+      var can = mode==='all' || (mode==='pick' && !!picked[f.dataset.id]);
+      f.classList.toggle('can',can); f.classList.toggle('no',!can);
+      f.querySelector('.fs').textContent = can ? '✓' : '🔒';
+      if(mode==='pick'){ f.setAttribute('aria-pressed',String(can)); f.tabIndex=0; } else { f.removeAttribute('aria-pressed'); f.tabIndex=-1; }
+      f.setAttribute('aria-label',f.dataset.name+(can?' được xem':' không được xem'));
+      if(can) seeing.push(f.dataset.name);
+    });
+    var txt, isPriv=false;
+    if(mode==='private'){ txt='🔒 Riêng tư'; isPriv=true; status.textContent='Chỉ mình bạn thấy ảnh này. Bạn bè sẽ không thấy.'; }
+    else if(mode==='all'){ txt='👥 Tất cả bạn bè'; status.textContent='Cả '+friends.length+' người bạn đều thấy ảnh này.'; }
+    else if(seeing.length){ txt='⭐ '+seeing.length+' người bạn'; status.textContent='Chỉ '+names(seeing)+' thấy ảnh này.'; }
+    else { txt='🔒 Riêng tư'; isPriv=true; status.textContent='Bấm vào avatar để chọn người được xem.'; }
+    pill.textContent=txt; pill.classList.toggle('priv',isPriv);
+    if(animate && !reduce && pill.animate && txt!==prevPill){
+      pill.animate([{transform:'scale(.8)',opacity:.3},{transform:'scale(1.08)',opacity:1},{transform:'scale(1)'}],{duration:420,easing:'ease-out'});
+    }
+  }
+  opts.forEach(function(o){ o.addEventListener('click',function(){ mode=o.dataset.mode; render(true); }); });
+  friends.forEach(function(f){
+    f.addEventListener('click',function(){
+      if(mode!=='pick'){ mode='pick'; picked={}; }
+      picked[f.dataset.id]=!picked[f.dataset.id];
+      render(true);
+      if(!reduce && f.animate) f.querySelector('.fa').animate([{transform:'scale(.85)'},{transform:'scale(1.12)'},{transform:'scale(1)'}],{duration:360,easing:'ease-out'});
+    });
+  });
+  render(false);
+})();
+</script>
+<script>
+/* Cuộn mượt (Lenis) cho chuột & trackpad trên máy tính; điện thoại giữ cuộn gốc vốn đã mượt */
+document.addEventListener('DOMContentLoaded',function(){
+  if(!window.Lenis) return;
+  if(!matchMedia('(hover:hover) and (pointer:fine)').matches) return;
+  if(matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var lenis=new Lenis({lerp:.09,wheelMultiplier:1,smoothWheel:true});
+  window.__lenis=lenis;
+  if(document.documentElement.classList.contains('is-loading')) lenis.stop();
+  (function raf(t){ lenis.raf(t); requestAnimationFrame(raf); })(performance.now());
+  document.addEventListener('click',function(e){
+    var a=e.target.closest && e.target.closest('a[href^="#"]'); if(!a) return;
+    var id=a.getAttribute('href'); if(id.length<2) return;
+    var el=document.querySelector(id); if(!el) return;
+    e.preventDefault(); lenis.scrollTo(el,{offset:-8,duration:1.1});
+  });
+});
+</script>
+<script>
+/* Dự phòng cho iOS cũ: chặn chạm lần 2 trong 300ms (trừ nút bấm/link/ô chọn để bấm nhanh vẫn ăn) */
+(function(){
+  var last=0, sel='a,button,input,select,textarea,label,[role="button"],.plan,.tcam,.pv-f,.lgrid button';
+  document.addEventListener('touchend',function(e){
+    var now=Date.now();
+    if(now-last<=300 && !(e.target.closest && e.target.closest(sel))) e.preventDefault();
+    last=now;
+  },{passive:false});
+  document.addEventListener('dblclick',function(e){ e.preventDefault(); },{passive:false});
+})();
+</script>
+<script>
+/* Đăng video: chọn/kéo video, kiểm tra 10 giây & 6MB ngay trên máy (không tải lên) */
+(function(){
+  var box=document.getElementById('uv'); if(!box) return;
+  var input=document.getElementById('uvInput'), vid=document.getElementById('uvVideo'),
+      barI=document.getElementById('uvBar'), res=document.getElementById('uvRes'), redo=document.getElementById('uvRedo');
+  var MAXS=10.4, MAXB=6*1024*1024, url=null, raf=0;
+  function n1(x){ return (Math.round(x*10)/10).toString().replace('.',','); }
+  function fmtB(b){ return b<1048576 ? Math.round(b/1024)+' KB' : n1(b/1048576)+' MB'; }
+  function reset(){
+    cancelAnimationFrame(raf); box.classList.remove('has');
+    if(url){ URL.revokeObjectURL(url); url=null; }
+    vid.pause(); vid.removeAttribute('src'); try{ vid.load(); }catch(e){}
+    input.value=''; res.className='uv-res'; res.innerHTML=''; barI.style.width='0';
+  }
+  function handle(file){
+    if(!file || file.type.indexOf('video/')!==0){ res.className='uv-res bad'; box.classList.add('has'); res.innerHTML='<span class="dot">!</span><span>Hãy chọn một tệp video nhé</span>'; return; }
+    if(url) URL.revokeObjectURL(url);
+    url=URL.createObjectURL(file); box.classList.add('has');
+    vid.src=url; vid.muted=true; vid.loop=true; vid.play().catch(function(){});
+    res.className='uv-res'; res.innerHTML='Đang kiểm tra…'; barI.style.width='0';
+    cancelAnimationFrame(raf);
+    var t0=performance.now();
+    (function tick(now){ var k=Math.min(1,(now-t0)/900); barI.style.width=(k*100).toFixed(0)+'%'; if(k<1) raf=requestAnimationFrame(tick); })(t0);
+    var meta=new Promise(function(r){ if(vid.readyState>=1) r(); else { vid.addEventListener('loadedmetadata',r,{once:true}); setTimeout(r,2500); } });
+    Promise.all([meta,new Promise(function(r){ setTimeout(r,950); })]).then(function(){
+      var dur=vid.duration||0, size=file.size, okD=dur<=MAXS, okS=size<=MAXB;
+      if(okD && okS){
+        res.className='uv-res ok';
+        res.innerHTML='<span class="dot">✓</span><span>Hợp lệ! '+n1(dur)+'s · '+fmtB(size)+' — sẵn sàng đăng</span>';
+      } else {
+        var w=[]; if(!okD) w.push('dài '+n1(dur)+'s (giới hạn 10s)'); if(!okS) w.push(fmtB(size)+' (giới hạn 6MB)');
+        res.className='uv-res bad';
+        res.innerHTML='<span class="dot">!</span><span>Chưa đạt: '+w.join(' · ')+'</span>';
+      }
+    });
+  }
+  input.addEventListener('change',function(){ if(input.files && input.files[0]) handle(input.files[0]); });
+  redo.addEventListener('click',function(e){ e.preventDefault(); reset(); input.click(); });
+  ['dragenter','dragover'].forEach(function(ev){ box.addEventListener(ev,function(e){ e.preventDefault(); box.classList.add('drag'); }); });
+  ['dragleave','drop'].forEach(function(ev){ box.addEventListener(ev,function(e){ e.preventDefault(); box.classList.remove('drag'); }); });
+  box.addEventListener('drop',function(e){ var f=e.dataTransfer && e.dataTransfer.files && e.dataTransfer.files[0]; if(f) handle(f); });
+})();
+</script>
+<script>
+(function(){
+  var photo=document.getElementById('framePhoto'), overlay=document.getElementById('frameOverlay'),
+      input=document.getElementById('frameInput'), save=document.getElementById('frameSave'),
+      status=document.getElementById('frameStatus'), name=document.getElementById('frameName');
+  if(!photo) return;
+  var selected='assets/frames/frame-1.png', customUrl=null, uploadVersion=0;
+  var custom=document.getElementById('frameCustom');
+  document.querySelectorAll('.frame-options button').forEach(function(button){
+    button.addEventListener('click',function(){
+      selected=button.dataset.frame;
+      document.querySelectorAll('.frame-options button').forEach(function(b){b.setAttribute('aria-pressed',String(b===button));});
+      overlay.hidden=!selected;
+      if(selected) overlay.src=selected;
+      overlay.alt='Khung widget '+button.dataset.name;
+      name.textContent=button.dataset.name;
+      save.disabled=!selected;
+      status.textContent='';
+    });
+  });
+  document.getElementById('frameUpload').addEventListener('click',function(){input.click();});
+  input.addEventListener('change',function(){
+    var file=input.files[0]; input.value=''; if(!file) return;
+    if(file.type!=='image/png' && !/\.png$/i.test(file.name)){status.textContent='Vui lòng chọn khung PNG có nền trong suốt.';return;}
+    var version=++uploadVersion, url=URL.createObjectURL(file), image=new Image();
+    status.textContent='Đang mở khung widget…';
+    image.onload=function(){
+      if(version!==uploadVersion){URL.revokeObjectURL(url);return;}
+      if(customUrl) URL.revokeObjectURL(customUrl);
+      customUrl=url;custom.dataset.frame=url;custom.querySelector('img').src=url;custom.hidden=false;
+      custom.click();status.textContent='Đã áp dụng khung của bạn vào widget.';
+    };
+    image.onerror=function(){URL.revokeObjectURL(url);if(version===uploadVersion) status.textContent='Không mở được khung này. Vui lòng thử một tệp PNG khác.';};
+    image.src=url;
+  });
+  save.addEventListener('click',async function(){
+    if(!selected) return;
+    var src=selected;save.disabled=true;status.textContent='Đang chuẩn bị khung 1024 × 1024…';
+    try{
+      var image=await new Promise(function(resolve,reject){var img=new Image();img.onload=function(){resolve(img);};img.onerror=reject;img.src=src;});
+      var canvas=document.createElement('canvas');canvas.width=canvas.height=1024;
+      canvas.getContext('2d').drawImage(image,0,0,1024,1024);
+      var blob=await new Promise(function(resolve){canvas.toBlob(resolve,'image/png');});if(!blob) throw new Error('export');
+      var url=URL.createObjectURL(blob),link=document.createElement('a');link.href=url;link.download='locket-widget-1024.png';
+      document.body.appendChild(link);link.click();link.remove();setTimeout(function(){URL.revokeObjectURL(url);},60000);
+      status.textContent='Đang tải khung PNG trong suốt 1024 × 1024.';
+    }catch(e){status.textContent='Chưa tải được khung. Vui lòng thử lại.';}
+    finally{save.disabled=!selected;}
+  });
+})();
+</script>
+<style>html{-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}img,video{-webkit-user-drag:none}</style>
+
+
+
+<!-- Modal Nâng cấp Locket Gold Tự động -->
+<div id="locketModal" class="lkt-modal" style="display:none;">
+  <div class="lkt-modal-backdrop" onclick="closeLocketModal()"></div>
+  <div class="lkt-modal-dialog">
+    <div class="lkt-modal-header">
+      <h3>⚡ Nâng cấp Locket Gold Tự Động</h3>
+      <button type="button" class="lkt-close" onclick="closeLocketModal()">&times;</button>
+    </div>
+    <div class="lkt-modal-body">
+      <div class="lkt-step-title">1. Kiểm tra tài khoản Locket</div>
+      <div class="lkt-input-group">
+        <input type="text" id="lktUser" placeholder="Nhập Username hoặc link Locket..." autocomplete="off" oninput="onLktUserInput()">
+        <button type="button" id="btnLktLookup" onclick="checkLocketUser()">Kiểm tra</button>
+      </div>
+      <div id="lktUserResult" class="lkt-user-box" style="display:none;">
+        <img id="lktAvatar" src="" alt="Avatar">
+        <div class="lkt-user-info">
+          <div id="lktDisplayName" class="lkt-name"></div>
+          <div id="lktUsername" class="lkt-sub"></div>
+          <div style="display:flex; align-items:center; gap:6px; margin-top:2px;">
+            <span id="lktUid" class="lkt-sub" style="font-size:11.5px; color:#a8a29e; font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;"></span>
+            <button type="button" id="btnCopyUid" style="display:none; border:1px solid #e7dfcb; background:#fff; cursor:pointer; padding:2px 8px; font-size:11px; font-weight:700; color:#78716c; border-radius:6px; transition:all .15s; line-height:1.4;" onclick="copyLktUid()" title="Sao chép UID">
+              <span id="btnCopyUidIcon" style="display:inline-flex; align-items:center; gap:4px;">
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-1px;"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                <span id="btnCopyUidText">Sao chép</span>
+              </span>
+            </button>
+          </div>
+          <div id="lktGoldStatus" class="lkt-tag"></div>
+        </div>
+      </div>
+
+      <div class="lkt-step-title" style="margin-top:16px;">2. Gói cước đã chọn</div>
+      <div class="lkt-pkg-box">
+        <div id="lktPkgName" style="font-weight:700;">Gói cước</div>
+        <div id="lktPkgPrice" style="font-weight:800; color:#E89A00; font-size:18px;">0đ</div>
+      </div>
+      <!-- Mã giảm giá -->
+      <div style="margin-top:12px;">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
+          <span style="font-size:13px; font-weight:700; color:#9a8c72;"><i class="fa-solid fa-ticket me-1" style="color:#FFB000;"></i> Mã giảm giá</span>
+          <span id="lktCouponDiscountTag" style="display:none; font-size:12px; font-weight:800; color:#16a34a; background:#dcfce7; padding:2px 8px; border-radius:6px;"></span>
+        </div>
+        <div style="display:flex; gap:8px;">
+          <input type="text" id="lktCouponCode" placeholder="Nhập mã giảm giá (nếu có)..." style="flex:1; padding:9px 12px; border-radius:10px; border:1.5px solid #F0E3C3; background:#fff; font-size:13.5px; font-weight:700; text-transform:uppercase; outline:none;">
+          <button type="button" id="btnApplyCoupon" onclick="applyLocketCoupon()" style="padding:0 14px; border-radius:10px; background:#241a07; color:#FFB000; font-weight:800; font-size:13px; border:none; cursor:pointer;">Áp dụng</button>
+        </div>
+        <div id="lktCouponMsg" style="display:none; font-size:12.5px; font-weight:700; margin-top:5px;"></div>
+      </div>
+
+
+      <div class="lkt-balance-box">
+                  <div style="display:flex; justify-content:space-between; align-items:center; width:100%;">
+            <span style="font-size:13.5px; color:#e11d48; font-weight:700;">
+              <i class="fa-solid fa-circle-exclamation me-1"></i> Chưa đăng nhập tài khoản
+            </span>
+            
+          </div>
+              </div>
+
+      <div id="lktNotice" class="lkt-alert" style="display:none;"></div>
+
+      <button type="button" id="btnLktSubmit" class="btn btn-primary btn-block" style="margin-top:18px;" onclick="submitLocketOrder()">Xác nhận & Nâng cấp ngay</button>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- Modal Lịch sử kích hoạt Locket Gold -->
+<div id="lktHistoryModal" class="lkt-modal" style="display:none; z-index:10000;">
+  <div class="lkt-modal-backdrop" onclick="closeLocketHistoryModal()"></div>
+  <div class="lkt-modal-dialog" style="max-width:650px; width:95%; max-height:85vh; display:flex; flex-direction:column; padding:22px;">
+    <div class="lkt-modal-header" style="border-bottom:1.5px solid #F0E3C3; padding-bottom:12px; margin-bottom:14px;">
+      <h3 style="color:#241a07; font-size:18px; font-weight:800; display:flex; align-items:center; gap:8px;">
+        <i class="fa-solid fa-clock-rotate-left" style="color:#FFB000;"></i> Lịch Sử Kích Hoạt Locket Gold
+      </h3>
+      <button type="button" class="lkt-close" onclick="closeLocketHistoryModal()">&times;</button>
+    </div>
+    <div class="lkt-modal-body" style="overflow-y:auto; flex:1; padding-right:4px;">
+              <div style="text-align:center; padding:36px 16px;">
+          <i class="fa-solid fa-lock" style="font-size:36px; color:#eab308; margin-bottom:12px;"></i>
+          <p style="font-size:15px; color:#64748b; font-weight:700; margin-bottom:16px;">Vui lòng đăng nhập để xem lịch sử đơn hàng của bạn.</p>
+          
+        </div>
+          </div>
+  </div>
+</div>
+
+<!-- Lightbox phóng to ảnh trực tiếp trên trang không nhảy link -->
+<div id="lktImgLightbox" style="display:none; position:fixed; inset:0; z-index:10001; background:rgba(0,0,0,0.85); backdrop-filter:blur(6px); align-items:center; justify-content:center; padding:16px;" onclick="closeLktLightbox()">
+  <div style="position:relative; max-width:90vw; max-height:90vh; display:flex; flex-direction:column; align-items:center;">
+    <button type="button" style="position:absolute; top:-40px; right:0; background:rgba(255,255,255,0.25); border:0; color:#fff; font-size:24px; width:36px; height:36px; border-radius:50%; cursor:pointer; display:flex; align-items:center; justify-content:center;" onclick="closeLktLightbox()">&times;</button>
+    <img id="lktLightboxImg" src="" alt="Ảnh phóng to" style="max-width:100%; max-height:85vh; border-radius:14px; box-shadow:0 10px 40px rgba(0,0,0,0.5); object-fit:contain;" onclick="event.stopPropagation()">
+    <span style="color:#f1f5f9; font-size:13px; margin-top:10px; font-weight:700;">Nhấn bất kỳ đâu để đóng</span>
+  </div>
+</div>
+
+<!-- Modal Xác nhận cài DNS trước khi lên Gold -->
+<div id="lktDnsConfirmModal" class="lkt-modal" style="display:none; z-index:10000;">
+  <div class="lkt-modal-backdrop" onclick="closeDnsConfirmModal()"></div>
+  <div class="lkt-modal-dialog" style="max-width:520px; max-height:92vh; overflow-y:auto;">
+    <div class="lkt-modal-header" style="border-bottom:1.5px solid #F0E3C3; padding-bottom:10px;">
+      <h3 style="color:#b91c1c; font-size:18px; font-weight:900;">
+        ⚠️ BẠN ĐÃ CÀI DNS & BẬT TIN CẬY CHƯA?
+      </h3>
+      <button type="button" class="lkt-close" onclick="closeDnsConfirmModal()">&times;</button>
+    </div>
+    <div class="lkt-modal-body" style="padding-top:10px;">
+      <p style="font-size:14.5px; color:#241a07; line-height:1.55; margin-bottom:10px;">
+        Hệ thống yêu cầu máy iPhone của bạn <b>bắt buộc phải cài DNS và bật xanh tin cậy chứng nhận</b> trước. Nếu chưa cài, kích hoạt xong sẽ <b>không có tác dụng</b>.
+      </p>
+      <div style="background:#ecfdf5; border:1px solid #a7f3d0; border-radius:10px; padding:9px 13px; font-size:13.5px; color:#065f46; font-weight:700; margin-bottom:14px; display:flex; align-items:center; gap:8px;">
+        <span style="font-size:16px;">⚡</span>
+        <span>Sau khi xác nhận, hệ thống sẽ gọi cấp Gold ngay. Khách không cần truy cập link xác thực.</span>
+      </div>
+
+      <div style="background:#FFF3D6; border:1px solid #F0E3C3; border-radius:14px; padding:12px; margin-bottom:16px;">
+        <div style="font-size:13px; font-weight:800; color:#854d0e; margin-bottom:8px; text-transform:uppercase;">
+          📸 Hãy đối chiếu 2 ảnh mẫu bên dưới trên máy của bạn:
+        </div>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px;">
+          <!-- Ảnh 1: Đã cài DNS Profile -->
+          <div style="text-align:center; background:#fff; padding:8px; border-radius:10px; border:1px solid #eed;">
+            <div style="font-size:11.5px; font-weight:800; color:#2563eb; margin-bottom:6px;">1. Đã cài DNS Profile</div>
+            <img src="assets/img-locket/sample_dns_installed.jpg?v=1792053944" alt="Đã cài DNS" style="width:100%; height:160px; object-fit:contain; border-radius:6px; cursor:pointer;" onclick="openLktLightbox(this.src)">
+            <span style="display:block; font-size:10.5px; color:#78716c; margin-top:4px;">Chạm để phóng to</span>
+          </div>
+          <!-- Ảnh 2: Đã tin cậy chứng nhận -->
+          <div style="text-align:center; background:#fff; padding:8px; border-radius:10px; border:1px solid #eed;">
+            <div style="font-size:11.5px; font-weight:800; color:#16a34a; margin-bottom:6px;">2. Đã bật tin cậy SSL</div>
+            <img src="assets/img-locket/sample_ssl_trusted.jpg?v=1792053944" alt="Đã bật tin cậy" style="width:100%; height:160px; object-fit:contain; border-radius:6px; cursor:pointer;" onclick="openLktLightbox(this.src)">
+            <span style="display:block; font-size:10.5px; color:#78716c; margin-top:4px;">Chạm để phóng to</span>
+          </div>
+        </div>
+      </div>
+
+      <div style="display:flex; flex-direction:column; gap:10px;">
+        <button type="button" id="btnConfirmDnsOk" class="btn btn-primary" style="width:100%; border-radius:12px; padding:13px; font-weight:900;" onclick="doExecuteLocketOrder()">
+          ✓ Tôi chắc chắn đã cài đầy đủ & Nâng cấp ngay
+        </button>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px;">
+          <a href="/cai-dns.html" target="_blank" class="btn btn-secondary" style="border-radius:12px; padding:10px; font-size:13px; font-weight:700; text-align:center; background:#fff; border:1px solid #F0E3C3; color:#78350f;">
+            📖 Xem hướng dẫn cài DNS
+          </a>
+          <button type="button" class="btn btn-secondary" style="border-radius:12px; padding:10px; font-size:13px; font-weight:700; background:#eee; border:0; color:#444;" onclick="closeDnsConfirmModal()">
+            ✕ Để tôi kiểm tra lại
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<style>
+.lkt-modal{position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center;padding:16px}
+.lkt-modal-backdrop{position:fixed;inset:0;background:rgba(0,0,0,0.6);backdrop-filter:blur(4px)}
+.lkt-modal-dialog{position:relative;background:#FFFBF1;border:2px solid #F0E3C3;border-radius:20px;max-width:440px;width:100%;padding:22px;box-shadow:0 20px 40px rgba(0,0,0,0.25);z-index:10;animation:lktIn .2s ease-out}
+@keyframes lktIn{from{opacity:0;transform:scale(0.95)}to{opacity:1;transform:scale(1)}}
+.lkt-modal-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
+.lkt-modal-header h3{font-size:18px;color:#241a07;margin:0}
+.lkt-close{background:none;border:none;font-size:26px;cursor:pointer;color:#9a8c72;line-height:1}
+.lkt-step-title{font-size:14px;font-weight:700;color:#9a8c72;margin-bottom:8px;text-transform:uppercase;letter-spacing:0.5px}
+.lkt-input-group{display:flex;gap:8px}
+.lkt-input-group input{flex:1;padding:12px 14px;border-radius:12px;border:1.5px solid #F0E3C3;background:#fff;font-family:inherit;font-size:15px;outline:none}
+.lkt-input-group input:focus{border-color:#FFB000}
+.lkt-input-group button{padding:0 16px;border-radius:12px;background:#FFB000;color:#2a1d00;font-weight:700;border:none;cursor:pointer;white-space:nowrap}
+.lkt-user-box{display:flex;align-items:center;gap:12px;background:#FFF3D6;border:1px solid #F0E3C3;border-radius:14px;padding:10px 14px;margin-top:10px}
+.lkt-user-box img{width:46px;height:46px;border-radius:50%;object-fit:cover;border:2px solid #fff}
+.lkt-name{font-weight:700;color:#241a07;font-size:15px}
+.lkt-sub{font-size:13px;color:#9a8c72}
+.lkt-tag{font-size:12px;font-weight:700;margin-top:2px}
+.lkt-pkg-box{display:flex;align-items:center;justify-content:space-between;background:#fff;border:1.5px solid #F0E3C3;padding:12px 16px;border-radius:14px}
+.lkt-balance-box{display:flex;align-items:center;justify-content:space-between;background:#FFF3D6;border:1px dashed #FFB000;padding:10px 14px;border-radius:12px;margin-top:10px}
+.lkt-bal-num{font-weight:800;color:#241a07;font-size:15px}
+.lkt-topup-link{font-size:12px;font-weight:800;color:#fff;background:#FFB000;padding:3px 10px;border-radius:8px;text-decoration:none;transition:background .2s}
+.lkt-topup-link:hover{background:#E89A00}
+.lkt-alert{margin-top:12px;padding:10px 14px;border-radius:10px;font-size:14px;font-weight:600}
+.lkt-alert.err{background:#fee2e2;color:#b91c1c;border:1px solid #fca5a5}
+.lkt-alert.succ{background:#dcfce7;color:#15803d;border:1px solid #86efac}
+</style>
+
+<script>
+var curAppliedCoupon = "";
+var originalPrice = 15000;
+
+function applyLocketCoupon() {
+  var code = document.getElementById("lktCouponCode").value.trim().toUpperCase();
+  var msg = document.getElementById("lktCouponMsg");
+  var tag = document.getElementById("lktCouponDiscountTag");
+  var btn = document.getElementById("btnApplyCoupon");
+
+  if (!code) {
+    msg.style.color = "#dc2626";
+    msg.style.display = "block";
+    msg.innerHTML = "⚠️ Vui lòng nhập mã giảm giá trước khi nhấn áp dụng!";
+    return;
+  }
+
+  btn.disabled = true;
+  btn.textContent = "...";
+  msg.style.color = "#854d0e";
+  msg.style.display = "block";
+  msg.innerHTML = "⏳ Đang kiểm tra mã " + code + "...";
+
+  var fd = new FormData();
+  fd.append("action", "check_coupon");
+  fd.append("coupon_code", code);
+  fd.append("package_id", curLktPkg);
+
+  fetch("/ajaxs/client/locket.php", { method: "POST", body: fd })
+    .then(function(r){ return r.json(); })
+    .then(function(res){
+      btn.disabled = false;
+      btn.textContent = "Áp dụng";
+      msg.style.display = "block";
+      if (res.status === "success") {
+        curAppliedCoupon = res.data.coupon_code;
+        curLktPrice = res.data.final_price;
+        document.getElementById("lktPkgPrice").innerHTML = res.data.final_price_text + " <small style=\"font-size:13px; text-decoration:line-through; color:#a8a29e;\">" + originalPrice.toLocaleString("vi-VN") + "đ</small>";
+        tag.textContent = "-" + res.data.discount_text;
+        tag.style.display = "inline-block";
+        msg.style.color = "#16a34a";
+        msg.innerHTML = "✓ " + res.msg + " (Giảm " + res.data.discount_text + ")";
+      } else {
+        curAppliedCoupon = "";
+        curLktPrice = originalPrice;
+        document.getElementById("lktPkgPrice").textContent = originalPrice.toLocaleString("vi-VN") + "đ";
+        tag.style.display = "none";
+        msg.style.color = "#dc2626";
+        msg.innerHTML = "✕ " + (res.msg || "Mã giảm giá không hợp lệ hoặc đã hết hạn!");
+      }
+    })
+    .catch(function(err){
+      btn.disabled = false;
+      btn.textContent = "Áp dụng";
+      msg.style.color = "#dc2626";
+      msg.style.display = "block";
+      msg.innerHTML = "✕ Lỗi kết nối kiểm tra mã, vui lòng thử lại!";
+    });
+}
+var curLktPkg = '1month';
+var curLktPrice = 15000;
+var verifiedLktUser = '';
+var verifiedLktHasGold = false;
+
+function openLocketModal(pkgId, pkgName, price) {
+  curLktPkg = pkgId;
+  curLktPrice = price;
+  originalPrice = price;
+  curAppliedCoupon = '';
+  verifiedLktHasGold = false;
+  var couponInput = document.getElementById('lktCouponCode');
+  if (couponInput) couponInput.value = '';
+  var couponTag = document.getElementById('lktCouponDiscountTag');
+  if (couponTag) couponTag.style.display = 'none';
+  var couponMsg = document.getElementById('lktCouponMsg');
+  if (couponMsg) couponMsg.style.display = 'none';
+
+  document.getElementById('lktPkgName').textContent = pkgName;
+  document.getElementById('lktPkgPrice').textContent = price.toLocaleString('vi-VN') + 'đ';
+  document.getElementById('locketModal').style.display = 'flex';
+  document.getElementById('lktNotice').style.display = 'none';
+  updateSubmitButtonState();
+}
+
+function _old_updateSubmitButtonState() {
+  var btn = document.getElementById('btnLktSubmit');
+  if (!verifiedLktUser) {
+    btn.disabled = true;
+    btn.style.opacity = '0.5';
+    btn.style.cursor = 'not-allowed';
+    btn.textContent = 'Vui lòng kiểm tra tài khoản trước';
+  } else if (verifiedLktHasGold) {
+    btn.disabled = true;
+    btn.style.opacity = '0.5';
+    btn.style.cursor = 'not-allowed';
+    btn.textContent = '👑 @' + verifiedLktUser + ' đã có Gold — không cần nâng';
+  } else {
+    btn.disabled = false;
+    btn.style.opacity = '1';
+    btn.style.cursor = 'pointer';
+    btn.textContent = 'Xác nhận & Nâng cấp cho @' + verifiedLktUser;
+  }
+}
+
+function copyLktUid() {
+  var uid = document.getElementById('btnCopyUid').getAttribute('data-uid');
+  if (!uid) return;
+  var btn = document.getElementById('btnCopyUid');
+  var txt = document.getElementById('btnCopyUidText');
+  var ico = document.getElementById('btnCopyUidIcon');
+  var originalHtml = ico.innerHTML;
+  function markCopied() {
+    btn.style.borderColor = '#86efac';
+    btn.style.background = '#f0fdf4';
+    btn.style.color = '#15803d';
+    ico.innerHTML = '<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-1px;"><polyline points="20 6 9 17 4 12"></polyline></svg> <span>Đã chép</span>';
+    setTimeout(function(){
+      btn.style.borderColor = '#e7dfcb';
+      btn.style.background = '#fff';
+      btn.style.color = '#78716c';
+      ico.innerHTML = originalHtml;
+    }, 1600);
+  }
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(uid).then(markCopied).catch(function(){ fallbackCopy(uid, markCopied); });
+  } else {
+    fallbackCopy(uid, markCopied);
+  }
+}
+
+function fallbackCopy(text, cb) {
+  var t = document.createElement('textarea');
+  t.value = text;
+  t.style.position = 'fixed';
+  t.style.opacity = '0';
+  document.body.appendChild(t);
+  t.select();
+  try { document.execCommand('copy'); if (cb) cb(); } catch(e) {}
+  document.body.removeChild(t);
+}
+
+function closeLocketModal() {
+  document.getElementById('locketModal').style.display = 'none';
+}
+
+function onLktUserInput() {
+  verifiedLktUser = '';
+  verifiedLktHasGold = false;
+  document.getElementById('lktUserResult').style.display = 'none';
+  var btnCp = document.getElementById('btnCopyUid');
+  if (btnCp) btnCp.style.display = 'none';
+  updateSubmitButtonState();
+}
+
+function _old_checkLocketUser() {
+  var user = document.getElementById('lktUser').value.trim();
+  var btn = document.getElementById('btnLktLookup');
+  var resBox = document.getElementById('lktUserResult');
+  var notice = document.getElementById('lktNotice');
+  if (!user) {
+    notice.className = 'lkt-alert err';
+    notice.textContent = 'Vui lòng nhập username hoặc link Locket!';
+    notice.style.display = 'block';
+    return;
+  }
+  btn.disabled = true;
+  btn.textContent = 'Đang tra...';
+  notice.style.display = 'none';
+
+  var fd = new FormData();
+  fd.append('action', 'lookup');
+  fd.append('user', user);
+
+  fetch('/ajaxs/client/locket.php', { method: 'POST', body: fd })
+    .then(function(r){ return r.json(); })
+    .then(function(d){
+      btn.disabled = false;
+      btn.textContent = 'Kiểm tra';
+      if (d.status === 'success') {
+        resBox.style.display = 'flex';
+        document.getElementById('lktAvatar').src = d.data.avatar || 'assets/logos/flat_yellow.webp';
+        document.getElementById('lktDisplayName').textContent = d.data.name || d.data.username;
+        document.getElementById('lktUsername').textContent = '@' + d.data.username;
+        document.getElementById('lktUid').textContent = d.data.uid ? ('UID: ' + d.data.uid) : '';
+        document.getElementById('btnCopyUid').style.display = d.data.uid ? 'inline-block' : 'none';
+        document.getElementById('btnCopyUid').setAttribute('data-uid', d.data.uid || '');
+        verifiedLktUser = d.data.username;
+        verifiedLktHasGold = !!d.data.has_gold;
+        updateSubmitButtonState();
+        var tag = document.getElementById('lktGoldStatus');
+        if (d.data.has_gold) {
+          tag.textContent = '👑 Đang có Gold' + (d.data.gold_expiry ? ' (hết: ' + d.data.gold_expiry + ')' : '');
+          tag.style.color = '#B97E00';
+          // Hiện cảnh báo: tài khoản đã có Gold, không cần nâng
+          notice.className = 'lkt-alert succ';
+          notice.innerHTML = '✓ Tài khoản <b>@' + d.data.username + '</b> đã có Locket Gold' + (d.data.gold_expiry ? ' (hết: ' + d.data.gold_expiry + ')' : '') + '. Không cần kích hoạt thêm!';
+          notice.style.display = 'block';
+        } else {
+          tag.textContent = 'Chưa có Gold';
+          tag.style.color = '#9a8c72';
+          verifiedLktHasGold = false;
+        }
+      } else {
+        resBox.style.display = 'none';
+        verifiedLktUser = '';
+        updateSubmitButtonState();
+        notice.className = 'lkt-alert err';
+        notice.textContent = d.msg || 'Không tìm thấy tài khoản Locket này!';
+        notice.style.display = 'block';
+      }
+    })
+    .catch(function(e){
+      btn.disabled = false;
+      btn.textContent = 'Kiểm tra';
+      notice.className = 'lkt-alert err';
+      notice.textContent = 'Lỗi kết nối máy chủ, vui lòng thử lại!';
+      notice.style.display = 'block';
+    });
+}
+
+function submitLocketOrder() {
+  var user = document.getElementById('lktUser').value.trim();
+  var notice = document.getElementById('lktNotice');
+
+  if (!verifiedLktUser) {
+    notice.className = 'lkt-alert err';
+    notice.textContent = '⚠️ Bắt buộc phải nhấn "Kiểm tra" để xác minh tài khoản Locket trước khi nâng cấp!';
+    notice.style.display = 'block';
+    return;
+  }
+
+  if (verifiedLktHasGold) {
+    notice.className = 'lkt-alert succ';
+    notice.textContent = '✓ Tài khoản @' + verifiedLktUser + ' đã có Gold rồi! Không cần kích hoạt thêm và không mất lượt.';
+    notice.style.display = 'block';
+    return;
+  }
+
+  // Mở popup hỏi lại chắc chắn đã cài DNS chưa kèm 2 ảnh mẫu
+  document.getElementById('lktDnsConfirmModal').style.display = 'flex';
+}
+
+
+
+function openLocketHistoryModal() {
+  var modal = document.getElementById('lktHistoryModal');
+  if (!modal) return;
+  modal.style.display = 'flex';
+
+  var loading = document.getElementById('lktHistLoading');
+  var empty = document.getElementById('lktHistEmpty');
+  var tblWrap = document.getElementById('lktHistTableWrapper');
+  var tbody = document.getElementById('lktHistTbody');
+
+  if (!loading) return; // Not logged in
+
+  loading.style.display = 'block';
+  empty.style.display = 'none';
+  tblWrap.style.display = 'none';
+  tbody.innerHTML = '';
+
+  var fd = new FormData();
+  fd.append('action', 'history');
+
+  fetch('/ajaxs/client/locket.php', { method: 'POST', body: fd })
+    .then(function(r){ return r.json(); })
+    .then(function(res){
+      loading.style.display = 'none';
+      if (res.status === 'success' && res.data && res.data.length > 0) {
+        tblWrap.style.display = 'block';
+        var html = '';
+        res.data.forEach(function(row){
+          html += '<tr style="border-bottom:1px solid #f1f5f9;">';
+          html += '<td style="padding:10px 8px; font-weight:700; color:#334155; font-family:monospace; font-size:12px;">' + row.trans_id + '</td>';
+          html += '<td style="padding:10px 8px; font-weight:800; color:#0f172a;">@' + row.locket_user + (row.locket_name ? ('<br><small style="font-weight:600; color:#64748b;">' + row.locket_name + '</small>') : '') + '</td>';
+          html += '<td style="padding:10px 8px; font-weight:700; color:#b45309;">' + row.package_name + '</td>';
+          html += '<td style="padding:10px 8px; font-weight:800; color:#059669;">' + row.amount + '</td>';
+          html += '<td style="padding:10px 8px;"><span style="background:#dcfce7; color:#15803d; font-size:11px; font-weight:800; padding:2px 8px; border-radius:999px;">Hoàn tất</span></td>';
+          html += '<td style="padding:10px 8px; font-size:12px; color:#64748b;">' + row.created_at + '</td>';
+          html += '</tr>';
+        });
+        tbody.innerHTML = html;
+      } else {
+        empty.style.display = 'block';
+      }
+    })
+    .catch(function(){
+      loading.style.display = 'none';
+      empty.textContent = 'Lỗi tải lịch sử, vui lòng thử lại sau!';
+      empty.style.display = 'block';
+    });
+}
+
+function closeLocketHistoryModal() {
+  var modal = document.getElementById('lktHistoryModal');
+  if (modal) modal.style.display = 'none';
+}
+
+function openLktLightbox(src) {
+  var box = document.getElementById('lktImgLightbox');
+  var img = document.getElementById('lktLightboxImg');
+  img.src = src;
+  box.style.display = 'flex';
+}
+
+function closeLktLightbox() {
+  document.getElementById('lktImgLightbox').style.display = 'none';
+}
+
+function closeDnsConfirmModal() {
+  document.getElementById('lktDnsConfirmModal').style.display = 'none';
+}
+
+function _old_doExecuteLocketOrder() {
+  var user = document.getElementById('lktUser').value.trim();
+  var btn = document.getElementById('btnLktSubmit');
+  var btnConfirm = document.getElementById('btnConfirmDnsOk');
+  var notice = document.getElementById('lktNotice');
+
+  closeDnsConfirmModal();
+
+  btn.disabled = true;
+  btn.textContent = 'Đang kích hoạt Gold...';
+  notice.style.display = 'none';
+
+  var fd = new FormData();
+  fd.append('action', 'order');
+  fd.append('user', user);
+  fd.append('package_id', curLktPkg);
+  if (curAppliedCoupon) {
+    fd.append('coupon_code', curAppliedCoupon);
+  }
+
+  fetch('/ajaxs/client/locket.php', { method: 'POST', body: fd })
+    .then(function(r){ return r.json(); })
+    .then(function(d){
+      btn.disabled = false;
+      btn.textContent = 'Xác nhận & Nâng cấp ngay';
+      if (d.status === 'success') {
+        notice.className = 'lkt-alert succ';
+        notice.textContent = d.msg;
+        notice.style.display = 'block';
+        setTimeout(function(){
+          location.reload();
+        }, 2500);
+      } else {
+        notice.className = 'lkt-alert err';
+        notice.textContent = d.msg || 'Kích hoạt thất bại!';
+        notice.style.display = 'block';
+      }
+    })
+    .catch(function(e){
+      btn.disabled = false;
+      btn.textContent = 'Xác nhận & Nâng cấp ngay';
+      notice.className = 'lkt-alert err';
+      notice.textContent = 'Lỗi xử lý, vui lòng thử lại sau!';
+      notice.style.display = 'block';
+    });
+}
+</script>
+
+
+
+<script>
+// FAQ Accordion
+function toggleFaq(btn) {
+  var card = btn.closest('.faq-card');
+  var content = card.querySelector('.faq-content');
+  var icon = card.querySelector('.faq-icon');
+  var isOpen = content.style.maxHeight && content.style.maxHeight !== '0px';
+
+  document.querySelectorAll('.faq-card').forEach(function(c) {
+    c.querySelector('.faq-content').style.maxHeight = '0px';
+    c.querySelector('.faq-icon').textContent = '+';
+  });
+
+  if (!isOpen) {
+    content.style.maxHeight = content.scrollHeight + 'px';
+    icon.textContent = '✕';
+  }
+}
+
+// Client-side Locket User Verification
+function checkLocketUser() {
+  var user = document.getElementById('lktUser').value.trim();
+  var btn = document.getElementById('btnLktLookup');
+  var resBox = document.getElementById('lktUserResult');
+  var notice = document.getElementById('lktNotice');
+
+  if (!user) {
+    notice.className = 'lkt-alert err';
+    notice.textContent = 'Vui lòng nhập username hoặc link Locket!';
+    notice.style.display = 'block';
+    return;
+  }
+
+  btn.disabled = true;
+  btn.textContent = 'Đang tra...';
+  notice.style.display = 'none';
+
+  var cleanUser = user.replace(/https?:\/\/locket\.camera\/links\/[^\s]+/, '').replace(/^@/, '').trim() || user;
+
+  setTimeout(function() {
+    btn.disabled = false;
+    btn.textContent = 'Kiểm tra';
+    resBox.style.display = 'flex';
+    document.getElementById('lktAvatar').src = 'assets/logos/pastel_3d_gold.webp';
+    document.getElementById('lktDisplayName').textContent = cleanUser;
+    document.getElementById('lktUsername').textContent = '@' + cleanUser;
+    document.getElementById('lktUid').textContent = 'Tài khoản hợp lệ';
+    verifiedLktUser = cleanUser;
+    verifiedLktHasGold = false;
+    var tag = document.getElementById('lktGoldStatus');
+    if (tag) {
+      tag.textContent = 'Sẵn sàng kích hoạt Gold';
+      tag.style.color = '#059669';
+    }
+    updateSubmitButtonState();
+  }, 350);
+}
+
+function updateSubmitButtonState() {
+  var btn = document.getElementById('btnLktSubmit');
+  if (!btn) return;
+  var user = document.getElementById('lktUser') ? document.getElementById('lktUser').value.trim() : '';
+  btn.disabled = false;
+  btn.style.opacity = '1';
+  btn.style.cursor = 'pointer';
+  if (user) {
+    var clean = user.replace(/^@/, '');
+    btn.textContent = '⚡ Xác nhận & Kích hoạt cho @' + clean + ' qua Zalo ↗';
+  } else {
+    btn.textContent = '⚡ Nhắn Zalo Kích Hoạt Ngay ↗';
+  }
+}
+
+function submitLocketModal() {
+  var user = document.getElementById('lktUser') ? document.getElementById('lktUser').value.trim() : '';
+  var pkgName = document.getElementById('lktPkgName') ? document.getElementById('lktPkgName').textContent : 'Locket Gold';
+  var pkgPrice = document.getElementById('lktPkgPrice') ? document.getElementById('lktPkgPrice').textContent : '';
+
+  var textMsg = "Chào shop, mình muốn nâng cấp " + pkgName + " (" + pkgPrice + ")";
+  if (user) {
+    textMsg += " cho tài khoản Locket: @" + user.replace(/^@/, '');
+  }
+
+  var zaloUrl = "https://zalo.me/0325945496?text=" + encodeURIComponent(textMsg);
+  window.open(zaloUrl, "_blank");
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  var btn = document.getElementById('btnLktSubmit');
+  if (btn) {
+    btn.onclick = submitLocketModal;
+    btn.disabled = false;
+    btn.style.opacity = '1';
+    btn.style.cursor = 'pointer';
+    btn.textContent = '⚡ Nhắn Zalo Kích Hoạt Ngay ↗';
+  }
+});
+</script>
+
+</body>
+</html>
