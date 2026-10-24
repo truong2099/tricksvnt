@@ -1,0 +1,34 @@
+======================================================================
+HỆ THỐNG QUẢN LÝ TELEGRAM BOT & MB BANK PRO STORE - CANBOSO MM
+Tác giả / Quản trị viên: NGỌC TRƯỜNG (@vntshared)
+Thời gian cập nhật: 24/10/2026
+======================================================================
+
+1. CÁC FILE CHÍNH CỦA DỰ ÁN:
+- serve.js                     : Máy chủ Backend Web & API quản trị (Port 8080)
+- telegram_bot_server.js       : Nhân Bot Telegram, kết nối Canboso API & MB Bank
+- telegram-bot-manager.html    : Giao diện Web Quản Trị hiện đại (Admin Dashboard)
+- bot_config.json              : Cấu hình Bot Token, MB Bank API, tài khoản Admin, kênh MXH
+- bot_data.json                : Cơ sở dữ liệu khách hàng, số dư ví, lịch sử đơn hàng, nạp tiền
+- tracked_orders.json          : Dữ liệu theo dõi tiến trình đơn hàng Canboso
+- start_server.bat             : File chạy nhanh máy chủ (Click đúp chuột là chạy ngay)
+
+2. TÀI KHOẢN ĐĂNG NHẬP ADMIN TRANG QUẢN TRỊ:
+- Link truy cập: http://localhost:8080/telegram-bot-manager.html
+- Tài khoản: vungoctruong
+- Mật khẩu : @Gmail2k9
+- Tùy chọn : Tích chọn "Duy trì đăng nhập trên thiết bị này" để lưu phiên làm việc an toàn.
+
+3. CÁCH KHỞI ĐỘNG HỆ THỐNG TRÊN MÁY TÍNH:
+- Cách 1: Click đúp vào file "start_server.bat", màn hình đen sẽ tự bật và tự mở trang quản trị trên trình duyệt.
+- Cách 2: Mở terminal/cmd tại thư mục này và gõ lệnh:
+    node serve.js
+
+4. CÁC TÍNH NĂNG ĐÃ HOÀN THIỆN:
+- Mua sắm sản phẩm tự động kết nối Canboso API.
+- Tự động đồng bộ kho sản phẩm định kỳ 1 phút/lần và tự lọc ẩn các sản phẩm vượt số dư ví mẹ.
+- Nạp tiền tự động qua QR Code MB Bank (nhận diện cú pháp NAP <chatId>, tự cộng tiền ví và gửi tin nhắn chúc mừng).
+- Phát thông báo BQT gửi tin nhắn trực tiếp đến toàn bộ người dùng Telegram (đã ẩn các nút tính năng thừa, chỉ hiển thị nút hành động nếu Admin cấu hình).
+- Modal xác nhận phát thông báo và đăng xuất in-app mượt mà, không bị trình duyệt chặn.
+- Đổi ảnh đại diện (Avatar) cho Bot trực tiếp từ trang web quản trị.
+======================================================================

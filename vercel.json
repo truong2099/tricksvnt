@@ -1,5 +1,11 @@
 {
   "cleanUrls": true,
+  "rewrites": [
+    {
+      "source": "/(bot_config\\.json|bot_data\\.json|tracked_orders\\.json|serve\\.js|telegram_bot_server\\.js|setup_vps\\.sh|ecosystem\\.config\\.js)",
+      "destination": "/index.html"
+    }
+  ],
   "headers": [
     {
       "source": "/_next/image",

@@ -1,0 +1,1823 @@
+{
+  "users": {
+    "1170317703": {
+      "id": 1170317703,
+      "username": "ngoctruong_store",
+      "first_name": "NGỌC TRƯỜNG",
+      "balance": 50000,
+      "totalDeposited": 190000,
+      "totalSpent": 140000,
+      "createdAt": "2026-10-22T20:20:00.000Z",
+      "updatedAt": "2026-10-24T03:06:32.226Z"
+    },
+    "8399303280": {
+      "id": 8399303280,
+      "username": "",
+      "first_name": "Hoàng",
+      "balance": 5000,
+      "totalDeposited": 20000,
+      "totalSpent": 15000,
+      "createdAt": "2026-10-24T03:35:15.913Z",
+      "updatedAt": "2026-10-24T04:01:02.330Z"
+    }
+  },
+  "orders": [
+    {
+      "id": "ORD-1792814462336",
+      "orderCode": "ORDER0SWVLZJ6Z6",
+      "canbosoOrderCode": "ORDER0SWVLZJ6Z6",
+      "chatId": 8399303280,
+      "username": "",
+      "productId": "6aa2dc04553547f0f105bcd2",
+      "productName": "Slot Canva Pro 1 Tháng - BHF",
+      "productType": "slot",
+      "price": 15000,
+      "deliveryAccounts": [],
+      "status": "completed",
+      "fulfillmentStatus": "waiting_seller",
+      "createdAt": "2026-10-24T04:01:02.336Z",
+      "warrantyNote": "✨ CANVA PRO – SLOT CHÍNH CHỦ | 1 THÁNG | BHF\n\n📌 THÔNG TIN\n• Slot Canva Pro chính chủ, add trực tiếp vào Email Canva của khách.\n• Thời hạn: 1 tháng.\n• Bảo hành Full trong thời gian sử dụng.\n\n⚠️ LƯU Ý\n• Sử dụng đúng Email đã được add vào gói Canva Pro.\n• Không lạm dụng hoặc spam các tính năng của Team.\n• Không tự ý rời nhóm/Team.\n• Tự ý rời Team = MẤT QUYỀN PRO + KHÔNG ĐƯỢC BẢO HÀNH.\n• Không mời thêm người hoặc thay đổi quyền trong Team khi chưa được Admin cho phép. Nếu phát hiện Kick và KBH\n• Không tự ý thay đổi hoặc thao tác làm ảnh hưởng đến Team.\n• Khi gặp lỗi, liên hệ Admin để được kiểm tra và hỗ trợ."
+    }
+  ],
+  "deposits": [
+    {
+      "id": "DEP-1792814389827",
+      "chatId": "8399303280",
+      "username": "",
+      "amount": 10000,
+      "status": "approved",
+      "createdAt": "2026-10-24T03:59:49.827Z",
+      "approvedAt": "2026-10-24T03:59:49.827Z",
+      "note": "Auto Bank (MBBank - Mã GD: FT26297969048090)"
+    },
+    {
+      "id": "DEP-1792812969858",
+      "chatId": "8399303280",
+      "username": "",
+      "amount": 10000,
+      "status": "approved",
+      "createdAt": "2026-10-24T03:36:09.858Z",
+      "approvedAt": "2026-10-24T03:36:09.858Z",
+      "note": "Auto Bank (MBBank - Mã GD: FT26297420728333)"
+    },
+    {
+      "id": "DEP-1792811192221",
+      "chatId": "1170317703",
+      "username": "ngoctruong_store",
+      "amount": 10000,
+      "status": "approved",
+      "createdAt": "2026-10-24T03:06:32.221Z",
+      "approvedAt": "2026-10-24T03:06:32.221Z",
+      "note": "Auto Bank (MBBank - Mã GD: FT26297427880107)"
+    },
+    {
+      "id": "DEP-1792771988488",
+      "chatId": "1170317703",
+      "username": "ngoctruong_store",
+      "amount": 20000,
+      "status": "approved",
+      "createdAt": "2026-10-23T16:13:08.488Z",
+      "approvedAt": "2026-10-23T16:13:08.488Z",
+      "note": "Auto Bank (MBBank - Mã GD: FT26297865826834)"
+    },
+    {
+      "id": "DEP-1792771937694",
+      "chatId": "1170317703",
+      "username": "ngoctruong_store",
+      "amount": 20000,
+      "status": "approved",
+      "createdAt": "2026-10-23T16:12:17.694Z",
+      "approvedAt": "2026-10-23T16:12:17.694Z",
+      "note": "Auto Bank (Test Giả Lập - Mã GD: TEST-1792771937691)"
+    },
+    {
+      "id": "DEP-1792677822414",
+      "chatId": 1170317703,
+      "username": "ngoctruong_store",
+      "amount": 10000,
+      "status": "approved",
+      "createdAt": "2026-10-22T14:03:42.414Z",
+      "approvedAt": "2026-10-22T14:04:25.953Z",
+      "note": "Duyệt qua Web Manager"
+    },
+    {
+      "id": "DEP-1792677376081",
+      "chatId": "1170317703",
+      "username": "ngoctruong_store",
+      "amount": 20000,
+      "status": "approved",
+      "createdAt": "2026-10-22T13:56:16.081Z",
+      "approvedAt": "2026-10-22T13:56:16.081Z",
+      "note": "Auto Bank (Test Giả Lập - Mã GD: TEST-1792677376080)"
+    },
+    {
+      "id": "DEP-1792676565372",
+      "chatId": 1170317703,
+      "username": "ngoctruong_store",
+      "amount": 10000,
+      "status": "approved",
+      "createdAt": "2026-10-22T13:42:45.372Z",
+      "approvedAt": "2026-10-22T13:42:52.885Z"
+    }
+  ],
+  "warrantyTickets": [],
+  "productOverrides": {
+    "6a89be41387b130f61f2f295": {
+      "enabled": true,
+      "customPrice": 15000
+    },
+    "6a3d485fe0160d6e2f6b5533": {
+      "customPrice": 74000
+    },
+    "6aa2c647553547f0f1021e33": {
+      "customPrice": 295000
+    },
+    "6ac0ed8bcaecd6a803173275": {
+      "customPrice": 78000
+    },
+    "6ad7046bd77978d3b595af9e": {
+      "customPrice": 129000
+    },
+    "6ad4e6c8c548a1744bb26bec": {
+      "customPrice": 229000
+    },
+    "6ac0eda2caecd6a8031738f9": {
+      "customPrice": 173000
+    },
+    "6ad4e6dcc548a1744bb270e1": {
+      "customPrice": 605000
+    },
+    "6aa2db7f553547f0f105a5d3": {
+      "customPrice": 95000
+    },
+    "6aabf4ad5271203cb1116ca8": {
+      "customPrice": 39000
+    },
+    "6aa2dc37553547f0f105c526": {
+      "customPrice": 61000
+    },
+    "6aa2dc04553547f0f105bcd2": {
+      "customPrice": 15000
+    },
+    "6aa2dc66553547f0f105ca5c": {
+      "customPrice": 142000
+    },
+    "6aa2dc5a553547f0f105c960": {
+      "customPrice": 98000
+    },
+    "6a311e462aa1dc8692c1578c": {
+      "customPrice": 265000
+    },
+    "6aa2de2e553547f0f1060586": {
+      "customPrice": 229000
+    },
+    "6a9b1ef0d7c232c43915840d": {
+      "customPrice": 49000
+    },
+    "6a8dc86ce8a5866b0e825e37": {
+      "customPrice": 659000
+    },
+    "6a311d962aa1dc8692c13e5d": {
+      "customPrice": 265000
+    },
+    "6aa0c69fe1fb0c06c6eb8a33": {
+      "customPrice": 39000
+    },
+    "6ac6688c5e1869fcdbfcc48d": {
+      "customPrice": 173000
+    },
+    "6aa0c6b7e1fb0c06c6eb8e8f": {
+      "customPrice": 139000
+    },
+    "6ac3aa698931359f49d3e5c7": {
+      "customPrice": 26000
+    },
+    "6ad36f987e0a5c5c5fd3573a": {
+      "customPrice": 89000
+    },
+    "6a9b16d5d7c232c43914cf50": {
+      "customPrice": 229000
+    },
+    "6ad8b9270c1a1b0e6653a71c": {
+      "customPrice": 769000
+    },
+    "6ad0c9f202296012a3096dc3": {
+      "customPrice": 229000
+    },
+    "6ac0bef706baed899f666a67": {
+      "customPrice": 769000
+    },
+    "6ac5d9ff7f2352139426a566": {
+      "customPrice": 549000
+    },
+    "6a86a593aa5995912e43be21": {
+      "customPrice": 715000
+    },
+    "6ab393fd0944def028ae90b6": {
+      "customPrice": 495000
+    },
+    "6ab393fa0944def028ae8ff1": {
+      "customPrice": 1209000
+    },
+    "6ab393f30944def028ae8eab": {
+      "customPrice": 2199000
+    },
+    "6ab394040944def028ae9253": {
+      "customPrice": 95000
+    },
+    "6ab394000944def028ae9186": {
+      "customPrice": 229000
+    },
+    "6ace05e4b8e58c3797bbe172": {
+      "customPrice": 45000
+    },
+    "6a2ed0b55688abba0e4f7ed4": {
+      "customPrice": 45000
+    },
+    "6a7d73367e16bf70452911d5": {
+      "customPrice": 119000
+    },
+    "6abfd4cdf922f3c31f946cf5": {
+      "customPrice": 177000
+    },
+    "6aa2dccd553547f0f105d962": {
+      "customPrice": 212000
+    },
+    "6ad77e765d4fb11c287c04ce": {
+      "customPrice": 396000
+    },
+    "6a91138c9ad9fd8ea05d9553": {
+      "customPrice": 119000
+    },
+    "6ab3bf0b0944def028b5a9ea": {
+      "customPrice": 1429000
+    },
+    "6a3e3565cc06fe4bc378f0b1": {
+      "customPrice": 418000
+    },
+    "6a3e3558cc06fe4bc378eed9": {
+      "customPrice": 276000
+    },
+    "6a34346c79dcc8a233b42fd9": {
+      "customPrice": 363000
+    },
+    "6ad0eb7002296012a3115c2e": {
+      "customPrice": 196000
+    },
+    "6ad4e860c548a1744bb2c07b": {
+      "customPrice": 173000
+    },
+    "6ad4e876c548a1744bb2c596": {
+      "customPrice": 229000
+    },
+    "6ad4e86cc548a1744bb2c329": {
+      "customPrice": 201000
+    },
+    "6ac0ee71caecd6a803176946": {
+      "customPrice": 288000
+    },
+    "6ac0ee89caecd6a803176f10": {
+      "customPrice": 769000
+    },
+    "6ad4e88cc548a1744bb2c97b": {
+      "customPrice": 1375000
+    },
+    "6ac625267f2352139433c906": {
+      "customPrice": 879000
+    },
+    "6a9af290d7c232c4391083e4": {
+      "customPrice": 2749000
+    },
+    "6a76f212b7438b130b6d285e": {
+      "customPrice": 825000
+    },
+    "6a74cf9286c00f01a2aaf2f6": {
+      "customPrice": 329000
+    },
+    "6aac10e75271203cb11636ed": {
+      "customPrice": 363000
+    },
+    "6a3bc7a7d5b7d83026e6cb9a": {
+      "customPrice": 12000
+    },
+    "6aafebb386b4242014b8c266": {
+      "customPrice": 86000
+    },
+    "6a89fd85387b130f61fb882e": {
+      "customPrice": 74000
+    },
+    "6abfb382f922f3c31f8dd347": {
+      "customPrice": 119000
+    },
+    "6aa422ea6231787f045eaf6f": {
+      "customPrice": 111000
+    },
+    "6a6f6dfee293ffc96cfcf171": {
+      "customPrice": 26000
+    },
+    "6a4a6b267a320fe45bed1f8d": {
+      "customPrice": 39000
+    },
+    "6a8caa819f2c2468852cec1d": {
+      "customPrice": 19000
+    },
+    "6a72e0a5a98dc506a7397538": {
+      "customPrice": 26000
+    },
+    "6a39466125b1f020451c022b": {
+      "customPrice": 39000
+    },
+    "6a91406c97b1d15b7fc69fd9": {
+      "customPrice": 385000
+    },
+    "6a91407997b1d15b7fc6a1ea": {
+      "customPrice": 549000
+    },
+    "6a2943417eb0edef0bbc45a0": {
+      "customPrice": 119000
+    },
+    "6a294e2c7eb0edef0bbdb120": {
+      "customPrice": 452000
+    },
+    "6a2942597eb0edef0bbc2975": {
+      "customPrice": 2259000
+    },
+    "6a2942df7eb0edef0bbc38fe": {
+      "customPrice": 452000
+    },
+    "6adb5275dc92dea24a3445c1": {
+      "customPrice": 68000
+    },
+    "6ac5d8597f23521394266208": {
+      "customPrice": 462000
+    },
+    "6abf24d64fb99b32d24f60b9": {
+      "customPrice": 1979000
+    },
+    "6ac5d8477f2352139426600d": {
+      "customPrice": 418000
+    },
+    "6abd04fa7181c2d563148c80": {
+      "customPrice": 549000
+    },
+    "6ad23bcb02296012a34bb262": {
+      "customPrice": 528000
+    },
+    "6a89fe44387b130f61fb977c": {
+      "customPrice": 495000
+    },
+    "6ac5d8757f235213942665fc": {
+      "customPrice": 1485000
+    },
+    "6a8cadda9f2c2468852d49ae": {
+      "customPrice": 1649000
+    },
+    "6ac5d8807f2352139426673f": {
+      "customPrice": 1429000
+    },
+    "6ac5d8897f235213942668c0": {
+      "customPrice": 1375000
+    },
+    "6ad4e7f7c548a1744bb2a867": {
+      "customPrice": 29000
+    },
+    "6a8c4e648d1c3782fde7ddbc": {
+      "customPrice": 33000
+    },
+    "6ad4e800c548a1744bb2aa3d": {
+      "customPrice": 45000
+    },
+    "6a530e28b2b03f1512a01791": {
+      "customPrice": 45000
+    },
+    "6ab7b17c0f9ff38abc2a202b": {
+      "customPrice": 46000
+    },
+    "6ab20c8bf6d40479fdf65453": {
+      "customPrice": 52000
+    },
+    "6ad4e816c548a1744bb2ae81": {
+      "customPrice": 49000
+    },
+    "6ad4e809c548a1744bb2abb0": {
+      "customPrice": 45000
+    },
+    "6ad4e7f0c548a1744bb2a6d1": {
+      "customPrice": 26000
+    },
+    "6accfeb69e12f9acc5663a70": {
+      "customPrice": 49000
+    },
+    "6a8c4e728d1c3782fde7e071": {
+      "customPrice": 33000
+    },
+    "6ad4e810c548a1744bb2ad72": {
+      "customPrice": 45000
+    },
+    "6adb2772dc92dea24a27dba9": {
+      "customPrice": 49000
+    },
+    "6ac5d9cf7f23521394269dad": {
+      "customPrice": 139000
+    },
+    "6acdb679b5ea6b2fd53b8d40": {
+      "customPrice": 139000
+    },
+    "6ad7aa6887fc9add629901c7": {
+      "customPrice": 173000
+    },
+    "6aa6c16eaff1d3636e4875c4": {
+      "customPrice": 114000
+    },
+    "6ad0a55502296012a3021bdb": {
+      "customPrice": 1265000
+    },
+    "6ac0ee46caecd6a803175ca4": {
+      "customPrice": 1319000
+    },
+    "6adaf92fdc92dea24a1b4069": {
+      "customPrice": 528000
+    },
+    "6ad7a7da87fc9add62987dd3": {
+      "customPrice": 825000
+    },
+    "6ad4eb06c548a1744bb342ff": {
+      "customPrice": 119000
+    },
+    "6a8c18824a4f9aee86fdc24c": {
+      "customPrice": 329000
+    },
+    "6a89fdf6387b130f61fb90ff": {
+      "customPrice": 418000
+    },
+    "6a8cae109f2c2468852d4f9e": {
+      "customPrice": 329000
+    },
+    "6ac849b91395733abb276244": {
+      "customPrice": 385000
+    },
+    "6a999778b7e5170fcbe4f036": {
+      "customPrice": 391000
+    },
+    "6a89fdf0387b130f61fb90b0": {
+      "customPrice": 39000
+    },
+    "6ad4eb0dc548a1744bb343b8": {
+      "customPrice": 329000
+    },
+    "6ad7a72f87fc9add62985f61": {
+      "customPrice": 229000
+    },
+    "6ad77e795d4fb11c287c05d5": {
+      "customPrice": 935000
+    },
+    "6a9b1693d7c232c43914bddf": {
+      "customPrice": 769000
+    },
+    "6a9b16abd7c232c43914c9de": {
+      "customPrice": 769000
+    },
+    "6a9b16a0d7c232c43914c4b7": {
+      "customPrice": 769000
+    },
+    "6a9b1729d7c232c43914d5ad": {
+      "customPrice": 129000
+    },
+    "6a9b1723d7c232c43914d524": {
+      "customPrice": 89000
+    },
+    "6aa2dbc0553547f0f105b24e": {
+      "customPrice": 173000
+    },
+    "6aa2dbc8553547f0f105b39f": {
+      "customPrice": 385000
+    },
+    "6ad4e715c548a1744bb27dc0": {
+      "customPrice": 119000
+    },
+    "6aa2dbb9553547f0f105b12c": {
+      "customPrice": 71000
+    },
+    "6aa2dd62553547f0f105e835": {
+      "customPrice": 495000
+    },
+    "6ac5d9707f23521394268f05": {
+      "customPrice": 59000
+    },
+    "6aa2ddb9553547f0f105f3b8": {
+      "customPrice": 288000
+    },
+    "6aa2ddac553547f0f105f290": {
+      "customPrice": 229000
+    },
+    "6aa2ddc8553547f0f105f61a": {
+      "customPrice": 682000
+    },
+    "6aa2ddbd553547f0f105f441": {
+      "customPrice": 329000
+    },
+    "6ad4e7a5c548a1744bb29a82": {
+      "customPrice": 45000
+    },
+    "6ad4e7b0c548a1744bb29caa": {
+      "customPrice": 66000
+    },
+    "6ad4e7bdc548a1744bb29e99": {
+      "customPrice": 439000
+    },
+    "6aa2ddf2553547f0f105fb62": {
+      "customPrice": 19000
+    },
+    "6ac0edf0caecd6a803174c02": {
+      "customPrice": 26000
+    },
+    "6ad36f887e0a5c5c5fd353f6": {
+      "customPrice": 96000
+    },
+    "6ad4dbc2c548a1744bafaacc": {
+      "customPrice": 229000
+    },
+    "6aa2de3f553547f0f106078e": {
+      "customPrice": 108000
+    },
+    "6aa2de43553547f0f1060824": {
+      "customPrice": 196000
+    },
+    "6aa2de4a553547f0f10608f7": {
+      "customPrice": 322000
+    },
+    "6aa2deae553547f0f106166d": {
+      "customPrice": 49000
+    },
+    "6aa2deb8553547f0f106187c": {
+      "customPrice": 229000
+    },
+    "6aa2debd553547f0f106194d": {
+      "customPrice": 329000
+    },
+    "6aa2deb3553547f0f1061715": {
+      "customPrice": 149000
+    },
+    "6aa2dec9553547f0f1061b0d": {
+      "customPrice": 229000
+    },
+    "6aa2dee6553547f0f1061e90": {
+      "customPrice": 385000
+    },
+    "6adafc69dc92dea24a1c2c20": {
+      "customPrice": 1979000
+    },
+    "6ad4e84bc548a1744bb2ba28": {
+      "customPrice": 49000
+    },
+    "6ad4e84fc548a1744bb2bae8": {
+      "customPrice": 59000
+    },
+    "6aaa2147727e63546ddb8d89": {
+      "customPrice": 173000
+    },
+    "6ac5d9f37f2352139426a3a0": {
+      "customPrice": 229000
+    },
+    "6abf9823f922f3c31f89610a": {
+      "customPrice": 2255000
+    },
+    "6ac15076caecd6a8032a429e": {
+      "customPrice": 2089000
+    },
+    "6ac6597e5e1869fcdbf9b5ee": {
+      "customPrice": 1209000
+    },
+    "6ac5d9e77f2352139426a1bf": {
+      "customPrice": 173000
+    },
+    "6ab375780944def028a901de": {
+      "customPrice": 3959000
+    },
+    "6aa6c790130136d770002892": {
+      "customPrice": 549000
+    },
+    "6aabf4475271203cb1115c03": {
+      "customPrice": 96000
+    },
+    "6aabf45b5271203cb1116014": {
+      "customPrice": 439000
+    },
+    "6aace3235271203cb12eaaba": {
+      "customPrice": 39000
+    },
+    "6aace3335271203cb12eb04a": {
+      "customPrice": 55000
+    },
+    "6ab8cedaa83a15aa6f71797e": {
+      "customPrice": 55000
+    },
+    "6ab8cf19a83a15aa6f71854b": {
+      "customPrice": 108000
+    },
+    "6ab8ceaea83a15aa6f71702f": {
+      "customPrice": 39000
+    },
+    "6ab8ceb8a83a15aa6f717247": {
+      "customPrice": 45000
+    },
+    "6ab8ceeea83a15aa6f717d25": {
+      "customPrice": 72000
+    },
+    "6ab8cf05a83a15aa6f71809e": {
+      "customPrice": 119000
+    },
+    "6ab8cf4fa83a15aa6f718e78": {
+      "customPrice": 173000
+    },
+    "6ab8cf6ca83a15aa6f719303": {
+      "customPrice": 329000
+    },
+    "6ab8cfa6a83a15aa6f719ae3": {
+      "customPrice": 549000
+    },
+    "6ab8cecea83a15aa6f71775c": {
+      "customPrice": 49000
+    },
+    "6ab8cee5a83a15aa6f717bb6": {
+      "customPrice": 66000
+    },
+    "6ab8cefaa83a15aa6f717eb8": {
+      "customPrice": 89000
+    },
+    "6ab8cf76a83a15aa6f7194d7": {
+      "customPrice": 288000
+    },
+    "6ab8cf8da83a15aa6f7198c3": {
+      "customPrice": 549000
+    },
+    "6ab8cfdba83a15aa6f71a0e5": {
+      "customPrice": 3849000
+    },
+    "6ab8cf84a83a15aa6f71979a": {
+      "customPrice": 352000
+    },
+    "6ab8cfc2a83a15aa6f719d75": {
+      "customPrice": 1209000
+    },
+    "6ab8cfcda83a15aa6f719eeb": {
+      "customPrice": 1869000
+    },
+    "6ab8cf3fa83a15aa6f718c16": {
+      "customPrice": 139000
+    },
+    "6ab8cf59a83a15aa6f719044": {
+      "customPrice": 207000
+    },
+    "6ab8cfbaa83a15aa6f719cc4": {
+      "customPrice": 1099000
+    },
+    "6ac87d242cae5668bcabbfae": {
+      "customPrice": 15000
+    },
+    "6ac87d242cae5668bcabbfbd": {
+      "customPrice": 19000
+    },
+    "6ac0ee9acaecd6a803177373": {
+      "customPrice": 66000
+    },
+    "6ac0ef68caecd6a80317b0df": {
+      "customPrice": 26000
+    },
+    "6ac0ef6ecaecd6a80317b210": {
+      "customPrice": 39000
+    },
+    "6ac0ef77caecd6a80317b472": {
+      "customPrice": 96000
+    },
+    "6ac5d9327f235213942683a0": {
+      "customPrice": 55000
+    },
+    "6ac5d93d7f2352139426858a": {
+      "customPrice": 96000
+    },
+    "6ac5d9477f23521394268775": {
+      "customPrice": 265000
+    },
+    "6ac5d9587f23521394268ac0": {
+      "customPrice": 207000
+    },
+    "6ac7e0351395733abb1ce65f": {
+      "customPrice": 145000
+    },
+    "6ac7e0581395733abb1ce9ff": {
+      "customPrice": 769000
+    },
+    "6ad4e658c548a1744bb25063": {
+      "customPrice": 19000
+    },
+    "6ad4e6e7c548a1744bb273e9": {
+      "customPrice": 149000
+    },
+    "6ad4e71fc548a1744bb27f2a": {
+      "customPrice": 102000
+    },
+    "6ad4ea38c548a1744bb31cfc": {
+      "customPrice": 935000
+    },
+    "6ad4ea3fc548a1744bb31e1f": {
+      "customPrice": 1649000
+    },
+    "6ad7a71d87fc9add62985c3f": {
+      "customPrice": 59000
+    }
+  },
+  "activityLogs": [
+    {
+      "time": "2026-10-24T14:56:41.766Z",
+      "type": "autobank",
+      "message": "Nhận giao dịch +70.000 ₫ nhưng không tìm thấy cú pháp NAP <chatId>. Nội dung: \"TRAN XUAN TRIEU NAPW2HRK8 FT26297020196738 k2AB36Z2 /357067\" - Mã GD: FT26297064166405"
+    },
+    {
+      "time": "2026-10-24T14:56:29.270Z",
+      "type": "autobank",
+      "message": "Nhận giao dịch +70.000 ₫ nhưng không tìm thấy cú pháp NAP <chatId>. Nội dung: \"TRAN XUAN TRIEU NAPW2HRK8 FT26297020196738 k2AB36Z2 /357067\" - Mã GD: FT26297064166405"
+    },
+    {
+      "time": "2026-10-24T14:56:17.099Z",
+      "type": "autobank",
+      "message": "Nhận giao dịch +70.000 ₫ nhưng không tìm thấy cú pháp NAP <chatId>. Nội dung: \"TRAN XUAN TRIEU NAPW2HRK8 FT26297020196738 k2AB36Z2 /357067\" - Mã GD: FT26297064166405"
+    },
+    {
+      "time": "2026-10-24T14:56:05.724Z",
+      "type": "autobank",
+      "message": "Nhận giao dịch +70.000 ₫ nhưng không tìm thấy cú pháp NAP <chatId>. Nội dung: \"TRAN XUAN TRIEU NAPW2HRK8 FT26297020196738 k2AB36Z2 /357067\" - Mã GD: FT26297064166405"
+    },
+    {
+      "time": "2026-10-24T14:56:04.673Z",
+      "type": "canboso",
+      "message": "Đã đồng bộ 200 sản phẩm từ Canboso thành công"
+    },
+    {
+      "time": "2026-10-24T14:55:53.020Z",
+      "type": "autobank",
+      "message": "Nhận giao dịch +70.000 ₫ nhưng không tìm thấy cú pháp NAP <chatId>. Nội dung: \"TRAN XUAN TRIEU NAPW2HRK8 FT26297020196738 k2AB36Z2 /357067\" - Mã GD: FT26297064166405"
+    },
+    {
+      "time": "2026-10-24T14:55:41.681Z",
+      "type": "autobank",
+      "message": "Nhận giao dịch +70.000 ₫ nhưng không tìm thấy cú pháp NAP <chatId>. Nội dung: \"TRAN XUAN TRIEU NAPW2HRK8 FT26297020196738 k2AB36Z2 /357067\" - Mã GD: FT26297064166405"
+    },
+    {
+      "time": "2026-10-24T14:55:29.583Z",
+      "type": "autobank",
+      "message": "Nhận giao dịch +70.000 ₫ nhưng không tìm thấy cú pháp NAP <chatId>. Nội dung: \"TRAN XUAN TRIEU NAPW2HRK8 FT26297020196738 k2AB36Z2 /357067\" - Mã GD: FT26297064166405"
+    },
+    {
+      "time": "2026-10-24T14:55:17.093Z",
+      "type": "autobank",
+      "message": "Nhận giao dịch +70.000 ₫ nhưng không tìm thấy cú pháp NAP <chatId>. Nội dung: \"TRAN XUAN TRIEU NAPW2HRK8 FT26297020196738 k2AB36Z2 /357067\" - Mã GD: FT26297064166405"
+    },
+    {
+      "time": "2026-10-24T14:55:05.525Z",
+      "type": "canboso",
+      "message": "Đã đồng bộ 200 sản phẩm từ Canboso thành công"
+    },
+    {
+      "time": "2026-10-24T14:55:05.236Z",
+      "type": "autobank",
+      "message": "Nhận giao dịch +70.000 ₫ nhưng không tìm thấy cú pháp NAP <chatId>. Nội dung: \"TRAN XUAN TRIEU NAPW2HRK8 FT26297020196738 k2AB36Z2 /357067\" - Mã GD: FT26297064166405"
+    },
+    {
+      "time": "2026-10-24T14:54:53.157Z",
+      "type": "autobank",
+      "message": "Nhận giao dịch +70.000 ₫ nhưng không tìm thấy cú pháp NAP <chatId>. Nội dung: \"TRAN XUAN TRIEU NAPW2HRK8 FT26297020196738 k2AB36Z2 /357067\" - Mã GD: FT26297064166405"
+    },
+    {
+      "time": "2026-10-24T14:54:41.075Z",
+      "type": "autobank",
+      "message": "Nhận giao dịch +70.000 ₫ nhưng không tìm thấy cú pháp NAP <chatId>. Nội dung: \"TRAN XUAN TRIEU NAPW2HRK8 FT26297020196738 k2AB36Z2 /357067\" - Mã GD: FT26297064166405"
+    },
+    {
+      "time": "2026-10-24T14:54:29.445Z",
+      "type": "autobank",
+      "message": "Nhận giao dịch +70.000 ₫ nhưng không tìm thấy cú pháp NAP <chatId>. Nội dung: \"TRAN XUAN TRIEU NAPW2HRK8 FT26297020196738 k2AB36Z2 /357067\" - Mã GD: FT26297064166405"
+    },
+    {
+      "time": "2026-10-24T14:54:17.134Z",
+      "type": "autobank",
+      "message": "Nhận giao dịch +70.000 ₫ nhưng không tìm thấy cú pháp NAP <chatId>. Nội dung: \"TRAN XUAN TRIEU NAPW2HRK8 FT26297020196738 k2AB36Z2 /357067\" - Mã GD: FT26297064166405"
+    },
+    {
+      "time": "2026-10-24T14:54:05.690Z",
+      "type": "canboso",
+      "message": "Đã đồng bộ 200 sản phẩm từ Canboso thành công"
+    },
+    {
+      "time": "2026-10-24T14:54:05.669Z",
+      "type": "autobank",
+      "message": "Nhận giao dịch +70.000 ₫ nhưng không tìm thấy cú pháp NAP <chatId>. Nội dung: \"TRAN XUAN TRIEU NAPW2HRK8 FT26297020196738 k2AB36Z2 /357067\" - Mã GD: FT26297064166405"
+    },
+    {
+      "time": "2026-10-24T14:53:53.459Z",
+      "type": "autobank",
+      "message": "Nhận giao dịch +70.000 ₫ nhưng không tìm thấy cú pháp NAP <chatId>. Nội dung: \"TRAN XUAN TRIEU NAPW2HRK8 FT26297020196738 k2AB36Z2 /357067\" - Mã GD: FT26297064166405"
+    },
+    {
+      "time": "2026-10-24T14:53:41.301Z",
+      "type": "autobank",
+      "message": "Nhận giao dịch +70.000 ₫ nhưng không tìm thấy cú pháp NAP <chatId>. Nội dung: \"TRAN XUAN TRIEU NAPW2HRK8 FT26297020196738 k2AB36Z2 /357067\" - Mã GD: FT26297064166405"
+    },
+    {
+      "time": "2026-10-24T14:53:29.057Z",
+      "type": "autobank",
+      "message": "Nhận giao dịch +70.000 ₫ nhưng không tìm thấy cú pháp NAP <chatId>. Nội dung: \"TRAN XUAN TRIEU NAPW2HRK8 FT26297020196738 k2AB36Z2 /357067\" - Mã GD: FT26297064166405"
+    },
+    {
+      "time": "2026-10-24T14:53:17.040Z",
+      "type": "autobank",
+      "message": "Nhận giao dịch +70.000 ₫ nhưng không tìm thấy cú pháp NAP <chatId>. Nội dung: \"TRAN XUAN TRIEU NAPW2HRK8 FT26297020196738 k2AB36Z2 /357067\" - Mã GD: FT26297064166405"
+    },
+    {
+      "time": "2026-10-24T14:53:07.733Z",
+      "type": "canboso",
+      "message": "Đã đồng bộ 200 sản phẩm từ Canboso thành công"
+    },
+    {
+      "time": "2026-10-24T14:53:05.486Z",
+      "type": "autobank",
+      "message": "Nhận giao dịch +70.000 ₫ nhưng không tìm thấy cú pháp NAP <chatId>. Nội dung: \"TRAN XUAN TRIEU NAPW2HRK8 FT26297020196738 k2AB36Z2 /357067\" - Mã GD: FT26297064166405"
+    },
+    {
+      "time": "2026-10-24T14:52:52.879Z",
+      "type": "autobank",
+      "message": "Nhận giao dịch +70.000 ₫ nhưng không tìm thấy cú pháp NAP <chatId>. Nội dung: \"TRAN XUAN TRIEU NAPW2HRK8 FT26297020196738 k2AB36Z2 /357067\" - Mã GD: FT26297064166405"
+    },
+    {
+      "time": "2026-10-24T14:52:41.054Z",
+      "type": "autobank",
+      "message": "Nhận giao dịch +70.000 ₫ nhưng không tìm thấy cú pháp NAP <chatId>. Nội dung: \"TRAN XUAN TRIEU NAPW2HRK8 FT26297020196738 k2AB36Z2 /357067\" - Mã GD: FT26297064166405"
+    },
+    {
+      "time": "2026-10-24T14:52:29.098Z",
+      "type": "autobank",
+      "message": "Nhận giao dịch +70.000 ₫ nhưng không tìm thấy cú pháp NAP <chatId>. Nội dung: \"TRAN XUAN TRIEU NAPW2HRK8 FT26297020196738 k2AB36Z2 /357067\" - Mã GD: FT26297064166405"
+    },
+    {
+      "time": "2026-10-24T14:52:17.050Z",
+      "type": "autobank",
+      "message": "Nhận giao dịch +70.000 ₫ nhưng không tìm thấy cú pháp NAP <chatId>. Nội dung: \"TRAN XUAN TRIEU NAPW2HRK8 FT26297020196738 k2AB36Z2 /357067\" - Mã GD: FT26297064166405"
+    },
+    {
+      "time": "2026-10-24T14:52:08.674Z",
+      "type": "canboso",
+      "message": "Đã đồng bộ 200 sản phẩm từ Canboso thành công"
+    },
+    {
+      "time": "2026-10-24T14:52:05.071Z",
+      "type": "autobank",
+      "message": "Nhận giao dịch +70.000 ₫ nhưng không tìm thấy cú pháp NAP <chatId>. Nội dung: \"TRAN XUAN TRIEU NAPW2HRK8 FT26297020196738 k2AB36Z2 /357067\" - Mã GD: FT26297064166405"
+    },
+    {
+      "time": "2026-10-24T14:51:52.839Z",
+      "type": "autobank",
+      "message": "Nhận giao dịch +70.000 ₫ nhưng không tìm thấy cú pháp NAP <chatId>. Nội dung: \"TRAN XUAN TRIEU NAPW2HRK8 FT26297020196738 k2AB36Z2 /357067\" - Mã GD: FT26297064166405"
+    },
+    {
+      "time": "2026-10-24T14:51:40.885Z",
+      "type": "autobank",
+      "message": "Nhận giao dịch +70.000 ₫ nhưng không tìm thấy cú pháp NAP <chatId>. Nội dung: \"TRAN XUAN TRIEU NAPW2HRK8 FT26297020196738 k2AB36Z2 /357067\" - Mã GD: FT26297064166405"
+    },
+    {
+      "time": "2026-10-24T14:51:29.603Z",
+      "type": "autobank",
+      "message": "Nhận giao dịch +70.000 ₫ nhưng không tìm thấy cú pháp NAP <chatId>. Nội dung: \"TRAN XUAN TRIEU NAPW2HRK8 FT26297020196738 k2AB36Z2 /357067\" - Mã GD: FT26297064166405"
+    },
+    {
+      "time": "2026-10-24T14:51:17.546Z",
+      "type": "autobank",
+      "message": "Nhận giao dịch +70.000 ₫ nhưng không tìm thấy cú pháp NAP <chatId>. Nội dung: \"TRAN XUAN TRIEU NAPW2HRK8 FT26297020196738 k2AB36Z2 /357067\" - Mã GD: FT26297064166405"
+    },
+    {
+      "time": "2026-10-24T14:51:05.984Z",
+      "type": "canboso",
+      "message": "Đã đồng bộ 200 sản phẩm từ Canboso thành công"
+    },
+    {
+      "time": "2026-10-24T14:51:05.467Z",
+      "type": "autobank",
+      "message": "Nhận giao dịch +70.000 ₫ nhưng không tìm thấy cú pháp NAP <chatId>. Nội dung: \"TRAN XUAN TRIEU NAPW2HRK8 FT26297020196738 k2AB36Z2 /357067\" - Mã GD: FT26297064166405"
+    },
+    {
+      "time": "2026-10-24T14:50:53.686Z",
+      "type": "autobank",
+      "message": "Nhận giao dịch +70.000 ₫ nhưng không tìm thấy cú pháp NAP <chatId>. Nội dung: \"TRAN XUAN TRIEU NAPW2HRK8 FT26297020196738 k2AB36Z2 /357067\" - Mã GD: FT26297064166405"
+    },
+    {
+      "time": "2026-10-24T14:50:41.854Z",
+      "type": "autobank",
+      "message": "Nhận giao dịch +70.000 ₫ nhưng không tìm thấy cú pháp NAP <chatId>. Nội dung: \"TRAN XUAN TRIEU NAPW2HRK8 FT26297020196738 k2AB36Z2 /357067\" - Mã GD: FT26297064166405"
+    },
+    {
+      "time": "2026-10-24T14:50:29.475Z",
+      "type": "autobank",
+      "message": "Nhận giao dịch +70.000 ₫ nhưng không tìm thấy cú pháp NAP <chatId>. Nội dung: \"TRAN XUAN TRIEU NAPW2HRK8 FT26297020196738 k2AB36Z2 /357067\" - Mã GD: FT26297064166405"
+    },
+    {
+      "time": "2026-10-24T14:50:18.743Z",
+      "type": "autobank",
+      "message": "Nhận giao dịch +70.000 ₫ nhưng không tìm thấy cú pháp NAP <chatId>. Nội dung: \"TRAN XUAN TRIEU NAPW2HRK8 FT26297020196738 k2AB36Z2 /357067\" - Mã GD: FT26297064166405"
+    },
+    {
+      "time": "2026-10-24T14:50:09.190Z",
+      "type": "canboso",
+      "message": "Đã đồng bộ 200 sản phẩm từ Canboso thành công"
+    },
+    {
+      "time": "2026-10-24T14:50:05.194Z",
+      "type": "autobank",
+      "message": "Nhận giao dịch +70.000 ₫ nhưng không tìm thấy cú pháp NAP <chatId>. Nội dung: \"TRAN XUAN TRIEU NAPW2HRK8 FT26297020196738 k2AB36Z2 /357067\" - Mã GD: FT26297064166405"
+    },
+    {
+      "time": "2026-10-24T14:50:04.257Z",
+      "type": "system",
+      "message": "Telegram Bot Service đã khởi động Polling 24/7"
+    },
+    {
+      "time": "2026-10-24T05:52:03.678Z",
+      "type": "autobank",
+      "message": "Nhận giao dịch +70.000 ₫ nhưng không tìm thấy cú pháp NAP <chatId>. Nội dung: \"TRAN XUAN TRIEU NAPW2HRK8 FT26297020196738 k2AB36Z2 /357067\" - Mã GD: FT26297064166405"
+    },
+    {
+      "time": "2026-10-24T05:51:51.731Z",
+      "type": "autobank",
+      "message": "Nhận giao dịch +70.000 ₫ nhưng không tìm thấy cú pháp NAP <chatId>. Nội dung: \"TRAN XUAN TRIEU NAPW2HRK8 FT26297020196738 k2AB36Z2 /357067\" - Mã GD: FT26297064166405"
+    },
+    {
+      "time": "2026-10-24T05:51:11.726Z",
+      "type": "autobank",
+      "message": "Nhận giao dịch +70.000 ₫ nhưng không tìm thấy cú pháp NAP <chatId>. Nội dung: \"TRAN XUAN TRIEU NAPW2HRK8 FT26297020196738 k2AB36Z2 /357067\" - Mã GD: FT26297064166405"
+    },
+    {
+      "time": "2026-10-24T05:51:11.661Z",
+      "type": "canboso",
+      "message": "Đã đồng bộ 201 sản phẩm từ Canboso thành công"
+    },
+    {
+      "time": "2026-10-24T05:50:59.629Z",
+      "type": "autobank",
+      "message": "Nhận giao dịch +70.000 ₫ nhưng không tìm thấy cú pháp NAP <chatId>. Nội dung: \"TRAN XUAN TRIEU NAPW2HRK8 FT26297020196738 k2AB36Z2 /357067\" - Mã GD: FT26297064166405"
+    },
+    {
+      "time": "2026-10-24T05:50:47.694Z",
+      "type": "autobank",
+      "message": "Nhận giao dịch +70.000 ₫ nhưng không tìm thấy cú pháp NAP <chatId>. Nội dung: \"TRAN XUAN TRIEU NAPW2HRK8 FT26297020196738 k2AB36Z2 /357067\" - Mã GD: FT26297064166405"
+    },
+    {
+      "time": "2026-10-24T05:50:35.395Z",
+      "type": "autobank",
+      "message": "Nhận giao dịch +70.000 ₫ nhưng không tìm thấy cú pháp NAP <chatId>. Nội dung: \"TRAN XUAN TRIEU NAPW2HRK8 FT26297020196738 k2AB36Z2 /357067\" - Mã GD: FT26297064166405"
+    },
+    {
+      "time": "2026-10-24T05:50:23.421Z",
+      "type": "autobank",
+      "message": "Nhận giao dịch +70.000 ₫ nhưng không tìm thấy cú pháp NAP <chatId>. Nội dung: \"TRAN XUAN TRIEU NAPW2HRK8 FT26297020196738 k2AB36Z2 /357067\" - Mã GD: FT26297064166405"
+    },
+    {
+      "time": "2026-10-24T05:50:13.573Z",
+      "type": "canboso",
+      "message": "Đã đồng bộ 201 sản phẩm từ Canboso thành công"
+    },
+    {
+      "time": "2026-10-24T05:50:11.687Z",
+      "type": "autobank",
+      "message": "Nhận giao dịch +70.000 ₫ nhưng không tìm thấy cú pháp NAP <chatId>. Nội dung: \"TRAN XUAN TRIEU NAPW2HRK8 FT26297020196738 k2AB36Z2 /357067\" - Mã GD: FT26297064166405"
+    },
+    {
+      "time": "2026-10-24T05:49:32.609Z",
+      "type": "autobank",
+      "message": "Nhận giao dịch +70.000 ₫ nhưng không tìm thấy cú pháp NAP <chatId>. Nội dung: \"TRAN XUAN TRIEU NAPW2HRK8 FT26297020196738 k2AB36Z2 /357067\" - Mã GD: FT26297064166405"
+    },
+    {
+      "time": "2026-10-24T05:49:20.450Z",
+      "type": "autobank",
+      "message": "Nhận giao dịch +70.000 ₫ nhưng không tìm thấy cú pháp NAP <chatId>. Nội dung: \"TRAN XUAN TRIEU NAPW2HRK8 FT26297020196738 k2AB36Z2 /357067\" - Mã GD: FT26297064166405"
+    },
+    {
+      "time": "2026-10-24T05:49:08.567Z",
+      "type": "autobank",
+      "message": "Nhận giao dịch +70.000 ₫ nhưng không tìm thấy cú pháp NAP <chatId>. Nội dung: \"TRAN XUAN TRIEU NAPW2HRK8 FT26297020196738 k2AB36Z2 /357067\" - Mã GD: FT26297064166405"
+    },
+    {
+      "time": "2026-10-24T05:48:56.599Z",
+      "type": "autobank",
+      "message": "Nhận giao dịch +70.000 ₫ nhưng không tìm thấy cú pháp NAP <chatId>. Nội dung: \"TRAN XUAN TRIEU NAPW2HRK8 FT26297020196738 k2AB36Z2 /357067\" - Mã GD: FT26297064166405"
+    },
+    {
+      "time": "2026-10-24T05:48:44.619Z",
+      "type": "autobank",
+      "message": "Nhận giao dịch +70.000 ₫ nhưng không tìm thấy cú pháp NAP <chatId>. Nội dung: \"TRAN XUAN TRIEU NAPW2HRK8 FT26297020196738 k2AB36Z2 /357067\" - Mã GD: FT26297064166405"
+    },
+    {
+      "time": "2026-10-24T05:48:44.055Z",
+      "type": "canboso",
+      "message": "Đã đồng bộ 201 sản phẩm từ Canboso thành công"
+    },
+    {
+      "time": "2026-10-24T05:48:32.594Z",
+      "type": "autobank",
+      "message": "Nhận giao dịch +70.000 ₫ nhưng không tìm thấy cú pháp NAP <chatId>. Nội dung: \"TRAN XUAN TRIEU NAPW2HRK8 FT26297020196738 k2AB36Z2 /357067\" - Mã GD: FT26297064166405"
+    },
+    {
+      "time": "2026-10-24T05:48:20.370Z",
+      "type": "autobank",
+      "message": "Nhận giao dịch +70.000 ₫ nhưng không tìm thấy cú pháp NAP <chatId>. Nội dung: \"TRAN XUAN TRIEU NAPW2HRK8 FT26297020196738 k2AB36Z2 /357067\" - Mã GD: FT26297064166405"
+    },
+    {
+      "time": "2026-10-24T05:48:08.678Z",
+      "type": "autobank",
+      "message": "Nhận giao dịch +70.000 ₫ nhưng không tìm thấy cú pháp NAP <chatId>. Nội dung: \"TRAN XUAN TRIEU NAPW2HRK8 FT26297020196738 k2AB36Z2 /357067\" - Mã GD: FT26297064166405"
+    },
+    {
+      "time": "2026-10-24T05:47:56.760Z",
+      "type": "autobank",
+      "message": "Nhận giao dịch +70.000 ₫ nhưng không tìm thấy cú pháp NAP <chatId>. Nội dung: \"TRAN XUAN TRIEU NAPW2HRK8 FT26297020196738 k2AB36Z2 /357067\" - Mã GD: FT26297064166405"
+    },
+    {
+      "time": "2026-10-24T05:47:44.613Z",
+      "type": "autobank",
+      "message": "Nhận giao dịch +70.000 ₫ nhưng không tìm thấy cú pháp NAP <chatId>. Nội dung: \"TRAN XUAN TRIEU NAPW2HRK8 FT26297020196738 k2AB36Z2 /357067\" - Mã GD: FT26297064166405"
+    },
+    {
+      "time": "2026-10-24T05:47:43.824Z",
+      "type": "canboso",
+      "message": "Đã đồng bộ 201 sản phẩm từ Canboso thành công"
+    },
+    {
+      "time": "2026-10-24T05:47:33.659Z",
+      "type": "autobank",
+      "message": "Nhận giao dịch +70.000 ₫ nhưng không tìm thấy cú pháp NAP <chatId>. Nội dung: \"TRAN XUAN TRIEU NAPW2HRK8 FT26297020196738 k2AB36Z2 /357067\" - Mã GD: FT26297064166405"
+    },
+    {
+      "time": "2026-10-24T05:47:20.374Z",
+      "type": "autobank",
+      "message": "Nhận giao dịch +70.000 ₫ nhưng không tìm thấy cú pháp NAP <chatId>. Nội dung: \"TRAN XUAN TRIEU NAPW2HRK8 FT26297020196738 k2AB36Z2 /357067\" - Mã GD: FT26297064166405"
+    },
+    {
+      "time": "2026-10-24T05:47:08.601Z",
+      "type": "autobank",
+      "message": "Nhận giao dịch +70.000 ₫ nhưng không tìm thấy cú pháp NAP <chatId>. Nội dung: \"TRAN XUAN TRIEU NAPW2HRK8 FT26297020196738 k2AB36Z2 /357067\" - Mã GD: FT26297064166405"
+    },
+    {
+      "time": "2026-10-24T05:46:56.578Z",
+      "type": "autobank",
+      "message": "Nhận giao dịch +70.000 ₫ nhưng không tìm thấy cú pháp NAP <chatId>. Nội dung: \"TRAN XUAN TRIEU NAPW2HRK8 FT26297020196738 k2AB36Z2 /357067\" - Mã GD: FT26297064166405"
+    },
+    {
+      "time": "2026-10-24T05:46:53.416Z",
+      "type": "broadcast",
+      "message": "Admin phát thông báo [BQT] thành công tới 2/2 người dùng Telegram"
+    },
+    {
+      "time": "2026-10-24T05:46:44.431Z",
+      "type": "autobank",
+      "message": "Nhận giao dịch +70.000 ₫ nhưng không tìm thấy cú pháp NAP <chatId>. Nội dung: \"TRAN XUAN TRIEU NAPW2HRK8 FT26297020196738 k2AB36Z2 /357067\" - Mã GD: FT26297064166405"
+    },
+    {
+      "time": "2026-10-24T05:46:43.671Z",
+      "type": "canboso",
+      "message": "Đã đồng bộ 201 sản phẩm từ Canboso thành công"
+    },
+    {
+      "time": "2026-10-24T05:46:32.550Z",
+      "type": "autobank",
+      "message": "Nhận giao dịch +70.000 ₫ nhưng không tìm thấy cú pháp NAP <chatId>. Nội dung: \"TRAN XUAN TRIEU NAPW2HRK8 FT26297020196738 k2AB36Z2 /357067\" - Mã GD: FT26297064166405"
+    },
+    {
+      "time": "2026-10-24T05:46:20.302Z",
+      "type": "autobank",
+      "message": "Nhận giao dịch +70.000 ₫ nhưng không tìm thấy cú pháp NAP <chatId>. Nội dung: \"TRAN XUAN TRIEU NAPW2HRK8 FT26297020196738 k2AB36Z2 /357067\" - Mã GD: FT26297064166405"
+    },
+    {
+      "time": "2026-10-24T05:46:08.477Z",
+      "type": "autobank",
+      "message": "Nhận giao dịch +70.000 ₫ nhưng không tìm thấy cú pháp NAP <chatId>. Nội dung: \"TRAN XUAN TRIEU NAPW2HRK8 FT26297020196738 k2AB36Z2 /357067\" - Mã GD: FT26297064166405"
+    },
+    {
+      "time": "2026-10-24T05:45:56.509Z",
+      "type": "autobank",
+      "message": "Nhận giao dịch +70.000 ₫ nhưng không tìm thấy cú pháp NAP <chatId>. Nội dung: \"TRAN XUAN TRIEU NAPW2HRK8 FT26297020196738 k2AB36Z2 /357067\" - Mã GD: FT26297064166405"
+    },
+    {
+      "time": "2026-10-24T05:45:44.764Z",
+      "type": "autobank",
+      "message": "Nhận giao dịch +70.000 ₫ nhưng không tìm thấy cú pháp NAP <chatId>. Nội dung: \"TRAN XUAN TRIEU NAPW2HRK8 FT26297020196738 k2AB36Z2 /357067\" - Mã GD: FT26297064166405"
+    },
+    {
+      "time": "2026-10-24T05:45:44.167Z",
+      "type": "canboso",
+      "message": "Đã đồng bộ 201 sản phẩm từ Canboso thành công"
+    },
+    {
+      "time": "2026-10-24T05:45:44.157Z",
+      "type": "canboso",
+      "message": "Đã đồng bộ 201 sản phẩm từ Canboso thành công"
+    },
+    {
+      "time": "2026-10-24T05:45:32.444Z",
+      "type": "autobank",
+      "message": "Nhận giao dịch +70.000 ₫ nhưng không tìm thấy cú pháp NAP <chatId>. Nội dung: \"TRAN XUAN TRIEU NAPW2HRK8 FT26297020196738 k2AB36Z2 /357067\" - Mã GD: FT26297064166405"
+    },
+    {
+      "time": "2026-10-24T05:45:20.292Z",
+      "type": "autobank",
+      "message": "Nhận giao dịch +70.000 ₫ nhưng không tìm thấy cú pháp NAP <chatId>. Nội dung: \"TRAN XUAN TRIEU NAPW2HRK8 FT26297020196738 k2AB36Z2 /357067\" - Mã GD: FT26297064166405"
+    },
+    {
+      "time": "2026-10-24T05:45:08.714Z",
+      "type": "broadcast",
+      "message": "Admin phát thông báo [BQT] thành công tới 2/2 người dùng Telegram"
+    },
+    {
+      "time": "2026-10-24T05:44:56.472Z",
+      "type": "autobank",
+      "message": "Nhận giao dịch +70.000 ₫ nhưng không tìm thấy cú pháp NAP <chatId>. Nội dung: \"TRAN XUAN TRIEU NAPW2HRK8 FT26297020196738 k2AB36Z2 /357067\" - Mã GD: FT26297064166405"
+    },
+    {
+      "time": "2026-10-24T05:44:44.428Z",
+      "type": "autobank",
+      "message": "Nhận giao dịch +70.000 ₫ nhưng không tìm thấy cú pháp NAP <chatId>. Nội dung: \"TRAN XUAN TRIEU NAPW2HRK8 FT26297020196738 k2AB36Z2 /357067\" - Mã GD: FT26297064166405"
+    },
+    {
+      "time": "2026-10-24T05:44:43.315Z",
+      "type": "canboso",
+      "message": "Đã đồng bộ 201 sản phẩm từ Canboso thành công"
+    },
+    {
+      "time": "2026-10-24T05:44:32.282Z",
+      "type": "autobank",
+      "message": "Nhận giao dịch +70.000 ₫ nhưng không tìm thấy cú pháp NAP <chatId>. Nội dung: \"TRAN XUAN TRIEU NAPW2HRK8 FT26297020196738 k2AB36Z2 /357067\" - Mã GD: FT26297064166405"
+    },
+    {
+      "time": "2026-10-24T05:44:20.218Z",
+      "type": "autobank",
+      "message": "Nhận giao dịch +70.000 ₫ nhưng không tìm thấy cú pháp NAP <chatId>. Nội dung: \"TRAN XUAN TRIEU NAPW2HRK8 FT26297020196738 k2AB36Z2 /357067\" - Mã GD: FT26297064166405"
+    },
+    {
+      "time": "2026-10-24T05:44:08.340Z",
+      "type": "autobank",
+      "message": "Nhận giao dịch +70.000 ₫ nhưng không tìm thấy cú pháp NAP <chatId>. Nội dung: \"TRAN XUAN TRIEU NAPW2HRK8 FT26297020196738 k2AB36Z2 /357067\" - Mã GD: FT26297064166405"
+    },
+    {
+      "time": "2026-10-24T05:43:56.314Z",
+      "type": "autobank",
+      "message": "Nhận giao dịch +70.000 ₫ nhưng không tìm thấy cú pháp NAP <chatId>. Nội dung: \"TRAN XUAN TRIEU NAPW2HRK8 FT26297020196738 k2AB36Z2 /357067\" - Mã GD: FT26297064166405"
+    },
+    {
+      "time": "2026-10-24T05:43:44.403Z",
+      "type": "autobank",
+      "message": "Nhận giao dịch +70.000 ₫ nhưng không tìm thấy cú pháp NAP <chatId>. Nội dung: \"TRAN XUAN TRIEU NAPW2HRK8 FT26297020196738 k2AB36Z2 /357067\" - Mã GD: FT26297064166405"
+    },
+    {
+      "time": "2026-10-24T05:43:43.448Z",
+      "type": "canboso",
+      "message": "Đã đồng bộ 201 sản phẩm từ Canboso thành công"
+    },
+    {
+      "time": "2026-10-24T05:43:32.470Z",
+      "type": "autobank",
+      "message": "Nhận giao dịch +70.000 ₫ nhưng không tìm thấy cú pháp NAP <chatId>. Nội dung: \"TRAN XUAN TRIEU NAPW2HRK8 FT26297020196738 k2AB36Z2 /357067\" - Mã GD: FT26297064166405"
+    },
+    {
+      "time": "2026-10-24T05:43:20.331Z",
+      "type": "autobank",
+      "message": "Nhận giao dịch +70.000 ₫ nhưng không tìm thấy cú pháp NAP <chatId>. Nội dung: \"TRAN XUAN TRIEU NAPW2HRK8 FT26297020196738 k2AB36Z2 /357067\" - Mã GD: FT26297064166405"
+    },
+    {
+      "time": "2026-10-24T05:43:08.269Z",
+      "type": "autobank",
+      "message": "Nhận giao dịch +70.000 ₫ nhưng không tìm thấy cú pháp NAP <chatId>. Nội dung: \"TRAN XUAN TRIEU NAPW2HRK8 FT26297020196738 k2AB36Z2 /357067\" - Mã GD: FT26297064166405"
+    },
+    {
+      "time": "2026-10-24T05:42:56.410Z",
+      "type": "autobank",
+      "message": "Nhận giao dịch +70.000 ₫ nhưng không tìm thấy cú pháp NAP <chatId>. Nội dung: \"TRAN XUAN TRIEU NAPW2HRK8 FT26297020196738 k2AB36Z2 /357067\" - Mã GD: FT26297064166405"
+    },
+    {
+      "time": "2026-10-24T05:42:44.322Z",
+      "type": "autobank",
+      "message": "Nhận giao dịch +70.000 ₫ nhưng không tìm thấy cú pháp NAP <chatId>. Nội dung: \"TRAN XUAN TRIEU NAPW2HRK8 FT26297020196738 k2AB36Z2 /357067\" - Mã GD: FT26297064166405"
+    },
+    {
+      "time": "2026-10-24T05:42:43.279Z",
+      "type": "canboso",
+      "message": "Đã đồng bộ 201 sản phẩm từ Canboso thành công"
+    },
+    {
+      "time": "2026-10-24T05:42:32.331Z",
+      "type": "autobank",
+      "message": "Nhận giao dịch +70.000 ₫ nhưng không tìm thấy cú pháp NAP <chatId>. Nội dung: \"TRAN XUAN TRIEU NAPW2HRK8 FT26297020196738 k2AB36Z2 /357067\" - Mã GD: FT26297064166405"
+    },
+    {
+      "time": "2026-10-24T05:42:20.128Z",
+      "type": "autobank",
+      "message": "Nhận giao dịch +70.000 ₫ nhưng không tìm thấy cú pháp NAP <chatId>. Nội dung: \"TRAN XUAN TRIEU NAPW2HRK8 FT26297020196738 k2AB36Z2 /357067\" - Mã GD: FT26297064166405"
+    },
+    {
+      "time": "2026-10-24T05:42:08.263Z",
+      "type": "autobank",
+      "message": "Nhận giao dịch +70.000 ₫ nhưng không tìm thấy cú pháp NAP <chatId>. Nội dung: \"TRAN XUAN TRIEU NAPW2HRK8 FT26297020196738 k2AB36Z2 /357067\" - Mã GD: FT26297064166405"
+    },
+    {
+      "time": "2026-10-24T05:41:56.343Z",
+      "type": "autobank",
+      "message": "Nhận giao dịch +70.000 ₫ nhưng không tìm thấy cú pháp NAP <chatId>. Nội dung: \"TRAN XUAN TRIEU NAPW2HRK8 FT26297020196738 k2AB36Z2 /357067\" - Mã GD: FT26297064166405"
+    },
+    {
+      "time": "2026-10-24T05:41:44.494Z",
+      "type": "canboso",
+      "message": "Đã đồng bộ 201 sản phẩm từ Canboso thành công"
+    },
+    {
+      "time": "2026-10-24T05:41:44.245Z",
+      "type": "autobank",
+      "message": "Nhận giao dịch +70.000 ₫ nhưng không tìm thấy cú pháp NAP <chatId>. Nội dung: \"TRAN XUAN TRIEU NAPW2HRK8 FT26297020196738 k2AB36Z2 /357067\" - Mã GD: FT26297064166405"
+    },
+    {
+      "time": "2026-10-24T05:41:32.383Z",
+      "type": "autobank",
+      "message": "Nhận giao dịch +70.000 ₫ nhưng không tìm thấy cú pháp NAP <chatId>. Nội dung: \"TRAN XUAN TRIEU NAPW2HRK8 FT26297020196738 k2AB36Z2 /357067\" - Mã GD: FT26297064166405"
+    },
+    {
+      "time": "2026-10-24T05:41:19.930Z",
+      "type": "autobank",
+      "message": "Nhận giao dịch +70.000 ₫ nhưng không tìm thấy cú pháp NAP <chatId>. Nội dung: \"TRAN XUAN TRIEU NAPW2HRK8 FT26297020196738 k2AB36Z2 /357067\" - Mã GD: FT26297064166405"
+    },
+    {
+      "time": "2026-10-24T05:41:08.131Z",
+      "type": "autobank",
+      "message": "Nhận giao dịch +70.000 ₫ nhưng không tìm thấy cú pháp NAP <chatId>. Nội dung: \"TRAN XUAN TRIEU NAPW2HRK8 FT26297020196738 k2AB36Z2 /357067\" - Mã GD: FT26297064166405"
+    },
+    {
+      "time": "2026-10-24T05:40:56.214Z",
+      "type": "autobank",
+      "message": "Nhận giao dịch +70.000 ₫ nhưng không tìm thấy cú pháp NAP <chatId>. Nội dung: \"TRAN XUAN TRIEU NAPW2HRK8 FT26297020196738 k2AB36Z2 /357067\" - Mã GD: FT26297064166405"
+    },
+    {
+      "time": "2026-10-24T05:40:45.057Z",
+      "type": "canboso",
+      "message": "Đã đồng bộ 201 sản phẩm từ Canboso thành công"
+    },
+    {
+      "time": "2026-10-24T05:40:44.239Z",
+      "type": "autobank",
+      "message": "Nhận giao dịch +70.000 ₫ nhưng không tìm thấy cú pháp NAP <chatId>. Nội dung: \"TRAN XUAN TRIEU NAPW2HRK8 FT26297020196738 k2AB36Z2 /357067\" - Mã GD: FT26297064166405"
+    },
+    {
+      "time": "2026-10-24T05:40:32.192Z",
+      "type": "autobank",
+      "message": "Nhận giao dịch +70.000 ₫ nhưng không tìm thấy cú pháp NAP <chatId>. Nội dung: \"TRAN XUAN TRIEU NAPW2HRK8 FT26297020196738 k2AB36Z2 /357067\" - Mã GD: FT26297064166405"
+    },
+    {
+      "time": "2026-10-24T05:40:19.829Z",
+      "type": "autobank",
+      "message": "Nhận giao dịch +70.000 ₫ nhưng không tìm thấy cú pháp NAP <chatId>. Nội dung: \"TRAN XUAN TRIEU NAPW2HRK8 FT26297020196738 k2AB36Z2 /357067\" - Mã GD: FT26297064166405"
+    },
+    {
+      "time": "2026-10-24T05:40:08.074Z",
+      "type": "autobank",
+      "message": "Nhận giao dịch +70.000 ₫ nhưng không tìm thấy cú pháp NAP <chatId>. Nội dung: \"TRAN XUAN TRIEU NAPW2HRK8 FT26297020196738 k2AB36Z2 /357067\" - Mã GD: FT26297064166405"
+    },
+    {
+      "time": "2026-10-24T05:39:56.096Z",
+      "type": "autobank",
+      "message": "Nhận giao dịch +70.000 ₫ nhưng không tìm thấy cú pháp NAP <chatId>. Nội dung: \"TRAN XUAN TRIEU NAPW2HRK8 FT26297020196738 k2AB36Z2 /357067\" - Mã GD: FT26297064166405"
+    },
+    {
+      "time": "2026-10-24T05:39:44.161Z",
+      "type": "autobank",
+      "message": "Nhận giao dịch +70.000 ₫ nhưng không tìm thấy cú pháp NAP <chatId>. Nội dung: \"TRAN XUAN TRIEU NAPW2HRK8 FT26297020196738 k2AB36Z2 /357067\" - Mã GD: FT26297064166405"
+    },
+    {
+      "time": "2026-10-24T05:39:43.390Z",
+      "type": "canboso",
+      "message": "Đã đồng bộ 201 sản phẩm từ Canboso thành công"
+    },
+    {
+      "time": "2026-10-24T05:39:32.079Z",
+      "type": "autobank",
+      "message": "Nhận giao dịch +70.000 ₫ nhưng không tìm thấy cú pháp NAP <chatId>. Nội dung: \"TRAN XUAN TRIEU NAPW2HRK8 FT26297020196738 k2AB36Z2 /357067\" - Mã GD: FT26297064166405"
+    },
+    {
+      "time": "2026-10-24T05:39:19.863Z",
+      "type": "autobank",
+      "message": "Nhận giao dịch +70.000 ₫ nhưng không tìm thấy cú pháp NAP <chatId>. Nội dung: \"TRAN XUAN TRIEU NAPW2HRK8 FT26297020196738 k2AB36Z2 /357067\" - Mã GD: FT26297064166405"
+    },
+    {
+      "time": "2026-10-24T05:39:08.066Z",
+      "type": "autobank",
+      "message": "Nhận giao dịch +70.000 ₫ nhưng không tìm thấy cú pháp NAP <chatId>. Nội dung: \"TRAN XUAN TRIEU NAPW2HRK8 FT26297020196738 k2AB36Z2 /357067\" - Mã GD: FT26297064166405"
+    },
+    {
+      "time": "2026-10-24T05:38:56.067Z",
+      "type": "autobank",
+      "message": "Nhận giao dịch +70.000 ₫ nhưng không tìm thấy cú pháp NAP <chatId>. Nội dung: \"TRAN XUAN TRIEU NAPW2HRK8 FT26297020196738 k2AB36Z2 /357067\" - Mã GD: FT26297064166405"
+    },
+    {
+      "time": "2026-10-24T05:38:44.070Z",
+      "type": "autobank",
+      "message": "Nhận giao dịch +70.000 ₫ nhưng không tìm thấy cú pháp NAP <chatId>. Nội dung: \"TRAN XUAN TRIEU NAPW2HRK8 FT26297020196738 k2AB36Z2 /357067\" - Mã GD: FT26297064166405"
+    },
+    {
+      "time": "2026-10-24T05:38:43.977Z",
+      "type": "canboso",
+      "message": "Đã đồng bộ 201 sản phẩm từ Canboso thành công"
+    },
+    {
+      "time": "2026-10-24T05:38:32.143Z",
+      "type": "autobank",
+      "message": "Nhận giao dịch +70.000 ₫ nhưng không tìm thấy cú pháp NAP <chatId>. Nội dung: \"TRAN XUAN TRIEU NAPW2HRK8 FT26297020196738 k2AB36Z2 /357067\" - Mã GD: FT26297064166405"
+    },
+    {
+      "time": "2026-10-24T05:38:19.809Z",
+      "type": "autobank",
+      "message": "Nhận giao dịch +70.000 ₫ nhưng không tìm thấy cú pháp NAP <chatId>. Nội dung: \"TRAN XUAN TRIEU NAPW2HRK8 FT26297020196738 k2AB36Z2 /357067\" - Mã GD: FT26297064166405"
+    },
+    {
+      "time": "2026-10-24T05:38:08.009Z",
+      "type": "autobank",
+      "message": "Nhận giao dịch +70.000 ₫ nhưng không tìm thấy cú pháp NAP <chatId>. Nội dung: \"TRAN XUAN TRIEU NAPW2HRK8 FT26297020196738 k2AB36Z2 /357067\" - Mã GD: FT26297064166405"
+    },
+    {
+      "time": "2026-10-24T05:37:55.999Z",
+      "type": "autobank",
+      "message": "Nhận giao dịch +70.000 ₫ nhưng không tìm thấy cú pháp NAP <chatId>. Nội dung: \"TRAN XUAN TRIEU NAPW2HRK8 FT26297020196738 k2AB36Z2 /357067\" - Mã GD: FT26297064166405"
+    },
+    {
+      "time": "2026-10-24T05:37:44.058Z",
+      "type": "autobank",
+      "message": "Nhận giao dịch +70.000 ₫ nhưng không tìm thấy cú pháp NAP <chatId>. Nội dung: \"TRAN XUAN TRIEU NAPW2HRK8 FT26297020196738 k2AB36Z2 /357067\" - Mã GD: FT26297064166405"
+    },
+    {
+      "time": "2026-10-24T05:37:43.290Z",
+      "type": "canboso",
+      "message": "Đã đồng bộ 201 sản phẩm từ Canboso thành công"
+    },
+    {
+      "time": "2026-10-24T05:37:31.952Z",
+      "type": "autobank",
+      "message": "Nhận giao dịch +70.000 ₫ nhưng không tìm thấy cú pháp NAP <chatId>. Nội dung: \"TRAN XUAN TRIEU NAPW2HRK8 FT26297020196738 k2AB36Z2 /357067\" - Mã GD: FT26297064166405"
+    },
+    {
+      "time": "2026-10-24T05:37:19.831Z",
+      "type": "autobank",
+      "message": "Nhận giao dịch +70.000 ₫ nhưng không tìm thấy cú pháp NAP <chatId>. Nội dung: \"TRAN XUAN TRIEU NAPW2HRK8 FT26297020196738 k2AB36Z2 /357067\" - Mã GD: FT26297064166405"
+    },
+    {
+      "time": "2026-10-24T05:37:08.007Z",
+      "type": "autobank",
+      "message": "Nhận giao dịch +70.000 ₫ nhưng không tìm thấy cú pháp NAP <chatId>. Nội dung: \"TRAN XUAN TRIEU NAPW2HRK8 FT26297020196738 k2AB36Z2 /357067\" - Mã GD: FT26297064166405"
+    },
+    {
+      "time": "2026-10-24T05:36:55.973Z",
+      "type": "autobank",
+      "message": "Nhận giao dịch +70.000 ₫ nhưng không tìm thấy cú pháp NAP <chatId>. Nội dung: \"TRAN XUAN TRIEU NAPW2HRK8 FT26297020196738 k2AB36Z2 /357067\" - Mã GD: FT26297064166405"
+    },
+    {
+      "time": "2026-10-24T05:36:43.932Z",
+      "type": "canboso",
+      "message": "Đã đồng bộ 201 sản phẩm từ Canboso thành công"
+    },
+    {
+      "time": "2026-10-24T05:36:43.922Z",
+      "type": "autobank",
+      "message": "Nhận giao dịch +70.000 ₫ nhưng không tìm thấy cú pháp NAP <chatId>. Nội dung: \"TRAN XUAN TRIEU NAPW2HRK8 FT26297020196738 k2AB36Z2 /357067\" - Mã GD: FT26297064166405"
+    },
+    {
+      "time": "2026-10-24T05:36:31.864Z",
+      "type": "autobank",
+      "message": "Nhận giao dịch +70.000 ₫ nhưng không tìm thấy cú pháp NAP <chatId>. Nội dung: \"TRAN XUAN TRIEU NAPW2HRK8 FT26297020196738 k2AB36Z2 /357067\" - Mã GD: FT26297064166405"
+    },
+    {
+      "time": "2026-10-24T05:36:19.767Z",
+      "type": "autobank",
+      "message": "Nhận giao dịch +70.000 ₫ nhưng không tìm thấy cú pháp NAP <chatId>. Nội dung: \"TRAN XUAN TRIEU NAPW2HRK8 FT26297020196738 k2AB36Z2 /357067\" - Mã GD: FT26297064166405"
+    },
+    {
+      "time": "2026-10-24T05:36:07.892Z",
+      "type": "autobank",
+      "message": "Nhận giao dịch +70.000 ₫ nhưng không tìm thấy cú pháp NAP <chatId>. Nội dung: \"TRAN XUAN TRIEU NAPW2HRK8 FT26297020196738 k2AB36Z2 /357067\" - Mã GD: FT26297064166405"
+    },
+    {
+      "time": "2026-10-24T05:35:55.971Z",
+      "type": "autobank",
+      "message": "Nhận giao dịch +70.000 ₫ nhưng không tìm thấy cú pháp NAP <chatId>. Nội dung: \"TRAN XUAN TRIEU NAPW2HRK8 FT26297020196738 k2AB36Z2 /357067\" - Mã GD: FT26297064166405"
+    },
+    {
+      "time": "2026-10-24T05:35:43.966Z",
+      "type": "autobank",
+      "message": "Nhận giao dịch +70.000 ₫ nhưng không tìm thấy cú pháp NAP <chatId>. Nội dung: \"TRAN XUAN TRIEU NAPW2HRK8 FT26297020196738 k2AB36Z2 /357067\" - Mã GD: FT26297064166405"
+    },
+    {
+      "time": "2026-10-24T05:35:43.539Z",
+      "type": "canboso",
+      "message": "Đã đồng bộ 201 sản phẩm từ Canboso thành công"
+    },
+    {
+      "time": "2026-10-24T05:35:31.809Z",
+      "type": "autobank",
+      "message": "Nhận giao dịch +70.000 ₫ nhưng không tìm thấy cú pháp NAP <chatId>. Nội dung: \"TRAN XUAN TRIEU NAPW2HRK8 FT26297020196738 k2AB36Z2 /357067\" - Mã GD: FT26297064166405"
+    },
+    {
+      "time": "2026-10-24T05:35:19.721Z",
+      "type": "autobank",
+      "message": "Nhận giao dịch +70.000 ₫ nhưng không tìm thấy cú pháp NAP <chatId>. Nội dung: \"TRAN XUAN TRIEU NAPW2HRK8 FT26297020196738 k2AB36Z2 /357067\" - Mã GD: FT26297064166405"
+    },
+    {
+      "time": "2026-10-24T05:35:07.784Z",
+      "type": "autobank",
+      "message": "Nhận giao dịch +70.000 ₫ nhưng không tìm thấy cú pháp NAP <chatId>. Nội dung: \"TRAN XUAN TRIEU NAPW2HRK8 FT26297020196738 k2AB36Z2 /357067\" - Mã GD: FT26297064166405"
+    },
+    {
+      "time": "2026-10-24T05:34:55.780Z",
+      "type": "autobank",
+      "message": "Nhận giao dịch +70.000 ₫ nhưng không tìm thấy cú pháp NAP <chatId>. Nội dung: \"TRAN XUAN TRIEU NAPW2HRK8 FT26297020196738 k2AB36Z2 /357067\" - Mã GD: FT26297064166405"
+    },
+    {
+      "time": "2026-10-24T05:34:43.924Z",
+      "type": "autobank",
+      "message": "Nhận giao dịch +70.000 ₫ nhưng không tìm thấy cú pháp NAP <chatId>. Nội dung: \"TRAN XUAN TRIEU NAPW2HRK8 FT26297020196738 k2AB36Z2 /357067\" - Mã GD: FT26297064166405"
+    },
+    {
+      "time": "2026-10-24T05:34:43.132Z",
+      "type": "canboso",
+      "message": "Đã đồng bộ 201 sản phẩm từ Canboso thành công"
+    },
+    {
+      "time": "2026-10-24T05:34:31.946Z",
+      "type": "autobank",
+      "message": "Nhận giao dịch +70.000 ₫ nhưng không tìm thấy cú pháp NAP <chatId>. Nội dung: \"TRAN XUAN TRIEU NAPW2HRK8 FT26297020196738 k2AB36Z2 /357067\" - Mã GD: FT26297064166405"
+    },
+    {
+      "time": "2026-10-24T05:34:19.558Z",
+      "type": "autobank",
+      "message": "Nhận giao dịch +70.000 ₫ nhưng không tìm thấy cú pháp NAP <chatId>. Nội dung: \"TRAN XUAN TRIEU NAPW2HRK8 FT26297020196738 k2AB36Z2 /357067\" - Mã GD: FT26297064166405"
+    },
+    {
+      "time": "2026-10-24T05:34:07.878Z",
+      "type": "autobank",
+      "message": "Nhận giao dịch +70.000 ₫ nhưng không tìm thấy cú pháp NAP <chatId>. Nội dung: \"TRAN XUAN TRIEU NAPW2HRK8 FT26297020196738 k2AB36Z2 /357067\" - Mã GD: FT26297064166405"
+    },
+    {
+      "time": "2026-10-24T05:33:55.760Z",
+      "type": "autobank",
+      "message": "Nhận giao dịch +70.000 ₫ nhưng không tìm thấy cú pháp NAP <chatId>. Nội dung: \"TRAN XUAN TRIEU NAPW2HRK8 FT26297020196738 k2AB36Z2 /357067\" - Mã GD: FT26297064166405"
+    },
+    {
+      "time": "2026-10-24T05:33:45.873Z",
+      "type": "canboso",
+      "message": "Đã đồng bộ 201 sản phẩm từ Canboso thành công"
+    },
+    {
+      "time": "2026-10-24T05:33:43.956Z",
+      "type": "autobank",
+      "message": "Nhận giao dịch +70.000 ₫ nhưng không tìm thấy cú pháp NAP <chatId>. Nội dung: \"TRAN XUAN TRIEU NAPW2HRK8 FT26297020196738 k2AB36Z2 /357067\" - Mã GD: FT26297064166405"
+    },
+    {
+      "time": "2026-10-24T05:33:31.699Z",
+      "type": "autobank",
+      "message": "Nhận giao dịch +70.000 ₫ nhưng không tìm thấy cú pháp NAP <chatId>. Nội dung: \"TRAN XUAN TRIEU NAPW2HRK8 FT26297020196738 k2AB36Z2 /357067\" - Mã GD: FT26297064166405"
+    },
+    {
+      "time": "2026-10-24T05:33:19.640Z",
+      "type": "autobank",
+      "message": "Nhận giao dịch +70.000 ₫ nhưng không tìm thấy cú pháp NAP <chatId>. Nội dung: \"TRAN XUAN TRIEU NAPW2HRK8 FT26297020196738 k2AB36Z2 /357067\" - Mã GD: FT26297064166405"
+    },
+    {
+      "time": "2026-10-24T05:33:07.656Z",
+      "type": "autobank",
+      "message": "Nhận giao dịch +70.000 ₫ nhưng không tìm thấy cú pháp NAP <chatId>. Nội dung: \"TRAN XUAN TRIEU NAPW2HRK8 FT26297020196738 k2AB36Z2 /357067\" - Mã GD: FT26297064166405"
+    },
+    {
+      "time": "2026-10-24T05:32:55.738Z",
+      "type": "autobank",
+      "message": "Nhận giao dịch +70.000 ₫ nhưng không tìm thấy cú pháp NAP <chatId>. Nội dung: \"TRAN XUAN TRIEU NAPW2HRK8 FT26297020196738 k2AB36Z2 /357067\" - Mã GD: FT26297064166405"
+    },
+    {
+      "time": "2026-10-24T05:32:43.663Z",
+      "type": "autobank",
+      "message": "Nhận giao dịch +70.000 ₫ nhưng không tìm thấy cú pháp NAP <chatId>. Nội dung: \"TRAN XUAN TRIEU NAPW2HRK8 FT26297020196738 k2AB36Z2 /357067\" - Mã GD: FT26297064166405"
+    },
+    {
+      "time": "2026-10-24T05:32:43.290Z",
+      "type": "canboso",
+      "message": "Đã đồng bộ 201 sản phẩm từ Canboso thành công"
+    },
+    {
+      "time": "2026-10-24T05:32:31.828Z",
+      "type": "autobank",
+      "message": "Nhận giao dịch +70.000 ₫ nhưng không tìm thấy cú pháp NAP <chatId>. Nội dung: \"TRAN XUAN TRIEU NAPW2HRK8 FT26297020196738 k2AB36Z2 /357067\" - Mã GD: FT26297064166405"
+    },
+    {
+      "time": "2026-10-24T05:32:19.544Z",
+      "type": "autobank",
+      "message": "Nhận giao dịch +70.000 ₫ nhưng không tìm thấy cú pháp NAP <chatId>. Nội dung: \"TRAN XUAN TRIEU NAPW2HRK8 FT26297020196738 k2AB36Z2 /357067\" - Mã GD: FT26297064166405"
+    },
+    {
+      "time": "2026-10-24T05:32:07.693Z",
+      "type": "autobank",
+      "message": "Nhận giao dịch +70.000 ₫ nhưng không tìm thấy cú pháp NAP <chatId>. Nội dung: \"TRAN XUAN TRIEU NAPW2HRK8 FT26297020196738 k2AB36Z2 /357067\" - Mã GD: FT26297064166405"
+    },
+    {
+      "time": "2026-10-24T05:31:55.723Z",
+      "type": "autobank",
+      "message": "Nhận giao dịch +70.000 ₫ nhưng không tìm thấy cú pháp NAP <chatId>. Nội dung: \"TRAN XUAN TRIEU NAPW2HRK8 FT26297020196738 k2AB36Z2 /357067\" - Mã GD: FT26297064166405"
+    },
+    {
+      "time": "2026-10-24T05:31:46.254Z",
+      "type": "canboso",
+      "message": "Đã đồng bộ 201 sản phẩm từ Canboso thành công"
+    },
+    {
+      "time": "2026-10-24T05:31:43.734Z",
+      "type": "autobank",
+      "message": "Nhận giao dịch +70.000 ₫ nhưng không tìm thấy cú pháp NAP <chatId>. Nội dung: \"TRAN XUAN TRIEU NAPW2HRK8 FT26297020196738 k2AB36Z2 /357067\" - Mã GD: FT26297064166405"
+    },
+    {
+      "time": "2026-10-24T05:31:31.679Z",
+      "type": "autobank",
+      "message": "Nhận giao dịch +70.000 ₫ nhưng không tìm thấy cú pháp NAP <chatId>. Nội dung: \"TRAN XUAN TRIEU NAPW2HRK8 FT26297020196738 k2AB36Z2 /357067\" - Mã GD: FT26297064166405"
+    },
+    {
+      "time": "2026-10-24T05:31:19.570Z",
+      "type": "autobank",
+      "message": "Nhận giao dịch +70.000 ₫ nhưng không tìm thấy cú pháp NAP <chatId>. Nội dung: \"TRAN XUAN TRIEU NAPW2HRK8 FT26297020196738 k2AB36Z2 /357067\" - Mã GD: FT26297064166405"
+    },
+    {
+      "time": "2026-10-24T05:31:07.620Z",
+      "type": "autobank",
+      "message": "Nhận giao dịch +70.000 ₫ nhưng không tìm thấy cú pháp NAP <chatId>. Nội dung: \"TRAN XUAN TRIEU NAPW2HRK8 FT26297020196738 k2AB36Z2 /357067\" - Mã GD: FT26297064166405"
+    },
+    {
+      "time": "2026-10-24T05:30:55.605Z",
+      "type": "autobank",
+      "message": "Nhận giao dịch +70.000 ₫ nhưng không tìm thấy cú pháp NAP <chatId>. Nội dung: \"TRAN XUAN TRIEU NAPW2HRK8 FT26297020196738 k2AB36Z2 /357067\" - Mã GD: FT26297064166405"
+    },
+    {
+      "time": "2026-10-24T05:30:44.668Z",
+      "type": "canboso",
+      "message": "Đã đồng bộ 201 sản phẩm từ Canboso thành công"
+    },
+    {
+      "time": "2026-10-24T05:30:43.581Z",
+      "type": "autobank",
+      "message": "Nhận giao dịch +70.000 ₫ nhưng không tìm thấy cú pháp NAP <chatId>. Nội dung: \"TRAN XUAN TRIEU NAPW2HRK8 FT26297020196738 k2AB36Z2 /357067\" - Mã GD: FT26297064166405"
+    },
+    {
+      "time": "2026-10-24T05:30:31.679Z",
+      "type": "autobank",
+      "message": "Nhận giao dịch +70.000 ₫ nhưng không tìm thấy cú pháp NAP <chatId>. Nội dung: \"TRAN XUAN TRIEU NAPW2HRK8 FT26297020196738 k2AB36Z2 /357067\" - Mã GD: FT26297064166405"
+    },
+    {
+      "time": "2026-10-24T05:30:19.445Z",
+      "type": "autobank",
+      "message": "Nhận giao dịch +70.000 ₫ nhưng không tìm thấy cú pháp NAP <chatId>. Nội dung: \"TRAN XUAN TRIEU NAPW2HRK8 FT26297020196738 k2AB36Z2 /357067\" - Mã GD: FT26297064166405"
+    },
+    {
+      "time": "2026-10-24T05:30:07.764Z",
+      "type": "autobank",
+      "message": "Nhận giao dịch +70.000 ₫ nhưng không tìm thấy cú pháp NAP <chatId>. Nội dung: \"TRAN XUAN TRIEU NAPW2HRK8 FT26297020196738 k2AB36Z2 /357067\" - Mã GD: FT26297064166405"
+    },
+    {
+      "time": "2026-10-24T05:29:55.621Z",
+      "type": "autobank",
+      "message": "Nhận giao dịch +70.000 ₫ nhưng không tìm thấy cú pháp NAP <chatId>. Nội dung: \"TRAN XUAN TRIEU NAPW2HRK8 FT26297020196738 k2AB36Z2 /357067\" - Mã GD: FT26297064166405"
+    },
+    {
+      "time": "2026-10-24T05:29:43.935Z",
+      "type": "canboso",
+      "message": "Đã đồng bộ 201 sản phẩm từ Canboso thành công"
+    },
+    {
+      "time": "2026-10-24T05:29:43.576Z",
+      "type": "autobank",
+      "message": "Nhận giao dịch +70.000 ₫ nhưng không tìm thấy cú pháp NAP <chatId>. Nội dung: \"TRAN XUAN TRIEU NAPW2HRK8 FT26297020196738 k2AB36Z2 /357067\" - Mã GD: FT26297064166405"
+    },
+    {
+      "time": "2026-10-24T05:29:31.818Z",
+      "type": "autobank",
+      "message": "Nhận giao dịch +70.000 ₫ nhưng không tìm thấy cú pháp NAP <chatId>. Nội dung: \"TRAN XUAN TRIEU NAPW2HRK8 FT26297020196738 k2AB36Z2 /357067\" - Mã GD: FT26297064166405"
+    },
+    {
+      "time": "2026-10-24T05:29:19.320Z",
+      "type": "autobank",
+      "message": "Nhận giao dịch +70.000 ₫ nhưng không tìm thấy cú pháp NAP <chatId>. Nội dung: \"TRAN XUAN TRIEU NAPW2HRK8 FT26297020196738 k2AB36Z2 /357067\" - Mã GD: FT26297064166405"
+    },
+    {
+      "time": "2026-10-24T05:29:07.550Z",
+      "type": "autobank",
+      "message": "Nhận giao dịch +70.000 ₫ nhưng không tìm thấy cú pháp NAP <chatId>. Nội dung: \"TRAN XUAN TRIEU NAPW2HRK8 FT26297020196738 k2AB36Z2 /357067\" - Mã GD: FT26297064166405"
+    },
+    {
+      "time": "2026-10-24T05:28:55.572Z",
+      "type": "autobank",
+      "message": "Nhận giao dịch +70.000 ₫ nhưng không tìm thấy cú pháp NAP <chatId>. Nội dung: \"TRAN XUAN TRIEU NAPW2HRK8 FT26297020196738 k2AB36Z2 /357067\" - Mã GD: FT26297064166405"
+    },
+    {
+      "time": "2026-10-24T05:28:44.038Z",
+      "type": "canboso",
+      "message": "Đã đồng bộ 201 sản phẩm từ Canboso thành công"
+    },
+    {
+      "time": "2026-10-24T05:28:43.709Z",
+      "type": "autobank",
+      "message": "Nhận giao dịch +70.000 ₫ nhưng không tìm thấy cú pháp NAP <chatId>. Nội dung: \"TRAN XUAN TRIEU NAPW2HRK8 FT26297020196738 k2AB36Z2 /357067\" - Mã GD: FT26297064166405"
+    },
+    {
+      "time": "2026-10-24T05:28:32.074Z",
+      "type": "autobank",
+      "message": "Nhận giao dịch +70.000 ₫ nhưng không tìm thấy cú pháp NAP <chatId>. Nội dung: \"TRAN XUAN TRIEU NAPW2HRK8 FT26297020196738 k2AB36Z2 /357067\" - Mã GD: FT26297064166405"
+    },
+    {
+      "time": "2026-10-24T05:28:19.288Z",
+      "type": "autobank",
+      "message": "Nhận giao dịch +70.000 ₫ nhưng không tìm thấy cú pháp NAP <chatId>. Nội dung: \"TRAN XUAN TRIEU NAPW2HRK8 FT26297020196738 k2AB36Z2 /357067\" - Mã GD: FT26297064166405"
+    },
+    {
+      "time": "2026-10-24T05:28:07.491Z",
+      "type": "autobank",
+      "message": "Nhận giao dịch +70.000 ₫ nhưng không tìm thấy cú pháp NAP <chatId>. Nội dung: \"TRAN XUAN TRIEU NAPW2HRK8 FT26297020196738 k2AB36Z2 /357067\" - Mã GD: FT26297064166405"
+    },
+    {
+      "time": "2026-10-24T05:27:55.378Z",
+      "type": "autobank",
+      "message": "Nhận giao dịch +70.000 ₫ nhưng không tìm thấy cú pháp NAP <chatId>. Nội dung: \"TRAN XUAN TRIEU NAPW2HRK8 FT26297020196738 k2AB36Z2 /357067\" - Mã GD: FT26297064166405"
+    },
+    {
+      "time": "2026-10-24T05:27:43.570Z",
+      "type": "autobank",
+      "message": "Nhận giao dịch +70.000 ₫ nhưng không tìm thấy cú pháp NAP <chatId>. Nội dung: \"TRAN XUAN TRIEU NAPW2HRK8 FT26297020196738 k2AB36Z2 /357067\" - Mã GD: FT26297064166405"
+    },
+    {
+      "time": "2026-10-24T05:27:42.873Z",
+      "type": "canboso",
+      "message": "Đã đồng bộ 201 sản phẩm từ Canboso thành công"
+    },
+    {
+      "time": "2026-10-24T05:27:31.442Z",
+      "type": "autobank",
+      "message": "Nhận giao dịch +70.000 ₫ nhưng không tìm thấy cú pháp NAP <chatId>. Nội dung: \"TRAN XUAN TRIEU NAPW2HRK8 FT26297020196738 k2AB36Z2 /357067\" - Mã GD: FT26297064166405"
+    },
+    {
+      "time": "2026-10-24T05:27:19.215Z",
+      "type": "autobank",
+      "message": "Nhận giao dịch +70.000 ₫ nhưng không tìm thấy cú pháp NAP <chatId>. Nội dung: \"TRAN XUAN TRIEU NAPW2HRK8 FT26297020196738 k2AB36Z2 /357067\" - Mã GD: FT26297064166405"
+    },
+    {
+      "time": "2026-10-24T05:27:07.526Z",
+      "type": "autobank",
+      "message": "Nhận giao dịch +70.000 ₫ nhưng không tìm thấy cú pháp NAP <chatId>. Nội dung: \"TRAN XUAN TRIEU NAPW2HRK8 FT26297020196738 k2AB36Z2 /357067\" - Mã GD: FT26297064166405"
+    },
+    {
+      "time": "2026-10-24T05:26:55.449Z",
+      "type": "autobank",
+      "message": "Nhận giao dịch +70.000 ₫ nhưng không tìm thấy cú pháp NAP <chatId>. Nội dung: \"TRAN XUAN TRIEU NAPW2HRK8 FT26297020196738 k2AB36Z2 /357067\" - Mã GD: FT26297064166405"
+    },
+    {
+      "time": "2026-10-24T05:26:43.633Z",
+      "type": "canboso",
+      "message": "Đã đồng bộ 201 sản phẩm từ Canboso thành công"
+    },
+    {
+      "time": "2026-10-24T05:26:43.602Z",
+      "type": "autobank",
+      "message": "Nhận giao dịch +70.000 ₫ nhưng không tìm thấy cú pháp NAP <chatId>. Nội dung: \"TRAN XUAN TRIEU NAPW2HRK8 FT26297020196738 k2AB36Z2 /357067\" - Mã GD: FT26297064166405"
+    },
+    {
+      "time": "2026-10-24T05:26:31.685Z",
+      "type": "autobank",
+      "message": "Nhận giao dịch +70.000 ₫ nhưng không tìm thấy cú pháp NAP <chatId>. Nội dung: \"TRAN XUAN TRIEU NAPW2HRK8 FT26297020196738 k2AB36Z2 /357067\" - Mã GD: FT26297064166405"
+    },
+    {
+      "time": "2026-10-24T05:26:19.258Z",
+      "type": "autobank",
+      "message": "Nhận giao dịch +70.000 ₫ nhưng không tìm thấy cú pháp NAP <chatId>. Nội dung: \"TRAN XUAN TRIEU NAPW2HRK8 FT26297020196738 k2AB36Z2 /357067\" - Mã GD: FT26297064166405"
+    },
+    {
+      "time": "2026-10-24T05:26:07.530Z",
+      "type": "autobank",
+      "message": "Nhận giao dịch +70.000 ₫ nhưng không tìm thấy cú pháp NAP <chatId>. Nội dung: \"TRAN XUAN TRIEU NAPW2HRK8 FT26297020196738 k2AB36Z2 /357067\" - Mã GD: FT26297064166405"
+    },
+    {
+      "time": "2026-10-24T05:25:55.317Z",
+      "type": "autobank",
+      "message": "Nhận giao dịch +70.000 ₫ nhưng không tìm thấy cú pháp NAP <chatId>. Nội dung: \"TRAN XUAN TRIEU NAPW2HRK8 FT26297020196738 k2AB36Z2 /357067\" - Mã GD: FT26297064166405"
+    },
+    {
+      "time": "2026-10-24T05:25:43.428Z",
+      "type": "autobank",
+      "message": "Nhận giao dịch +70.000 ₫ nhưng không tìm thấy cú pháp NAP <chatId>. Nội dung: \"TRAN XUAN TRIEU NAPW2HRK8 FT26297020196738 k2AB36Z2 /357067\" - Mã GD: FT26297064166405"
+    },
+    {
+      "time": "2026-10-24T05:25:43.132Z",
+      "type": "canboso",
+      "message": "Đã đồng bộ 201 sản phẩm từ Canboso thành công"
+    },
+    {
+      "time": "2026-10-24T05:25:31.463Z",
+      "type": "autobank",
+      "message": "Nhận giao dịch +70.000 ₫ nhưng không tìm thấy cú pháp NAP <chatId>. Nội dung: \"TRAN XUAN TRIEU NAPW2HRK8 FT26297020196738 k2AB36Z2 /357067\" - Mã GD: FT26297064166405"
+    },
+    {
+      "time": "2026-10-24T05:25:19.154Z",
+      "type": "autobank",
+      "message": "Nhận giao dịch +70.000 ₫ nhưng không tìm thấy cú pháp NAP <chatId>. Nội dung: \"TRAN XUAN TRIEU NAPW2HRK8 FT26297020196738 k2AB36Z2 /357067\" - Mã GD: FT26297064166405"
+    }
+  ],
+  "announcements": [
+    {
+      "id": "ANN-1792820813408",
+      "title": "Thông báo từ Ban Quản Trị",
+      "type": "news",
+      "content": "ĐÃ BẢO TRÌ XONG !",
+      "buttonText": "",
+      "buttonUrl": "",
+      "createdAt": "2026-10-24T05:46:53.408Z",
+      "sentCount": 2,
+      "totalUsers": 2,
+      "pinned": true,
+      "sender": "NGỌC TRƯỜNG"
+    },
+    {
+      "id": "ANN-1792820708707",
+      "title": "Thông báo từ Ban Quản Trị",
+      "type": "maintenance",
+      "content": "bảo trì bot",
+      "buttonText": "",
+      "buttonUrl": "",
+      "createdAt": "2026-10-24T05:45:08.707Z",
+      "sentCount": 2,
+      "totalUsers": 2,
+      "pinned": false,
+      "sender": "NGỌC TRƯỜNG"
+    },
+    {
+      "id": "ANN-1792818370637",
+      "title": "Chào Mừng Thành Viên Mới Đến Với Hệ Thống",
+      "type": "news",
+      "content": "Ban Quản Trị kính chúc Quý khách hàng một ngày làm việc hiệu quả và tràn đầy năng lượng!\n\nNếu có bất kỳ thắc mắc hay cần hỗ trợ về tài khoản, vui lòng bấm nút Liên hệ bên dưới.",
+      "buttonText": "🛒 Mua Sắm Ngay",
+      "buttonUrl": "https://t.me/vntshared_bot",
+      "createdAt": "2026-10-24T05:06:10.637Z",
+      "sentCount": 2,
+      "totalUsers": 2,
+      "pinned": false,
+      "sender": "NGỌC TRƯỜNG"
+    }
+  ],
+  "processedTransactions": {
+    "TEST-1792677376080": {
+      "refId": "TEST-1792677376080",
+      "amount": 20000,
+      "content": "NAP 1170317703",
+      "chatId": "1170317703",
+      "gateway": "Test Giả Lập",
+      "processedAt": "2026-10-22T13:56:16.081Z"
+    },
+    "TEST-1792771937691": {
+      "refId": "TEST-1792771937691",
+      "amount": 20000,
+      "content": "NAP 1170317703",
+      "chatId": "1170317703",
+      "gateway": "Test Giả Lập",
+      "processedAt": "2026-10-23T16:12:17.694Z"
+    },
+    "FT26297865826834": {
+      "refId": "FT26297865826834",
+      "amount": 20000,
+      "content": "ZION O5CH7KSRO9A0-NAP 1170317703. TU: ZION",
+      "chatId": "1170317703",
+      "gateway": "MBBank",
+      "processedAt": "2026-10-23T16:13:08.488Z"
+    },
+    "FT26297427880107": {
+      "refId": "FT26297427880107",
+      "amount": 10000,
+      "content": "ZIONO5CH7KT41UVE-NAP 1170317703. TU: ZION",
+      "chatId": "1170317703",
+      "gateway": "MBBank",
+      "processedAt": "2026-10-24T03:06:32.221Z"
+    },
+    "FT26297420728333": {
+      "refId": "FT26297420728333",
+      "amount": 10000,
+      "content": "ZION O5CH7KT434P7-NAP 8399303280. TU: ZION",
+      "chatId": "8399303280",
+      "gateway": "MBBank",
+      "processedAt": "2026-10-24T03:36:09.858Z"
+    },
+    "FT26297969048090": {
+      "refId": "FT26297969048090",
+      "amount": 10000,
+      "content": "ZION O5CH7KT445A0-NAP 8399303280. TU: ZION",
+      "chatId": "8399303280",
+      "gateway": "MBBank",
+      "processedAt": "2026-10-24T03:59:49.827Z"
+    }
+  }
+}

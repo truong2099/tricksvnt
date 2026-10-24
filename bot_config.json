@@ -1,0 +1,48 @@
+{
+  "token": "8652399485:AAEkzrAqd3ZyKcl9_DWqAx7MS7UcNMUBnAg",
+  "adminId": "1170317703",
+  "adminName": "NGỌC TRƯỜNG",
+  "adminUsername": "ngoctruong_store",
+  "apiKey": "tgb_83c40bd3d5c484337e0f71169446834c497226076bba765f",
+  "apiUrl": "https://canboso.com",
+  "markupPercent": 20,
+  "bank": {
+    "bankCode": "MB",
+    "bankName": "MBBank (Ngân hàng Quân Đội)",
+    "accountNumber": "22220009999",
+    "accountHolder": "VU NGOC TRUONG",
+    "depositSyntax": "NAP",
+    "minDeposit": 10000
+  },
+  "supportContact": "@ngoctruong_store",
+  "welcomeMessage": "Chào mừng bạn đến với hệ thống tài khoản Premium tự động 24/7! Vui lòng chọn dịch vụ bên dưới.",
+  "warrantyPolicy": "• Bảo hành 1 đổi 1 trong suốt thời gian sử dụng nếu lỗi từ nhà cung cấp.\n• Khách hàng vui lòng tuân thủ quy định đăng nhập ghi trong mô tả sản phẩm.\n• Hỗ trợ xử lý bảo hành siêu tốc qua hệ thống Ticket tự động của bot.",
+  "autoBalanceFilter": true,
+  "motherBalanceOverride": null,
+  "socialSupport": {
+    "telegramAdmin": "@ngoctruong_store",
+    "telegramChannel": "https://t.me/trickvnt",
+    "telegramGroup": "https://t.me/trickvntchat",
+    "zalo": "0989055026",
+    "facebook": "https://facebook.com",
+    "messenger": "https://m.me/vntshared",
+    "tiktok": "https://tiktok.com/@truong_2099",
+    "hotline": "0989055026",
+    "workingHours": "08:00 - 24:00 (Hỗ trợ 24/7)",
+    "supportNote": "Khách hàng vui lòng chuẩn bị sẵn Mã đơn hàng hoặc Biên lai nạp tiền để được hỗ trợ nhanh nhất!"
+  },
+  "autobank": {
+    "enabled": true,
+    "provider": "sieuthicode",
+    "apiUrl": "https://api.sieuthicode.vn/historyapimbbank",
+    "apiToken": "0faba70e2f6747c9d22c1f346b1c4877",
+    "secretKey": "",
+    "accountNumber": "22220009999",
+    "pollIntervalSeconds": 12,
+    "webhookUrl": "/api/webhook/bank"
+  },
+  "adminAuth": {
+    "username": "vungoctruong",
+    "password": "@Gmail2k9"
+  }
+}
