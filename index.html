@@ -1806,87 +1806,207 @@
       </div>
     </div>
 
-    <!-- FEATURED FLAGSHIP SECTION: VNTCERT.CLICK (#vntcert) -->
+        <!-- FEATURED FLAGSHIP SECTION: MULTI-SERVICE SLIDER (#vntcert) -->
     <section id="vntcert" class="section" style="padding-top:20px;">
       <div class="section-head" style="border-bottom:3px solid var(--border);">
         <div class="sec-badge" style="color:#b45309;">
-          <span class="num-pill" style="background:#ff5722;color:#fff;"><i class="fas fa-star"></i> DỊCH VỤ TRỌNG TÂM</span>
-          <span data-i18n="cert_sec_badge">VNTCERT.CLICK • MUA BÁN CHỨNG CHỈ APPLE P12</span>
+          <span class="num-pill" style="background:#ff5722;color:#fff;"><i class="fas fa-star"></i> <span data-i18n="flagship_badge_main">DỊCH VỤ TRỌNG TÂM</span></span>
+          <span id="flagshipSecBadge" data-i18n="flagship_sec_sub">HỆ THỐNG DỊCH VỤ HÀNG ĐẦU • VNT ECOSYSTEM</span>
         </div>
         <span class="sec-hex" style="color:#b45309;font-weight:700;">//HOT-FLAGSHIP</span>
       </div>
 
-      <!-- High-Impact Neo-brutalism Showcase Banner -->
-      <div class="neo-card card-featured flagship-card">
-        <div style="display:grid;grid-template-columns:1fr;gap:28px;" class="vntcert-grid">
-          
-          <!-- Left Column: Information, Highlights & CTAs -->
-          <div>
-            <div class="flagship-tag">
-              <i class="fab fa-apple" style="font-size:16px;"></i>
-              <span data-i18n="cert_tag">APPLE CERTIFICATE P12 &amp; MOBILEPROVISION</span>
+      <!-- Navigation Bar: Tabs, Auto-cycle Timer & Controls -->
+      <div class="flagship-nav-bar">
+        <div class="flagship-tabs">
+          <button type="button" class="flagship-tab-btn active" id="flagshipTab0" onclick="goToFlagshipSlide(0)">
+            <i class="fab fa-apple" style="font-size:15px;color:#d9381e;"></i>
+            <span data-i18n="tab_cert">1. Bán Chứng Chỉ Apple P12</span>
+          </button>
+          <button type="button" class="flagship-tab-btn" id="flagshipTab1" onclick="goToFlagshipSlide(1)">
+            <i class="fas fa-crown" style="font-size:14px;color:#b45309;"></i>
+            <span data-i18n="tab_prem">2. Bán Tài Khoản Premium</span>
+          </button>
+        </div>
+
+        <div class="flagship-controls">
+          <div class="flagship-timer-pill" title="Tự động đổi dịch vụ sau 30s">
+            <i class="fas fa-history" style="color:#e11d48"></i>
+            <span class="flagship-timer-bar-wrap">
+              <span class="flagship-timer-bar-fill" id="flagshipTimerBar"></span>
+            </span>
+            <span id="flagshipTimerNum">30s</span>
+          </div>
+          <button type="button" class="flagship-arrow-btn" onclick="prevFlagshipSlide()" aria-label="Dịch vụ trước" title="Dịch vụ trước">
+            <i class="fas fa-chevron-left"></i>
+          </button>
+          <button type="button" class="flagship-arrow-btn" onclick="nextFlagshipSlide()" aria-label="Dịch vụ tiếp theo" title="Dịch vụ tiếp theo">
+            <i class="fas fa-chevron-right"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- High-Impact Neo-brutalism Showcase Slider -->
+      <div class="flagship-slider-container" id="flagshipSliderContainer">
+        <div class="flagship-slider-track" id="flagshipSliderTrack">
+
+          <!-- SLIDE 1: VNTCERT.CLICK (Chứng chỉ Apple P12) -->
+          <div class="flagship-slide">
+            <div class="neo-card card-featured flagship-card flagship-card-cert" style="margin-bottom:0;">
+              <div style="display:grid;grid-template-columns:1fr;gap:28px;" class="vntcert-grid">
+                <div>
+                  <div class="flagship-tag">
+                    <i class="fab fa-apple" style="font-size:16px;"></i>
+                    <span data-i18n="cert_tag">APPLE CERTIFICATE P12 &amp; MOBILEPROVISION</span>
+                  </div>
+
+                  <h2 class="flagship-title">
+                    <span data-i18n="cert_title">Chứng Chỉ Apple P12 Cho iPhone &amp; iPad</span><br>
+                    <span class="hl flagship-highlight" data-i18n="cert_highlight">Cài Mọi App IPA • Không Cần Jailbreak</span>
+                  </h2>
+
+                  <p class="flagship-desc" data-i18n="cert_desc">
+                    Hệ thống bán chứng chỉ Apple cá nhân (file .p12 + .mobileprovision) tự động 24/7. Ký và cài ứng dụng ngoài App Store với ESign, GBox, Scarlet, mở khóa mọi thiết bị dính Blacklist/Ban, bảo hành uy tín lên đến 300 ngày.
+                  </p>
+
+                  <!-- Feature Badges Grid -->
+                  <div class="flagship-features">
+                    <div class="flagship-feature-item">
+                      <span style="color:#22c55e;"><i class="fas fa-bolt"></i></span> <span data-i18n="cert_f1">Cấp tự động 24/7 (Có ngay)</span>
+                    </div>
+                    <div class="flagship-feature-item">
+                      <span style="color:#3b82f6;"><i class="fas fa-shield-alt"></i></span> <span data-i18n="cert_f2">Kiểm tra Apple OCSP trực tiếp</span>
+                    </div>
+                    <div class="flagship-feature-item">
+                      <span style="color:#e11d48;"><i class="fas fa-qrcode"></i></span> <span data-i18n="cert_f3">Nạp VietQR tự động cộng tiền</span>
+                    </div>
+                    <div class="flagship-feature-item">
+                      <span style="color:#a855f7;"><i class="fas fa-unlock-alt"></i></span> <span data-i18n="cert_f4">Mở khóa thiết bị Blacklist / Ban</span>
+                    </div>
+                    <div class="flagship-feature-item">
+                      <span style="color:#f59e0b;"><i class="fas fa-calendar-check"></i></span> <span data-i18n="cert_f5">Thời hạn 365 ngày toàn quyền</span>
+                    </div>
+                    <div class="flagship-feature-item">
+                      <span style="color:#06b6d4;"><i class="fas fa-mobile-alt"></i></span> <span data-i18n="cert_f6">Làm 100% trên iPhone, không cần PC</span>
+                    </div>
+                  </div>
+
+                  <!-- Price & Package Summary Tags -->
+                  <div class="flagship-pricing-box">
+                    <div class="flagship-pricing-header">
+                      <span data-i18n="cert_pkg_title">CÁC GÓI CHỨNG CHỈ ĐANG BÁN:</span>
+                      <span style="color:#22c55e;"><i class="fas fa-circle" style="font-size:8px;"></i> SẴN HÀNG</span>
+                    </div>
+                    <div class="flagship-pricing-grid">
+                      <div class="flagship-pricing-pill"><span>UNBAN:</span> <strong>50.000đ</strong></div>
+                      <div class="flagship-pricing-pill"><span>Basic (BH 30 ngày):</span> <strong>70.000đ</strong></div>
+                      <div class="flagship-pricing-pill"><span>Plus (BH 180 ngày):</span> <strong>140.000đ</strong></div>
+                      <div class="flagship-pricing-pill" style="color:#d9381e;"><span>Premium (BH 300 ngày):</span> <strong>299.000đ</strong></div>
+                    </div>
+                  </div>
+
+                  <!-- Action Buttons -->
+                  <div class="flagship-actions">
+                    <a href="https://vntcert.click/" target="_blank" rel="noopener noreferrer" class="btn btn-dark btn-lg">
+                      <i class="fas fa-shopping-cart"></i> <span data-i18n="cert_btn_buy">MUA CHỨNG CHỈ TẠI VNTCERT.CLICK</span> <i class="fas fa-arrow-up-right-from-square"></i>
+                    </a>
+                    <a href="https://vntcert.click/check" target="_blank" rel="noopener noreferrer" class="btn btn-ghost btn-lg">
+                      <i class="fas fa-search"></i> <span data-i18n="cert_btn_check">Kiểm Tra Đơn / Nhận Hàng</span>
+                    </a>
+                    <a href="https://t.me/ngoctruong_store" target="_blank" rel="noopener noreferrer" class="btn btn-blue btn-lg">
+                      <i class="fab fa-telegram-plane"></i> <span data-i18n="cert_btn_support">Hỗ Trợ Admin</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
             </div>
+          </div>
 
-            <h2 class="flagship-title">
-              <span data-i18n="cert_title">Chứng Chỉ Apple P12 Cho iPhone &amp; iPad</span><br>
-              <span class="hl flagship-highlight" data-i18n="cert_highlight">Cài Mọi App IPA • Không Cần Jailbreak</span>
-            </h2>
+          <!-- SLIDE 2: VASNET360.SITE (Bán Tài Khoản Premium) -->
+          <div class="flagship-slide">
+            <div class="neo-card card-featured flagship-card flagship-card-prem" style="margin-bottom:0;">
+              <div style="display:grid;grid-template-columns:1fr;gap:28px;" class="vntcert-grid">
+                <div>
+                  <div class="flagship-tag">
+                    <i class="fas fa-crown" style="font-size:16px;color:#f59e0b;"></i>
+                    <span data-i18n="prem_tag">VNT PREMIUM STORE • HỆ THỐNG NÂNG CẤP TÀI KHOẢN TỰ ĐỘNG</span>
+                  </div>
 
-            <p class="flagship-desc" data-i18n="cert_desc">
-              Hệ thống bán chứng chỉ Apple cá nhân (file .p12 + .mobileprovision) tự động 24/7. Ký và cài ứng dụng ngoài App Store với ESign, GBox, Scarlet, mở khóa mọi thiết bị dính Blacklist/Ban, bảo hành uy tín lên đến 300 ngày.
-            </p>
+                  <h2 class="flagship-title">
+                    <span data-i18n="prem_title">Bán &amp; Nâng Cấp Tài Khoản Premium Giá Rẻ</span><br>
+                    <span class="hl flagship-highlight" data-i18n="prem_highlight" style="color:#059669;">Locket Gold • Spotify • Netflix • YouTube • ChatGPT</span>
+                  </h2>
 
-            <!-- Feature Badges Grid -->
-            <div class="flagship-features">
-              <div class="flagship-feature-item">
-                <span style="color:#22c55e;"><i class="fas fa-bolt"></i></span> <span data-i18n="cert_f1">Cấp tự động 24/7 (Có ngay)</span>
-              </div>
-              <div class="flagship-feature-item">
-                <span style="color:#3b82f6;"><i class="fas fa-shield-alt"></i></span> <span data-i18n="cert_f2">Kiểm tra Apple OCSP trực tiếp</span>
-              </div>
-              <div class="flagship-feature-item">
-                <span style="color:#e11d48;"><i class="fas fa-qrcode"></i></span> <span data-i18n="cert_f3">Nạp VietQR tự động cộng tiền</span>
-              </div>
-              <div class="flagship-feature-item">
-                <span style="color:#a855f7;"><i class="fas fa-unlock-alt"></i></span> <span data-i18n="cert_f4">Mở khóa thiết bị Blacklist / Ban</span>
-              </div>
-              <div class="flagship-feature-item">
-                <span style="color:#f59e0b;"><i class="fas fa-calendar-check"></i></span> <span data-i18n="cert_f5">Thời hạn 365 ngày toàn quyền</span>
-              </div>
-              <div class="flagship-feature-item">
-                <span style="color:#06b6d4;"><i class="fas fa-mobile-alt"></i></span> <span data-i18n="cert_f6">Làm 100% trên iPhone, không cần PC</span>
-              </div>
-            </div>
+                  <p class="flagship-desc" data-i18n="prem_desc">
+                    Hệ thống bán tài khoản bản quyền và nâng cấp trực tiếp trên tài khoản chính chủ 24/7. Nhận hàng siêu tốc chỉ sau 30 giây, nạp VietQR MBBank tự động cộng tiền, bảo hành trọn đời gói mua, uy tín hàng đầu.
+                  </p>
 
-            <!-- Price & Package Summary Tags -->
-            <div class="flagship-pricing-box">
-              <div class="flagship-pricing-header">
-                <span data-i18n="cert_pkg_title">CÁC GÓI CHỨNG CHỈ ĐANG BÁN:</span>
-                <span style="color:#22c55e;"><i class="fas fa-circle" style="font-size:8px;"></i> SẴN HÀNG</span>
-              </div>
-              <div class="flagship-pricing-grid">
-                <div class="flagship-pricing-pill"><span>UNBAN:</span> <strong>50.000đ</strong></div>
-                <div class="flagship-pricing-pill"><span>Basic (BH 30 ngày):</span> <strong>70.000đ</strong></div>
-                <div class="flagship-pricing-pill"><span>Plus (BH 180 ngày):</span> <strong>140.000đ</strong></div>
-                <div class="flagship-pricing-pill" style="color:#d9381e;"><span>Premium (BH 300 ngày):</span> <strong>299.000đ</strong></div>
-              </div>
-            </div>
+                  <!-- Feature Badges Grid -->
+                  <div class="flagship-features">
+                    <div class="flagship-feature-item">
+                      <span style="color:#22c55e;"><i class="fas fa-bolt"></i></span> <span data-i18n="prem_f1">Nâng cấp chính chủ trong 30s</span>
+                    </div>
+                    <div class="flagship-feature-item">
+                      <span style="color:#3b82f6;"><i class="fas fa-shield-alt"></i></span> <span data-i18n="prem_f2">Bảo hành trọn thời gian sử dụng</span>
+                    </div>
+                    <div class="flagship-feature-item">
+                      <span style="color:#e11d48;"><i class="fas fa-qrcode"></i></span> <span data-i18n="prem_f3">Nạp VietQR MBBank tự động 24/7</span>
+                    </div>
+                    <div class="flagship-feature-item">
+                      <span style="color:#a855f7;"><i class="fas fa-users"></i></span> <span data-i18n="prem_f4">Hàng ngàn khách hàng tin dùng</span>
+                    </div>
+                    <div class="flagship-feature-item">
+                      <span style="color:#f59e0b;"><i class="fas fa-wallet"></i></span> <span data-i18n="prem_f5">Tiết kiệm đến 70% so với giá gốc</span>
+                    </div>
+                    <div class="flagship-feature-item">
+                      <span style="color:#06b6d4;"><i class="fas fa-headset"></i></span> <span data-i18n="prem_f6">Hỗ trợ kỹ thuật 24/7 qua Zalo &amp; Telegram</span>
+                    </div>
+                  </div>
 
-            <!-- Action Buttons -->
-            <div class="flagship-actions">
-              <a href="https://vntcert.click/" target="_blank" rel="noopener noreferrer" class="btn btn-dark btn-lg">
-                <i class="fas fa-shopping-cart"></i> <span data-i18n="cert_btn_buy">MUA CHỨNG CHỈ TẠI VNTCERT.CLICK</span> <i class="fas fa-arrow-up-right-from-square"></i>
-              </a>
-              <a href="https://vntcert.click/check" target="_blank" rel="noopener noreferrer" class="btn btn-ghost btn-lg">
-                <i class="fas fa-search"></i> <span data-i18n="cert_btn_check">Kiểm Tra Đơn / Nhận Hàng</span>
-              </a>
-              <a href="https://t.me/ngoctruong_store" target="_blank" rel="noopener noreferrer" class="btn btn-blue btn-lg">
-                <i class="fab fa-telegram-plane"></i> <span data-i18n="cert_btn_support">Hỗ Trợ Admin</span>
-              </a>
+                  <!-- Price & Package Summary Tags -->
+                  <div class="flagship-pricing-box">
+                    <div class="flagship-pricing-header">
+                      <span data-i18n="prem_pkg_title">CÁC GÓI PREMIUM BÁN CHẠY NHẤT:</span>
+                      <span style="color:#22c55e;"><i class="fas fa-fire" style="font-size:11px;color:#e11d48;"></i> HOT BÁN CHẠY</span>
+                    </div>
+                    <div class="flagship-pricing-grid">
+                      <div class="flagship-pricing-pill"><span>Locket Gold:</span> <strong>từ 25.000đ</strong></div>
+                      <div class="flagship-pricing-pill"><span>Spotify Premium:</span> <strong>từ 40.000đ</strong></div>
+                      <div class="flagship-pricing-pill"><span>Netflix 4K UHD:</span> <strong>từ 65.000đ</strong></div>
+                      <div class="flagship-pricing-pill"><span>YouTube Premium:</span> <strong>từ 35.000đ</strong></div>
+                      <div class="flagship-pricing-pill"><span>ChatGPT Plus:</span> <strong>từ 99.000đ</strong></div>
+                      <div class="flagship-pricing-pill"><span>Canva Pro Edu:</span> <strong>từ 30.000đ</strong></div>
+                    </div>
+                  </div>
+
+                  <!-- Action Buttons -->
+                  <div class="flagship-actions">
+                    <a href="https://www.vasnet360.site/" target="_blank" rel="noopener noreferrer" class="btn btn-dark btn-lg" style="background:#059669;border-color:var(--border);color:#fff;">
+                      <i class="fas fa-shopping-bag"></i> <span data-i18n="prem_btn_buy">MUA TÀI KHOẢN TẠI VASNET360.SITE</span> <i class="fas fa-arrow-up-right-from-square"></i>
+                    </a>
+                    <a href="https://www.vasnet360.site/" target="_blank" rel="noopener noreferrer" class="btn btn-ghost btn-lg">
+                      <i class="fas fa-list-ul"></i> <span data-i18n="prem_btn_catalog">Xem Toàn Bộ Bảng Giá</span>
+                    </a>
+                    <a href="https://t.me/ngoctruong_store" target="_blank" rel="noopener noreferrer" class="btn btn-blue btn-lg">
+                      <i class="fab fa-telegram-plane"></i> <span data-i18n="prem_btn_support">Hỗ Trợ Admin</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
 
         </div>
+      </div>
+
+      <!-- Pagination Dots & Swipe Hint -->
+      <div class="flagship-dots">
+        <button type="button" class="flagship-dot active" id="flagshipDot0" onclick="goToFlagshipSlide(0)" aria-label="Slide 1: Chứng chỉ P12"></button>
+        <button type="button" class="flagship-dot" id="flagshipDot1" onclick="goToFlagshipSlide(1)" aria-label="Slide 2: Tài khoản Premium"></button>
+      </div>
+      <div class="flagship-hint">
+        <i class="fas fa-hand-pointer"></i>
+        <span data-i18n="flagship_swipe_hint">Vuốt qua lại hoặc bấm phím để xem • Tự động chuyển đổi sau mỗi 30s</span>
       </div>
     </section>
 
@@ -2102,7 +2222,7 @@
       </div>
     </section>
 
-    <!-- 03 / CÁC DỊCH VỤ CỦA TÔI (#services) -->
+        <!-- 03 / CÁC DỊCH VỤ CỦA TÔI (#services) -->
     <section id="services" class="section">
       <div class="section-head">
         <div class="sec-badge">
@@ -2111,8 +2231,8 @@
         <span class="sec-hex">//0x03</span>
       </div>
 
-      <div class="cards-grid-2">
-        <!-- Locket Gold -->
+      <div class="cards-grid">
+        <!-- Dịch vụ 1: Locket Gold -->
         <div class="neo-card card-featured">
           <div>
             <div class="card-top">
@@ -2130,7 +2250,25 @@
           </div>
         </div>
 
-        <!-- Kho IPA -->
+        <!-- Dịch vụ 2: Website Bán Tài Khoản Premium (VASNET360.SITE) -->
+        <div class="neo-card">
+          <div>
+            <div class="card-top">
+              <div class="card-icon-box icon-green"><i class="fas fa-store"></i></div>
+              <div class="card-info">
+                <div class="card-title" data-i18n="svc_prem_title">Web Bán Tài Khoản Premium</div>
+                <div class="card-desc" data-i18n="svc_prem_desc">Hệ thống bán &amp; nâng cấp tài khoản tự động 24/7: Locket Gold, Spotify, Netflix, YouTube, ChatGPT, Canva Pro siêu tốc.</div>
+                <div class="card-subtext">vasnet360.site</div>
+              </div>
+            </div>
+          </div>
+          <div class="card-bottom">
+            <span class="card-status-badge" style="background:#dcfce7;color:#15803d"><i class="fas fa-bolt"></i> <span data-i18n="badge_auto_247">Tự động 24/7</span></span>
+            <a class="btn btn-dark btn-sm" href="https://www.vasnet360.site/" target="_blank" rel="noopener noreferrer"><span data-i18n="btn_buy_prem">MUA TÀI KHOẢN</span> <i class="fas fa-external-link-alt"></i></a>
+          </div>
+        </div>
+
+        <!-- Dịch vụ 3: Kho IPA -->
         <div class="neo-card">
           <div>
             <div class="card-top">
@@ -2559,6 +2697,29 @@
         cert_btn_buy: 'MUA CHỨNG CHỈ TẠI VNTCERT.CLICK',
         cert_btn_check: 'Kiểm Tra Đơn / Nhận Hàng',
         cert_btn_support: 'Hỗ Trợ Admin',
+        flagship_badge_main: 'DỊCH VỤ TRỌNG TÂM',
+        flagship_sec_sub: 'HỆ THỐNG DỊCH VỤ HÀNG ĐẦU • VNT ECOSYSTEM',
+        tab_cert: '1. Bán Chứng Chỉ Apple P12',
+        tab_prem: '2. Bán Tài Khoản Premium',
+        flagship_swipe_hint: 'Vuốt qua lại hoặc bấm phím để xem • Tự động chuyển đổi sau mỗi 30s',
+        prem_tag: 'VNT PREMIUM STORE • HỆ THỐNG NÂNG CẤP TÀI KHOẢN TỰ ĐỘNG',
+        prem_title: 'Bán & Nâng Cấp Tài Khoản Premium Giá Rẻ',
+        prem_highlight: 'Locket Gold • Spotify • Netflix • YouTube • ChatGPT',
+        prem_desc: 'Hệ thống bán tài khoản bản quyền và nâng cấp trực tiếp trên tài khoản chính chủ 24/7. Nhận hàng siêu tốc chỉ sau 30 giây, nạp VietQR MBBank tự động cộng tiền, bảo hành trọn đời gói mua, uy tín hàng đầu.',
+        prem_f1: 'Nâng cấp chính chủ trong 30s',
+        prem_f2: 'Bảo hành trọn thời gian sử dụng',
+        prem_f3: 'Nạp VietQR MBBank tự động 24/7',
+        prem_f4: 'Hàng ngàn khách hàng tin dùng',
+        prem_f5: 'Tiết kiệm đến 70% so với giá gốc',
+        prem_f6: 'Hỗ trợ kỹ thuật 24/7 qua Zalo & Telegram',
+        prem_pkg_title: 'CÁC GÓI PREMIUM BÁN CHẠY NHẤT:',
+        prem_btn_buy: 'MUA TÀI KHOẢN TẠI VASNET360.SITE',
+        prem_btn_catalog: 'Xem Toàn Bộ Bảng Giá',
+        prem_btn_support: 'Hỗ Trợ Admin',
+        svc_prem_title: 'Web Bán Tài Khoản Premium',
+        svc_prem_desc: 'Hệ thống bán & nâng cấp tài khoản tự động 24/7: Locket Gold, Spotify, Netflix, YouTube, ChatGPT, Canva Pro siêu tốc.',
+        badge_auto_247: 'Tự động 24/7',
+        btn_buy_prem: 'MUA TÀI KHOẢN',
       },
       en: {
         code: 'EN',
@@ -2658,6 +2819,29 @@
         cert_btn_buy: 'BUY CERTIFICATES AT VNTCERT.CLICK',
         cert_btn_check: 'Check Orders & Delivery',
         cert_btn_support: 'Admin Support',
+        flagship_badge_main: 'FLAGSHIP SERVICES',
+        flagship_sec_sub: 'CORE ECOSYSTEM SERVICES • VNT STORE',
+        tab_cert: '1. Apple P12 Certificates',
+        tab_prem: '2. Premium Accounts Store',
+        flagship_swipe_hint: 'Swipe or click buttons to switch • Auto-rotates every 30s',
+        prem_tag: 'VNT PREMIUM STORE • 24/7 AUTOMATED ACCOUNT UPGRADE',
+        prem_title: 'Cheap & Genuine Premium Accounts Store',
+        prem_highlight: 'Locket Gold • Spotify • Netflix • YouTube • ChatGPT',
+        prem_desc: 'Automated 24/7 genuine subscription upgrade and account shop. Instant upgrade on your personal account in 30 seconds, auto QR top-up, full warranty.',
+        prem_f1: 'Personal account upgrade in 30s',
+        prem_f2: 'Full-term replacement warranty',
+        prem_f3: 'Instant 24/7 auto VietQR top-up',
+        prem_f4: 'Thousands of trusted customers',
+        prem_f5: 'Save up to 70% off retail pricing',
+        prem_f6: '24/7 priority support via Zalo & TG',
+        prem_pkg_title: 'BEST SELLING PREMIUM PACKAGES:',
+        prem_btn_buy: 'BUY ACCOUNTS AT VASNET360.SITE',
+        prem_btn_catalog: 'View Full Catalog & Prices',
+        prem_btn_support: 'Admin Support',
+        svc_prem_title: 'Premium Accounts Store',
+        svc_prem_desc: 'Automated 24/7 store for Locket Gold, Spotify, Netflix, YouTube Premium, ChatGPT Plus, Canva Pro.',
+        badge_auto_247: 'Auto 24/7',
+        btn_buy_prem: 'BUY ACCOUNTS',
       },
       id: {
         code: 'ID',
@@ -2726,6 +2910,29 @@
         cert_btn_buy: 'BELI SERTIFIKAT DI VNTCERT.CLICK',
         cert_btn_check: 'Cek Pesanan & Unduh',
         cert_btn_support: 'Dukungan Admin',
+        flagship_badge_main: 'LAYANAN UNGGULAN',
+        flagship_sec_sub: 'EKOSISTEM LAYANAN UTAMA • VNT STORE',
+        tab_cert: '1. Sertifikat Apple P12',
+        tab_prem: '2. Toko Akun Premium',
+        flagship_swipe_hint: 'Geser atau klik tombol untuk beralih • Berganti otomatis tiap 30 detik',
+        prem_tag: 'VNT PREMIUM STORE • UPGRADE AKUN OTOMATIS 24/7',
+        prem_title: 'Toko Akun Premium Resmi & Murah',
+        prem_highlight: 'Locket Gold • Spotify • Netflix • YouTube • ChatGPT',
+        prem_desc: 'Layanan penjualan dan upgrade akun premium resmi 24/7. Proses kilat hanya 30 detik di akun pribadi Anda, garansi penuh selama masa pakai.',
+        prem_f1: 'Upgrade akun pribadi dalam 30 detik',
+        prem_f2: 'Garansi penuh selama langganan',
+        prem_f3: 'Top-up otomatis 24/7 via QRIS',
+        prem_f4: 'Dipercaya ribuan pengguna aktif',
+        prem_f5: 'Hemat hingga 70% dari harga resmi',
+        prem_f6: 'Dukungan admin 24/7 lewat Telegram',
+        prem_pkg_title: 'PAKET PREMIUM TERLARIS:',
+        prem_btn_buy: 'BELI AKUN DI VASNET360.SITE',
+        prem_btn_catalog: 'Lihat Daftar Harga Lengkap',
+        prem_btn_support: 'Dukungan Admin',
+        svc_prem_title: 'Web Jual Akun Premium',
+        svc_prem_desc: 'Sistem beli & upgrade akun otomatis 24/7: Locket Gold, Spotify, Netflix, YouTube, ChatGPT, Canva Pro.',
+        badge_auto_247: 'Otomatis 24/7',
+        btn_buy_prem: 'BELI AKUN',
       },
       zh: {
         code: '中文',
@@ -2794,6 +3001,29 @@
         cert_btn_buy: '进入官网购买证书 (VNTCERT.CLICK)',
         cert_btn_check: '查询订单与提单',
         cert_btn_support: '联系在线客服',
+        flagship_badge_main: '核心主推服务',
+        flagship_sec_sub: '精选核心服务生态 • VNT ECOSYSTEM',
+        tab_cert: '1. 苹果 P12 个人证书',
+        tab_prem: '2. 高级会员账号商城',
+        flagship_swipe_hint: '左右滑动或点击按键切换 • 每 30 秒自动轮播',
+        prem_tag: 'VNT PREMIUM STORE • 全自动 24/7 会员升级系统',
+        prem_title: '全网正品特惠会员账号商城',
+        prem_highlight: 'Locket Gold • Spotify • Netflix • YouTube • ChatGPT',
+        prem_desc: '24小时自动化正版会员开通与充值平台。支持买家个人账号30秒极速升级直开，全自动扫码充值，使用期内全程质保，安全可靠。',
+        prem_f1: '支持买家主号 30 秒极速直升',
+        prem_f2: '使用期间享受全程售后质保',
+        prem_f3: 'VietQR / 网银全自动秒级入账',
+        prem_f4: '数万名苹果及数码用户信赖',
+        prem_f5: '价格较官方原价直省高达 70%',
+        prem_f6: '专属客服 Telegram/Zalo 全天候协助',
+        prem_pkg_title: '热销畅销会员套餐一览:',
+        prem_btn_buy: '进入官网购买 (VASNET360.SITE)',
+        prem_btn_catalog: '查看完整价格列表',
+        prem_btn_support: '联系在线客服',
+        svc_prem_title: '高级会员账号商城',
+        svc_prem_desc: '24/7全自动开通：Locket Gold、Spotify、Netflix、YouTube、ChatGPT、Canva Pro 正品会员。',
+        badge_auto_247: '全自动 24/7',
+        btn_buy_prem: '前往购买',
       },
       pt: {
         code: 'PT',
@@ -2862,6 +3092,29 @@
         cert_btn_buy: 'COMPRAR CERTIFICADO (VNTCERT.CLICK)',
         cert_btn_check: 'Verificar Pedido & Baixar',
         cert_btn_support: 'Suporte Admin',
+        flagship_badge_main: 'SERVIÇOS EM DESTAQUE',
+        flagship_sec_sub: 'ECOSSISTEMA PRINCIPAL • VNT STORE',
+        tab_cert: '1. Certificados Apple P12',
+        tab_prem: '2. Contas Premium Oficiais',
+        flagship_swipe_hint: 'Deslize ou clique nos botões para navegar • Alterna a cada 30 segundos',
+        prem_tag: 'VNT PREMIUM STORE • UPGRADE AUTOMÁTICO DE CONTAS 24/7',
+        prem_title: 'Loja de Contas Premium Baratas & Originais',
+        prem_highlight: 'Locket Gold • Spotify • Netflix • YouTube • ChatGPT',
+        prem_desc: 'Sistema automatizado 24/7 para compra e upgrade de assinaturas premium em sua conta própria. Ativação ultrarrápida em 30 segundos, garantia total.',
+        prem_f1: 'Upgrade em conta própria em 30s',
+        prem_f2: 'Garantia total de substituição',
+        prem_f3: 'Recarga automática instantânea',
+        prem_f4: 'Milhares de clientes satisfeitos',
+        prem_f5: 'Economize até 70% do valor oficial',
+        prem_f6: 'Suporte 24/7 via Telegram & Zalo',
+        prem_pkg_title: 'PACOTES PREMIUM MAIS VENDIDOS:',
+        prem_btn_buy: 'COMPRAR CONTAS EM VASNET360.SITE',
+        prem_btn_catalog: 'Ver Tabela de Preços Completa',
+        prem_btn_support: 'Suporte Admin',
+        svc_prem_title: 'Loja de Contas Premium',
+        svc_prem_desc: 'Sistema 24/7 para Locket Gold, Spotify, Netflix, YouTube Premium, ChatGPT Plus, Canva Pro.',
+        badge_auto_247: 'Automático 24/7',
+        btn_buy_prem: 'COMPRAR CONTAS',
       }
     };
 
@@ -3299,6 +3552,121 @@
       const savedLang = localStorage.getItem('vnt_lang') || 'vi';
       setLanguage(savedLang);
     });
+
+    // ===== FLAGSHIP MULTI-SERVICE SLIDER LOGIC (30s AUTO-CYCLE & TOUCH SWIPE) =====
+    let currentFlagshipIndex = 0;
+    const totalFlagshipSlides = 2;
+    const FLAGSHIP_CYCLE_SEC = 30;
+    let flagshipTimerRemaining = FLAGSHIP_CYCLE_SEC;
+    let flagshipTimerInterval = null;
+
+    function updateFlagshipUI() {
+      const track = document.getElementById('flagshipSliderTrack');
+      if (track) {
+        track.style.transform = `translateX(-${currentFlagshipIndex * 100}%)`;
+      }
+      for (let i = 0; i < totalFlagshipSlides; i++) {
+        const tab = document.getElementById(`flagshipTab${i}`);
+        const dot = document.getElementById(`flagshipDot${i}`);
+        if (tab) {
+          if (i === currentFlagshipIndex) tab.classList.add('active');
+          else tab.classList.remove('active');
+        }
+        if (dot) {
+          if (i === currentFlagshipIndex) dot.classList.add('active');
+          else dot.classList.remove('active');
+        }
+      }
+    }
+
+    function goToFlagshipSlide(index, resetTime = true) {
+      if (index < 0) index = totalFlagshipSlides - 1;
+      if (index >= totalFlagshipSlides) index = 0;
+      currentFlagshipIndex = index;
+      updateFlagshipUI();
+      if (resetTime) {
+        resetFlagshipTimer();
+      }
+    }
+
+    function nextFlagshipSlide(userAction = true) {
+      goToFlagshipSlide((currentFlagshipIndex + 1) % totalFlagshipSlides, userAction);
+    }
+
+    function prevFlagshipSlide(userAction = true) {
+      goToFlagshipSlide((currentFlagshipIndex - 1 + totalFlagshipSlides) % totalFlagshipSlides, userAction);
+    }
+
+    function resetFlagshipTimer() {
+      flagshipTimerRemaining = FLAGSHIP_CYCLE_SEC;
+      updateTimerDisplay();
+    }
+
+    function updateTimerDisplay() {
+      const numEl = document.getElementById('flagshipTimerNum');
+      const barEl = document.getElementById('flagshipTimerBar');
+      if (numEl) numEl.textContent = `${flagshipTimerRemaining}s`;
+      if (barEl) {
+        const pct = ((FLAGSHIP_CYCLE_SEC - flagshipTimerRemaining) / FLAGSHIP_CYCLE_SEC) * 100;
+        barEl.style.width = `${pct}%`;
+      }
+    }
+
+    function initFlagshipSlider() {
+      updateFlagshipUI();
+      resetFlagshipTimer();
+
+      if (flagshipTimerInterval) clearInterval(flagshipTimerInterval);
+      flagshipTimerInterval = setInterval(() => {
+        flagshipTimerRemaining--;
+        if (flagshipTimerRemaining <= 0) {
+          nextFlagshipSlide(false);
+          flagshipTimerRemaining = FLAGSHIP_CYCLE_SEC;
+        }
+        updateTimerDisplay();
+      }, 1000);
+
+      // Touch Swipe Handler for mobile devices
+      const container = document.getElementById('flagshipSliderContainer');
+      if (container) {
+        let touchStartX = 0;
+        let touchStartY = 0;
+        let touchEndX = 0;
+        let touchEndY = 0;
+
+        container.addEventListener('touchstart', (e) => {
+          touchStartX = e.changedTouches[0].screenX;
+          touchStartY = e.changedTouches[0].screenY;
+        }, { passive: true });
+
+        container.addEventListener('touchend', (e) => {
+          touchEndX = e.changedTouches[0].screenX;
+          touchEndY = e.changedTouches[0].screenY;
+          handleSwipe();
+        }, { passive: true });
+
+        function handleSwipe() {
+          const diffX = touchEndX - touchStartX;
+          const diffY = touchEndY - touchStartY;
+          // Only trigger if horizontal swipe is dominant and > 45px
+          if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 45) {
+            if (diffX < 0) {
+              nextFlagshipSlide(true);
+            } else {
+              prevFlagshipSlide(true);
+            }
+          }
+        }
+      }
+    }
+
+    // Call initFlagshipSlider when DOM is ready
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initFlagshipSlider);
+    } else {
+      initFlagshipSlider();
+    }
+
   </script>
 
   <!-- ========================================================
@@ -3314,6 +3682,211 @@
       pointer-events: none;
       z-index: 9999;
     }
+
+    /* Flagship Multi-Service Slider (VNTCERT & VASNET360) */
+    .flagship-nav-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 14px;
+      flex-wrap: wrap;
+    }
+    .flagship-tabs {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    .flagship-tab-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 14px;
+      background: #fff;
+      border: 2px solid var(--border);
+      border-radius: var(--radius-base);
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--ink-700);
+      cursor: pointer;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.15s ease;
+      user-select: none;
+      font-family: var(--font-mono);
+    }
+    .flagship-tab-btn:hover {
+      transform: translate(-1px, -1px);
+      box-shadow: 3px 3px 0 0 var(--border);
+    }
+    .flagship-tab-btn.active {
+      background: var(--main-hi);
+      color: var(--ink-900);
+      border-color: var(--border);
+      box-shadow: 3px 3px 0 0 var(--border);
+    }
+    .flagship-controls {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-left: auto;
+    }
+    .flagship-timer-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #fff;
+      border: 2px solid var(--border);
+      border-radius: 999px;
+      padding: 5px 12px;
+      font-size: 12px;
+      font-weight: 700;
+      font-family: var(--font-mono);
+      box-shadow: var(--shadow-sm);
+      color: var(--ink-900);
+    }
+    .flagship-timer-bar-wrap {
+      width: 44px;
+      height: 6px;
+      background: #e2e8f0;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      overflow: hidden;
+      display: inline-block;
+      vertical-align: middle;
+    }
+    .flagship-timer-bar-fill {
+      height: 100%;
+      width: 0%;
+      background: #e11d48;
+      transition: width 0.1s linear;
+    }
+    .flagship-arrow-btn {
+      width: 36px;
+      height: 36px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: #fff;
+      border: 2px solid var(--border);
+      border-radius: var(--radius-base);
+      cursor: pointer;
+      font-size: 14px;
+      box-shadow: var(--shadow-sm);
+      color: var(--ink-900);
+      transition: all 0.15s ease;
+    }
+    .flagship-arrow-btn:hover {
+      transform: translate(-1px, -1px);
+      box-shadow: 3px 3px 0 0 var(--border);
+      background: var(--paper-1);
+    }
+    .flagship-arrow-btn:active {
+      transform: translate(1px, 1px);
+      box-shadow: 1px 1px 0 0 var(--border);
+    }
+    .flagship-slider-container {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+      border-radius: var(--radius-base);
+      touch-action: pan-y;
+      user-select: none;
+    }
+    .flagship-slider-track {
+      display: flex;
+      width: 100%;
+      transition: transform 0.45s cubic-bezier(0.25, 1, 0.5, 1);
+      will-change: transform;
+    }
+    .flagship-slide {
+      flex: 0 0 100%;
+      width: 100%;
+      max-width: 100%;
+      min-width: 100%;
+      box-sizing: border-box;
+    }
+    .flagship-card-cert {
+      background: linear-gradient(135deg, #ffd94a 0%, #ffeaa7 100%);
+    }
+    .flagship-card-prem {
+      background: linear-gradient(135deg, #bbf7d0 0%, #86efac 100%);
+    }
+    .flagship-dots {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 12px;
+      margin-bottom: 24px;
+    }
+    .flagship-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 999px;
+      background: #fff;
+      border: 2px solid var(--border);
+      cursor: pointer;
+      transition: all 0.2s ease;
+      box-shadow: var(--shadow-sm);
+    }
+    .flagship-dot.active {
+      background: #e11d48;
+      width: 28px;
+    }
+    .flagship-hint {
+      text-align: center;
+      font-size: 12px;
+      font-family: var(--font-mono);
+      color: var(--ink-500);
+      margin-top: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+    }
+
+    /* Dark Mode overrides for flagship slider */
+    [data-theme="dark"] .flagship-tab-btn {
+      background: #24242e !important;
+      color: #e4e4e7 !important;
+      border-color: var(--border) !important;
+    }
+    [data-theme="dark"] .flagship-tab-btn.active {
+      background: #ffd94a !important;
+      color: #111111 !important;
+      border-color: var(--border) !important;
+    }
+    [data-theme="dark"] .flagship-arrow-btn {
+      background: #24242e !important;
+      color: #fafafa !important;
+      border-color: var(--border) !important;
+    }
+    [data-theme="dark"] .flagship-timer-pill {
+      background: #24242e !important;
+      color: #fafafa !important;
+      border-color: var(--border) !important;
+    }
+    [data-theme="dark"] .flagship-timer-bar-wrap {
+      background: #3f3f46 !important;
+      border-color: var(--border) !important;
+    }
+    [data-theme="dark"] .flagship-dot {
+      background: #24242e !important;
+      border-color: var(--border) !important;
+    }
+    [data-theme="dark"] .flagship-dot.active {
+      background: #f59e0b !important;
+    }
+    [data-theme="dark"] .flagship-hint {
+      color: #a1a1aa !important;
+    }
+    [data-theme="dark"] .flagship-card-prem,
+    [data-theme="dark"] .flagship-card-cert {
+      background: #181820 !important;
+      border-color: var(--border) !important;
+    }
+
   </style>
   <canvas id="snow-canvas"></canvas>
   <script>
@@ -3443,6 +4016,121 @@
     init();
     requestAnimationFrame(render);
   })();
+
+    // ===== FLAGSHIP MULTI-SERVICE SLIDER LOGIC (30s AUTO-CYCLE & TOUCH SWIPE) =====
+    let currentFlagshipIndex = 0;
+    const totalFlagshipSlides = 2;
+    const FLAGSHIP_CYCLE_SEC = 30;
+    let flagshipTimerRemaining = FLAGSHIP_CYCLE_SEC;
+    let flagshipTimerInterval = null;
+
+    function updateFlagshipUI() {
+      const track = document.getElementById('flagshipSliderTrack');
+      if (track) {
+        track.style.transform = `translateX(-${currentFlagshipIndex * 100}%)`;
+      }
+      for (let i = 0; i < totalFlagshipSlides; i++) {
+        const tab = document.getElementById(`flagshipTab${i}`);
+        const dot = document.getElementById(`flagshipDot${i}`);
+        if (tab) {
+          if (i === currentFlagshipIndex) tab.classList.add('active');
+          else tab.classList.remove('active');
+        }
+        if (dot) {
+          if (i === currentFlagshipIndex) dot.classList.add('active');
+          else dot.classList.remove('active');
+        }
+      }
+    }
+
+    function goToFlagshipSlide(index, resetTime = true) {
+      if (index < 0) index = totalFlagshipSlides - 1;
+      if (index >= totalFlagshipSlides) index = 0;
+      currentFlagshipIndex = index;
+      updateFlagshipUI();
+      if (resetTime) {
+        resetFlagshipTimer();
+      }
+    }
+
+    function nextFlagshipSlide(userAction = true) {
+      goToFlagshipSlide((currentFlagshipIndex + 1) % totalFlagshipSlides, userAction);
+    }
+
+    function prevFlagshipSlide(userAction = true) {
+      goToFlagshipSlide((currentFlagshipIndex - 1 + totalFlagshipSlides) % totalFlagshipSlides, userAction);
+    }
+
+    function resetFlagshipTimer() {
+      flagshipTimerRemaining = FLAGSHIP_CYCLE_SEC;
+      updateTimerDisplay();
+    }
+
+    function updateTimerDisplay() {
+      const numEl = document.getElementById('flagshipTimerNum');
+      const barEl = document.getElementById('flagshipTimerBar');
+      if (numEl) numEl.textContent = `${flagshipTimerRemaining}s`;
+      if (barEl) {
+        const pct = ((FLAGSHIP_CYCLE_SEC - flagshipTimerRemaining) / FLAGSHIP_CYCLE_SEC) * 100;
+        barEl.style.width = `${pct}%`;
+      }
+    }
+
+    function initFlagshipSlider() {
+      updateFlagshipUI();
+      resetFlagshipTimer();
+
+      if (flagshipTimerInterval) clearInterval(flagshipTimerInterval);
+      flagshipTimerInterval = setInterval(() => {
+        flagshipTimerRemaining--;
+        if (flagshipTimerRemaining <= 0) {
+          nextFlagshipSlide(false);
+          flagshipTimerRemaining = FLAGSHIP_CYCLE_SEC;
+        }
+        updateTimerDisplay();
+      }, 1000);
+
+      // Touch Swipe Handler for mobile devices
+      const container = document.getElementById('flagshipSliderContainer');
+      if (container) {
+        let touchStartX = 0;
+        let touchStartY = 0;
+        let touchEndX = 0;
+        let touchEndY = 0;
+
+        container.addEventListener('touchstart', (e) => {
+          touchStartX = e.changedTouches[0].screenX;
+          touchStartY = e.changedTouches[0].screenY;
+        }, { passive: true });
+
+        container.addEventListener('touchend', (e) => {
+          touchEndX = e.changedTouches[0].screenX;
+          touchEndY = e.changedTouches[0].screenY;
+          handleSwipe();
+        }, { passive: true });
+
+        function handleSwipe() {
+          const diffX = touchEndX - touchStartX;
+          const diffY = touchEndY - touchStartY;
+          // Only trigger if horizontal swipe is dominant and > 45px
+          if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 45) {
+            if (diffX < 0) {
+              nextFlagshipSlide(true);
+            } else {
+              prevFlagshipSlide(true);
+            }
+          }
+        }
+      }
+    }
+
+    // Call initFlagshipSlider when DOM is ready
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initFlagshipSlider);
+    } else {
+      initFlagshipSlider();
+    }
+
   </script>
 
 
@@ -3492,6 +4180,121 @@
     } else {
       applyTheme(getPreferredTheme());
     }
+
+    // ===== FLAGSHIP MULTI-SERVICE SLIDER LOGIC (30s AUTO-CYCLE & TOUCH SWIPE) =====
+    let currentFlagshipIndex = 0;
+    const totalFlagshipSlides = 2;
+    const FLAGSHIP_CYCLE_SEC = 30;
+    let flagshipTimerRemaining = FLAGSHIP_CYCLE_SEC;
+    let flagshipTimerInterval = null;
+
+    function updateFlagshipUI() {
+      const track = document.getElementById('flagshipSliderTrack');
+      if (track) {
+        track.style.transform = `translateX(-${currentFlagshipIndex * 100}%)`;
+      }
+      for (let i = 0; i < totalFlagshipSlides; i++) {
+        const tab = document.getElementById(`flagshipTab${i}`);
+        const dot = document.getElementById(`flagshipDot${i}`);
+        if (tab) {
+          if (i === currentFlagshipIndex) tab.classList.add('active');
+          else tab.classList.remove('active');
+        }
+        if (dot) {
+          if (i === currentFlagshipIndex) dot.classList.add('active');
+          else dot.classList.remove('active');
+        }
+      }
+    }
+
+    function goToFlagshipSlide(index, resetTime = true) {
+      if (index < 0) index = totalFlagshipSlides - 1;
+      if (index >= totalFlagshipSlides) index = 0;
+      currentFlagshipIndex = index;
+      updateFlagshipUI();
+      if (resetTime) {
+        resetFlagshipTimer();
+      }
+    }
+
+    function nextFlagshipSlide(userAction = true) {
+      goToFlagshipSlide((currentFlagshipIndex + 1) % totalFlagshipSlides, userAction);
+    }
+
+    function prevFlagshipSlide(userAction = true) {
+      goToFlagshipSlide((currentFlagshipIndex - 1 + totalFlagshipSlides) % totalFlagshipSlides, userAction);
+    }
+
+    function resetFlagshipTimer() {
+      flagshipTimerRemaining = FLAGSHIP_CYCLE_SEC;
+      updateTimerDisplay();
+    }
+
+    function updateTimerDisplay() {
+      const numEl = document.getElementById('flagshipTimerNum');
+      const barEl = document.getElementById('flagshipTimerBar');
+      if (numEl) numEl.textContent = `${flagshipTimerRemaining}s`;
+      if (barEl) {
+        const pct = ((FLAGSHIP_CYCLE_SEC - flagshipTimerRemaining) / FLAGSHIP_CYCLE_SEC) * 100;
+        barEl.style.width = `${pct}%`;
+      }
+    }
+
+    function initFlagshipSlider() {
+      updateFlagshipUI();
+      resetFlagshipTimer();
+
+      if (flagshipTimerInterval) clearInterval(flagshipTimerInterval);
+      flagshipTimerInterval = setInterval(() => {
+        flagshipTimerRemaining--;
+        if (flagshipTimerRemaining <= 0) {
+          nextFlagshipSlide(false);
+          flagshipTimerRemaining = FLAGSHIP_CYCLE_SEC;
+        }
+        updateTimerDisplay();
+      }, 1000);
+
+      // Touch Swipe Handler for mobile devices
+      const container = document.getElementById('flagshipSliderContainer');
+      if (container) {
+        let touchStartX = 0;
+        let touchStartY = 0;
+        let touchEndX = 0;
+        let touchEndY = 0;
+
+        container.addEventListener('touchstart', (e) => {
+          touchStartX = e.changedTouches[0].screenX;
+          touchStartY = e.changedTouches[0].screenY;
+        }, { passive: true });
+
+        container.addEventListener('touchend', (e) => {
+          touchEndX = e.changedTouches[0].screenX;
+          touchEndY = e.changedTouches[0].screenY;
+          handleSwipe();
+        }, { passive: true });
+
+        function handleSwipe() {
+          const diffX = touchEndX - touchStartX;
+          const diffY = touchEndY - touchStartY;
+          // Only trigger if horizontal swipe is dominant and > 45px
+          if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 45) {
+            if (diffX < 0) {
+              nextFlagshipSlide(true);
+            } else {
+              prevFlagshipSlide(true);
+            }
+          }
+        }
+      }
+    }
+
+    // Call initFlagshipSlider when DOM is ready
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initFlagshipSlider);
+    } else {
+      initFlagshipSlider();
+    }
+
   </script>
 
 </body>

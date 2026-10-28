@@ -43,7 +43,12 @@
 
     * { box-sizing: border-box; }
     .hidden { display: none !important; }
-    html { scroll-behavior: smooth; }
+    html {
+      scroll-behavior: smooth;
+      overflow-x: hidden;
+      width: 100%;
+      max-width: 100%;
+    }
 
     /* Scrollbar */
     ::-webkit-scrollbar { width: 8px; }
@@ -52,6 +57,7 @@
 
     body {
       margin: 0;
+      padding: 0;
       font-family: var(--font-itim);
       font-size: 16px;
       line-height: 1.6;
@@ -62,6 +68,8 @@
         linear-gradient(to bottom, #6b613e38 1px, transparent 1px);
       background-size: 20px 20px;
       overflow-x: hidden;
+      width: 100%;
+      max-width: 100%;
       -webkit-tap-highlight-color: transparent;
     }
 
@@ -88,14 +96,18 @@
       gap: 12px; padding: 10px 18px;
       background: var(--main-hi);
       border-bottom: 3px solid var(--border);
+      width: 100%;
+      box-sizing: border-box;
+      flex-wrap: nowrap;
     }
-    .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; white-space: nowrap; }
+    .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; white-space: nowrap; flex-shrink: 0; }
     .brand-avatar {
       width: 38px; height: 38px; border-radius: 50%;
       border: 2px solid var(--border); object-fit: cover;
       box-shadow: 2px 2px 0 var(--border);
+      flex-shrink: 0;
     }
-    .brand-word { font-size: 24px; line-height: 1; color: var(--ink-900); font-weight: 700; }
+    .brand-word { font-size: 24px; line-height: 1; color: var(--ink-900); font-weight: 700; white-space: nowrap; }
     .brand-cam {
       color: #ff5722;
       font-size: .62em;
@@ -107,20 +119,41 @@
       padding: 2px 6px;
       border: 1.5px solid var(--border);
       border-radius: 4px;
+      display: inline-block;
     }
 
     .topbar-center {
-      display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-wrap: nowrap !important;
+      white-space: nowrap;
     }
-    @media (max-width: 990px) {
-      .topbar-center { display: none; }
+    .topbar-center .btn {
+      padding: 6px 10px;
+      font-size: 13.5px;
+      gap: 6px;
+      white-space: nowrap;
+      box-shadow: var(--shadow-sm);
+    }
+    .topbar-center .btn:hover {
+      transform: translate(-1px, -1px);
+    }
+
+    /* Mobile Menu Button - HIDDEN on desktop by default */
+    .mobile-menu-btn {
+      display: none !important;
+    }
+
+    /* Responsive threshold for Topbar */
+    @media (max-width: 1200px) {
+      .topbar-center { display: none !important; }
       .mobile-menu-btn { display: inline-flex !important; }
     }
-    .mobile-menu-btn { display: none; }
 
     /* Status Bar & Language Switcher Group */
     .topbar-right {
-      display: flex; align-items: center; gap: 10px;
+      display: flex; align-items: center; gap: 8px; flex-shrink: 0;
     }
 
     /* Live Time & Status Badge */
@@ -149,9 +182,21 @@
       font-size: 11px; background: var(--paper-1); border: 1px solid var(--border);
       border-radius: 3px; padding: 1px 4px; color: var(--ink-700);
     }
-    @media (max-width: 680px) {
+    @media (max-width: 1380px) {
       .status-text-label, .status-sep, .tz-badge { display: none; }
       .status-clock-badge { padding: 4px 8px; font-size: 12px; }
+    }
+    @media (max-width: 640px) {
+      .topbar .status-clock-badge { display: none !important; }
+      .topbar { padding: 8px 12px; gap: 6px; }
+      .brand { gap: 8px; }
+      .brand-avatar { width: 32px; height: 32px; }
+      .brand-word { font-size: 20px; }
+      .brand-cam { font-size: 0.55em; padding: 1px 4px; margin-left: 4px; }
+      .topbar-right { gap: 6px; }
+      .lang-toggle-btn { padding: 5px 8px; font-size: 12px; }
+      .theme-toggle-btn { width: 34px !important; height: 34px !important; font-size: 13px !important; }
+      .mobile-menu-btn { padding: 6px 10px; font-size: 14px; }
     }
 
     /* Language Dropdown */
@@ -232,6 +277,8 @@
       text-decoration: none; color: var(--ink-900); background: var(--background);
       transition: transform .12s cubic-bezier(.34,1.56,.64,1), box-shadow .12s ease;
       white-space: nowrap;
+      max-width: 100%;
+      box-sizing: border-box;
     }
     .btn:hover { transform: translate(-2px,-2px); box-shadow: var(--shadow); }
     .btn:active { transform: translate(0,0); box-shadow: none; }
@@ -243,22 +290,45 @@
     .btn-green { background: var(--green); }
     .btn-red { background: var(--red); }
     .btn-purple { background: var(--purple); }
-    .btn-lg { font-size: 17px; padding: 13px 22px; }
+    .btn-lg { font-size: 16px; padding: 12px 20px; }
     .btn-sm { font-size: 13px; padding: 6px 12px; }
+    @media (max-width: 480px) {
+      .btn {
+        white-space: normal;
+        text-align: center;
+      }
+      .btn-lg {
+        font-size: 15px;
+        padding: 11px 16px;
+      }
+    }
 
-    main { max-width: 1040px; margin: 0 auto; padding: 0 16px 80px; }
+    main {
+      max-width: 1040px;
+      margin: 0 auto;
+      padding: 0 16px 100px;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    @media (max-width: 480px) {
+      main {
+        padding: 0 12px 90px;
+      }
+    }
 
     /* Hero */
     .hero {
       display: flex; flex-direction: column; align-items: center;
-      padding: clamp(30px, 6vw, 56px) 0 20px;
+      padding: clamp(24px, 5vw, 56px) 0 20px;
       text-align: center;
+      width: 100%;
+      box-sizing: border-box;
     }
     .hero-avatar-wrap {
       position: relative; margin-bottom: 18px; display: inline-block;
     }
     .hero-avatar {
-      width: clamp(110px, 18vw, 150px); height: clamp(110px, 18vw, 150px);
+      width: clamp(100px, 18vw, 150px); height: clamp(100px, 18vw, 150px);
       border-radius: 24px; border: 3px solid var(--border);
       box-shadow: var(--shadow-lg); object-fit: cover;
       transition: transform .25s ease;
@@ -271,6 +341,7 @@
       border-radius: var(--radius-base); box-shadow: var(--shadow-sm);
       padding: 3px 8px; font-size: 12px; font-weight: 700;
       font-family: var(--font-mono); letter-spacing: 0.5px;
+      white-space: nowrap;
     }
 
     .pill-live {
@@ -278,6 +349,10 @@
       border: 2px solid var(--border); border-radius: var(--radius-base); padding: 5px 14px;
       font-size: 13px; font-weight: 700; box-shadow: var(--shadow-sm); margin-bottom: 14px;
       font-family: var(--font-mono);
+      max-width: 100%;
+      box-sizing: border-box;
+      flex-wrap: wrap;
+      justify-content: center;
     }
     .pill-live .dot {
       width: 10px; height: 10px; flex: none; border-radius: 50%;
@@ -287,21 +362,41 @@
     @keyframes blink { 50% { opacity: .25; } }
 
     .hero h1 {
-      font-size: clamp(32px, 6vw, 56px); margin: 0 0 14px;
+      font-size: clamp(26px, 5.5vw, 52px); margin: 0 0 14px;
       overflow-wrap: anywhere; word-break: break-word;
+      line-height: 1.25;
     }
     .hl {
       background: var(--main-hi); border: 2px solid var(--border);
       border-radius: var(--radius-base); padding: 2px 12px;
       box-shadow: var(--shadow-sm); display: inline-block;
       margin-top: 6px;
+      max-width: 100%;
+      box-sizing: border-box;
+      word-break: break-word;
     }
     .lead {
-      color: var(--ink-700); font-size: clamp(16px, 2.2vw, 19px);
+      color: var(--ink-700); font-size: clamp(15px, 2.2vw, 19px);
       max-width: 720px; margin: 0 auto 24px; line-height: 1.6;
     }
     .hero-actions {
       display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    @media (max-width: 520px) {
+      .hero-actions {
+        flex-direction: column;
+        width: 100%;
+        max-width: 320px;
+        margin: 0 auto;
+      }
+      .hero-actions .btn {
+        width: 100%;
+        justify-content: center;
+        font-size: 15px;
+        padding: 12px 16px;
+      }
     }
 
     /* Marquee */
@@ -311,13 +406,10 @@
       background: var(--ink-900);
       color: var(--paper-0); 
       overflow: hidden; 
-      margin: 32px 0 20px; 
-      width: 100vw;
-      position: relative;
-      left: 50%;
-      right: 50%;
-      margin-left: -50vw;
-      margin-right: -50vw;
+      margin: 28px 0 20px; 
+      width: 100%;
+      box-sizing: border-box;
+      border-radius: var(--radius-base);
     }
     .marquee-track { 
       display: flex; 
@@ -338,43 +430,83 @@
 
     /* Sections */
     .section {
-      padding: clamp(32px, 5vw, 48px) 0 8px;
+      padding: clamp(24px, 4vw, 44px) 0 8px;
       scroll-margin-top: calc(var(--topbar-h) + 16px);
+      width: 100%;
+      box-sizing: border-box;
     }
     .section-head {
       display: flex; align-items: center; justify-content: space-between;
       gap: 12px; margin-bottom: 18px; padding-bottom: 10px;
       border-bottom: 3px solid var(--border);
+      width: 100%;
+      box-sizing: border-box;
     }
     .sec-badge {
       display: inline-flex; align-items: center; gap: 10px;
       font-size: 20px; font-weight: 700; text-transform: uppercase;
       letter-spacing: 0.5px;
+      flex-wrap: wrap;
     }
     .sec-badge .num-pill {
       background: var(--main-hi); border: 2px solid var(--border);
       border-radius: var(--radius-base); padding: 2px 8px;
       font-family: var(--font-mono); font-size: 14px;
       box-shadow: var(--shadow-sm);
+      white-space: nowrap;
     }
     .sec-hex {
       font-family: var(--font-mono); font-size: 13px; color: var(--ink-500);
       font-weight: 700;
+      white-space: nowrap;
+    }
+    @media (max-width: 768px) {
+      .section-head {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+      }
+      .sec-badge {
+        font-size: 16px;
+        gap: 6px;
+      }
+      .sec-badge .num-pill {
+        font-size: 12px;
+        padding: 2px 6px;
+      }
+      .sec-hex {
+        font-size: 11px;
+        align-self: flex-end;
+        margin-top: -18px;
+      }
+    }
+    @media (max-width: 480px) {
+      .sec-badge {
+        font-size: 15px;
+      }
     }
 
     /* Grid Layouts */
     .cards-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr));
       gap: 16px;
+      width: 100%;
+      box-sizing: border-box;
     }
     .cards-grid-2 {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(min(100%, 340px), 1fr));
       gap: 18px;
+      width: 100%;
+      box-sizing: border-box;
     }
-    @media (max-width: 600px) {
-      .cards-grid-2 { grid-template-columns: 1fr; }
+    @media (max-width: 768px) {
+      .cards-grid,
+      .cards-grid-2 {
+        grid-template-columns: 1fr;
+        gap: 14px;
+      }
     }
 
     /* Neobrutalist Cards */
@@ -384,16 +516,177 @@
       border: 2px solid var(--border);
       border-radius: var(--radius-base);
       box-shadow: var(--shadow);
-      padding: 20px;
+      padding: clamp(16px, 3vw, 22px);
       display: flex; flex-direction: column; justify-content: space-between;
       transition: transform .14s cubic-bezier(.34,1.56,.64,1), box-shadow .14s ease;
+      box-sizing: border-box;
+      width: 100%;
     }
     .neo-card:hover {
-      transform: translate(-3px, -3px);
+      transform: translate(-2px, -2px);
       box-shadow: 6px 6px 0 0 var(--border);
     }
     .neo-card.card-featured {
       background: var(--main-hi);
+    }
+
+    /* Flagship VNTCERT Section */
+    .flagship-card {
+      background: linear-gradient(135deg, #ffd94a 0%, #ffeaa7 100%);
+      border: 3px solid var(--border);
+      box-shadow: var(--shadow-lg);
+      padding: clamp(16px, 3.5vw, 36px);
+      margin-bottom: 28px;
+      border-radius: var(--radius-base);
+      box-sizing: border-box;
+      width: 100%;
+    }
+    .flagship-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #fff;
+      border: 2px solid var(--border);
+      border-radius: var(--radius-base);
+      padding: 4px 12px;
+      font-size: 13px;
+      font-weight: 700;
+      box-shadow: var(--shadow-sm);
+      margin-bottom: 12px;
+      font-family: var(--font-mono);
+      max-width: 100%;
+      box-sizing: border-box;
+      flex-wrap: wrap;
+    }
+    .flagship-title {
+      font-size: clamp(22px, 4.5vw, 40px);
+      margin: 0 0 10px;
+      line-height: 1.25;
+      color: var(--ink-900);
+    }
+    .flagship-highlight {
+      display: inline-block;
+      background: #fff;
+      border: 2px solid var(--border);
+      border-radius: var(--radius-base);
+      color: #d9381e;
+      padding: 4px 10px;
+      margin-top: 6px;
+      font-size: clamp(16px, 3.6vw, 24px);
+      max-width: 100%;
+      word-break: break-word;
+      box-shadow: var(--shadow-sm);
+      box-sizing: border-box;
+    }
+    .flagship-desc {
+      font-size: clamp(14px, 2vw, 17px);
+      color: var(--ink-700);
+      line-height: 1.65;
+      margin: 12px 0 20px;
+    }
+    .flagship-features {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      margin-bottom: 24px;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    @media (max-width: 580px) {
+      .flagship-features {
+        grid-template-columns: 1fr;
+        gap: 8px;
+      }
+    }
+    .flagship-feature-item {
+      background: rgba(255, 255, 255, 0.95);
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius-base);
+      padding: 9px 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+      font-weight: 700;
+      box-shadow: var(--shadow-sm);
+      box-sizing: border-box;
+      min-width: 0;
+    }
+    .flagship-feature-item span:last-child {
+      min-width: 0;
+      word-break: break-word;
+    }
+    .flagship-pricing-box {
+      background: var(--paper-1);
+      border: 2px solid var(--border);
+      border-radius: var(--radius-base);
+      padding: 14px;
+      margin-bottom: 24px;
+      box-shadow: var(--shadow-sm);
+      box-sizing: border-box;
+      width: 100%;
+    }
+    .flagship-pricing-header {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--ink-500);
+      text-transform: uppercase;
+      margin-bottom: 10px;
+      font-family: var(--font-mono);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .flagship-pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 8px;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    @media (max-width: 480px) {
+      .flagship-pricing-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    .flagship-pricing-pill {
+      background: #fff;
+      border: 1.5px solid var(--border);
+      border-radius: 4px;
+      padding: 7px 10px;
+      font-size: 13px;
+      font-weight: 700;
+      box-shadow: 2px 2px 0 var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      box-sizing: border-box;
+    }
+    .flagship-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      align-items: center;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    @media (max-width: 640px) {
+      .flagship-actions {
+        flex-direction: column;
+        gap: 10px;
+      }
+      .flagship-actions .btn {
+        width: 100% !important;
+        justify-content: center !important;
+        font-size: 15px !important;
+        padding: 12px 14px !important;
+        white-space: normal !important;
+        text-align: center !important;
+        box-sizing: border-box !important;
+      }
     }
 
     .card-top {
@@ -446,6 +739,7 @@
       display: flex; align-items: center; justify-content: space-between;
       gap: 12px; margin-bottom: 16px;
       transition: transform .12s ease, box-shadow .12s ease;
+      box-sizing: border-box;
     }
     .accordion-toggle:hover {
       transform: translate(-2px, -2px); box-shadow: 6px 6px 0 var(--border);
@@ -460,6 +754,21 @@
     .accordion-toggle.open .accordion-icon-spin {
       transform: rotate(180deg);
     }
+    @media (max-width: 520px) {
+      .accordion-toggle {
+        padding: 14px 16px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+      }
+      .accordion-toggle > div:last-child {
+        align-self: flex-end;
+      }
+      .accordion-toggle-title {
+        font-size: 16px;
+        gap: 10px;
+      }
+    }
 
     /* Donate Box Styling */
     .donate-panel {
@@ -467,19 +776,24 @@
       border: 3px solid var(--border);
       border-radius: var(--radius-lg);
       box-shadow: var(--shadow-lg);
-      padding: clamp(20px, 4vw, 32px);
+      padding: clamp(16px, 4vw, 32px);
       text-align: center;
+      width: 100%;
+      box-sizing: border-box;
     }
     .bank-box {
       background: #fff; border: 2px solid var(--border);
       border-radius: var(--radius-base); box-shadow: var(--shadow);
-      padding: 18px; margin: 20px auto; max-width: 480px;
+      padding: clamp(14px, 3vw, 20px); margin: 20px auto; max-width: 480px;
       text-align: left;
+      width: 100%;
+      box-sizing: border-box;
     }
     .bank-row {
       display: flex; align-items: center; justify-content: space-between;
-      gap: 8px; padding: 6px 0; border-bottom: 1px dashed var(--ink-300);
+      gap: 8px; padding: 8px 0; border-bottom: 1px dashed var(--ink-300);
       font-size: 15px;
+      flex-wrap: wrap;
     }
     .bank-row:last-child { border-bottom: none; }
     .bank-label { color: var(--ink-500); font-weight: 700; }
@@ -487,23 +801,42 @@
     .bank-stk {
       font-size: 22px; color: #d9381e; letter-spacing: 1px;
     }
+    @media (max-width: 480px) {
+      .bank-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 4px;
+      }
+      .bank-stk {
+        font-size: 19px !important;
+      }
+      .donate-panel .btn {
+        width: 100% !important;
+        justify-content: center !important;
+      }
+    }
 
     .qr-container {
       display: none; flex-direction: column; align-items: center;
       margin-top: 20px; animation: popin .25s ease;
+      width: 100%;
+      box-sizing: border-box;
     }
     .qr-container.show { display: flex; }
     .qr-image {
       max-width: 290px; width: 100%; border: 2px solid var(--border);
       border-radius: var(--radius-base); box-shadow: var(--shadow);
       background: #fff; padding: 8px;
+      box-sizing: border-box;
     }
 
     /* About Section Box */
     .about-box {
       background: var(--paper-1); border: 2px solid var(--border);
       border-radius: var(--radius-base); box-shadow: var(--shadow);
-      padding: 24px;
+      padding: clamp(16px, 3.5vw, 24px);
+      width: 100%;
+      box-sizing: border-box;
     }
     .about-quote {
       font-size: 17px; line-height: 1.7; color: var(--ink-900);
@@ -517,24 +850,25 @@
       border-radius: var(--radius-base); padding: 4px 10px;
       font-family: var(--font-mono); font-size: 13px; font-weight: 700;
       box-shadow: 2px 2px 0 var(--border);
+      box-sizing: border-box;
     }
 
     /* Floating Music Button & Popup */
     .floating-music-btn {
       position: fixed; bottom: 20px; right: 20px; z-index: 9999;
-      width: 54px; height: 54px; border-radius: 50%;
+      width: 48px; height: 48px; border-radius: 50%;
       background: var(--main-hi); border: 2.5px solid var(--border);
-      box-shadow: 4px 4px 0 var(--border);
+      box-shadow: 3px 3px 0 var(--border);
       display: flex; align-items: center; justify-content: center;
       cursor: pointer; transition: transform .15s ease, box-shadow .15s ease, background .15s;
-      color: #111111 !important; font-size: 20px;
+      color: #111111 !important; font-size: 18px;
     }
     .floating-music-btn i {
       color: #111111 !important;
     }
     .floating-music-btn:hover {
       transform: translate(-2px, -2px) scale(1.05);
-      box-shadow: 6px 6px 0 var(--border);
+      box-shadow: 5px 5px 0 var(--border);
     }
     .floating-music-btn:active {
       transform: translate(2px, 2px);
@@ -562,18 +896,27 @@
 
     /* Mini Music Player Popup */
     .music-player-popup {
-      position: fixed; bottom: 86px; right: 20px; z-index: 9998;
-      width: 320px; max-width: calc(100vw - 36px);
+      position: fixed; bottom: 80px; right: 20px; z-index: 9998;
+      width: 320px; max-width: calc(100vw - 32px);
       background: var(--paper-1); border: 2.5px solid var(--border);
       border-radius: 16px; box-shadow: 6px 6px 0 var(--border);
       opacity: 0; visibility: hidden; pointer-events: none;
       transform: translateY(14px) scale(0.96);
       transition: opacity .22s cubic-bezier(0.16, 1, 0.3, 1), transform .22s cubic-bezier(0.16, 1, 0.3, 1), visibility .22s;
       overflow: hidden; user-select: none;
+      box-sizing: border-box;
     }
     .music-player-popup.open {
       opacity: 1; visibility: visible; pointer-events: auto;
       transform: translateY(0) scale(1);
+    }
+    @media (max-width: 520px) {
+      .floating-music-btn {
+        bottom: 16px; right: 16px; width: 44px; height: 44px; font-size: 16px;
+      }
+      .music-player-popup {
+        right: 12px; bottom: 68px; width: calc(100vw - 24px); max-width: 320px;
+      }
     }
     .mpp-header {
       display: flex; align-items: center; justify-content: space-between;
@@ -1080,36 +1423,59 @@
   }
 
   /* KHỐI CHỨNG CHỈ P12 FLAGSHIP (VNTCERT) */
+  [data-theme="dark"] .flagship-card,
   [data-theme="dark"] .card-featured {
     background: #181820 !important;
     border-color: var(--border) !important;
     box-shadow: var(--shadow-lg) !important;
   }
 
+  [data-theme="dark"] .flagship-tag {
+    background: #24242e !important;
+    border-color: var(--border) !important;
+    color: #fafafa !important;
+  }
+
+  [data-theme="dark"] .flagship-tag i {
+    color: #ffd94a !important;
+  }
+
+  [data-theme="dark"] .flagship-title,
   [data-theme="dark"] .card-featured h2 {
     color: #fafafa !important;
   }
 
+  [data-theme="dark"] .flagship-desc,
   [data-theme="dark"] .card-featured p {
     color: #e4e4e7 !important;
   }
 
+  [data-theme="dark"] .flagship-highlight,
   [data-theme="dark"] .card-featured .hl {
     background: #2a2a36 !important;
     color: #fbbf24 !important;
     border-color: var(--border) !important;
   }
 
+  [data-theme="dark"] .flagship-feature-item,
   [data-theme="dark"] .card-featured div[style*="background:rgba(255,255,255,0.9)"] {
     background: #22222a !important;
     border-color: var(--border) !important;
     color: #fafafa !important;
   }
 
+  [data-theme="dark"] .flagship-feature-item span,
   [data-theme="dark"] .card-featured div[style*="background:rgba(255,255,255,0.9)"] span {
     color: #fafafa !important;
   }
 
+  [data-theme="dark"] .flagship-pricing-box,
+  [data-theme="dark"] .card-featured div[style*="background:var(--paper-1)"] {
+    background: #1f1f27 !important;
+    border-color: var(--border) !important;
+  }
+
+  [data-theme="dark"] .flagship-pricing-pill,
   [data-theme="dark"] .card-featured div[style*="background:#fff"],
   [data-theme="dark"] .card-featured div[style*="background: #fff"],
   [data-theme="dark"] .card-featured span[style*="background:#fff"],
@@ -1119,9 +1485,13 @@
     color: #fafafa !important;
   }
 
-  [data-theme="dark"] .card-featured div[style*="background:var(--paper-1)"] {
-    background: #1f1f27 !important;
-    border-color: var(--border) !important;
+  [data-theme="dark"] .flagship-actions .btn-dark {
+    background: #ffd94a !important;
+    color: #111111 !important;
+    border-color: #ffd94a !important;
+  }
+  [data-theme="dark"] .flagship-actions .btn-dark * {
+    color: #111111 !important;
   }
 
   /* KHỐI DONATE & NGÂN HÀNG (SUPPORT SECTION) */
@@ -1436,87 +1806,207 @@
       </div>
     </div>
 
-        <!-- FEATURED FLAGSHIP SECTION: VNTCERT.CLICK (#vntcert) -->
+        <!-- FEATURED FLAGSHIP SECTION: MULTI-SERVICE SLIDER (#vntcert) -->
     <section id="vntcert" class="section" style="padding-top:20px;">
       <div class="section-head" style="border-bottom:3px solid var(--border);">
         <div class="sec-badge" style="color:#b45309;">
-          <span class="num-pill" style="background:#ff5722;color:#fff;"><i class="fas fa-star"></i> DỊCH VỤ TRỌNG TÂM</span>
-          <span data-i18n="cert_sec_badge">VNTCERT.CLICK • MUA BÁN CHỨNG CHỈ APPLE P12</span>
+          <span class="num-pill" style="background:#ff5722;color:#fff;"><i class="fas fa-star"></i> <span data-i18n="flagship_badge_main">DỊCH VỤ TRỌNG TÂM</span></span>
+          <span id="flagshipSecBadge" data-i18n="flagship_sec_sub">HỆ THỐNG DỊCH VỤ HÀNG ĐẦU • VNT ECOSYSTEM</span>
         </div>
         <span class="sec-hex" style="color:#b45309;font-weight:700;">//HOT-FLAGSHIP</span>
       </div>
 
-      <!-- High-Impact Neo-brutalism Showcase Banner -->
-      <div class="neo-card card-featured" style="background:linear-gradient(135deg, #ffd94a 0%, #ffeaa7 100%);border:3px solid var(--border);box-shadow:var(--shadow-lg);padding:clamp(20px, 4vw, 36px);margin-bottom:28px;">
-        <div style="display:grid;grid-template-columns:1fr;gap:28px;" class="vntcert-grid">
-          
-          <!-- Left Column: Information, Highlights & CTAs -->
-          <div>
-            <div style="display:inline-flex;align-items:center;gap:8px;background:#fff;border:2px solid var(--border);border-radius:var(--radius-base);padding:4px 12px;font-size:13px;font-weight:700;box-shadow:var(--shadow-sm);margin-bottom:12px;font-family:var(--font-mono);">
-              <i class="fab fa-apple" style="font-size:16px;color:#111;"></i>
-              <span data-i18n="cert_tag">APPLE CERTIFICATE P12 &amp; MOBILEPROVISION</span>
+      <!-- Navigation Bar: Tabs, Auto-cycle Timer & Controls -->
+      <div class="flagship-nav-bar">
+        <div class="flagship-tabs">
+          <button type="button" class="flagship-tab-btn active" id="flagshipTab0" onclick="goToFlagshipSlide(0)">
+            <i class="fab fa-apple" style="font-size:15px;color:#d9381e;"></i>
+            <span data-i18n="tab_cert">1. Bán Chứng Chỉ Apple P12</span>
+          </button>
+          <button type="button" class="flagship-tab-btn" id="flagshipTab1" onclick="goToFlagshipSlide(1)">
+            <i class="fas fa-crown" style="font-size:14px;color:#b45309;"></i>
+            <span data-i18n="tab_prem">2. Bán Tài Khoản Premium</span>
+          </button>
+        </div>
+
+        <div class="flagship-controls">
+          <div class="flagship-timer-pill" title="Tự động đổi dịch vụ sau 30s">
+            <i class="fas fa-history" style="color:#e11d48"></i>
+            <span class="flagship-timer-bar-wrap">
+              <span class="flagship-timer-bar-fill" id="flagshipTimerBar"></span>
+            </span>
+            <span id="flagshipTimerNum">30s</span>
+          </div>
+          <button type="button" class="flagship-arrow-btn" onclick="prevFlagshipSlide()" aria-label="Dịch vụ trước" title="Dịch vụ trước">
+            <i class="fas fa-chevron-left"></i>
+          </button>
+          <button type="button" class="flagship-arrow-btn" onclick="nextFlagshipSlide()" aria-label="Dịch vụ tiếp theo" title="Dịch vụ tiếp theo">
+            <i class="fas fa-chevron-right"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- High-Impact Neo-brutalism Showcase Slider -->
+      <div class="flagship-slider-container" id="flagshipSliderContainer">
+        <div class="flagship-slider-track" id="flagshipSliderTrack">
+
+          <!-- SLIDE 1: VNTCERT.CLICK (Chứng chỉ Apple P12) -->
+          <div class="flagship-slide">
+            <div class="neo-card card-featured flagship-card flagship-card-cert" style="margin-bottom:0;">
+              <div style="display:grid;grid-template-columns:1fr;gap:28px;" class="vntcert-grid">
+                <div>
+                  <div class="flagship-tag">
+                    <i class="fab fa-apple" style="font-size:16px;"></i>
+                    <span data-i18n="cert_tag">APPLE CERTIFICATE P12 &amp; MOBILEPROVISION</span>
+                  </div>
+
+                  <h2 class="flagship-title">
+                    <span data-i18n="cert_title">Chứng Chỉ Apple P12 Cho iPhone &amp; iPad</span><br>
+                    <span class="hl flagship-highlight" data-i18n="cert_highlight">Cài Mọi App IPA • Không Cần Jailbreak</span>
+                  </h2>
+
+                  <p class="flagship-desc" data-i18n="cert_desc">
+                    Hệ thống bán chứng chỉ Apple cá nhân (file .p12 + .mobileprovision) tự động 24/7. Ký và cài ứng dụng ngoài App Store với ESign, GBox, Scarlet, mở khóa mọi thiết bị dính Blacklist/Ban, bảo hành uy tín lên đến 300 ngày.
+                  </p>
+
+                  <!-- Feature Badges Grid -->
+                  <div class="flagship-features">
+                    <div class="flagship-feature-item">
+                      <span style="color:#22c55e;"><i class="fas fa-bolt"></i></span> <span data-i18n="cert_f1">Cấp tự động 24/7 (Có ngay)</span>
+                    </div>
+                    <div class="flagship-feature-item">
+                      <span style="color:#3b82f6;"><i class="fas fa-shield-alt"></i></span> <span data-i18n="cert_f2">Kiểm tra Apple OCSP trực tiếp</span>
+                    </div>
+                    <div class="flagship-feature-item">
+                      <span style="color:#e11d48;"><i class="fas fa-qrcode"></i></span> <span data-i18n="cert_f3">Nạp VietQR tự động cộng tiền</span>
+                    </div>
+                    <div class="flagship-feature-item">
+                      <span style="color:#a855f7;"><i class="fas fa-unlock-alt"></i></span> <span data-i18n="cert_f4">Mở khóa thiết bị Blacklist / Ban</span>
+                    </div>
+                    <div class="flagship-feature-item">
+                      <span style="color:#f59e0b;"><i class="fas fa-calendar-check"></i></span> <span data-i18n="cert_f5">Thời hạn 365 ngày toàn quyền</span>
+                    </div>
+                    <div class="flagship-feature-item">
+                      <span style="color:#06b6d4;"><i class="fas fa-mobile-alt"></i></span> <span data-i18n="cert_f6">Làm 100% trên iPhone, không cần PC</span>
+                    </div>
+                  </div>
+
+                  <!-- Price & Package Summary Tags -->
+                  <div class="flagship-pricing-box">
+                    <div class="flagship-pricing-header">
+                      <span data-i18n="cert_pkg_title">CÁC GÓI CHỨNG CHỈ ĐANG BÁN:</span>
+                      <span style="color:#22c55e;"><i class="fas fa-circle" style="font-size:8px;"></i> SẴN HÀNG</span>
+                    </div>
+                    <div class="flagship-pricing-grid">
+                      <div class="flagship-pricing-pill"><span>UNBAN:</span> <strong>50.000đ</strong></div>
+                      <div class="flagship-pricing-pill"><span>Basic (BH 30 ngày):</span> <strong>70.000đ</strong></div>
+                      <div class="flagship-pricing-pill"><span>Plus (BH 180 ngày):</span> <strong>140.000đ</strong></div>
+                      <div class="flagship-pricing-pill" style="color:#d9381e;"><span>Premium (BH 300 ngày):</span> <strong>299.000đ</strong></div>
+                    </div>
+                  </div>
+
+                  <!-- Action Buttons -->
+                  <div class="flagship-actions">
+                    <a href="https://vntcert.click/" target="_blank" rel="noopener noreferrer" class="btn btn-dark btn-lg">
+                      <i class="fas fa-shopping-cart"></i> <span data-i18n="cert_btn_buy">MUA CHỨNG CHỈ TẠI VNTCERT.CLICK</span> <i class="fas fa-arrow-up-right-from-square"></i>
+                    </a>
+                    <a href="https://vntcert.click/check" target="_blank" rel="noopener noreferrer" class="btn btn-ghost btn-lg">
+                      <i class="fas fa-search"></i> <span data-i18n="cert_btn_check">Kiểm Tra Đơn / Nhận Hàng</span>
+                    </a>
+                    <a href="https://t.me/ngoctruong_store" target="_blank" rel="noopener noreferrer" class="btn btn-blue btn-lg">
+                      <i class="fab fa-telegram-plane"></i> <span data-i18n="cert_btn_support">Hỗ Trợ Admin</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
             </div>
+          </div>
 
-            <h2 style="font-size:clamp(26px, 4.5vw, 42px);margin:0 0 10px;line-height:1.2;color:var(--ink-900);">
-              <span data-i18n="cert_title">Chứng Chỉ Apple P12 Cho iPhone &amp; iPad</span><br>
-              <span class="hl" data-i18n="cert_highlight" style="background:#fff;border-color:var(--border);color:#d9381e;margin-top:6px;">Cài Mọi App IPA • Không Cần Jailbreak</span>
-            </h2>
+          <!-- SLIDE 2: VASNET360.SITE (Bán Tài Khoản Premium) -->
+          <div class="flagship-slide">
+            <div class="neo-card card-featured flagship-card flagship-card-prem" style="margin-bottom:0;">
+              <div style="display:grid;grid-template-columns:1fr;gap:28px;" class="vntcert-grid">
+                <div>
+                  <div class="flagship-tag">
+                    <i class="fas fa-crown" style="font-size:16px;color:#f59e0b;"></i>
+                    <span data-i18n="prem_tag">VNT PREMIUM STORE • HỆ THỐNG NÂNG CẤP TÀI KHOẢN TỰ ĐỘNG</span>
+                  </div>
 
-            <p style="font-size:clamp(15px, 2vw, 17px);color:var(--ink-700);line-height:1.65;margin:12px 0 20px;" data-i18n="cert_desc">
-              Hệ thống bán chứng chỉ Apple cá nhân (file .p12 + .mobileprovision) tự động 24/7. Ký và cài ứng dụng ngoài App Store với ESign, GBox, Scarlet, mở khóa mọi thiết bị dính Blacklist/Ban, bảo hành uy tín lên đến 300 ngày.
-            </p>
+                  <h2 class="flagship-title">
+                    <span data-i18n="prem_title">Bán &amp; Nâng Cấp Tài Khoản Premium Giá Rẻ</span><br>
+                    <span class="hl flagship-highlight" data-i18n="prem_highlight" style="color:#059669;">Locket Gold • Spotify • Netflix • YouTube • ChatGPT</span>
+                  </h2>
 
-            <!-- Feature Badges Grid -->
-            <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(200px, 1fr));gap:10px;margin-bottom:24px;">
-              <div style="background:rgba(255,255,255,0.9);border:1.5px solid var(--border);border-radius:var(--radius-base);padding:8px 12px;display:flex;align-items:center;gap:8px;font-size:14px;font-weight:700;box-shadow:var(--shadow-sm);">
-                <span style="color:#22c55e;"><i class="fas fa-bolt"></i></span> <span data-i18n="cert_f1">Cấp tự động 24/7 (Có ngay)</span>
-              </div>
-              <div style="background:rgba(255,255,255,0.9);border:1.5px solid var(--border);border-radius:var(--radius-base);padding:8px 12px;display:flex;align-items:center;gap:8px;font-size:14px;font-weight:700;box-shadow:var(--shadow-sm);">
-                <span style="color:#3b82f6;"><i class="fas fa-shield-alt"></i></span> <span data-i18n="cert_f2">Kiểm tra Apple OCSP trực tiếp</span>
-              </div>
-              <div style="background:rgba(255,255,255,0.9);border:1.5px solid var(--border);border-radius:var(--radius-base);padding:8px 12px;display:flex;align-items:center;gap:8px;font-size:14px;font-weight:700;box-shadow:var(--shadow-sm);">
-                <span style="color:#e11d48;"><i class="fas fa-qrcode"></i></span> <span data-i18n="cert_f3">Nạp VietQR tự động cộng tiền</span>
-              </div>
-              <div style="background:rgba(255,255,255,0.9);border:1.5px solid var(--border);border-radius:var(--radius-base);padding:8px 12px;display:flex;align-items:center;gap:8px;font-size:14px;font-weight:700;box-shadow:var(--shadow-sm);">
-                <span style="color:#a855f7;"><i class="fas fa-unlock-alt"></i></span> <span data-i18n="cert_f4">Mở khóa thiết bị Blacklist / Ban</span>
-              </div>
-              <div style="background:rgba(255,255,255,0.9);border:1.5px solid var(--border);border-radius:var(--radius-base);padding:8px 12px;display:flex;align-items:center;gap:8px;font-size:14px;font-weight:700;box-shadow:var(--shadow-sm);">
-                <span style="color:#f59e0b;"><i class="fas fa-calendar-check"></i></span> <span data-i18n="cert_f5">Thời hạn 365 ngày toàn quyền</span>
-              </div>
-              <div style="background:rgba(255,255,255,0.9);border:1.5px solid var(--border);border-radius:var(--radius-base);padding:8px 12px;display:flex;align-items:center;gap:8px;font-size:14px;font-weight:700;box-shadow:var(--shadow-sm);">
-                <span style="color:#06b6d4;"><i class="fas fa-mobile-alt"></i></span> <span data-i18n="cert_f6">Làm 100% trên iPhone, không cần PC</span>
-              </div>
-            </div>
+                  <p class="flagship-desc" data-i18n="prem_desc">
+                    Hệ thống bán tài khoản bản quyền và nâng cấp trực tiếp trên tài khoản chính chủ 24/7. Nhận hàng siêu tốc chỉ sau 30 giây, nạp VietQR MBBank tự động cộng tiền, bảo hành trọn đời gói mua, uy tín hàng đầu.
+                  </p>
 
-            <!-- Price & Package Summary Tags -->
-            <div style="background:var(--paper-1);border:2px solid var(--border);border-radius:var(--radius-base);padding:14px;margin-bottom:24px;box-shadow:var(--shadow-sm);">
-              <div style="font-size:13px;font-weight:700;color:var(--ink-500);text-transform:uppercase;margin-bottom:8px;font-family:var(--font-mono);display:flex;align-items:center;justify-content:space-between;">
-                <span data-i18n="cert_pkg_title">CÁC GÓI CHỨNG CHỈ ĐANG BÁN:</span>
-                <span style="color:#22c55e;"><i class="fas fa-circle" style="font-size:8px;"></i> SẴN HÀNG</span>
-              </div>
-              <div style="display:flex;gap:8px;flex-wrap:wrap;">
-                <span style="background:#fff;border:1.5px solid var(--border);border-radius:4px;padding:4px 10px;font-size:13px;font-weight:700;box-shadow:2px 2px 0 var(--border);">UNBAN: <strong>50.000đ</strong></span>
-                <span style="background:#fff;border:1.5px solid var(--border);border-radius:4px;padding:4px 10px;font-size:13px;font-weight:700;box-shadow:2px 2px 0 var(--border);">Basic (BH 30 ngày): <strong>70.000đ</strong></span>
-                <span style="background:#fff;border:1.5px solid var(--border);border-radius:4px;padding:4px 10px;font-size:13px;font-weight:700;box-shadow:2px 2px 0 var(--border);">Plus (BH 180 ngày): <strong>140.000đ</strong></span>
-                <span style="background:#fff;border:1.5px solid var(--border);border-radius:4px;padding:4px 10px;font-size:13px;font-weight:700;box-shadow:2px 2px 0 var(--border);color:#d9381e;">Premium (BH 300 ngày): <strong>299.000đ</strong></span>
-              </div>
-            </div>
+                  <!-- Feature Badges Grid -->
+                  <div class="flagship-features">
+                    <div class="flagship-feature-item">
+                      <span style="color:#22c55e;"><i class="fas fa-bolt"></i></span> <span data-i18n="prem_f1">Nâng cấp chính chủ trong 30s</span>
+                    </div>
+                    <div class="flagship-feature-item">
+                      <span style="color:#3b82f6;"><i class="fas fa-shield-alt"></i></span> <span data-i18n="prem_f2">Bảo hành trọn thời gian sử dụng</span>
+                    </div>
+                    <div class="flagship-feature-item">
+                      <span style="color:#e11d48;"><i class="fas fa-qrcode"></i></span> <span data-i18n="prem_f3">Nạp VietQR MBBank tự động 24/7</span>
+                    </div>
+                    <div class="flagship-feature-item">
+                      <span style="color:#a855f7;"><i class="fas fa-users"></i></span> <span data-i18n="prem_f4">Hàng ngàn khách hàng tin dùng</span>
+                    </div>
+                    <div class="flagship-feature-item">
+                      <span style="color:#f59e0b;"><i class="fas fa-wallet"></i></span> <span data-i18n="prem_f5">Tiết kiệm đến 70% so với giá gốc</span>
+                    </div>
+                    <div class="flagship-feature-item">
+                      <span style="color:#06b6d4;"><i class="fas fa-headset"></i></span> <span data-i18n="prem_f6">Hỗ trợ kỹ thuật 24/7 qua Zalo &amp; Telegram</span>
+                    </div>
+                  </div>
 
-            <!-- Action Buttons -->
-            <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:center;">
-              <a href="https://vntcert.click/" target="_blank" rel="noopener noreferrer" class="btn btn-dark btn-lg" style="background:#111;color:#ffd94a;border:2.5px solid #111;font-size:17px;box-shadow:5px 5px 0 0 #000;">
-                <i class="fas fa-shopping-cart"></i> <span data-i18n="cert_btn_buy">MUA CHỨNG CHỈ TẠI VNTCERT.CLICK</span> <i class="fas fa-arrow-up-right-from-square"></i>
-              </a>
-              <a href="https://vntcert.click/check" target="_blank" rel="noopener noreferrer" class="btn btn-ghost btn-lg" style="border:2.5px solid var(--border);">
-                <i class="fas fa-search"></i> <span data-i18n="cert_btn_check">Kiểm Tra Đơn / Nhận Hàng</span>
-              </a>
-              <a href="https://t.me/ngoctruong_store" target="_blank" rel="noopener noreferrer" class="btn btn-blue btn-lg" style="border:2.5px solid var(--border);">
-                <i class="fab fa-telegram-plane"></i> <span data-i18n="cert_btn_support">Hỗ Trợ Admin</span>
-              </a>
+                  <!-- Price & Package Summary Tags -->
+                  <div class="flagship-pricing-box">
+                    <div class="flagship-pricing-header">
+                      <span data-i18n="prem_pkg_title">CÁC GÓI PREMIUM BÁN CHẠY NHẤT:</span>
+                      <span style="color:#22c55e;"><i class="fas fa-fire" style="font-size:11px;color:#e11d48;"></i> HOT BÁN CHẠY</span>
+                    </div>
+                    <div class="flagship-pricing-grid">
+                      <div class="flagship-pricing-pill"><span>Locket Gold:</span> <strong>từ 25.000đ</strong></div>
+                      <div class="flagship-pricing-pill"><span>Spotify Premium:</span> <strong>từ 40.000đ</strong></div>
+                      <div class="flagship-pricing-pill"><span>Netflix 4K UHD:</span> <strong>từ 65.000đ</strong></div>
+                      <div class="flagship-pricing-pill"><span>YouTube Premium:</span> <strong>từ 35.000đ</strong></div>
+                      <div class="flagship-pricing-pill"><span>ChatGPT Plus:</span> <strong>từ 99.000đ</strong></div>
+                      <div class="flagship-pricing-pill"><span>Canva Pro Edu:</span> <strong>từ 30.000đ</strong></div>
+                    </div>
+                  </div>
+
+                  <!-- Action Buttons -->
+                  <div class="flagship-actions">
+                    <a href="https://www.vasnet360.site/" target="_blank" rel="noopener noreferrer" class="btn btn-dark btn-lg" style="background:#059669;border-color:var(--border);color:#fff;">
+                      <i class="fas fa-shopping-bag"></i> <span data-i18n="prem_btn_buy">MUA TÀI KHOẢN TẠI VASNET360.SITE</span> <i class="fas fa-arrow-up-right-from-square"></i>
+                    </a>
+                    <a href="https://www.vasnet360.site/" target="_blank" rel="noopener noreferrer" class="btn btn-ghost btn-lg">
+                      <i class="fas fa-list-ul"></i> <span data-i18n="prem_btn_catalog">Xem Toàn Bộ Bảng Giá</span>
+                    </a>
+                    <a href="https://t.me/ngoctruong_store" target="_blank" rel="noopener noreferrer" class="btn btn-blue btn-lg">
+                      <i class="fab fa-telegram-plane"></i> <span data-i18n="prem_btn_support">Hỗ Trợ Admin</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
 
         </div>
+      </div>
+
+      <!-- Pagination Dots & Swipe Hint -->
+      <div class="flagship-dots">
+        <button type="button" class="flagship-dot active" id="flagshipDot0" onclick="goToFlagshipSlide(0)" aria-label="Slide 1: Chứng chỉ P12"></button>
+        <button type="button" class="flagship-dot" id="flagshipDot1" onclick="goToFlagshipSlide(1)" aria-label="Slide 2: Tài khoản Premium"></button>
+      </div>
+      <div class="flagship-hint">
+        <i class="fas fa-hand-pointer"></i>
+        <span data-i18n="flagship_swipe_hint">Vuốt qua lại hoặc bấm phím để xem • Tự động chuyển đổi sau mỗi 30s</span>
       </div>
     </section>
 
@@ -1732,7 +2222,7 @@
       </div>
     </section>
 
-    <!-- 03 / CÁC DỊCH VỤ CỦA TÔI (#services) -->
+        <!-- 03 / CÁC DỊCH VỤ CỦA TÔI (#services) -->
     <section id="services" class="section">
       <div class="section-head">
         <div class="sec-badge">
@@ -1741,8 +2231,8 @@
         <span class="sec-hex">//0x03</span>
       </div>
 
-      <div class="cards-grid-2">
-        <!-- Locket Gold -->
+      <div class="cards-grid">
+        <!-- Dịch vụ 1: Locket Gold -->
         <div class="neo-card card-featured">
           <div>
             <div class="card-top">
@@ -1760,7 +2250,25 @@
           </div>
         </div>
 
-        <!-- Kho IPA -->
+        <!-- Dịch vụ 2: Website Bán Tài Khoản Premium (VASNET360.SITE) -->
+        <div class="neo-card">
+          <div>
+            <div class="card-top">
+              <div class="card-icon-box icon-green"><i class="fas fa-store"></i></div>
+              <div class="card-info">
+                <div class="card-title" data-i18n="svc_prem_title">Web Bán Tài Khoản Premium</div>
+                <div class="card-desc" data-i18n="svc_prem_desc">Hệ thống bán &amp; nâng cấp tài khoản tự động 24/7: Locket Gold, Spotify, Netflix, YouTube, ChatGPT, Canva Pro siêu tốc.</div>
+                <div class="card-subtext">vasnet360.site</div>
+              </div>
+            </div>
+          </div>
+          <div class="card-bottom">
+            <span class="card-status-badge" style="background:#dcfce7;color:#15803d"><i class="fas fa-bolt"></i> <span data-i18n="badge_auto_247">Tự động 24/7</span></span>
+            <a class="btn btn-dark btn-sm" href="https://www.vasnet360.site/" target="_blank" rel="noopener noreferrer"><span data-i18n="btn_buy_prem">MUA TÀI KHOẢN</span> <i class="fas fa-external-link-alt"></i></a>
+          </div>
+        </div>
+
+        <!-- Dịch vụ 3: Kho IPA -->
         <div class="neo-card">
           <div>
             <div class="card-top">
@@ -2189,6 +2697,29 @@
         cert_btn_buy: 'MUA CHỨNG CHỈ TẠI VNTCERT.CLICK',
         cert_btn_check: 'Kiểm Tra Đơn / Nhận Hàng',
         cert_btn_support: 'Hỗ Trợ Admin',
+        flagship_badge_main: 'DỊCH VỤ TRỌNG TÂM',
+        flagship_sec_sub: 'HỆ THỐNG DỊCH VỤ HÀNG ĐẦU • VNT ECOSYSTEM',
+        tab_cert: '1. Bán Chứng Chỉ Apple P12',
+        tab_prem: '2. Bán Tài Khoản Premium',
+        flagship_swipe_hint: 'Vuốt qua lại hoặc bấm phím để xem • Tự động chuyển đổi sau mỗi 30s',
+        prem_tag: 'VNT PREMIUM STORE • HỆ THỐNG NÂNG CẤP TÀI KHOẢN TỰ ĐỘNG',
+        prem_title: 'Bán & Nâng Cấp Tài Khoản Premium Giá Rẻ',
+        prem_highlight: 'Locket Gold • Spotify • Netflix • YouTube • ChatGPT',
+        prem_desc: 'Hệ thống bán tài khoản bản quyền và nâng cấp trực tiếp trên tài khoản chính chủ 24/7. Nhận hàng siêu tốc chỉ sau 30 giây, nạp VietQR MBBank tự động cộng tiền, bảo hành trọn đời gói mua, uy tín hàng đầu.',
+        prem_f1: 'Nâng cấp chính chủ trong 30s',
+        prem_f2: 'Bảo hành trọn thời gian sử dụng',
+        prem_f3: 'Nạp VietQR MBBank tự động 24/7',
+        prem_f4: 'Hàng ngàn khách hàng tin dùng',
+        prem_f5: 'Tiết kiệm đến 70% so với giá gốc',
+        prem_f6: 'Hỗ trợ kỹ thuật 24/7 qua Zalo & Telegram',
+        prem_pkg_title: 'CÁC GÓI PREMIUM BÁN CHẠY NHẤT:',
+        prem_btn_buy: 'MUA TÀI KHOẢN TẠI VASNET360.SITE',
+        prem_btn_catalog: 'Xem Toàn Bộ Bảng Giá',
+        prem_btn_support: 'Hỗ Trợ Admin',
+        svc_prem_title: 'Web Bán Tài Khoản Premium',
+        svc_prem_desc: 'Hệ thống bán & nâng cấp tài khoản tự động 24/7: Locket Gold, Spotify, Netflix, YouTube, ChatGPT, Canva Pro siêu tốc.',
+        badge_auto_247: 'Tự động 24/7',
+        btn_buy_prem: 'MUA TÀI KHOẢN',
       },
       en: {
         code: 'EN',
@@ -2288,6 +2819,29 @@
         cert_btn_buy: 'BUY CERTIFICATES AT VNTCERT.CLICK',
         cert_btn_check: 'Check Orders & Delivery',
         cert_btn_support: 'Admin Support',
+        flagship_badge_main: 'FLAGSHIP SERVICES',
+        flagship_sec_sub: 'CORE ECOSYSTEM SERVICES • VNT STORE',
+        tab_cert: '1. Apple P12 Certificates',
+        tab_prem: '2. Premium Accounts Store',
+        flagship_swipe_hint: 'Swipe or click buttons to switch • Auto-rotates every 30s',
+        prem_tag: 'VNT PREMIUM STORE • 24/7 AUTOMATED ACCOUNT UPGRADE',
+        prem_title: 'Cheap & Genuine Premium Accounts Store',
+        prem_highlight: 'Locket Gold • Spotify • Netflix • YouTube • ChatGPT',
+        prem_desc: 'Automated 24/7 genuine subscription upgrade and account shop. Instant upgrade on your personal account in 30 seconds, auto QR top-up, full warranty.',
+        prem_f1: 'Personal account upgrade in 30s',
+        prem_f2: 'Full-term replacement warranty',
+        prem_f3: 'Instant 24/7 auto VietQR top-up',
+        prem_f4: 'Thousands of trusted customers',
+        prem_f5: 'Save up to 70% off retail pricing',
+        prem_f6: '24/7 priority support via Zalo & TG',
+        prem_pkg_title: 'BEST SELLING PREMIUM PACKAGES:',
+        prem_btn_buy: 'BUY ACCOUNTS AT VASNET360.SITE',
+        prem_btn_catalog: 'View Full Catalog & Prices',
+        prem_btn_support: 'Admin Support',
+        svc_prem_title: 'Premium Accounts Store',
+        svc_prem_desc: 'Automated 24/7 store for Locket Gold, Spotify, Netflix, YouTube Premium, ChatGPT Plus, Canva Pro.',
+        badge_auto_247: 'Auto 24/7',
+        btn_buy_prem: 'BUY ACCOUNTS',
       },
       id: {
         code: 'ID',
@@ -2356,6 +2910,29 @@
         cert_btn_buy: 'BELI SERTIFIKAT DI VNTCERT.CLICK',
         cert_btn_check: 'Cek Pesanan & Unduh',
         cert_btn_support: 'Dukungan Admin',
+        flagship_badge_main: 'LAYANAN UNGGULAN',
+        flagship_sec_sub: 'EKOSISTEM LAYANAN UTAMA • VNT STORE',
+        tab_cert: '1. Sertifikat Apple P12',
+        tab_prem: '2. Toko Akun Premium',
+        flagship_swipe_hint: 'Geser atau klik tombol untuk beralih • Berganti otomatis tiap 30 detik',
+        prem_tag: 'VNT PREMIUM STORE • UPGRADE AKUN OTOMATIS 24/7',
+        prem_title: 'Toko Akun Premium Resmi & Murah',
+        prem_highlight: 'Locket Gold • Spotify • Netflix • YouTube • ChatGPT',
+        prem_desc: 'Layanan penjualan dan upgrade akun premium resmi 24/7. Proses kilat hanya 30 detik di akun pribadi Anda, garansi penuh selama masa pakai.',
+        prem_f1: 'Upgrade akun pribadi dalam 30 detik',
+        prem_f2: 'Garansi penuh selama langganan',
+        prem_f3: 'Top-up otomatis 24/7 via QRIS',
+        prem_f4: 'Dipercaya ribuan pengguna aktif',
+        prem_f5: 'Hemat hingga 70% dari harga resmi',
+        prem_f6: 'Dukungan admin 24/7 lewat Telegram',
+        prem_pkg_title: 'PAKET PREMIUM TERLARIS:',
+        prem_btn_buy: 'BELI AKUN DI VASNET360.SITE',
+        prem_btn_catalog: 'Lihat Daftar Harga Lengkap',
+        prem_btn_support: 'Dukungan Admin',
+        svc_prem_title: 'Web Jual Akun Premium',
+        svc_prem_desc: 'Sistem beli & upgrade akun otomatis 24/7: Locket Gold, Spotify, Netflix, YouTube, ChatGPT, Canva Pro.',
+        badge_auto_247: 'Otomatis 24/7',
+        btn_buy_prem: 'BELI AKUN',
       },
       zh: {
         code: '中文',
@@ -2424,6 +3001,29 @@
         cert_btn_buy: '进入官网购买证书 (VNTCERT.CLICK)',
         cert_btn_check: '查询订单与提单',
         cert_btn_support: '联系在线客服',
+        flagship_badge_main: '核心主推服务',
+        flagship_sec_sub: '精选核心服务生态 • VNT ECOSYSTEM',
+        tab_cert: '1. 苹果 P12 个人证书',
+        tab_prem: '2. 高级会员账号商城',
+        flagship_swipe_hint: '左右滑动或点击按键切换 • 每 30 秒自动轮播',
+        prem_tag: 'VNT PREMIUM STORE • 全自动 24/7 会员升级系统',
+        prem_title: '全网正品特惠会员账号商城',
+        prem_highlight: 'Locket Gold • Spotify • Netflix • YouTube • ChatGPT',
+        prem_desc: '24小时自动化正版会员开通与充值平台。支持买家个人账号30秒极速升级直开，全自动扫码充值，使用期内全程质保，安全可靠。',
+        prem_f1: '支持买家主号 30 秒极速直升',
+        prem_f2: '使用期间享受全程售后质保',
+        prem_f3: 'VietQR / 网银全自动秒级入账',
+        prem_f4: '数万名苹果及数码用户信赖',
+        prem_f5: '价格较官方原价直省高达 70%',
+        prem_f6: '专属客服 Telegram/Zalo 全天候协助',
+        prem_pkg_title: '热销畅销会员套餐一览:',
+        prem_btn_buy: '进入官网购买 (VASNET360.SITE)',
+        prem_btn_catalog: '查看完整价格列表',
+        prem_btn_support: '联系在线客服',
+        svc_prem_title: '高级会员账号商城',
+        svc_prem_desc: '24/7全自动开通：Locket Gold、Spotify、Netflix、YouTube、ChatGPT、Canva Pro 正品会员。',
+        badge_auto_247: '全自动 24/7',
+        btn_buy_prem: '前往购买',
       },
       pt: {
         code: 'PT',
@@ -2492,6 +3092,29 @@
         cert_btn_buy: 'COMPRAR CERTIFICADO (VNTCERT.CLICK)',
         cert_btn_check: 'Verificar Pedido & Baixar',
         cert_btn_support: 'Suporte Admin',
+        flagship_badge_main: 'SERVIÇOS EM DESTAQUE',
+        flagship_sec_sub: 'ECOSSISTEMA PRINCIPAL • VNT STORE',
+        tab_cert: '1. Certificados Apple P12',
+        tab_prem: '2. Contas Premium Oficiais',
+        flagship_swipe_hint: 'Deslize ou clique nos botões para navegar • Alterna a cada 30 segundos',
+        prem_tag: 'VNT PREMIUM STORE • UPGRADE AUTOMÁTICO DE CONTAS 24/7',
+        prem_title: 'Loja de Contas Premium Baratas & Originais',
+        prem_highlight: 'Locket Gold • Spotify • Netflix • YouTube • ChatGPT',
+        prem_desc: 'Sistema automatizado 24/7 para compra e upgrade de assinaturas premium em sua conta própria. Ativação ultrarrápida em 30 segundos, garantia total.',
+        prem_f1: 'Upgrade em conta própria em 30s',
+        prem_f2: 'Garantia total de substituição',
+        prem_f3: 'Recarga automática instantânea',
+        prem_f4: 'Milhares de clientes satisfeitos',
+        prem_f5: 'Economize até 70% do valor oficial',
+        prem_f6: 'Suporte 24/7 via Telegram & Zalo',
+        prem_pkg_title: 'PACOTES PREMIUM MAIS VENDIDOS:',
+        prem_btn_buy: 'COMPRAR CONTAS EM VASNET360.SITE',
+        prem_btn_catalog: 'Ver Tabela de Preços Completa',
+        prem_btn_support: 'Suporte Admin',
+        svc_prem_title: 'Loja de Contas Premium',
+        svc_prem_desc: 'Sistema 24/7 para Locket Gold, Spotify, Netflix, YouTube Premium, ChatGPT Plus, Canva Pro.',
+        badge_auto_247: 'Automático 24/7',
+        btn_buy_prem: 'COMPRAR CONTAS',
       }
     };
 
@@ -2929,6 +3552,121 @@
       const savedLang = localStorage.getItem('vnt_lang') || 'vi';
       setLanguage(savedLang);
     });
+
+    // ===== FLAGSHIP MULTI-SERVICE SLIDER LOGIC (30s AUTO-CYCLE & TOUCH SWIPE) =====
+    let currentFlagshipIndex = 0;
+    const totalFlagshipSlides = 2;
+    const FLAGSHIP_CYCLE_SEC = 30;
+    let flagshipTimerRemaining = FLAGSHIP_CYCLE_SEC;
+    let flagshipTimerInterval = null;
+
+    function updateFlagshipUI() {
+      const track = document.getElementById('flagshipSliderTrack');
+      if (track) {
+        track.style.transform = `translateX(-${currentFlagshipIndex * 100}%)`;
+      }
+      for (let i = 0; i < totalFlagshipSlides; i++) {
+        const tab = document.getElementById(`flagshipTab${i}`);
+        const dot = document.getElementById(`flagshipDot${i}`);
+        if (tab) {
+          if (i === currentFlagshipIndex) tab.classList.add('active');
+          else tab.classList.remove('active');
+        }
+        if (dot) {
+          if (i === currentFlagshipIndex) dot.classList.add('active');
+          else dot.classList.remove('active');
+        }
+      }
+    }
+
+    function goToFlagshipSlide(index, resetTime = true) {
+      if (index < 0) index = totalFlagshipSlides - 1;
+      if (index >= totalFlagshipSlides) index = 0;
+      currentFlagshipIndex = index;
+      updateFlagshipUI();
+      if (resetTime) {
+        resetFlagshipTimer();
+      }
+    }
+
+    function nextFlagshipSlide(userAction = true) {
+      goToFlagshipSlide((currentFlagshipIndex + 1) % totalFlagshipSlides, userAction);
+    }
+
+    function prevFlagshipSlide(userAction = true) {
+      goToFlagshipSlide((currentFlagshipIndex - 1 + totalFlagshipSlides) % totalFlagshipSlides, userAction);
+    }
+
+    function resetFlagshipTimer() {
+      flagshipTimerRemaining = FLAGSHIP_CYCLE_SEC;
+      updateTimerDisplay();
+    }
+
+    function updateTimerDisplay() {
+      const numEl = document.getElementById('flagshipTimerNum');
+      const barEl = document.getElementById('flagshipTimerBar');
+      if (numEl) numEl.textContent = `${flagshipTimerRemaining}s`;
+      if (barEl) {
+        const pct = ((FLAGSHIP_CYCLE_SEC - flagshipTimerRemaining) / FLAGSHIP_CYCLE_SEC) * 100;
+        barEl.style.width = `${pct}%`;
+      }
+    }
+
+    function initFlagshipSlider() {
+      updateFlagshipUI();
+      resetFlagshipTimer();
+
+      if (flagshipTimerInterval) clearInterval(flagshipTimerInterval);
+      flagshipTimerInterval = setInterval(() => {
+        flagshipTimerRemaining--;
+        if (flagshipTimerRemaining <= 0) {
+          nextFlagshipSlide(false);
+          flagshipTimerRemaining = FLAGSHIP_CYCLE_SEC;
+        }
+        updateTimerDisplay();
+      }, 1000);
+
+      // Touch Swipe Handler for mobile devices
+      const container = document.getElementById('flagshipSliderContainer');
+      if (container) {
+        let touchStartX = 0;
+        let touchStartY = 0;
+        let touchEndX = 0;
+        let touchEndY = 0;
+
+        container.addEventListener('touchstart', (e) => {
+          touchStartX = e.changedTouches[0].screenX;
+          touchStartY = e.changedTouches[0].screenY;
+        }, { passive: true });
+
+        container.addEventListener('touchend', (e) => {
+          touchEndX = e.changedTouches[0].screenX;
+          touchEndY = e.changedTouches[0].screenY;
+          handleSwipe();
+        }, { passive: true });
+
+        function handleSwipe() {
+          const diffX = touchEndX - touchStartX;
+          const diffY = touchEndY - touchStartY;
+          // Only trigger if horizontal swipe is dominant and > 45px
+          if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 45) {
+            if (diffX < 0) {
+              nextFlagshipSlide(true);
+            } else {
+              prevFlagshipSlide(true);
+            }
+          }
+        }
+      }
+    }
+
+    // Call initFlagshipSlider when DOM is ready
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initFlagshipSlider);
+    } else {
+      initFlagshipSlider();
+    }
+
   </script>
 
   <!-- ========================================================
@@ -2944,6 +3682,211 @@
       pointer-events: none;
       z-index: 9999;
     }
+
+    /* Flagship Multi-Service Slider (VNTCERT & VASNET360) */
+    .flagship-nav-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 14px;
+      flex-wrap: wrap;
+    }
+    .flagship-tabs {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    .flagship-tab-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 14px;
+      background: #fff;
+      border: 2px solid var(--border);
+      border-radius: var(--radius-base);
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--ink-700);
+      cursor: pointer;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.15s ease;
+      user-select: none;
+      font-family: var(--font-mono);
+    }
+    .flagship-tab-btn:hover {
+      transform: translate(-1px, -1px);
+      box-shadow: 3px 3px 0 0 var(--border);
+    }
+    .flagship-tab-btn.active {
+      background: var(--main-hi);
+      color: var(--ink-900);
+      border-color: var(--border);
+      box-shadow: 3px 3px 0 0 var(--border);
+    }
+    .flagship-controls {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-left: auto;
+    }
+    .flagship-timer-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #fff;
+      border: 2px solid var(--border);
+      border-radius: 999px;
+      padding: 5px 12px;
+      font-size: 12px;
+      font-weight: 700;
+      font-family: var(--font-mono);
+      box-shadow: var(--shadow-sm);
+      color: var(--ink-900);
+    }
+    .flagship-timer-bar-wrap {
+      width: 44px;
+      height: 6px;
+      background: #e2e8f0;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      overflow: hidden;
+      display: inline-block;
+      vertical-align: middle;
+    }
+    .flagship-timer-bar-fill {
+      height: 100%;
+      width: 0%;
+      background: #e11d48;
+      transition: width 0.1s linear;
+    }
+    .flagship-arrow-btn {
+      width: 36px;
+      height: 36px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: #fff;
+      border: 2px solid var(--border);
+      border-radius: var(--radius-base);
+      cursor: pointer;
+      font-size: 14px;
+      box-shadow: var(--shadow-sm);
+      color: var(--ink-900);
+      transition: all 0.15s ease;
+    }
+    .flagship-arrow-btn:hover {
+      transform: translate(-1px, -1px);
+      box-shadow: 3px 3px 0 0 var(--border);
+      background: var(--paper-1);
+    }
+    .flagship-arrow-btn:active {
+      transform: translate(1px, 1px);
+      box-shadow: 1px 1px 0 0 var(--border);
+    }
+    .flagship-slider-container {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+      border-radius: var(--radius-base);
+      touch-action: pan-y;
+      user-select: none;
+    }
+    .flagship-slider-track {
+      display: flex;
+      width: 100%;
+      transition: transform 0.45s cubic-bezier(0.25, 1, 0.5, 1);
+      will-change: transform;
+    }
+    .flagship-slide {
+      flex: 0 0 100%;
+      width: 100%;
+      max-width: 100%;
+      min-width: 100%;
+      box-sizing: border-box;
+    }
+    .flagship-card-cert {
+      background: linear-gradient(135deg, #ffd94a 0%, #ffeaa7 100%);
+    }
+    .flagship-card-prem {
+      background: linear-gradient(135deg, #bbf7d0 0%, #86efac 100%);
+    }
+    .flagship-dots {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 12px;
+      margin-bottom: 24px;
+    }
+    .flagship-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 999px;
+      background: #fff;
+      border: 2px solid var(--border);
+      cursor: pointer;
+      transition: all 0.2s ease;
+      box-shadow: var(--shadow-sm);
+    }
+    .flagship-dot.active {
+      background: #e11d48;
+      width: 28px;
+    }
+    .flagship-hint {
+      text-align: center;
+      font-size: 12px;
+      font-family: var(--font-mono);
+      color: var(--ink-500);
+      margin-top: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+    }
+
+    /* Dark Mode overrides for flagship slider */
+    [data-theme="dark"] .flagship-tab-btn {
+      background: #24242e !important;
+      color: #e4e4e7 !important;
+      border-color: var(--border) !important;
+    }
+    [data-theme="dark"] .flagship-tab-btn.active {
+      background: #ffd94a !important;
+      color: #111111 !important;
+      border-color: var(--border) !important;
+    }
+    [data-theme="dark"] .flagship-arrow-btn {
+      background: #24242e !important;
+      color: #fafafa !important;
+      border-color: var(--border) !important;
+    }
+    [data-theme="dark"] .flagship-timer-pill {
+      background: #24242e !important;
+      color: #fafafa !important;
+      border-color: var(--border) !important;
+    }
+    [data-theme="dark"] .flagship-timer-bar-wrap {
+      background: #3f3f46 !important;
+      border-color: var(--border) !important;
+    }
+    [data-theme="dark"] .flagship-dot {
+      background: #24242e !important;
+      border-color: var(--border) !important;
+    }
+    [data-theme="dark"] .flagship-dot.active {
+      background: #f59e0b !important;
+    }
+    [data-theme="dark"] .flagship-hint {
+      color: #a1a1aa !important;
+    }
+    [data-theme="dark"] .flagship-card-prem,
+    [data-theme="dark"] .flagship-card-cert {
+      background: #181820 !important;
+      border-color: var(--border) !important;
+    }
+
   </style>
   <canvas id="snow-canvas"></canvas>
   <script>
@@ -3073,6 +4016,121 @@
     init();
     requestAnimationFrame(render);
   })();
+
+    // ===== FLAGSHIP MULTI-SERVICE SLIDER LOGIC (30s AUTO-CYCLE & TOUCH SWIPE) =====
+    let currentFlagshipIndex = 0;
+    const totalFlagshipSlides = 2;
+    const FLAGSHIP_CYCLE_SEC = 30;
+    let flagshipTimerRemaining = FLAGSHIP_CYCLE_SEC;
+    let flagshipTimerInterval = null;
+
+    function updateFlagshipUI() {
+      const track = document.getElementById('flagshipSliderTrack');
+      if (track) {
+        track.style.transform = `translateX(-${currentFlagshipIndex * 100}%)`;
+      }
+      for (let i = 0; i < totalFlagshipSlides; i++) {
+        const tab = document.getElementById(`flagshipTab${i}`);
+        const dot = document.getElementById(`flagshipDot${i}`);
+        if (tab) {
+          if (i === currentFlagshipIndex) tab.classList.add('active');
+          else tab.classList.remove('active');
+        }
+        if (dot) {
+          if (i === currentFlagshipIndex) dot.classList.add('active');
+          else dot.classList.remove('active');
+        }
+      }
+    }
+
+    function goToFlagshipSlide(index, resetTime = true) {
+      if (index < 0) index = totalFlagshipSlides - 1;
+      if (index >= totalFlagshipSlides) index = 0;
+      currentFlagshipIndex = index;
+      updateFlagshipUI();
+      if (resetTime) {
+        resetFlagshipTimer();
+      }
+    }
+
+    function nextFlagshipSlide(userAction = true) {
+      goToFlagshipSlide((currentFlagshipIndex + 1) % totalFlagshipSlides, userAction);
+    }
+
+    function prevFlagshipSlide(userAction = true) {
+      goToFlagshipSlide((currentFlagshipIndex - 1 + totalFlagshipSlides) % totalFlagshipSlides, userAction);
+    }
+
+    function resetFlagshipTimer() {
+      flagshipTimerRemaining = FLAGSHIP_CYCLE_SEC;
+      updateTimerDisplay();
+    }
+
+    function updateTimerDisplay() {
+      const numEl = document.getElementById('flagshipTimerNum');
+      const barEl = document.getElementById('flagshipTimerBar');
+      if (numEl) numEl.textContent = `${flagshipTimerRemaining}s`;
+      if (barEl) {
+        const pct = ((FLAGSHIP_CYCLE_SEC - flagshipTimerRemaining) / FLAGSHIP_CYCLE_SEC) * 100;
+        barEl.style.width = `${pct}%`;
+      }
+    }
+
+    function initFlagshipSlider() {
+      updateFlagshipUI();
+      resetFlagshipTimer();
+
+      if (flagshipTimerInterval) clearInterval(flagshipTimerInterval);
+      flagshipTimerInterval = setInterval(() => {
+        flagshipTimerRemaining--;
+        if (flagshipTimerRemaining <= 0) {
+          nextFlagshipSlide(false);
+          flagshipTimerRemaining = FLAGSHIP_CYCLE_SEC;
+        }
+        updateTimerDisplay();
+      }, 1000);
+
+      // Touch Swipe Handler for mobile devices
+      const container = document.getElementById('flagshipSliderContainer');
+      if (container) {
+        let touchStartX = 0;
+        let touchStartY = 0;
+        let touchEndX = 0;
+        let touchEndY = 0;
+
+        container.addEventListener('touchstart', (e) => {
+          touchStartX = e.changedTouches[0].screenX;
+          touchStartY = e.changedTouches[0].screenY;
+        }, { passive: true });
+
+        container.addEventListener('touchend', (e) => {
+          touchEndX = e.changedTouches[0].screenX;
+          touchEndY = e.changedTouches[0].screenY;
+          handleSwipe();
+        }, { passive: true });
+
+        function handleSwipe() {
+          const diffX = touchEndX - touchStartX;
+          const diffY = touchEndY - touchStartY;
+          // Only trigger if horizontal swipe is dominant and > 45px
+          if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 45) {
+            if (diffX < 0) {
+              nextFlagshipSlide(true);
+            } else {
+              prevFlagshipSlide(true);
+            }
+          }
+        }
+      }
+    }
+
+    // Call initFlagshipSlider when DOM is ready
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initFlagshipSlider);
+    } else {
+      initFlagshipSlider();
+    }
+
   </script>
 
 
@@ -3122,6 +4180,121 @@
     } else {
       applyTheme(getPreferredTheme());
     }
+
+    // ===== FLAGSHIP MULTI-SERVICE SLIDER LOGIC (30s AUTO-CYCLE & TOUCH SWIPE) =====
+    let currentFlagshipIndex = 0;
+    const totalFlagshipSlides = 2;
+    const FLAGSHIP_CYCLE_SEC = 30;
+    let flagshipTimerRemaining = FLAGSHIP_CYCLE_SEC;
+    let flagshipTimerInterval = null;
+
+    function updateFlagshipUI() {
+      const track = document.getElementById('flagshipSliderTrack');
+      if (track) {
+        track.style.transform = `translateX(-${currentFlagshipIndex * 100}%)`;
+      }
+      for (let i = 0; i < totalFlagshipSlides; i++) {
+        const tab = document.getElementById(`flagshipTab${i}`);
+        const dot = document.getElementById(`flagshipDot${i}`);
+        if (tab) {
+          if (i === currentFlagshipIndex) tab.classList.add('active');
+          else tab.classList.remove('active');
+        }
+        if (dot) {
+          if (i === currentFlagshipIndex) dot.classList.add('active');
+          else dot.classList.remove('active');
+        }
+      }
+    }
+
+    function goToFlagshipSlide(index, resetTime = true) {
+      if (index < 0) index = totalFlagshipSlides - 1;
+      if (index >= totalFlagshipSlides) index = 0;
+      currentFlagshipIndex = index;
+      updateFlagshipUI();
+      if (resetTime) {
+        resetFlagshipTimer();
+      }
+    }
+
+    function nextFlagshipSlide(userAction = true) {
+      goToFlagshipSlide((currentFlagshipIndex + 1) % totalFlagshipSlides, userAction);
+    }
+
+    function prevFlagshipSlide(userAction = true) {
+      goToFlagshipSlide((currentFlagshipIndex - 1 + totalFlagshipSlides) % totalFlagshipSlides, userAction);
+    }
+
+    function resetFlagshipTimer() {
+      flagshipTimerRemaining = FLAGSHIP_CYCLE_SEC;
+      updateTimerDisplay();
+    }
+
+    function updateTimerDisplay() {
+      const numEl = document.getElementById('flagshipTimerNum');
+      const barEl = document.getElementById('flagshipTimerBar');
+      if (numEl) numEl.textContent = `${flagshipTimerRemaining}s`;
+      if (barEl) {
+        const pct = ((FLAGSHIP_CYCLE_SEC - flagshipTimerRemaining) / FLAGSHIP_CYCLE_SEC) * 100;
+        barEl.style.width = `${pct}%`;
+      }
+    }
+
+    function initFlagshipSlider() {
+      updateFlagshipUI();
+      resetFlagshipTimer();
+
+      if (flagshipTimerInterval) clearInterval(flagshipTimerInterval);
+      flagshipTimerInterval = setInterval(() => {
+        flagshipTimerRemaining--;
+        if (flagshipTimerRemaining <= 0) {
+          nextFlagshipSlide(false);
+          flagshipTimerRemaining = FLAGSHIP_CYCLE_SEC;
+        }
+        updateTimerDisplay();
+      }, 1000);
+
+      // Touch Swipe Handler for mobile devices
+      const container = document.getElementById('flagshipSliderContainer');
+      if (container) {
+        let touchStartX = 0;
+        let touchStartY = 0;
+        let touchEndX = 0;
+        let touchEndY = 0;
+
+        container.addEventListener('touchstart', (e) => {
+          touchStartX = e.changedTouches[0].screenX;
+          touchStartY = e.changedTouches[0].screenY;
+        }, { passive: true });
+
+        container.addEventListener('touchend', (e) => {
+          touchEndX = e.changedTouches[0].screenX;
+          touchEndY = e.changedTouches[0].screenY;
+          handleSwipe();
+        }, { passive: true });
+
+        function handleSwipe() {
+          const diffX = touchEndX - touchStartX;
+          const diffY = touchEndY - touchStartY;
+          // Only trigger if horizontal swipe is dominant and > 45px
+          if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 45) {
+            if (diffX < 0) {
+              nextFlagshipSlide(true);
+            } else {
+              prevFlagshipSlide(true);
+            }
+          }
+        }
+      }
+    }
+
+    // Call initFlagshipSlider when DOM is ready
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initFlagshipSlider);
+    } else {
+      initFlagshipSlider();
+    }
+
   </script>
 
 </body>
