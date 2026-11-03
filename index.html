@@ -4906,6 +4906,187 @@
       letter-spacing: 0.05em;
     }
 
+
+    /* ==========================================================================
+       MOBILE RESPONSIVE POLISH & REFINEMENT (iOS 26 Liquid Glass)
+       ========================================================================== */
+    /* Fix khối sec-badge: Bỏ border-radius 999px bao trùm toàn bộ, biến thành flex phẳng tinh tế */
+    .sec-badge {
+      display: inline-flex !important;
+      align-items: center !important;
+      gap: 8px !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+      padding: 0 !important;
+      border-radius: 0 !important;
+      font-size: 15px !important;
+      font-weight: 800 !important;
+      color: #b45309 !important;
+      flex-wrap: wrap !important;
+    }
+    [data-theme="dark"] .sec-badge {
+      color: #fbbf24 !important;
+      background: transparent !important;
+      border: none !important;
+    }
+
+    /* Viên pill nhỏ xinh xắn bên trong sec-badge */
+    .sec-badge .num-pill {
+      display: inline-flex !important;
+      align-items: center !important;
+      gap: 5px !important;
+      background: linear-gradient(135deg, #ff5722 0%, #ea580c 100%) !important;
+      color: #ffffff !important;
+      border-radius: 999px !important;
+      padding: 4px 10px !important;
+      font-size: 11px !important;
+      font-weight: 800 !important;
+      box-shadow: 0 2px 8px rgba(234, 88, 12, 0.35), inset 0 1px 1px rgba(255, 255, 255, 0.5) !important;
+      border: 1px solid rgba(255, 255, 255, 0.3) !important;
+      white-space: nowrap !important;
+      letter-spacing: 0.02em !important;
+    }
+
+    /* Tiêu đề text bên cạnh num-pill */
+    .sec-badge > span:not(.num-pill) {
+      font-size: clamp(13.5px, 3.4vw, 16px) !important;
+      font-weight: 800 !important;
+      line-height: 1.35 !important;
+      letter-spacing: -0.01em !important;
+    }
+
+    /* Hex tag bên phải section-head */
+    .sec-hex {
+      font-family: var(--font-mono) !important;
+      font-size: 11.5px !important;
+      padding: 3px 8px !important;
+      border-radius: 6px !important;
+      background: rgba(180, 83, 9, 0.08) !important;
+      border: 1px solid rgba(180, 83, 9, 0.15) !important;
+      color: #b45309 !important;
+      font-weight: 700 !important;
+    }
+    [data-theme="dark"] .sec-hex {
+      background: rgba(251, 191, 36, 0.1) !important;
+      border-color: rgba(251, 191, 36, 0.2) !important;
+      color: #fbbf24 !important;
+    }
+
+    /* Thanh marquee chạy chữ bo góc kính lỏng tinh gọn */
+    .marquee-container, .marquee {
+      border-radius: 14px !important;
+      margin: 18px 0 16px !important;
+      border: 1px solid rgba(255, 255, 255, 0.6) !important;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04) !important;
+    }
+    [data-theme="dark"] .marquee-container, [data-theme="dark"] .marquee {
+      border-color: rgba(255, 255, 255, 0.12) !important;
+    }
+    .marquee-track {
+      padding: 9px 0 !important;
+      font-size: 13.5px !important;
+      gap: 40px !important;
+    }
+
+    /* BỘ ĐIỀU HƯỚNG TABS DỊCH VỤ TRỌNG TÂM TRÊN MOBILE */
+    @media (max-width: 640px) {
+      .section-head {
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+        padding-bottom: 8px !important;
+        margin-bottom: 14px !important;
+        gap: 6px !important;
+      }
+
+      .flagship-nav-bar {
+        flex-direction: column !important;
+        align-items: stretch !important;
+        gap: 10px !important;
+        margin-bottom: 12px !important;
+      }
+
+      /* Segmented Control 50% - 50% siêu đẹp trên mobile */
+      .flagship-tabs {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr !important;
+        gap: 4px !important;
+        width: 100% !important;
+        background: rgba(255, 255, 255, 0.45) !important;
+        backdrop-filter: blur(12px) !important;
+        -webkit-backdrop-filter: blur(12px) !important;
+        padding: 4px !important;
+        border-radius: 999px !important;
+        border: 1px solid rgba(255, 255, 255, 0.65) !important;
+        box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.04) !important;
+      }
+      [data-theme="dark"] .flagship-tabs {
+        background: rgba(255, 255, 255, 0.08) !important;
+        border-color: rgba(255, 255, 255, 0.12) !important;
+      }
+
+      .flagship-tab-btn {
+        width: 100% !important;
+        justify-content: center !important;
+        padding: 8px 6px !important;
+        font-size: 11.5px !important;
+        font-weight: 750 !important;
+        border-radius: 999px !important;
+        border: 1px solid transparent !important;
+        background: transparent !important;
+        box-shadow: none !important;
+        white-space: nowrap !important;
+        text-overflow: ellipsis !important;
+        overflow: hidden !important;
+      }
+
+      .flagship-tab-btn.active {
+        background: linear-gradient(135deg, #ffd94a 0%, #f59e0b 100%) !important;
+        color: #111111 !important;
+        border-color: rgba(255, 255, 255, 0.7) !important;
+        box-shadow: 0 2px 10px rgba(245, 158, 11, 0.35) !important;
+      }
+      [data-theme="dark"] .flagship-tab-btn.active {
+        background: linear-gradient(135deg, #ffd94a 0%, #f59e0b 100%) !important;
+        color: #111111 !important;
+      }
+
+      /* Thanh điều khiển timer & nút lướt trên mobile */
+      .flagship-controls {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+        width: 100% !important;
+        margin-left: 0 !important;
+        gap: 8px !important;
+      }
+
+      .flagship-timer-pill {
+        flex: 1 !important;
+        justify-content: center !important;
+        font-size: 11.5px !important;
+        padding: 6px 12px !important;
+        border-radius: 999px !important;
+      }
+
+      .flagship-arrow-btn {
+        width: 38px !important;
+        height: 34px !important;
+        border-radius: 999px !important;
+        font-size: 13px !important;
+      }
+
+      /* Nút phát nhạc nổi không che nội dung */
+      .floating-music-btn {
+        bottom: 18px !important;
+        right: 14px !important;
+        width: 42px !important;
+        height: 42px !important;
+      }
+    }
+
   </style>
   <canvas id="snow-canvas"></canvas>
   <script>
