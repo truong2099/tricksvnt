@@ -1624,85 +1624,293 @@
     const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
     document.documentElement.setAttribute('data-theme', saved ? saved : (prefersDark ? 'dark' : 'light'));
   })();
-</script>
+
+    // ===== iOS 26 LIQUID GLASS & VIDEO SETTINGS ENGINE (vasnet360.site) =====
+    let liquidGlassConfig = {
+      blur: 16,
+      opacity: 72,
+      dim: 42,
+      volume: 40,
+      audioMuted: true,
+      preset: 'ios26'
+    };
+
+    function applyLiquidGlassStyles() {
+      const root = document.documentElement;
+      root.style.setProperty('--liquid-blur', liquidGlassConfig.blur + 'px');
+      root.style.setProperty('--liquid-opacity', (liquidGlassConfig.opacity / 100).toFixed(2));
+      root.style.setProperty('--liquid-bg-dim', (liquidGlassConfig.dim / 100).toFixed(2));
+    }
+
+    function saveLiquidGlassConfig() {
+      try {
+        localStorage.setItem('vnt_liquid_glass_config', JSON.stringify(liquidGlassConfig));
+      } catch (e) {
+        console.error(e);
+      }
+    }
+
+    function initLiquidGlassAndVideo() {
+      try {
+        const saved = localStorage.getItem('vnt_liquid_glass_config');
+        if (saved) {
+          liquidGlassConfig = Object.assign(liquidGlassConfig, JSON.parse(saved));
+        }
+      } catch (e) {
+        console.error(e);
+      }
+
+      applyLiquidGlassStyles();
+
+      const video = document.getElementById('bgVideo');
+      if (video) {
+        video.muted = true;
+        video.defaultMuted = true;
+        video.setAttribute('muted', '');
+        video.setAttribute('playsinline', '');
+        video.setAttribute('webkit-playsinline', '');
+        video.volume = (liquidGlassConfig.volume || 40) / 100;
+
+        const attemptPlay = () => {
+          video.muted = true;
+          video.play().catch(e => {
+            console.warn('Video background autoplay pending user interaction:', e);
+          });
+        };
+
+        if (video.readyState >= 2) {
+          attemptPlay();
+        } else {
+          video.addEventListener('loadeddata', attemptPlay, { once: true });
+        }
+
+        // Tự động phát khi người dùng chạm hoặc click lần đầu
+        const firstTouchPlay = () => {
+          attemptPlay();
+          window.removeEventListener('click', firstTouchPlay);
+          window.removeEventListener('touchstart', firstTouchPlay);
+        };
+        window.addEventListener('click', firstTouchPlay, { once: true });
+        window.addEventListener('touchstart', firstTouchPlay, { once: true });
+      }
+
+      updateGlassSliderUi();
+      updateAudioUi(liquidGlassConfig.audioMuted !== false);
+    }
+
+    function openGlassSettingsModal() {
+      updateGlassSliderUi();
+      const el = document.getElementById('modalGlassSettings');
+      if (el) el.classList.add('active');
+    }
+
+    function closeModal(id) {
+      const el = document.getElementById(id);
+      if (el) {
+        el.classList.remove('active');
+        el.classList.remove('open');
+      }
+    }
+
+    function openModal(id) {
+      const el = document.getElementById(id);
+      if (el) el.classList.add('active');
+    }
+
+    function handleGlassSliderChange(type, val) {
+      val = Number(val);
+      if (type === 'blur') {
+        liquidGlassConfig.blur = val;
+        const el = document.getElementById('valGlassBlur');
+        if (el) el.textContent = val + 'px';
+      } else if (type === 'opacity') {
+        liquidGlassConfig.opacity = val;
+        const el = document.getElementById('valGlassOpacity');
+        if (el) el.textContent = val + '%';
+      } else if (type === 'dim') {
+        liquidGlassConfig.dim = val;
+        const el = document.getElementById('valGlassDim');
+        if (el) el.textContent = val + '%';
+      }
+      applyLiquidGlassStyles();
+      saveLiquidGlassConfig();
+    }
+
+    function handleAudioVolumeChange(val) {
+      val = Number(val);
+      liquidGlassConfig.volume = val;
+      const el = document.getElementById('valAudioVolume');
+      if (el) el.textContent = val + '%';
+      const video = document.getElementById('bgVideo');
+      if (video) {
+        video.volume = val / 100;
+        if (val > 0 && video.muted) {
+          toggleBgVideoAudio(true);
+        }
+      }
+      saveLiquidGlassConfig();
+    }
+
+    function toggleBgVideoAudio(forceUnmute = null) {
+      const video = document.getElementById('bgVideo');
+      if (!video) return;
+
+      let shouldBeMuted;
+      if (forceUnmute !== null) {
+        shouldBeMuted = !forceUnmute;
+      } else {
+        shouldBeMuted = !video.muted;
+      }
+
+      video.muted = shouldBeMuted;
+      liquidGlassConfig.audioMuted = shouldBeMuted;
+
+      if (!shouldBeMuted) {
+        video.volume = (liquidGlassConfig.volume || 40) / 100;
+        video.play().catch(e => console.error(e));
+        showToast('🔊 Đã bật âm thanh tiếng mưa nền Minecraft', 'info');
+      } else {
+        showToast('🔇 Đã tắt âm thanh nền video', 'info');
+      }
+
+      updateAudioUi(shouldBeMuted);
+      saveLiquidGlassConfig();
+    }
+
+    function updateAudioUi(isMuted) {
+      const icon = document.getElementById('modalAudioIcon');
+      const text = document.getElementById('modalAudioText');
+      if (icon) {
+        icon.className = isMuted ? 'fa-solid fa-volume-xmark' : 'fa-solid fa-volume-high';
+      }
+      if (text) {
+        text.textContent = isMuted ? 'Đang Tắt' : 'Đang Bật';
+      }
+    }
+
+    function applyGlassPreset(preset) {
+      ['presetCrystal', 'presetIos26', 'presetFrosted'].forEach(id => {
+        const btn = document.getElementById(id);
+        if (btn) btn.classList.remove('active');
+      });
+
+      if (preset === 'crystal') {
+        liquidGlassConfig.blur = 8;
+        liquidGlassConfig.opacity = 45;
+        liquidGlassConfig.dim = 30;
+        document.getElementById('presetCrystal')?.classList.add('active');
+      } else if (preset === 'ios26') {
+        liquidGlassConfig.blur = 16;
+        liquidGlassConfig.opacity = 72;
+        liquidGlassConfig.dim = 42;
+        document.getElementById('presetIos26')?.classList.add('active');
+      } else if (preset === 'frosted') {
+        liquidGlassConfig.blur = 28;
+        liquidGlassConfig.opacity = 88;
+        liquidGlassConfig.dim = 58;
+        document.getElementById('presetFrosted')?.classList.add('active');
+      }
+      liquidGlassConfig.preset = preset;
+      applyLiquidGlassStyles();
+      updateGlassSliderUi();
+      saveLiquidGlassConfig();
+      showToast('Đã áp dụng chế độ: ' + (preset === 'crystal' ? 'Pha Lê Trong Suốt' : (preset === 'ios26' ? 'Chuẩn iOS 26' : 'Kính Mờ Đậm')), 'info');
+    }
+
+    function updateGlassSliderUi() {
+      const rBlur = document.getElementById('rangeGlassBlur');
+      const rOpacity = document.getElementById('rangeGlassOpacity');
+      const rDim = document.getElementById('rangeGlassDim');
+      const rVol = document.getElementById('rangeAudioVolume');
+
+      if (rBlur) rBlur.value = liquidGlassConfig.blur;
+      if (rOpacity) rOpacity.value = liquidGlassConfig.opacity;
+      if (rDim) rDim.value = liquidGlassConfig.dim;
+      if (rVol) rVol.value = liquidGlassConfig.volume || 40;
+
+      const vBlur = document.getElementById('valGlassBlur');
+      const vOpacity = document.getElementById('valGlassOpacity');
+      const vDim = document.getElementById('valGlassDim');
+      const vVol = document.getElementById('valAudioVolume');
+
+      if (vBlur) vBlur.textContent = liquidGlassConfig.blur + 'px';
+      if (vOpacity) vOpacity.textContent = liquidGlassConfig.opacity + '%';
+      if (vDim) vDim.textContent = liquidGlassConfig.dim + '%';
+      if (vVol) vVol.textContent = (liquidGlassConfig.volume || 40) + '%';
+
+      ['presetCrystal', 'presetIos26', 'presetFrosted'].forEach(id => {
+        const btn = document.getElementById(id);
+        if (btn) btn.classList.remove('active');
+      });
+      if (liquidGlassConfig.preset === 'crystal') document.getElementById('presetCrystal')?.classList.add('active');
+      else if (liquidGlassConfig.preset === 'frosted') document.getElementById('presetFrosted')?.classList.add('active');
+      else document.getElementById('presetIos26')?.classList.add('active');
+    }
+
+    function saveGlassConfigAndClose() {
+      saveLiquidGlassConfig();
+      closeModal('modalGlassSettings');
+      showToast('Đã lưu cấu hình Kính Lỏng iOS 26 thành công!', 'success');
+    }
+
+    function resetGlassSettings() {
+      applyGlassPreset('ios26');
+      liquidGlassConfig.volume = 40;
+      updateGlassSliderUi();
+      showToast('Đã khôi phục cài đặt Kính Lỏng về mặc định!', 'info');
+    }
+
+    function showToast(message, type = 'info') {
+      const box = document.getElementById('toastBox');
+      if (!box) return;
+      const toast = document.createElement('div');
+      toast.className = `toast toast-${type}`;
+      const icon = type === 'success' ? 'fa-circle-check' : (type === 'error' ? 'fa-circle-xmark' : 'fa-circle-info');
+      toast.innerHTML = `<i class="fa-solid ${icon}"></i> <span>${message}</span>`;
+      box.appendChild(toast);
+      setTimeout(() => {
+        toast.style.opacity = '0';
+        toast.style.transform = 'translateY(15px)';
+        toast.style.transition = 'all 0.25s';
+        setTimeout(() => toast.remove(), 250);
+      }, 3500);
+    }
+
+    function setTheme(isDark) {
+      const html = document.documentElement;
+      if (isDark) {
+        html.setAttribute('data-theme', 'dark');
+        localStorage.setItem('theme', 'dark');
+      } else {
+        html.removeAttribute('data-theme');
+        localStorage.setItem('theme', 'light');
+      }
+    }
+
+    // Tự động khởi chạy Liquid Glass Engine khi trang load
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initLiquidGlassAndVideo);
+    } else {
+      initLiquidGlassAndVideo();
+    }
+
+  </script>
 </head>
 
 <body>
-  <!-- Floating background orbs -->
-  <div class="bg-orbs" aria-hidden="true">
-    <span></span>
-    <span></span>
-    <span></span>
+    <!-- iOS 26 Liquid Glass Live Video Background (Minecraft Animated Rain Plank Road) -->
+  <div class="video-bg-wrap" id="videoBgWrap">
+    <video id="bgVideo" src="https://www.vasnet360.site/assets/bg-video.mp4" autoplay loop playsinline muted defaultMuted preload="auto" poster="https://p16-common-sign.tiktokcdn-us.com/tos-alisg-p-0037/o8R8VpAXPBaECPYmBAQAh36fIRFgeFIDABpCkh~tplv-tiktokx-cropcenter-q:300:400:q70.jpeg?dr=8596&refresh_token=aaf4bd37&x-expires=1793685600&x-signature=QMcgx2bJwk0CLl9bXZWmOZ2DaB0%3D&t=bacd0480&ps=933b5bde&shp=d05b14bd&shcp=1d1a97fc&idc=useast5&biz_tag=tt_video&s=AWEME_DETAIL&sc=cover">
+      <source src="https://www.vasnet360.site/assets/bg-video.mp4" type="video/mp4">
+      <source src="/assets/bg-video.mp4" type="video/mp4">
+    </video>
+    <div class="video-bg-overlay" id="videoBgOverlay"></div>
   </div>
 
-  <!-- Audio Element -->
-  <audio id="bgMusic" preload="auto"></audio>
-
-  <!-- Sticky Topbar -->
-  <header class="topbar">
-    <a class="brand" href="#home">
-      <img src="images/profile.jpg" alt="VNT Tricks Avatar" class="brand-avatar" onerror="this.src='https://ui-avatars.com/api/?name=VNT&background=ffd94a&color=111'">
-      <span class="brand-word">VNT <span class="brand-cam">TRICKS</span></span>
-    </a>
-
-    <!-- Desktop Navigation -->
-    <nav class="topbar-center">
-      <a class="btn btn-ghost btn-sm" href="#home" data-i18n="nav_home"><i class="fas fa-home"></i> Trang Chủ</a>
-      <a class="btn btn-dark btn-sm" href="#vntcert" data-i18n="nav_cert" style="background:#111;color:#ffd94a;border:2px solid #111;"><i class="fas fa-certificate" style="color:#ffd94a"></i> Chứng Chỉ P12 <span style="background:#ef4444;color:#fff;padding:1px 5px;border-radius:3px;font-size:10px;margin-left:4px;font-family:var(--font-mono);">HOT</span></a>
-      <a class="btn btn-ghost btn-sm" href="#community" data-i18n="nav_community"><i class="fas fa-users"></i> Cộng Đồng</a>
-      <a class="btn btn-ghost btn-sm" href="#services" data-i18n="nav_services"><i class="fas fa-star"></i> Dịch Vụ</a>
-      <a class="btn btn-ghost btn-sm" href="#development" data-i18n="nav_dev"><i class="fas fa-code"></i> Dự Án</a>
-      <a class="btn btn-ghost btn-sm" href="#social" data-i18n="nav_social"><i class="fas fa-share-alt"></i> Mạng Xã Hội</a>
-      <a class="btn btn-gold btn-sm" href="#support" data-i18n="nav_donate"><i class="fas fa-heart" style="color:#e11d48"></i> Donate</a>
-    </nav>
-
-    <!-- Topbar Right: Status/Clock & Language Switcher -->
-    <div class="topbar-right">
-      <!-- Live Clock & Status Badge -->
-      <div class="status-clock-badge" title="Giờ địa phương Việt Nam (UTC+7)">
-        <span class="status-live-dot"></span>
-        <span class="status-text-label" data-i18n="status_online">TRỰC TUYẾN</span>
-        <span class="status-sep">|</span>
-        <i class="far fa-clock" style="font-size:12px;color:var(--ink-700)"></i>
-        <span class="digital-clock-val" id="digitalClock">12:00:00</span>
-        <span class="tz-badge">UTC+7</span>
-      </div>
-
-      <!-- Language Switcher Dropdown -->
-      
-      <!-- Theme Switcher Button -->
-      <button class="theme-toggle-btn" id="themeToggleBtn" onclick="toggleTheme()" aria-label="Chế độ Sáng / Tối" title="Chuyển chế độ Sáng / Tối">
-        <i class="fas fa-moon theme-toggle-icon"></i>
-      </button>
-
-      <div class="lang-wrapper" id="langWrapper">
-        <button class="lang-toggle-btn" onclick="toggleLangDropdown(event)" aria-label="Bộ chọn ngôn ngữ" title="Đổi ngôn ngữ">
-          <i class="fas fa-globe"></i>
-          <span id="currentLangLabel">VI</span>
-          <i class="fas fa-chevron-down lang-chevron"></i>
-        </button>
-        <div class="lang-menu" id="langMenu" role="listbox">
-          <div class="lang-item active" data-lang="vi" onclick="setLanguage('vi')">
-            <span>Tiếng Việt</span>
-            <span class="lang-item-code">[VI]</span>
-          </div>
-          <div class="lang-item" data-lang="en" onclick="setLanguage('en')">
-            <span>English</span>
-            <span class="lang-item-code">[EN]</span>
-          </div>
-          <div class="lang-item" data-lang="id" onclick="setLanguage('id')">
-            <span>Indonesia</span>
-            <span class="lang-item-code">[ID]</span>
-          </div>
-          <div class="lang-item" data-lang="zh" onclick="setLanguage('zh')">
-            <span>简体中文</span>
-            <span class="lang-item-code">[中文]</span>
-          </div>
-          <div class="lang-item" data-lang="pt" onclick="setLanguage('pt')">
-            <span>Português</span>
-            <span class="lang-item-code">[PT-BR]</span>
-          </div>
-        </div>
+  <!-- Drifting background elements -->
+  <div class="bg-orbs" aria-hidden="true">
+    <span></span><span></span><span></span>
+  </div>
       </div>
 
       <!-- Mobile Menu Button -->
@@ -3887,6 +4095,550 @@
       border-color: var(--border) !important;
     }
 
+
+    /* ==========================================================================
+       APPLE LIQUID GLASS DESIGN SYSTEM (iOS 26 Pro Edition - vasnet360.site)
+       ========================================================================== */
+    :root {
+      --liquid-blur: 16px;
+      --liquid-opacity: 0.72;
+      --liquid-bg-dim: 0.42;
+      --apple-font: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Inter", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      --apple-ease: cubic-bezier(0.16, 1, 0.3, 1);
+      --radius-base: 14px;
+      --radius-lg: 20px;
+      --radius-xl: 26px;
+    }
+
+    /* Video Background Container & Overlays */
+    .video-bg-wrap {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: -2;
+      overflow: hidden;
+      pointer-events: none;
+      background: #0d1117 url('https://p16-common-sign.tiktokcdn-us.com/tos-alisg-p-0037/o8R8VpAXPBaECPYmBAQAh36fIRFgeFIDABpCkh~tplv-tiktokx-cropcenter-q:300:400:q70.jpeg?dr=8596&refresh_token=aaf4bd37&x-expires=1793685600&x-signature=QMcgx2bJwk0CLl9bXZWmOZ2DaB0%3D&t=bacd0480&ps=933b5bde&shp=d05b14bd&shcp=1d1a97fc&idc=useast5&biz_tag=tt_video&s=AWEME_DETAIL&sc=cover') center / cover no-repeat;
+    }
+    .video-bg-wrap video {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      min-width: 100%;
+      min-height: 100%;
+      width: auto;
+      height: auto;
+      transform: translate(-50%, -50%);
+      object-fit: cover;
+      filter: brightness(0.96);
+      will-change: transform;
+      z-index: 0;
+    }
+    .video-bg-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(245, 245, 247, var(--liquid-bg-dim, 0.38));
+      transition: background 0.3s ease;
+      z-index: 1;
+    }
+    [data-theme="dark"] .video-bg-overlay {
+      background: rgba(7, 8, 12, var(--liquid-bg-dim, 0.52)) !important;
+    }
+
+    /* Drifting Multi-color Ambient Orbs */
+    .bg-orbs {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      overflow: hidden;
+      pointer-events: none;
+    }
+    .bg-orbs span {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(75px);
+      opacity: .35;
+      animation: drift 14s ease-in-out infinite alternate;
+    }
+    .bg-orbs span:nth-child(1) {
+      width: min(380px, 65vw);
+      height: min(380px, 65vw);
+      background: #ffd94a;
+      top: -80px;
+      left: -80px;
+    }
+    .bg-orbs span:nth-child(2) {
+      width: min(320px, 60vw);
+      height: min(320px, 60vw);
+      background: #8fc7ff;
+      top: 35%;
+      right: -100px;
+      animation-delay: -5s;
+    }
+    .bg-orbs span:nth-child(3) {
+      width: min(260px, 50vw);
+      height: min(260px, 50vw);
+      background: #ff8f8f;
+      bottom: -60px;
+      left: 25%;
+      animation-delay: -9s;
+    }
+    @keyframes drift {
+      to { transform: translate(45px, 35px) scale(1.12); }
+    }
+
+    /* Translucent Liquid Body Layer */
+    body {
+      background: transparent !important;
+      background-color: transparent !important;
+      background-image:
+        radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.08) 0px, transparent 50%),
+        radial-gradient(at 100% 0%, rgba(14, 165, 233, 0.08) 0px, transparent 50%),
+        radial-gradient(at 50% 60%, rgba(244, 63, 94, 0.04) 0px, transparent 50%) !important;
+      background-attachment: fixed !important;
+      color: var(--ink-900);
+      transition: background 0.3s var(--apple-ease), color 0.3s var(--apple-ease);
+    }
+    [data-theme="dark"] body {
+      background-image:
+        radial-gradient(at 15% 15%, rgba(99, 102, 241, 0.12) 0px, transparent 45%),
+        radial-gradient(at 85% 20%, rgba(56, 189, 248, 0.10) 0px, transparent 45%),
+        radial-gradient(at 50% 80%, rgba(168, 85, 247, 0.08) 0px, transparent 50%) !important;
+      background-attachment: fixed !important;
+    }
+
+    /* LIQUID GLASS SURFACE FOR ALL CARDS (.neo-card, .flagship-card, .drawer, .modal) */
+    .neo-card {
+      background: rgba(255, 255, 255, var(--liquid-opacity, 0.68)) !important;
+      backdrop-filter: blur(var(--liquid-blur, 16px)) saturate(190%) contrast(105%) !important;
+      -webkit-backdrop-filter: blur(var(--liquid-blur, 16px)) saturate(190%) contrast(105%) !important;
+      border: 1px solid rgba(255, 255, 255, 0.75) !important;
+      border-radius: var(--radius-lg) !important;
+      box-shadow: inset 0 1px 1.5px 0 rgba(255, 255, 255, 0.9), inset 0 -1px 1px 0 rgba(0, 0, 0, 0.03), 0 14px 36px rgba(0, 0, 0, 0.09) !important;
+      transition: transform 0.26s var(--apple-ease), box-shadow 0.26s var(--apple-ease), background 0.26s ease !important;
+    }
+    .neo-card:hover {
+      transform: translateY(-4px) scale(1.008) !important;
+      box-shadow: inset 0 1px 2px 0 rgba(255, 255, 255, 0.95), 0 22px 48px rgba(0, 0, 0, 0.15) !important;
+    }
+
+    /* Dark Mode Liquid Glass Cards */
+    [data-theme="dark"] .neo-card {
+      background: rgba(22, 24, 35, var(--liquid-opacity, 0.74)) !important;
+      backdrop-filter: blur(var(--liquid-blur, 16px)) saturate(190%) contrast(105%) !important;
+      -webkit-backdrop-filter: blur(var(--liquid-blur, 16px)) saturate(190%) contrast(105%) !important;
+      border: 1.5px solid rgba(255, 255, 255, 0.16) !important;
+      border-radius: var(--radius-lg) !important;
+      box-shadow: 0 18px 45px rgba(0, 0, 0, 0.55), inset 0 1px 1px rgba(255, 255, 255, 0.15) !important;
+      color: #ffffff !important;
+    }
+    [data-theme="dark"] .neo-card:hover {
+      transform: translateY(-4px) scale(1.008) !important;
+      box-shadow: 0 24px 55px rgba(0, 0, 0, 0.75), inset 0 1px 1.5px rgba(255, 255, 255, 0.25) !important;
+    }
+
+    /* Flagship Slider Showcase Card Liquid Glass */
+    .flagship-card {
+      backdrop-filter: blur(var(--liquid-blur, 16px)) saturate(190%) contrast(105%) !important;
+      -webkit-backdrop-filter: blur(var(--liquid-blur, 16px)) saturate(190%) contrast(105%) !important;
+      border: 1.5px solid rgba(255, 255, 255, 0.8) !important;
+      border-radius: var(--radius-lg) !important;
+      box-shadow: inset 0 1px 2px 0 rgba(255, 255, 255, 0.9), 0 20px 48px rgba(0, 0, 0, 0.11) !important;
+    }
+    .flagship-card-cert {
+      background: linear-gradient(135deg, rgba(255, 217, 74, 0.72) 0%, rgba(255, 234, 167, 0.58) 100%) !important;
+    }
+    .flagship-card-prem {
+      background: linear-gradient(135deg, rgba(187, 247, 208, 0.72) 0%, rgba(134, 239, 172, 0.58) 100%) !important;
+    }
+    [data-theme="dark"] .flagship-card-cert,
+    [data-theme="dark"] .flagship-card-prem {
+      background: rgba(22, 24, 35, var(--liquid-opacity, 0.78)) !important;
+      border-color: rgba(255, 255, 255, 0.16) !important;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), inset 0 1px 1px rgba(255, 255, 255, 0.18) !important;
+    }
+
+    /* Sub-elements inside Flagship Card */
+    .flagship-tag {
+      background: rgba(255, 255, 255, 0.85) !important;
+      backdrop-filter: blur(8px) !important;
+      -webkit-backdrop-filter: blur(8px) !important;
+      border: 1px solid rgba(255, 255, 255, 0.9) !important;
+      border-radius: 999px !important;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05) !important;
+    }
+    [data-theme="dark"] .flagship-tag {
+      background: rgba(255, 255, 255, 0.12) !important;
+      border-color: rgba(255, 255, 255, 0.18) !important;
+      color: #f1f5f9 !important;
+    }
+    .flagship-highlight {
+      background: rgba(255, 255, 255, 0.9) !important;
+      backdrop-filter: blur(6px) !important;
+      border: 1px solid rgba(255, 255, 255, 0.9) !important;
+      border-radius: 10px !important;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06) !important;
+    }
+    [data-theme="dark"] .flagship-highlight {
+      background: rgba(30, 32, 45, 0.85) !important;
+      border-color: rgba(255, 255, 255, 0.16) !important;
+    }
+    .flagship-feature-item {
+      background: rgba(255, 255, 255, 0.75) !important;
+      backdrop-filter: blur(10px) !important;
+      -webkit-backdrop-filter: blur(10px) !important;
+      border: 1px solid rgba(255, 255, 255, 0.85) !important;
+      border-radius: var(--radius-base) !important;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04) !important;
+    }
+    [data-theme="dark"] .flagship-feature-item {
+      background: rgba(30, 32, 45, 0.65) !important;
+      border-color: rgba(255, 255, 255, 0.12) !important;
+      color: #f1f5f9 !important;
+    }
+    .flagship-pricing-box {
+      background: rgba(255, 255, 255, 0.55) !important;
+      backdrop-filter: blur(10px) !important;
+      border: 1px solid rgba(255, 255, 255, 0.75) !important;
+      border-radius: var(--radius-base) !important;
+      box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.8) !important;
+    }
+    [data-theme="dark"] .flagship-pricing-box {
+      background: rgba(255, 255, 255, 0.06) !important;
+      border-color: rgba(255, 255, 255, 0.12) !important;
+    }
+    .flagship-pricing-pill {
+      background: rgba(255, 255, 255, 0.88) !important;
+      backdrop-filter: blur(6px) !important;
+      border: 1px solid rgba(255, 255, 255, 0.95) !important;
+      border-radius: 8px !important;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05) !important;
+    }
+    [data-theme="dark"] .flagship-pricing-pill {
+      background: rgba(255, 255, 255, 0.12) !important;
+      border-color: rgba(255, 255, 255, 0.16) !important;
+      color: #f1f5f9 !important;
+    }
+    .flagship-tab-btn {
+      background: rgba(255, 255, 255, 0.75) !important;
+      backdrop-filter: blur(8px) !important;
+      border: 1.5px solid rgba(255, 255, 255, 0.85) !important;
+      border-radius: 999px !important;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05) !important;
+    }
+    .flagship-tab-btn.active {
+      background: var(--main-hi) !important;
+      color: #111 !important;
+      border-color: rgba(255, 255, 255, 0.9) !important;
+      box-shadow: 0 4px 14px rgba(245, 158, 11, 0.35) !important;
+    }
+    [data-theme="dark"] .flagship-tab-btn {
+      background: rgba(30, 32, 45, 0.7) !important;
+      border-color: rgba(255, 255, 255, 0.15) !important;
+      color: #f1f5f9 !important;
+    }
+    [data-theme="dark"] .flagship-tab-btn.active {
+      background: #ffd94a !important;
+      color: #111 !important;
+    }
+    .flagship-arrow-btn, .flagship-timer-pill {
+      background: rgba(255, 255, 255, 0.75) !important;
+      backdrop-filter: blur(8px) !important;
+      border: 1px solid rgba(255, 255, 255, 0.85) !important;
+      border-radius: 999px !important;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05) !important;
+    }
+    [data-theme="dark"] .flagship-arrow-btn,
+    [data-theme="dark"] .flagship-timer-pill {
+      background: rgba(30, 32, 45, 0.7) !important;
+      border-color: rgba(255, 255, 255, 0.15) !important;
+      color: #f1f5f9 !important;
+    }
+
+    /* TOPBAR TRANSLUCENT LIQUID GLASS */
+    .topbar {
+      background: rgba(255, 255, 255, var(--liquid-opacity, 0.58)) !important;
+      backdrop-filter: blur(var(--liquid-blur, 18px)) saturate(190%) !important;
+      -webkit-backdrop-filter: blur(var(--liquid-blur, 18px)) saturate(190%) !important;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.55) !important;
+      box-shadow: 0 4px 28px rgba(0, 0, 0, 0.07) !important;
+      transition: background 0.3s ease, border-color 0.3s ease;
+    }
+    [data-theme="dark"] .topbar {
+      background: rgba(14, 16, 24, var(--liquid-opacity, 0.72)) !important;
+      backdrop-filter: blur(var(--liquid-blur, 18px)) saturate(190%) !important;
+      -webkit-backdrop-filter: blur(var(--liquid-blur, 18px)) saturate(190%) !important;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.12) !important;
+      box-shadow: 0 6px 32px rgba(0, 0, 0, 0.55) !important;
+    }
+
+    /* NÚT CÀI ĐẶT KÍNH LỎNG TRÊN TOPBAR (iOS 26 Style) */
+    .btn-glass-settings, .btn-audio-toggle {
+      background: rgba(255, 255, 255, 0.65) !important;
+      backdrop-filter: blur(10px) !important;
+      -webkit-backdrop-filter: blur(10px) !important;
+      border: 1.5px solid rgba(255, 255, 255, 0.85) !important;
+      color: var(--ink-900) !important;
+      font-weight: 700 !important;
+      padding: 0 13px !important;
+      height: 38px !important;
+      border-radius: 999px !important;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05) !important;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+      font-size: 13.5px;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .btn-glass-settings:hover, .btn-audio-toggle:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12) !important;
+      background: rgba(255, 255, 255, 0.85) !important;
+    }
+    [data-theme="dark"] .btn-glass-settings,
+    [data-theme="dark"] .btn-audio-toggle {
+      background: rgba(30, 32, 45, 0.75) !important;
+      border-color: rgba(255, 255, 255, 0.18) !important;
+      color: #f8fafc !important;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3) !important;
+    }
+
+    /* Topbar Badges Liquid Glass */
+    .status-clock-badge {
+      background: rgba(255, 255, 255, 0.65) !important;
+      backdrop-filter: blur(8px) !important;
+      border: 1px solid rgba(255, 255, 255, 0.8) !important;
+      border-radius: 999px !important;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04) !important;
+    }
+    [data-theme="dark"] .status-clock-badge {
+      background: rgba(30, 32, 45, 0.65) !important;
+      border-color: rgba(255, 255, 255, 0.14) !important;
+      color: #f1f5f9 !important;
+    }
+    .theme-toggle-btn, .lang-toggle-btn {
+      background: rgba(255, 255, 255, 0.65) !important;
+      backdrop-filter: blur(8px) !important;
+      border: 1px solid rgba(255, 255, 255, 0.8) !important;
+      border-radius: 999px !important;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04) !important;
+    }
+    [data-theme="dark"] .theme-toggle-btn,
+    [data-theme="dark"] .lang-toggle-btn {
+      background: rgba(30, 32, 45, 0.65) !important;
+      border-color: rgba(255, 255, 255, 0.14) !important;
+      color: #f1f5f9 !important;
+    }
+
+    /* MARQUEE BANNER LIQUID GLASS */
+    .marquee-container, .marquee {
+      background: rgba(255, 255, 255, 0.55) !important;
+      backdrop-filter: blur(10px) !important;
+      -webkit-backdrop-filter: blur(10px) !important;
+      border-top: 1px solid rgba(255, 255, 255, 0.65) !important;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.65) !important;
+      color: var(--ink-900) !important;
+      box-shadow: 0 2px 14px rgba(0, 0, 0, 0.04) !important;
+    }
+    [data-theme="dark"] .marquee-container, [data-theme="dark"] .marquee {
+      background: rgba(14, 16, 24, 0.65) !important;
+      border-color: rgba(255, 255, 255, 0.12) !important;
+      color: #f1f5f9 !important;
+    }
+
+    /* SECTION HEADINGS & BADGES */
+    .section-head {
+      border-bottom: 2px solid rgba(0, 0, 0, 0.08) !important;
+    }
+    [data-theme="dark"] .section-head {
+      border-bottom: 2px solid rgba(255, 255, 255, 0.1) !important;
+    }
+    .num-pill {
+      border-radius: 999px !important;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08) !important;
+    }
+    .sec-badge {
+      background: rgba(255, 255, 255, 0.6) !important;
+      backdrop-filter: blur(8px) !important;
+      border: 1px solid rgba(255, 255, 255, 0.8) !important;
+      border-radius: 999px !important;
+      padding: 4px 12px !important;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04) !important;
+    }
+    [data-theme="dark"] .sec-badge {
+      background: rgba(30, 32, 45, 0.65) !important;
+      border-color: rgba(255, 255, 255, 0.12) !important;
+      color: #f1f5f9 !important;
+    }
+
+    /* DRAWER LIQUID GLASS (MOBILE MENU) */
+    .drawer {
+      background: rgba(255, 255, 255, var(--liquid-opacity, 0.85)) !important;
+      backdrop-filter: blur(var(--liquid-blur, 20px)) saturate(190%) !important;
+      -webkit-backdrop-filter: blur(var(--liquid-blur, 20px)) saturate(190%) !important;
+      border-left: 1.5px solid rgba(255, 255, 255, 0.8) !important;
+      box-shadow: -10px 0 35px rgba(0, 0, 0, 0.15) !important;
+    }
+    [data-theme="dark"] .drawer {
+      background: rgba(18, 20, 29, var(--liquid-opacity, 0.88)) !important;
+      border-left: 1.5px solid rgba(255, 255, 255, 0.15) !important;
+      box-shadow: -10px 0 40px rgba(0, 0, 0, 0.6) !important;
+    }
+
+    /* MODAL LIQUID GLASS */
+    .modal-box, .modal {
+      background: rgba(255, 255, 255, var(--liquid-opacity, 0.85)) !important;
+      backdrop-filter: blur(var(--liquid-blur, 24px)) saturate(200%) !important;
+      -webkit-backdrop-filter: blur(var(--liquid-blur, 24px)) saturate(200%) !important;
+      border: 1.5px solid rgba(255, 255, 255, 0.85) !important;
+      border-radius: var(--radius-xl) !important;
+      box-shadow: 0 25px 65px rgba(0, 0, 0, 0.2), inset 0 1px 1.5px rgba(255, 255, 255, 0.9) !important;
+    }
+    [data-theme="dark"] .modal-box, [data-theme="dark"] .modal {
+      background: rgba(22, 24, 35, var(--liquid-opacity, 0.90)) !important;
+      backdrop-filter: blur(var(--liquid-blur, 26px)) saturate(200%) !important;
+      -webkit-backdrop-filter: blur(var(--liquid-blur, 26px)) saturate(200%) !important;
+      border: 1.5px solid rgba(255, 255, 255, 0.18) !important;
+      box-shadow: 0 25px 65px rgba(0, 0, 0, 0.65), inset 0 1px 1px rgba(255, 255, 255, 0.16) !important;
+      color: #ffffff !important;
+    }
+
+    /* GLASS SETTINGS MODAL STYLING (Sliderrs, Presets, Labels) */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.45);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      z-index: 100000;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+    }
+    .modal-overlay.active {
+      display: flex;
+    }
+    .glass-slider-row {
+      margin-bottom: 18px;
+    }
+    .glass-slider-label {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 13.5px;
+      font-weight: 700;
+      color: var(--ink-900);
+      margin-bottom: 8px;
+    }
+    [data-theme="dark"] .glass-slider-label {
+      color: #f1f5f9 !important;
+    }
+    .glass-slider-val {
+      font-family: var(--font-mono);
+      font-weight: 800;
+      color: #0284c7;
+      background: rgba(2, 132, 199, 0.12);
+      padding: 2px 8px;
+      border-radius: 999px;
+      font-size: 12px;
+    }
+    .glass-range-input {
+      width: 100%;
+      height: 6px;
+      -webkit-appearance: none;
+      appearance: none;
+      background: rgba(140, 140, 150, 0.25);
+      border-radius: 999px;
+      outline: none;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .glass-range-input::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: #ffffff;
+      border: 2px solid #0284c7;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+      cursor: pointer;
+      transition: transform 0.15s ease;
+    }
+    .glass-range-input::-webkit-slider-thumb:hover {
+      transform: scale(1.15);
+    }
+    .glass-preset-btn {
+      flex: 1;
+      padding: 8px 10px;
+      font-size: 12px;
+      font-weight: 700;
+      border-radius: 12px;
+      border: 1px solid rgba(0, 0, 0, 0.12);
+      background: rgba(255, 255, 255, 0.65);
+      color: var(--ink-700);
+      cursor: pointer;
+      text-align: center;
+      transition: all 0.2s;
+    }
+    [data-theme="dark"] .glass-preset-btn {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(255, 255, 255, 0.15);
+      color: #e2e8f0;
+    }
+    .glass-preset-btn:hover, .glass-preset-btn.active {
+      background: #0284c7 !important;
+      color: #ffffff !important;
+      border-color: rgba(255, 255, 255, 0.4) !important;
+      box-shadow: 0 4px 14px rgba(2, 132, 199, 0.35);
+    }
+
+    /* TOAST NOTIFICATION BOX */
+    .toast-box {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 100010;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      pointer-events: none;
+    }
+    .toast {
+      pointer-events: auto;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1.5px solid rgba(255, 255, 255, 0.8);
+      border-radius: 12px;
+      padding: 12px 18px;
+      font-size: 14px;
+      font-weight: 700;
+      color: #111;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      animation: toastIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    [data-theme="dark"] .toast {
+      background: rgba(22, 24, 35, 0.94);
+      border-color: rgba(255, 255, 255, 0.16);
+      color: #fff;
+      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.6);
+    }
+    .toast-success i { color: #10b981; }
+    .toast-info i { color: #0284c7; }
+    .toast-error i { color: #ef4444; }
+    @keyframes toastIn {
+      from { opacity: 0; transform: translateY(15px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
   </style>
   <canvas id="snow-canvas"></canvas>
   <script>
@@ -4297,5 +5049,101 @@
 
   </script>
 
+  <!-- Toast Box Container -->
+  <div class="toast-box" id="toastBox"></div>
+
+  <!-- iOS 26 LIQUID GLASS SETTINGS MODAL (vasnet360.site) -->
+  <div class="modal-overlay" id="modalGlassSettings" style="z-index: 100005;">
+    <div class="modal-box" style="max-width: 520px; width: 92%; padding: 22px; position: relative;">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:18px;border-bottom:1px solid rgba(0,0,0,0.08);padding-bottom:12px;">
+        <div style="font-size:18px;font-weight:800;display:flex;align-items:center;gap:8px;">
+          <i class="fa-solid fa-gear" style="color:#6366f1;"></i>
+          <span>Cài Đặt Giao Diện Kính Lỏng iOS 26</span>
+        </div>
+        <button type="button" class="btn btn-sm" onclick="closeModal('modalGlassSettings')" style="width:32px;height:32px;padding:0;border-radius:50%;justify-content:center;font-size:14px;box-shadow:none;">✕</button>
+      </div>
+
+      <div style="font-size: 14px; line-height: 1.6;">
+        <!-- 1. CHẾ ĐỘ SÁNG / TỐI NHANH -->
+        <div style="background: rgba(255,255,255,0.45); border: 1px solid var(--border); border-radius: var(--radius-base); padding: 12px; margin-bottom: 16px;">
+          <label style="font-size: 11.5px; font-weight: 800; text-transform: uppercase; color: var(--ink-500); display: block; margin-bottom: 8px;">
+            <i class="fa-solid fa-circle-half-stroke" style="color: #f59e0b;"></i> Chế Độ Màu Sắc
+          </label>
+          <div style="display: flex; gap: 8px;">
+            <button type="button" class="btn btn-sm" id="btnSettingThemeLight" onclick="setTheme(false)" style="flex: 1; padding: 7px 4px; font-size: 12px; justify-content: center;">
+              ☀️ Giao Diện Sáng
+            </button>
+            <button type="button" class="btn btn-sm" id="btnSettingThemeDark" onclick="setTheme(true)" style="flex: 1; padding: 7px 4px; font-size: 12px; justify-content: center;">
+              🌙 Giao Diện Tối
+            </button>
+          </div>
+        </div>
+
+        <!-- 2. ÂM THANH TIẾNG MƯA MINECRAFT CỦA VIDEO NỀN -->
+        <div style="background: rgba(255,255,255,0.45); border: 1px solid var(--border); border-radius: var(--radius-base); padding: 14px 16px; margin-bottom: 16px;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+            <span style="font-weight: 700; font-size: 13.5px;"><i class="fa-solid fa-music" style="color: #10b981;"></i> Âm Thanh Nền Tiếng Mưa:</span>
+            <button class="btn btn-sm" id="btnModalAudioToggle" onclick="toggleBgVideoAudio()" style="font-weight: 700;">
+              <i class="fa-solid fa-volume-xmark" id="modalAudioIcon"></i> <span id="modalAudioText">Đang Tắt</span>
+            </button>
+          </div>
+          <div>
+            <div style="display: flex; justify-content: space-between; font-size: 12px; color: var(--ink-500); margin-bottom: 4px;">
+              <span>Âm lượng tiếng mưa</span>
+              <span id="valAudioVolume" style="font-family: var(--font-mono); font-weight: 700; color: #10b981;">40%</span>
+            </div>
+            <input type="range" min="0" max="100" step="1" value="40" class="glass-range-input" id="rangeAudioVolume" oninput="handleAudioVolumeChange(this.value)">
+          </div>
+        </div>
+
+        <!-- 3. TÙY CHỈNH THÔNG SỐ KÍNH LỎNG (SLIDERS) -->
+        <div style="background: rgba(255,255,255,0.45); border: 1px solid var(--border); border-radius: var(--radius-base); padding: 14px 16px; margin-bottom: 16px;">
+          <!-- Slider 1: Độ mờ kính -->
+          <div class="glass-slider-row">
+            <div class="glass-slider-label">
+              <span><i class="fa-solid fa-water" style="color: #0284c7;"></i> Độ Mờ Mặt Kính (Blur)</span>
+              <span class="glass-slider-val" id="valGlassBlur">16px</span>
+            </div>
+            <input type="range" min="0" max="35" step="1" value="16" class="glass-range-input" id="rangeGlassBlur" oninput="handleGlassSliderChange('blur', this.value)">
+          </div>
+
+          <!-- Slider 2: Độ đậm mặt kính -->
+          <div class="glass-slider-row">
+            <div class="glass-slider-label">
+              <span><i class="fa-solid fa-gem" style="color: #8b5cf6;"></i> Độ Đậm Mặt Kính (Opacity)</span>
+              <span class="glass-slider-val" id="valGlassOpacity">72%</span>
+            </div>
+            <input type="range" min="15" max="95" step="1" value="72" class="glass-range-input" id="rangeGlassOpacity" oninput="handleGlassSliderChange('opacity', this.value)">
+          </div>
+
+          <!-- Slider 3: Độ tối video nền -->
+          <div class="glass-slider-row">
+            <div class="glass-slider-label">
+              <span><i class="fa-solid fa-moon" style="color: #eab308;"></i> Độ Tối Nền Video (Background Dim)</span>
+              <span class="glass-slider-val" id="valGlassDim">42%</span>
+            </div>
+            <input type="range" min="10" max="85" step="1" value="42" class="glass-range-input" id="rangeGlassDim" oninput="handleGlassSliderChange('dim', this.value)">
+          </div>
+
+          <!-- 3 Chế độ cài sẵn nhanh (Presets) -->
+          <label style="font-size: 12px; font-weight: 700; text-transform: uppercase; color: var(--ink-500); display: block; margin: 12px 0 8px;">Chế Độ Kính Lỏng Có Sẵn:</label>
+          <div style="display: flex; gap: 8px;">
+            <button type="button" class="glass-preset-btn" id="presetCrystal" onclick="applyGlassPreset('crystal')">💎 Pha Lê</button>
+            <button type="button" class="glass-preset-btn active" id="presetIos26" onclick="applyGlassPreset('ios26')">🌊 Chuẩn iOS 26</button>
+            <button type="button" class="glass-preset-btn" id="presetFrosted" onclick="applyGlassPreset('frosted')">🌫️ Kính Mờ Đậm</button>
+          </div>
+        </div>
+
+        <div style="display: flex; gap: 10px;">
+          <button class="btn btn-blue" onclick="saveGlassConfigAndClose()" style="flex: 1; justify-content: center; font-weight: 700;">
+            <i class="fa-solid fa-circle-check"></i> Hoàn Tất &amp; Lưu
+          </button>
+          <button class="btn btn-ghost" onclick="resetGlassSettings()" style="justify-content: center;">
+            <i class="fa-solid fa-rotate-left"></i> Mặc Định
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
 </body>
 </html>
