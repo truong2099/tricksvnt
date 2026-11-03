@@ -10,7 +10,10 @@
   <!-- Google Fonts: Itim & Space Grotesk -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Itim&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <!-- Modern Apple iOS & Vasnet360 Typography: Plus Jakarta Sans, Inter & Space Grotesk -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
   
   <!-- Font Awesome 6.5.1 -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -1990,6 +1993,25 @@
         <a class="btn btn-gold btn-lg" href="#community" data-i18n="hero_btn_comm"><i class="fas fa-users"></i> Tham Gia Cộng Đồng</a>
         <a class="btn btn-dark btn-lg" href="#support" data-i18n="hero_btn_donate"><i class="fas fa-hand-holding-heart"></i> Donate Dự Án</a>
         <a class="btn btn-ghost btn-lg" href="https://www.tiktok.com/@truong_2099?_t=ZS-90asY1eqRID&_r=1" target="_blank" rel="noopener noreferrer"><i class="fab fa-tiktok"></i> TikTok</a>
+      </div>
+      <!-- 4 Khối Kính Lỏng Thông Số Tự Động (Theo giao diện vasnet360.site) -->
+      <div class="hero-stats-grid">
+        <div class="hero-stat-card">
+          <span class="hero-stat-card-num">⚡ 30 Giây</span>
+          <span class="hero-stat-card-label">Kích Hoạt Tự Động</span>
+        </div>
+        <div class="hero-stat-card">
+          <span class="hero-stat-card-num">🛡️ 100%</span>
+          <span class="hero-stat-card-label">Bảo Hành 1 Đổi 1</span>
+        </div>
+        <div class="hero-stat-card">
+          <span class="hero-stat-card-num">🚀 Hỗ Trợ Nhanh Chóng</span>
+          <span class="hero-stat-card-label">Phản Hồi &amp; Xử Lý Siêu Tốc</span>
+        </div>
+        <div class="hero-stat-card">
+          <span class="hero-stat-card-num">🌐 24/7</span>
+          <span class="hero-stat-card-label">Đồng Bộ Bot Telegram</span>
+        </div>
       </div>
     </section>
 
@@ -4637,6 +4659,251 @@
     @keyframes toastIn {
       from { opacity: 0; transform: translateY(15px); }
       to { opacity: 1; transform: translateY(0); }
+    }
+
+
+    /* ==========================================================================
+       MODERN TYPOGRAPHY & LIQUID GLASS PILL BUTTONS (VASNET360 PRO STYLE)
+       ========================================================================== */
+    :root {
+      --apple-font: "Plus Jakarta Sans", "Inter", -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, sans-serif;
+      --font-itim: var(--apple-font) !important;
+      --font-body: var(--apple-font);
+      --font-heading: "Plus Jakarta Sans", "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    /* Áp dụng phông chữ sắc nét, cực kỳ dễ đọc toàn trang */
+    body, html, input, button, select, textarea {
+      font-family: var(--apple-font) !important;
+      -webkit-font-smoothing: antialiased !important;
+      -moz-osx-font-smoothing: grayscale !important;
+      letter-spacing: -0.012em;
+    }
+
+    h1, h2, h3, h4, h5, h6,
+    .brand-title, .brand-word, .hero-title, .flagship-title, .card-title, .sec-badge {
+      font-family: var(--font-heading) !important;
+      font-weight: 800 !important;
+      letter-spacing: -0.025em;
+    }
+
+    p, .lead, .card-desc, .flagship-desc {
+      font-family: var(--apple-font) !important;
+      letter-spacing: -0.005em;
+      line-height: 1.62;
+    }
+
+    /* HERO BOX LIQUID GLASS CARD (Như ảnh chụp màn hình vasnet360.site) */
+    .hero {
+      background: rgba(255, 255, 255, 0.32) !important;
+      backdrop-filter: blur(16px) saturate(190%) contrast(105%) !important;
+      -webkit-backdrop-filter: blur(16px) saturate(190%) contrast(105%) !important;
+      border: 1.5px solid rgba(255, 255, 255, 0.65) !important;
+      border-radius: 28px !important;
+      padding: clamp(28px, 4.5vw, 48px) clamp(18px, 3.5vw, 36px) !important;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.12), inset 0 1px 2px rgba(255, 255, 255, 0.9) !important;
+      margin-top: 24px;
+      margin-bottom: 28px;
+      position: relative;
+    }
+    [data-theme="dark"] .hero {
+      background: rgba(18, 20, 30, 0.60) !important;
+      border: 1.5px solid rgba(255, 255, 255, 0.16) !important;
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.65), inset 0 1px 1px rgba(255, 255, 255, 0.18) !important;
+    }
+
+    .hero h1 {
+      font-size: clamp(28px, 5.2vw, 44px) !important;
+      font-weight: 900 !important;
+      color: #0f172a !important;
+      text-shadow: 0 1px 3px rgba(255, 255, 255, 0.95), 0 0 15px rgba(255, 255, 255, 0.8) !important;
+      margin-bottom: 12px;
+    }
+    [data-theme="dark"] .hero h1 {
+      color: #ffffff !important;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.6) !important;
+    }
+
+    .hero h1 .hl {
+      display: inline-block;
+      background: linear-gradient(135deg, #f59e0b 0%, #ea580c 100%) !important;
+      color: #ffffff !important;
+      padding: 3px 14px;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      box-shadow: 0 4px 14px rgba(245, 158, 11, 0.4);
+      text-shadow: none !important;
+    }
+
+    .hero .lead {
+      color: #1e293b !important;
+      font-size: clamp(14px, 2.2vw, 17px);
+      max-width: 780px;
+      margin: 0 auto 24px;
+      text-shadow: 0 1px 2px rgba(255, 255, 255, 0.9);
+      font-weight: 500;
+    }
+    [data-theme="dark"] .hero .lead {
+      color: #e2e8f0 !important;
+      text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    /* STATS GRID 4 KHỐI KÍNH LỎNG CON (Như ảnh chụp màn hình vasnet360.site) */
+    .hero-stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin-top: 26px;
+      width: 100%;
+    }
+    @media (max-width: 768px) {
+      .hero-stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+      }
+    }
+    .hero-stat-card {
+      background: rgba(255, 255, 255, 0.35) !important;
+      backdrop-filter: blur(10px) saturate(180%) !important;
+      -webkit-backdrop-filter: blur(10px) saturate(180%) !important;
+      border: 1px solid rgba(255, 255, 255, 0.65) !important;
+      border-radius: 16px !important;
+      padding: 12px 10px;
+      text-align: center;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05), inset 0 1px 1px rgba(255, 255, 255, 0.8) !important;
+      transition: transform 0.2s ease, background 0.2s ease;
+    }
+    .hero-stat-card:hover {
+      transform: translateY(-2px);
+      background: rgba(255, 255, 255, 0.55) !important;
+    }
+    [data-theme="dark"] .hero-stat-card {
+      background: rgba(255, 255, 255, 0.08) !important;
+      border-color: rgba(255, 255, 255, 0.15) !important;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4), inset 0 1px 1px rgba(255, 255, 255, 0.1) !important;
+    }
+    .hero-stat-card-num {
+      font-family: var(--font-heading) !important;
+      font-weight: 800;
+      font-size: 16px;
+      color: #0f172a;
+      display: block;
+      margin-bottom: 2px;
+    }
+    [data-theme="dark"] .hero-stat-card-num {
+      color: #ffffff;
+    }
+    .hero-stat-card-label {
+      font-size: 11.5px;
+      color: #475569;
+      font-weight: 600;
+      display: block;
+    }
+    [data-theme="dark"] .hero-stat-card-label {
+      color: #cbd5e1;
+    }
+
+    /* LIQUID GLASS PILL BUTTONS (TẤT CẢ CÁC NÚT BẤM TRÊN WEB THEO ĐÚNG ẢNH MẪU) */
+    .btn {
+      font-family: var(--apple-font) !important;
+      font-weight: 700 !important;
+      font-size: 14.5px !important;
+      cursor: pointer;
+      border-radius: 999px !important; /* Bo cong hình viên thuốc như ảnh mẫu */
+      padding: 10px 22px !important;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      text-decoration: none;
+      transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1) !important;
+      white-space: nowrap;
+      border: 1px solid rgba(255, 255, 255, 0.45) !important;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.10), inset 0 1px 1.5px rgba(255, 255, 255, 0.75) !important;
+      position: relative;
+      overflow: hidden;
+    }
+    .btn:hover {
+      transform: translateY(-2px) scale(1.02) !important;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18), inset 0 1px 2px rgba(255, 255, 255, 0.9) !important;
+    }
+    .btn:active {
+      transform: translateY(1px) scale(0.99) !important;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12) !important;
+    }
+
+    /* Gradient Kính Lỏng Từng Màu Chuẩn Vasnet360 */
+    .btn-blue {
+      background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%) !important;
+      color: #ffffff !important;
+      border-color: rgba(255, 255, 255, 0.35) !important;
+      box-shadow: 0 4px 16px rgba(2, 132, 199, 0.42), inset 0 1px 1px rgba(255, 255, 255, 0.6) !important;
+    }
+    .btn-dark {
+      background: linear-gradient(135deg, #18181b 0%, #09090b 100%) !important;
+      color: #ffffff !important;
+      border-color: rgba(255, 255, 255, 0.22) !important;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.45), inset 0 1px 1px rgba(255, 255, 255, 0.35) !important;
+    }
+    .btn-green {
+      background: linear-gradient(135deg, #10b981 0%, #059669 100%) !important;
+      color: #ffffff !important;
+      border-color: rgba(255, 255, 255, 0.35) !important;
+      box-shadow: 0 4px 16px rgba(16, 185, 129, 0.42), inset 0 1px 1px rgba(255, 255, 255, 0.6) !important;
+    }
+    .btn-gold {
+      background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%) !important;
+      color: #ffffff !important;
+      border-color: rgba(255, 255, 255, 0.35) !important;
+      box-shadow: 0 4px 16px rgba(245, 158, 11, 0.42), inset 0 1px 1px rgba(255, 255, 255, 0.6) !important;
+    }
+    .btn-purple {
+      background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%) !important;
+      color: #ffffff !important;
+      border-color: rgba(255, 255, 255, 0.35) !important;
+      box-shadow: 0 4px 16px rgba(139, 92, 246, 0.42), inset 0 1px 1px rgba(255, 255, 255, 0.6) !important;
+    }
+    .btn-red {
+      background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%) !important;
+      color: #ffffff !important;
+      border-color: rgba(255, 255, 255, 0.35) !important;
+      box-shadow: 0 4px 16px rgba(239, 68, 68, 0.42), inset 0 1px 1px rgba(255, 255, 255, 0.6) !important;
+    }
+    .btn-ghost {
+      background: rgba(255, 255, 255, 0.65) !important;
+      backdrop-filter: blur(12px) saturate(180%) !important;
+      -webkit-backdrop-filter: blur(12px) saturate(180%) !important;
+      border: 1.5px solid rgba(255, 255, 255, 0.75) !important;
+      color: var(--ink-900) !important;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06), inset 0 1px 1px rgba(255, 255, 255, 0.85) !important;
+    }
+    [data-theme="dark"] .btn-ghost {
+      background: rgba(255, 255, 255, 0.12) !important;
+      border-color: rgba(255, 255, 255, 0.18) !important;
+      color: #f1f5f9 !important;
+    }
+
+    .btn-lg {
+      font-size: 16px !important;
+      padding: 13px 28px !important;
+    }
+    .btn-sm {
+      font-size: 13px !important;
+      padding: 6px 16px !important;
+    }
+
+    /* Tag pill cam nhỏ trên đầu Hero Card như ảnh mẫu */
+    .pill-live {
+      background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%) !important;
+      color: #ffffff !important;
+      border-radius: 999px !important;
+      border: 1px solid rgba(255, 255, 255, 0.35) !important;
+      box-shadow: 0 4px 14px rgba(245, 158, 11, 0.4), inset 0 1px 1px rgba(255, 255, 255, 0.6) !important;
+      font-weight: 800 !important;
+      font-size: 12px !important;
+      padding: 5px 14px !important;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
     }
 
   </style>
