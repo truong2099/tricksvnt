@@ -1620,7 +1620,238 @@
     border-color: var(--border) !important;
     box-shadow: 2px 2px 0 0 #000000 !important;
   }
-</style>
+
+    /* ==========================================================================
+       CRITICAL FIX: POINTER EVENTS, TOPBAR & INTERACTIVE BUTTONS
+       ========================================================================== */
+    .video-bg-wrap,
+    .video-bg-overlay,
+    .bg-orbs,
+    .bg-orbs span {
+      pointer-events: none !important;
+    }
+
+    .modal-overlay:not(.active) {
+      display: none !important;
+      pointer-events: none !important;
+      visibility: hidden !important;
+    }
+
+    .modal-overlay.active {
+      display: flex !important;
+      pointer-events: auto !important;
+      visibility: visible !important;
+    }
+
+    /* Đảm bảo Topbar hiển thị và click chuẩn trên mọi kích thước màn hình */
+    .topbar {
+      position: sticky !important;
+      top: 0 !important;
+      left: 0 !important;
+      right: 0 !important;
+      z-index: 1000 !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: space-between !important;
+      pointer-events: auto !important;
+      background: rgba(255, 255, 255, var(--liquid-opacity, 0.72)) !important;
+      backdrop-filter: blur(var(--liquid-blur, 16px)) saturate(180%) !important;
+      -webkit-backdrop-filter: blur(var(--liquid-blur, 16px)) saturate(180%) !important;
+      border-bottom: 1.5px solid rgba(255, 255, 255, 0.8) !important;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06) !important;
+    }
+    [data-theme="dark"] .topbar {
+      background: rgba(18, 20, 28, var(--liquid-opacity, 0.76)) !important;
+      border-bottom: 1.5px solid rgba(255, 255, 255, 0.1) !important;
+      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4) !important;
+    }
+
+    .topbar-center {
+      display: flex !important;
+      align-items: center !important;
+      gap: 6px !important;
+    }
+    @media (max-width: 992px) {
+      .topbar-center {
+        display: none !important;
+      }
+    }
+
+    .topbar-right {
+      display: flex !important;
+      align-items: center !important;
+      gap: 8px !important;
+    }
+
+    /* Nút nhạc nổi cố định góc dưới màn hình */
+    .floating-music-btn {
+      position: fixed !important;
+      bottom: 24px !important;
+      right: 22px !important;
+      width: 48px !important;
+      height: 48px !important;
+      border-radius: 50% !important;
+      z-index: 9999 !important;
+      pointer-events: auto !important;
+      cursor: pointer !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      background: #ffd94a !important;
+      border: 2px solid rgba(0, 0, 0, 0.85) !important;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25), inset 0 1px 1px rgba(255, 255, 255, 0.8) !important;
+      transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.2s ease !important;
+    }
+    .floating-music-btn:hover {
+      transform: scale(1.08) !important;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35) !important;
+    }
+    .floating-music-btn:active {
+      transform: scale(0.95) !important;
+    }
+    [data-theme="dark"] .floating-music-btn {
+      background: #ffd94a !important;
+      border-color: #000 !important;
+    }
+
+    /* ==========================================================================
+       GIAO DIỆN MOBILE TINH CHỈNH: DỊCH VỤ TRỌNG TÂM & TABS GỌN ĐẸP
+       ========================================================================== */
+    @media (max-width: 640px) {
+      .section-head {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 6px !important;
+        padding-bottom: 10px !important;
+        margin-bottom: 12px !important;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.08) !important;
+      }
+      [data-theme="dark"] .section-head {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+      }
+
+      /* Loại bỏ khung xám bầu dục thô, thay bằng pill badge và text chuẩn */
+      .sec-badge {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 6px !important;
+        background: transparent !important;
+        border: none !important;
+        box-shadow: none !important;
+        padding: 0 !important;
+        border-radius: 0 !important;
+        width: 100% !important;
+      }
+      [data-theme="dark"] .sec-badge {
+        background: transparent !important;
+        border: none !important;
+        box-shadow: none !important;
+      }
+
+      .sec-badge .num-pill {
+        display: inline-flex !important;
+        align-items: center !important;
+        gap: 5px !important;
+        background: linear-gradient(135deg, #ff5722 0%, #ea580c 100%) !important;
+        color: #fff !important;
+        padding: 4px 10px !important;
+        border-radius: 999px !important;
+        font-size: 11px !important;
+        font-weight: 800 !important;
+        letter-spacing: 0.5px !important;
+        box-shadow: 0 2px 6px rgba(234, 88, 12, 0.3) !important;
+      }
+
+      .sec-badge #flagshipSecBadge,
+      .sec-badge > span:not(.num-pill) {
+        font-size: 14.5px !important;
+        font-weight: 800 !important;
+        color: var(--ink-900) !important;
+        line-height: 1.35 !important;
+      }
+      [data-theme="dark"] .sec-badge #flagshipSecBadge,
+      [data-theme="dark"] .sec-badge > span:not(.num-pill) {
+        color: #f1f5f9 !important;
+      }
+
+      .sec-hex {
+        font-size: 10.5px !important;
+        opacity: 0.75 !important;
+      }
+
+      /* Thanh điều hướng tabs 2 dịch vụ trên mobile */
+      .flagship-nav-bar {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: stretch !important;
+        gap: 8px !important;
+        margin-bottom: 14px !important;
+      }
+
+      /* Tabs dạng Segmented Control 50%-50% tinh tế */
+      .flagship-tabs {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr !important;
+        gap: 4px !important;
+        width: 100% !important;
+        padding: 4px !important;
+        background: rgba(255, 255, 255, 0.5) !important;
+        backdrop-filter: blur(12px) !important;
+        -webkit-backdrop-filter: blur(12px) !important;
+        border-radius: 999px !important;
+        border: 1px solid rgba(255, 255, 255, 0.7) !important;
+        box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05) !important;
+      }
+      [data-theme="dark"] .flagship-tabs {
+        background: rgba(255, 255, 255, 0.08) !important;
+        border-color: rgba(255, 255, 255, 0.12) !important;
+      }
+
+      .flagship-tab-btn {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        text-align: center !important;
+        gap: 5px !important;
+        padding: 7px 8px !important;
+        font-size: 12px !important;
+        font-weight: 700 !important;
+        border-radius: 999px !important;
+        border: none !important;
+        background: transparent !important;
+        color: var(--ink-700) !important;
+        transition: all 0.2s ease !important;
+      }
+      [data-theme="dark"] .flagship-tab-btn {
+        color: #94a3b8 !important;
+      }
+      .flagship-tab-btn.active {
+        background: linear-gradient(135deg, #ffd94a 0%, #f59e0b 100%) !important;
+        color: #111827 !important;
+        box-shadow: 0 2px 8px rgba(245, 158, 11, 0.35), inset 0 1px 1px rgba(255, 255, 255, 0.7) !important;
+      }
+      [data-theme="dark"] .flagship-tab-btn.active {
+        background: linear-gradient(135deg, #ffd94a 0%, #f59e0b 100%) !important;
+        color: #0f172a !important;
+      }
+
+      /* Controls 30s & Prev/Next cân đối ở mobile */
+      .flagship-controls {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+        width: 100% !important;
+        padding: 0 4px !important;
+      }
+      .flagship-timer-pill {
+        font-size: 11px !important;
+        padding: 4px 10px !important;
+      }
+    }
+
+  </style>
 <script>
   (function() {
     const saved = localStorage.getItem('vnt_theme');
@@ -1914,6 +2145,79 @@
   <div class="bg-orbs" aria-hidden="true">
     <span></span><span></span><span></span>
   </div>
+
+  <!-- Audio Element -->
+  <audio id="bgMusic" preload="auto"></audio>
+
+  <!-- Sticky Topbar -->
+  <header class="topbar">
+    <a class="brand" href="#home">
+      <img src="images/profile.jpg" alt="VNT Tricks Avatar" class="brand-avatar" onerror="this.src='https://ui-avatars.com/api/?name=VNT&background=ffd94a&color=111'">
+      <span class="brand-word">VNT <span class="brand-cam">TRICKS</span></span>
+    </a>
+
+    <!-- Desktop Navigation -->
+    <nav class="topbar-center">
+      <a class="btn btn-ghost btn-sm" href="#home" data-i18n="nav_home"><i class="fas fa-home"></i> Trang Chủ</a>
+      <a class="btn btn-dark btn-sm" href="#vntcert" data-i18n="nav_cert" style="background:#111;color:#ffd94a;border:2px solid #111;"><i class="fas fa-certificate" style="color:#ffd94a"></i> Chứng Chỉ P12 <span style="background:#ef4444;color:#fff;padding:1px 5px;border-radius:3px;font-size:10px;margin-left:4px;font-family:var(--font-mono);">HOT</span></a>
+      <a class="btn btn-ghost btn-sm" href="#community" data-i18n="nav_community"><i class="fas fa-users"></i> Cộng Đồng</a>
+      <a class="btn btn-ghost btn-sm" href="#services" data-i18n="nav_services"><i class="fas fa-star"></i> Dịch Vụ</a>
+      <a class="btn btn-ghost btn-sm" href="#development" data-i18n="nav_dev"><i class="fas fa-code"></i> Dự Án</a>
+      <a class="btn btn-ghost btn-sm" href="#social" data-i18n="nav_social"><i class="fas fa-share-alt"></i> Mạng Xã Hội</a>
+      <a class="btn btn-gold btn-sm" href="#support" data-i18n="nav_donate"><i class="fas fa-heart" style="color:#e11d48"></i> Donate</a>
+    </nav>
+
+    <!-- Topbar Right: Status/Clock, Settings & Language Switcher -->
+    <div class="topbar-right">
+      <!-- Live Clock & Status Badge -->
+      <div class="status-clock-badge" title="Giờ địa phương Việt Nam (UTC+7)">
+        <span class="status-live-dot"></span>
+        <span class="status-text-label" data-i18n="status_online">TRỰC TUYẾN</span>
+        <span class="status-sep">|</span>
+        <i class="far fa-clock" style="font-size:12px;color:var(--ink-700)"></i>
+        <span class="digital-clock-val" id="digitalClock">12:00:00</span>
+        <span class="tz-badge">UTC+7</span>
+      </div>
+
+      <!-- Liquid Glass Settings Button -->
+      <button class="theme-toggle-btn" onclick="openModal('modalGlassSettings')" aria-label="Cài đặt Kính Lỏng iOS 26" title="Tùy chỉnh Kính Lỏng iOS 26" style="margin-right:2px;">
+        <i class="fa-solid fa-sliders"></i>
+      </button>
+
+      <!-- Theme Switcher Button -->
+      <button class="theme-toggle-btn" id="themeToggleBtn" onclick="toggleTheme()" aria-label="Chế độ Sáng / Tối" title="Chuyển chế độ Sáng / Tối">
+        <i class="fas fa-moon theme-toggle-icon"></i>
+      </button>
+
+      <!-- Language Switcher Dropdown -->
+      <div class="lang-wrapper" id="langWrapper">
+        <button class="lang-toggle-btn" onclick="toggleLangDropdown(event)" aria-label="Bộ chọn ngôn ngữ" title="Đổi ngôn ngữ">
+          <i class="fas fa-globe"></i>
+          <span id="currentLangLabel">VI</span>
+          <i class="fas fa-chevron-down lang-chevron"></i>
+        </button>
+        <div class="lang-menu" id="langMenu" role="listbox">
+          <div class="lang-item active" data-lang="vi" onclick="setLanguage('vi')">
+            <span>Tiếng Việt</span>
+            <span class="lang-item-code">[VI]</span>
+          </div>
+          <div class="lang-item" data-lang="en" onclick="setLanguage('en')">
+            <span>English</span>
+            <span class="lang-item-code">[EN]</span>
+          </div>
+          <div class="lang-item" data-lang="id" onclick="setLanguage('id')">
+            <span>Indonesia</span>
+            <span class="lang-item-code">[ID]</span>
+          </div>
+          <div class="lang-item" data-lang="zh" onclick="setLanguage('zh')">
+            <span>简体中文</span>
+            <span class="lang-item-code">[中文]</span>
+          </div>
+          <div class="lang-item" data-lang="pt" onclick="setLanguage('pt')">
+            <span>Português</span>
+            <span class="lang-item-code">[PT-BR]</span>
+          </div>
+        </div>
       </div>
 
       <!-- Mobile Menu Button -->
@@ -1929,6 +2233,15 @@
     <div class="drawer-header">
       <span data-i18n="drawer_title">Menu Điều Hướng</span>
       <button class="modal-x" style="position:static" onclick="toggleDrawer()"><i class="fas fa-times"></i></button>
+    </div>
+
+    <!-- Mobile Liquid Glass Setting Button -->
+    <div style="display:flex;align-items:center;justify-content:space-between;background:var(--paper-0);border:2px solid var(--border);border-radius:var(--radius-base);padding:8px 12px;margin-bottom:10px;box-shadow:var(--shadow-sm);">
+      <span style="font-weight:700;font-size:14px;"><i class="fa-solid fa-sliders" style="margin-right:6px"></i>Kính Lỏng iOS 26:</span>
+      <button class="btn btn-sm btn-ghost" onclick="toggleDrawer();openModal('modalGlassSettings');" style="padding:4px 10px;font-size:13px;display:inline-flex;align-items:center;gap:6px;">
+        <i class="fa-solid fa-sliders"></i>
+        <span>Tùy chỉnh</span>
+      </button>
     </div>
 
     <!-- Mobile Theme Switcher -->
